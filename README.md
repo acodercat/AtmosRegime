@@ -72,6 +72,19 @@ supplying the formula against matched controls (c); whose starting accuracy pred
 Every confirmatory analysis was pre-registered with its decision rule. The pre-registrations and their dated
 amendments are in `docs/`.
 
+## Trained models
+
+One model per training route, each trained on fold 1 with seed 42:
+
+| Model | Training route |
+|---|---|
+| [AtmosRegime-Qwen3.5-9B-RL](https://huggingface.co/codercat/AtmosRegime-Qwen3.5-9B-RL) | Reinforcement learning with verifiable rewards |
+| [AtmosRegime-Qwen3-8B-SFT-RL](https://huggingface.co/codercat/AtmosRegime-Qwen3-8B-SFT-RL) | Fine-tuning on worked examples, then reinforcement learning |
+| [AtmosRegime-Qwen3-8B-Distill](https://huggingface.co/codercat/AtmosRegime-Qwen3-8B-Distill) | Distillation from a teacher given the correct formula |
+
+The numbers in the paper average both folds and, where run, two seeds, so a single model will not reproduce
+them exactly.
+
 ## Repository
 
 ```
@@ -154,8 +167,8 @@ a distillation run uses five GPUs for 3 to 4 hours. The 68 runs behind the manus
 
 ## Not included
 
-Raw model outputs and training checkpoints are large and are available from the corresponding author on
-reasonable request. File hashes quoted in the pre-registrations refer to the original files, before the
+Raw model outputs and the other training checkpoints are large and are available from the corresponding
+author on reasonable request. File hashes quoted in the pre-registrations refer to the original files, before the
 placeholders were put in.
 
 ## Grading
