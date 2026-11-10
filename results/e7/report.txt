@@ -1,0 +1,177 @@
+TEMPLATES (seed 20261002, one pass)
+
+== deepseek-v4-flash.think-off  (17 templates)
+  outside acc  none 77/340=23%  handbook 183/340=54%  given 331/340=97%   handbook-none +31.2% [+15.9%, +47.1%]
+  recovery share 42%
+  recognition  none 70/312=22%  handbook 180/320=56%
+  inside acc   none 92%  handbook 94%  (+2.4%)
+  per template (outside right: none / handbook / given; recog none -> handbook)
+    anelastic_continuity               12/20 20/20 20/20   12/20 -> 20/20
+    ch4_forcing_sqrt                    0/20  2/20 20/20   0/20 -> 2/20
+    clausius_clapeyron_extrapolation    0/20  3/20 20/20   0/20 -> 3/20
+    co2_forcing_log                     0/20 20/20 20/20   0/20 -> 20/20
+    coriolis_neglect                   10/20  5/20 20/20   8/17 -> 4/12
+    deposition_brownian                 7/20 20/20 18/20   7/19 -> 20/20
+    diffuse_transmission                1/20 16/20 20/20   1/19 -> 16/20
+    displacement_height_canopy          1/20 20/20 20/20   1/20 -> 20/20
+    drop_ventilation                    0/20  3/20 20/20   0/12 -> 3/13
+    evaporative_cooling_limit           2/20  8/20 13/20   1/19 -> 8/20
+    finite_line_source                  4/20  5/20 20/20   1/7 -> 5/20
+    henry_depletion                     4/20  7/20 20/20   4/20 -> 5/16
+    inertia_gravity_wave               14/20 20/20 20/20   14/20 -> 20/20
+    line_broadening                     0/20  0/20 20/20   0/20 -> 0/20
+    raindrop_drag_regime                6/20 10/20 20/20   6/20 -> 10/19
+    sun_photometer_airmass              0/20  4/20 20/20   0/20 -> 4/20
+    surface_multiple_reflection        16/20 20/20 20/20   15/19 -> 20/20
+
+== deepseek-v4-flash.think-on  (7 templates)
+  outside acc  none 7/140=5%  handbook 116/140=83%  given 140/140=100%   handbook-none +77.9% [+50.0%, +95.7%]
+  recovery share 82%
+  recognition  none 7/140=5%  handbook 114/138=83%
+  inside acc   none 100%  handbook 99%  (-1.4%)
+  per template (outside right: none / handbook / given; recog none -> handbook)
+    ch4_forcing_sqrt                    4/20 18/20 20/20   4/20 -> 18/20
+    clausius_clapeyron_extrapolation    0/20 18/20 20/20   0/20 -> 18/20
+    displacement_height_canopy          2/20 20/20 20/20   2/20 -> 19/19
+    drop_ventilation                    1/20 20/20 20/20   1/20 -> 20/20
+    line_broadening                     0/20  0/20 20/20   0/20 -> 0/20
+    raindrop_drag_regime                0/20 20/20 20/20   0/20 -> 19/19
+    sun_photometer_airmass              0/20 20/20 20/20   0/20 -> 20/20
+
+== qwen3-8b.think-off  (17 templates)
+  outside acc  none 2/340=1%  handbook 3/340=1%  given 188/340=55%   handbook-none +0.3% [-1.2%, +1.8%]
+  recovery share 1%
+  recognition  none 1/164=1%  handbook 1/187=1%
+  inside acc   none 48%  handbook 55%  (+6.8%)
+  per template (outside right: none / handbook / given; recog none -> handbook)
+    anelastic_continuity                1/20  0/20  0/20   1/4 -> 0/18
+    ch4_forcing_sqrt                    0/20  0/20 20/20   0/20 -> 0/20
+    clausius_clapeyron_extrapolation    0/20  0/20 16/20   0/20 -> 0/20
+    co2_forcing_log                     0/20  0/20 20/20   0/20 -> 0/20
+    coriolis_neglect                    0/20  0/20  6/20   0/0 -> 0/0
+    deposition_brownian                 0/20  1/20  0/20   0/9 -> 0/0
+    diffuse_transmission                0/20  0/20 20/20   0/20 -> 0/20
+    displacement_height_canopy          0/20  0/20 11/20   0/20 -> 0/20
+    drop_ventilation                    0/20  0/20  0/20   0/0 -> 0/0
+    evaporative_cooling_limit           0/20  0/20  0/20   0/18 -> 0/14
+    finite_line_source                  1/20  0/20 19/20   0/0 -> 0/0
+    henry_depletion                     0/20  0/20  5/20   0/0 -> 0/1
+    inertia_gravity_wave                0/20  0/20 20/20   0/0 -> 0/9
+    line_broadening                     0/20  0/20  5/20   0/20 -> 0/20
+    raindrop_drag_regime                0/20  0/20 14/20   0/10 -> 0/10
+    sun_photometer_airmass              0/20  2/20 12/20   0/0 -> 1/11
+    surface_multiple_reflection         0/20  0/20 20/20   0/3 -> 0/4
+
+== qwen3-8b.think-on  (17 templates)
+  outside acc  none 16/340=5%  handbook 63/338=19%  given 293/338=87%   handbook-none +13.9% [+5.1%, +26.5%]
+  recovery share 17%
+  recognition  none 13/286=5%  handbook 59/300=20%
+  inside acc   none 84%  handbook 89%  (+4.4%)
+  per template (outside right: none / handbook / given; recog none -> handbook)
+    anelastic_continuity                8/20 10/20 20/20   8/19 -> 9/18
+    ch4_forcing_sqrt                    0/20  0/20 20/20   0/20 -> 0/20
+    clausius_clapeyron_extrapolation    0/20  0/20 20/20   0/20 -> 0/20
+    co2_forcing_log                     0/20  0/20 20/20   0/20 -> 0/20
+    coriolis_neglect                    7/20 12/20 20/20   5/17 -> 10/18
+    deposition_brownian                 0/20  0/20  0/19   0/15 -> 0/17
+    diffuse_transmission                0/20  0/20 20/20   0/20 -> 0/20
+    displacement_height_canopy          0/20  4/20 20/20   0/20 -> 4/20
+    drop_ventilation                    0/20  0/19  8/20   0/18 -> 0/14
+    evaporative_cooling_limit           0/20  0/20 16/20   0/19 -> 0/20
+    finite_line_source                  0/20  0/19 20/20   0/0 -> 0/1
+    henry_depletion                     0/20  7/20 16/20   0/20 -> 7/19
+    inertia_gravity_wave                0/20 18/20 20/20   0/1 -> 17/19
+    line_broadening                     0/20  0/20 13/19   0/20 -> 0/20
+    raindrop_drag_regime                1/20  7/20 20/20   0/17 -> 7/16
+    sun_photometer_airmass              0/20  4/20 20/20   0/20 -> 4/18
+    surface_multiple_reflection         0/20  1/20 20/20   0/20 -> 1/20
+
+== rl-s120.think-off  (17 templates)
+  outside acc  none 1/340=0%  handbook 26/340=8%  given 264/340=78%   handbook-none +7.4% [+0.0%, +17.6%]
+  recovery share 10%
+  recognition  none 0/255=0%  handbook 21/259=8%
+  inside acc   none 75%  handbook 76%  (+1.2%)
+  per template (outside right: none / handbook / given; recog none -> handbook)
+    anelastic_continuity                0/20  2/20 12/20   0/20 -> 2/20
+    ch4_forcing_sqrt                    0/20  0/20 15/20   0/20 -> 0/20
+    clausius_clapeyron_extrapolation    0/20  0/20 18/20   0/20 -> 0/20
+    co2_forcing_log                     0/20  0/20 20/20   0/20 -> 0/20
+    coriolis_neglect                    0/20 14/20 10/20   0/15 -> 12/16
+    deposition_brownian                 0/20  0/20  4/20   0/16 -> 0/17
+    diffuse_transmission                0/20  0/20 20/20   0/20 -> 0/20
+    displacement_height_canopy          0/20  0/20 20/20   0/20 -> 0/20
+    drop_ventilation                    0/20  0/20  0/20   0/3 -> 0/0
+    evaporative_cooling_limit           0/20  0/20 10/20   0/18 -> 0/14
+    finite_line_source                  1/20  1/20 18/20   0/0 -> 0/0
+    henry_depletion                     0/20  0/20 19/20   0/11 -> 0/4
+    inertia_gravity_wave                0/20  9/20 20/20   0/0 -> 7/17
+    line_broadening                     0/20  0/20 18/20   0/20 -> 0/20
+    raindrop_drag_regime                0/20  0/20 20/20   0/17 -> 0/11
+    sun_photometer_airmass              0/20  0/20 20/20   0/15 -> 0/20
+    surface_multiple_reflection         0/20  0/20 20/20   0/20 -> 0/20
+
+== rl-s120.think-on  (17 templates)
+  outside acc  none 27/339=8%  handbook 65/339=19%  given 311/339=92%   handbook-none +11.2% [-0.2%, +25.5%]
+  recovery share 13%
+  recognition  none 26/295=9%  handbook 60/312=19%
+  inside acc   none 87%  handbook 92%  (+4.7%)
+  per template (outside right: none / handbook / given; recog none -> handbook)
+    anelastic_continuity               18/20 12/20 19/20   18/20 -> 11/19
+    ch4_forcing_sqrt                    0/20  0/20 20/20   0/20 -> 0/20
+    clausius_clapeyron_extrapolation    0/20  0/20 20/20   0/20 -> 0/20
+    co2_forcing_log                     0/20  0/20 20/20   0/20 -> 0/20
+    coriolis_neglect                    8/19 16/20 20/20   8/17 -> 16/20
+    deposition_brownian                 0/20  1/19  2/20   0/17 -> 1/18
+    diffuse_transmission                0/20  0/20 20/20   0/20 -> 0/20
+    displacement_height_canopy          0/20  1/20 20/20   0/20 -> 1/20
+    drop_ventilation                    0/20  1/20 15/20   0/17 -> 1/17
+    evaporative_cooling_limit           0/20  0/20 16/19   0/19 -> 0/18
+    finite_line_source                  1/20  1/20 20/20   0/4 -> 0/3
+    henry_depletion                     0/20  2/20 20/20   0/20 -> 1/19
+    inertia_gravity_wave                0/20 20/20 20/20   0/1 -> 19/19
+    line_broadening                     0/20  0/20 19/20   0/20 -> 0/20
+    raindrop_drag_regime                0/20  9/20 20/20   0/20 -> 8/19
+    sun_photometer_airmass              0/20  1/20 20/20   0/20 -> 1/20
+    surface_multiple_reflection         0/20  1/20 20/20   0/20 -> 1/20
+
+TEXTBOOK TRAPS (trap right | parent right; reps paired by index)
+
+== qwen3-8b.think-off  (reps [1, 2, 3])
+  parent acc   none 28%  handbook 28%  (+0.2%)
+  averaging_space        none   0/4  =0%  handbook   3/3  =100%  (+100.0%)
+  definition_confusion   none   2/23 =9%  handbook   4/21 =19%  (+10.4%)
+  formula_selection      none   9/30 =30%  handbook  10/31 =32%  (+2.3%)
+  geometry_detail        none  19/46 =41%  handbook  15/48 =31%  (-10.1%)
+  regime:given           none   6/19 =32%  handbook   8/22 =36%  (+4.8%)
+  regime:recognise       none   7/32 =22%  handbook   5/29 =17%  (-4.6%) [-25.1%, +10.3%]
+  sign_direction         none   9/11 =82%  handbook   9/12 =75%  (-6.8%)
+
+== qwen3-8b.think-on  (reps [1, 2, 3])
+  parent acc   none 56%  handbook 58%  (+1.7%)
+  averaging_space        none  15/17 =88%  handbook  12/18 =67%  (-21.6%)
+  definition_confusion   none  21/30 =70%  handbook  13/22 =59%  (-10.9%)
+  formula_selection      none  32/54 =59%  handbook  28/51 =55%  (-4.4%)
+  geometry_detail        none  66/90 =73%  handbook  69/106=65%  (-8.2%)
+  regime:given           none  37/39 =95%  handbook  36/40 =90%  (-4.9%)
+  regime:recognise       none  27/65 =42%  handbook  37/70 =53%  (+11.3%) [-2.7%, +27.1%]
+  sign_direction         none  30/35 =86%  handbook  24/35 =69%  (-17.1%)
+
+== rl-s120.think-off  (reps [1, 2, 3])
+  parent acc   none 47%  handbook 43%  (-3.5%)
+  averaging_space        none   7/11 =64%  handbook   5/9  =56%  (-8.1%)
+  definition_confusion   none  11/30 =37%  handbook   8/27 =30%  (-7.0%)
+  formula_selection      none  15/41 =37%  handbook  23/39 =59%  (+22.4%)
+  geometry_detail        none  60/81 =74%  handbook  39/76 =51%  (-22.8%)
+  regime:given           none  30/35 =86%  handbook  21/29 =72%  (-13.3%)
+  regime:recognise       none  10/53 =19%  handbook  11/50 =22%  (+3.1%) [-11.4%, +17.8%]
+  sign_direction         none  20/29 =69%  handbook  17/29 =59%  (-10.3%)
+
+== rl-s120.think-on  (reps [1, 2, 3])
+  parent acc   none 62%  handbook 61%  (-1.7%)
+  averaging_space        none  14/20 =70%  handbook  14/19 =74%  (+3.7%)
+  definition_confusion   none  28/37 =76%  handbook  12/31 =39%  (-37.0%)
+  formula_selection      none  36/56 =64%  handbook  32/49 =65%  (+1.0%)
+  geometry_detail        none  85/105=81%  handbook  78/110=71%  (-10.0%)
+  regime:given           none  35/39 =90%  handbook  36/41 =88%  (-1.9%)
+  regime:recognise       none  38/68 =56%  handbook  43/67 =64%  (+8.3%) [-6.9%, +24.3%]
+  sign_direction         none  31/41 =76%  handbook  34/41 =83%  (+7.3%)

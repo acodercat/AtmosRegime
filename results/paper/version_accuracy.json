@@ -1,0 +1,111 @@
+{
+ "analysis": "PREREG_PAPER_ANALYSES \u00a726",
+ "configurations": {
+  "deepseek-v4-flash.think-off": {
+   "flag": 0.724453125,
+   "given": 0.9520833333333333,
+   "inside": 0.929296875,
+   "outside": 0.6528645833333333
+  },
+  "gemma4-31b.think-off": {
+   "flag": 0.7320430107526881,
+   "given": 0.9600806451612903,
+   "inside": 0.951478494623656,
+   "outside": 0.6728763440860215
+  },
+  "gemma4-31b.think-on": {
+   "flag": 0.8698118279569893,
+   "given": 0.9948924731182796,
+   "inside": 0.9678763440860215,
+   "outside": 0.8395698924731183
+  },
+  "gemma4-e4b.think-off": {
+   "flag": 0.20508064516129032,
+   "given": 0.7111827956989247,
+   "inside": 0.7629032258064515,
+   "outside": 0.19153225806451613
+  },
+  "gemma4-e4b.think-on": {
+   "flag": 0.23298387096774195,
+   "given": 0.769489247311828,
+   "inside": 0.7422849462365592,
+   "outside": 0.20266129032258065
+  },
+  "granite4.2-30b.think-off": {
+   "flag": 0.1964784946236559,
+   "given": 0.6704301075268818,
+   "inside": 0.5704569892473118,
+   "outside": 0.16747311827956987
+  },
+  "granite4.2-30b.think-on": {
+   "flag": 0.5543817204301076,
+   "given": 0.9401612903225807,
+   "inside": 0.8736827956989248,
+   "outside": 0.5230376344086022
+  },
+  "granite4.2-8b.think-off": {
+   "flag": 0.1431720430107527,
+   "given": 0.573252688172043,
+   "inside": 0.4370698924731183,
+   "outside": 0.1349462365591398
+  },
+  "granite4.2-8b.think-on": {
+   "flag": 0.4747043010752688,
+   "given": 0.9234408602150537,
+   "inside": 0.7887634408602151,
+   "outside": 0.46690860215053764
+  },
+  "ministral3-14b.think-off": {
+   "flag": 0.27505376344086024,
+   "given": 0.6638172043010753,
+   "inside": 0.6688709677419354,
+   "outside": 0.23005376344086023
+  },
+  "ministral3-8b.think-off": {
+   "flag": 0.23440860215053763,
+   "given": 0.5538978494623656,
+   "inside": 0.6370430107526882,
+   "outside": 0.17873655913978495
+  },
+  "qwen3-8b.think-off": {
+   "flag": 0.1071505376344086,
+   "given": 0.48198924731182796,
+   "inside": 0.4135752688172043,
+   "outside": 0.1003494623655914
+  },
+  "qwen3-8b.think-on": {
+   "flag": 0.2853225806451613,
+   "given": 0.8903763440860215,
+   "inside": 0.8076612903225807,
+   "outside": 0.2771505376344086
+  },
+  "qwen3.5-27b.think-off": {
+   "flag": 0.776989247311828,
+   "given": 0.9661290322580645,
+   "inside": 0.986021505376344,
+   "outside": 0.7012903225806452
+  },
+  "qwen3.5-27b.think-on": {
+   "flag": 0.8342204301075269,
+   "given": 0.9954301075268818,
+   "inside": 0.9685483870967742,
+   "outside": 0.7506451612903225
+  },
+  "qwen3.5-9b.think-off": {
+   "flag": 0.5358333333333333,
+   "given": 0.8398655913978494,
+   "inside": 0.8408333333333333,
+   "outside": 0.45865591397849464
+  },
+  "qwen3.5-9b.think-on": {
+   "flag": 0.5598387096774193,
+   "given": 0.9334677419354839,
+   "inside": 0.907016129032258,
+   "outside": 0.5009677419354839
+  }
+ },
+ "definition": {
+  "frontier": "results/d2/frontier_deepseek-v4-flash-off.json variant_accuracy (72 templates)",
+  "local": "69 templates (three reworded dropped), templates equal within cluster, clusters equal"
+ }
+}

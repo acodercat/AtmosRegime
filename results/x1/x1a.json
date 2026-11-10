@@ -1,0 +1,137 @@
+{
+ "deepseek-v4-flash.think-off": {
+  "outside_rows": 1440,
+  "executed": 1438,
+  "parsed": 1438,
+  "wrong_parsed": 500,
+  "shortcut_among_judged0_wrong": {
+   "mean": 0.5315631808278867,
+   "ci95": [
+    0.37112547039017624,
+    0.6845489205783323
+   ],
+   "units": 22
+  },
+  "shortcut_among_judged1_wrong": {
+   "mean": 0.5163742011956297,
+   "ci95": [
+    0.3511247680890538,
+    0.6830266955266955
+   ],
+   "units": 21
+  },
+  "judged0_among_shortcut_wrong": {
+   "mean": 0.5845098858256753,
+   "ci95": [
+    0.450250626566416,
+    0.7102756892230576
+   ],
+   "units": 21
+  },
+  "judged0_among_other_wrong": {
+   "mean": 0.5127456538170824,
+   "ci95": [
+    0.3411186696900983,
+    0.6794784580498866
+   ],
+   "units": 21
+  },
+  "wrong_cells": {
+   "judged0_shortcut": 184,
+   "judged0_other": 78,
+   "judged1_shortcut": 153,
+   "judged1_other": 85
+  },
+  "reading": "said it does not hold, still mostly used the standard relation"
+ },
+ "qwen3-8b.think-off": {
+  "outside_rows": 1440,
+  "executed": 1416,
+  "parsed": 1414,
+  "wrong_parsed": 1297,
+  "shortcut_among_judged0_wrong": {
+   "mean": 0.26846417199358374,
+   "ci95": [
+    0.1532903828197946,
+    0.3973945749239867
+   ],
+   "units": 25
+  },
+  "shortcut_among_judged1_wrong": {
+   "mean": 0.3084570172212071,
+   "ci95": [
+    0.20971828508560966,
+    0.4188154756630634
+   ],
+   "units": 30
+  },
+  "judged0_among_shortcut_wrong": {
+   "mean": 0.24610958199069102,
+   "ci95": [
+    0.14085082497911444,
+    0.36390507518796994
+   ],
+   "units": 28
+  },
+  "judged0_among_other_wrong": {
+   "mean": 0.313868606429058,
+   "ci95": [
+    0.22134078933948154,
+    0.40846849395103907
+   ],
+   "units": 29
+  },
+  "wrong_cells": {
+   "judged0_shortcut": 102,
+   "judged0_other": 330,
+   "judged1_shortcut": 290,
+   "judged1_other": 575
+  },
+  "reading": "numbers only"
+ },
+ "qwen3.5-9b.think-off": {
+  "outside_rows": 1440,
+  "executed": 1421,
+  "parsed": 1306,
+  "wrong_parsed": 611,
+  "shortcut_among_judged0_wrong": {
+   "mean": 0.3894927536231884,
+   "ci95": [
+    0.2641304347826087,
+    0.5260869565217391
+   ],
+   "units": 23
+  },
+  "shortcut_among_judged1_wrong": {
+   "mean": 0.5034562097892269,
+   "ci95": [
+    0.37976188194404514,
+    0.6285526038372339
+   ],
+   "units": 31
+  },
+  "judged0_among_shortcut_wrong": {
+   "mean": 0.30740977145775905,
+   "ci95": [
+    0.20556301792971898,
+    0.41713269689705884
+   ],
+   "units": 27
+  },
+  "judged0_among_other_wrong": {
+   "mean": 0.3944534632034632,
+   "ci95": [
+    0.27970640470640473,
+    0.5095633533133533
+   ],
+   "units": 26
+  },
+  "wrong_cells": {
+   "judged0_shortcut": 120,
+   "judged0_other": 110,
+   "judged1_shortcut": 206,
+   "judged1_other": 175
+  },
+  "reading": "numbers only"
+ }
+}

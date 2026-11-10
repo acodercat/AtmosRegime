@@ -1,0 +1,26 @@
+{
+ "name": "qwen35_27b_dp4_eager",
+ "host": "host-D",
+ "config_prefix": "qwen3.5-27b",
+ "model_path": "/path/to/shared/Qwen3.5-27B",
+ "upstream_repo": "Qwen/Qwen3.5-27B",
+ "revision": "fc05daec18b0a78c049392ed2e771dde82bdf654",
+ "served_name": "d-v2-qwen35-27b",
+ "port": 8195,
+ "gpus": "0,1,2,3",
+ "tensor_parallel": 1,
+ "data_parallel": 4,
+ "max_num_seqs": 32,
+ "max_num_batched_tokens": 16384,
+ "workers": 64,
+ "modes": [
+  "off",
+  "on"
+ ],
+ "reasoning_parser": "qwen3",
+ "language_model_only": true,
+ "extra_vllm_args": [
+  "--enforce-eager"
+ ],
+ "wall_seconds": 345600
+}

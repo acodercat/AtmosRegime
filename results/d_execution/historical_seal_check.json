@@ -1,0 +1,35 @@
+{
+  "PREREG_TEMPLATE_SCREENING.md": {
+    "sealed_commit": "b6b9811",
+    "hash_rows": 53,
+    "current_mismatches": [
+      "atmoscoder_rl/templates/__init__.py",
+      "atmoscoder_rl/build_templates.py",
+      "atmoscoder_rl/grading.py"
+    ],
+    "sealed_commit_mismatches": [],
+    "unchecked": []
+  },
+  "PREREG_TEMPLATE_RL.md": {
+    "sealed_commit": "0534994",
+    "hash_rows": 48,
+    "current_mismatches": [
+      "atmoscoder_rl/templates/__init__.py",
+      "atmoscoder_rl/build_templates.py",
+      "atmoscoder_rl/grading.py",
+      "explore/e1_run.sh"
+    ],
+    "sealed_commit_mismatches": [],
+    "unchecked": []
+  },
+  "PREREG_GIVEN_VERSIONS.md": {
+    "sealed_commit": "e0352b8",
+    "hash_rows": 20,
+    "current_mismatches": [
+      "explore/e1_run.sh",
+      "atmoscoder_rl/grading.py"
+    ],
+    "sealed_commit_mismatches": [],
+    "unchecked": []
+  }
+}

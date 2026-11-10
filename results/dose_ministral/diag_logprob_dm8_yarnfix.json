@@ -1,0 +1,138 @@
+{
+ "model": "/path/to/local/diag-yarnfix/F1-s42",
+ "attn": "flash_attention_2",
+ "n": 8,
+ "temperature": 1.0,
+ "response_tokens": [
+  558,
+  442,
+  367,
+  723,
+  1312,
+  367,
+  2048,
+  2048
+ ],
+ "vllm_vs_hf_single": {
+  "tokens": 7865,
+  "nll_a": 1.3153081317274933,
+  "nll_b": 1.3157097144346122,
+  "ppl_a": 3.725898876048489,
+  "ppl_b": 3.7273954330811834,
+  "mean_abs_logprob_diff": 0.009315498125291168,
+  "max_abs_logprob_diff": 0.23543477058410645,
+  "mean_signed_diff_b_minus_a": -0.00040158270711877905,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.005703747503559342
+   },
+   "256-1024": {
+    "tokens": 3481,
+    "mean_abs": 0.011172325996156356
+   },
+   "1024-end": {
+    "tokens": 2336,
+    "mean_abs": 0.009715004741226557
+   }
+  }
+ },
+ "vllm_vs_hf_packed": {
+  "tokens": 7865,
+  "nll_a": 1.3153081317274933,
+  "nll_b": 2.5331112865208603,
+  "ppl_a": 3.725898876048489,
+  "ppl_b": 12.59262451378468,
+  "mean_abs_logprob_diff": 1.348522884573369,
+  "max_abs_logprob_diff": 12.557934239506721,
+  "mean_signed_diff_b_minus_a": -1.217803154793367,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.4528374708886405
+   },
+   "256-1024": {
+    "tokens": 3481,
+    "mean_abs": 1.5850905525367653
+   },
+   "1024-end": {
+    "tokens": 2336,
+    "mean_abs": 0.9045467180689777
+   }
+  }
+ },
+ "hf_single_vs_packed": {
+  "tokens": 7865,
+  "nll_a": 1.3157097144346122,
+  "nll_b": 2.5331112865208603,
+  "ppl_a": 3.7273954330811834,
+  "ppl_b": 12.59262451378468,
+  "mean_abs_logprob_diff": 1.3477436357745676,
+  "max_abs_logprob_diff": 12.55767610669136,
+  "mean_signed_diff_b_minus_a": -1.2174015720862483,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.4517012876755149
+   },
+   "256-1024": {
+    "tokens": 3481,
+    "mean_abs": 1.584190953013028
+   },
+   "1024-end": {
+    "tokens": 2336,
+    "mean_abs": 0.9042597391991307
+   }
+  }
+ },
+ "ref": "eager/float32",
+ "ref_vs_vllm": {
+  "tokens": 7865,
+  "nll_a": 1.3158105789471046,
+  "nll_b": 1.3153081317274933,
+  "ppl_a": 3.7277714139656535,
+  "ppl_b": 3.725898876048489,
+  "mean_abs_logprob_diff": 0.009105113640122937,
+  "max_abs_logprob_diff": 0.19447195529937744,
+  "mean_signed_diff_b_minus_a": 0.0005024472196113972,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.005887687021527754
+   },
+   "256-1024": {
+    "tokens": 3481,
+    "mean_abs": 0.010654716543510453
+   },
+   "1024-end": {
+    "tokens": 2336,
+    "mean_abs": 0.009616724088834832
+   }
+  }
+ },
+ "ref_vs_hf_single": {
+  "tokens": 7865,
+  "nll_a": 1.3158105789471046,
+  "nll_b": 1.3157097144346122,
+  "ppl_a": 3.7277714139656535,
+  "ppl_b": 3.7273954330811834,
+  "mean_abs_logprob_diff": 0.009299000229663741,
+  "max_abs_logprob_diff": 0.17498207092285156,
+  "mean_signed_diff_b_minus_a": 0.00010086451249261812,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.006259852258001464
+   },
+   "256-1024": {
+    "tokens": 3481,
+    "mean_abs": 0.010834161248735005
+   },
+   "1024-end": {
+    "tokens": 2336,
+    "mean_abs": 0.00967583222391771
+   }
+  }
+ },
+ "first_response": "```python\ndef solve(W=7, L=13, H=1.5, u=4.0, b=10, q=4.5e-6):\n    # Convert all units to meters for consistent calculations\n    W_m = W * 1000  # km -> m\n    L_m = L * 1000  # km -> m\n    H_m = H * 1000  # km -> m\n\n    # Calculate volume of the city (densely assumed W/L/H cubed): not directly used here, but good to specify\n    volume = W_m * L_m * H_m\n\n    # Calculate the cross-sectional area perpendicular to wind flow (wind is parallel to L)\n    # Wind is blowing parallel to L, so the effective surface area for emission is W x H (the end face perpendicular to wind)\n    A = W_m * H_m\n\n    # Ca"
+}

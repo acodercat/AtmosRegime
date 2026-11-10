@@ -1,0 +1,332 @@
+{
+ "labels": [
+  "x-qwen3-8b-base",
+  "x-qwen3-8b-F1-A-s42",
+  "x-qwen3-8b-F2-A-s42",
+  "x-qwen3-8b-F1-F-s42",
+  "x-qwen3-8b-F2-F-s42",
+  "x-qwen3-8b-F1-WA-s42",
+  "x-qwen3-8b-F2-WA-s42",
+  "x-qwen3-8b-F1-R-s42",
+  "x-qwen3-8b-F2-R-s42"
+ ],
+ "missing": [],
+ "numbers_only": "只报数字",
+ "note": "every difference is against the thinking-on base (WA too); pass@64 is the thinking-off X-18 sample",
+ "train_outside": {
+  "base": {
+   "mean": 0.261953125,
+   "ci95": [
+    0.158984375,
+    0.37145833333333333
+   ],
+   "units": 32
+  },
+  "A": {
+   "mean": 0.448671875,
+   "ci95": [
+    0.32734375,
+    0.574296875
+   ],
+   "units": 32
+  },
+  "A-base": {
+   "mean": 0.18671875,
+   "ci95": [
+    0.11145833333333333,
+    0.2716145833333333
+   ],
+   "units": 32
+  },
+  "F": {
+   "mean": 0.40739583333333335,
+   "ci95": [
+    0.286171875,
+    0.533828125
+   ],
+   "units": 32
+  },
+  "F-base": {
+   "mean": 0.14544270833333334,
+   "ci95": [
+    0.06315104166666666,
+    0.23997395833333335
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.6002083333333333,
+   "ci95": [
+    0.48880208333333336,
+    0.7066666666666667
+   ],
+   "units": 32
+  },
+  "WA-base": {
+   "mean": 0.33825520833333333,
+   "ci95": [
+    0.24830729166666668,
+    0.4323958333333333
+   ],
+   "units": 32
+  },
+  "R": {
+   "mean": 0.24072916666666666,
+   "ci95": [
+    0.136953125,
+    0.3541666666666667
+   ],
+   "units": 32
+  },
+  "R-base": {
+   "mean": -0.021223958333333324,
+   "ci95": [
+    -0.04505208333333333,
+    0.004166666666666678
+   ],
+   "units": 32
+  }
+ },
+ "held_outside": {
+  "base": {
+   "mean": 0.261953125,
+   "ci95": [
+    0.15911458333333334,
+    0.37223958333333335
+   ],
+   "units": 32
+  },
+  "A": {
+   "mean": 0.345625,
+   "ci95": [
+    0.23239583333333333,
+    0.464453125
+   ],
+   "units": 32
+  },
+  "A-base": {
+   "mean": 0.083671875,
+   "ci95": [
+    0.047473958333333344,
+    0.12356770833333335
+   ],
+   "units": 32
+  },
+  "F": {
+   "mean": 0.3191145833333333,
+   "ci95": [
+    0.211171875,
+    0.4328125
+   ],
+   "units": 32
+  },
+  "F-base": {
+   "mean": 0.05716145833333333,
+   "ci95": [
+    0.028125000000000008,
+    0.08971354166666667
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.33078125,
+   "ci95": [
+    0.223359375,
+    0.4465104166666667
+   ],
+   "units": 32
+  },
+  "WA-base": {
+   "mean": 0.068828125,
+   "ci95": [
+    0.037630208333333345,
+    0.10398437500000002
+   ],
+   "units": 32
+  },
+  "R": {
+   "mean": 0.248671875,
+   "ci95": [
+    0.150390625,
+    0.35546875
+   ],
+   "units": 32
+  },
+  "R-base": {
+   "mean": -0.013281249999999998,
+   "ci95": [
+    -0.027083333333333327,
+    0.00013020833333332355
+   ],
+   "units": 32
+  }
+ },
+ "held_inside": {
+  "base": {
+   "mean": 0.80375,
+   "ci95": [
+    0.70625,
+    0.8877083333333333
+   ],
+   "units": 32
+  },
+  "A": {
+   "mean": 0.8491927083333334,
+   "ci95": [
+    0.7654947916666667,
+    0.922734375
+   ],
+   "units": 32
+  },
+  "A-base": {
+   "mean": 0.04544270833333334,
+   "ci95": [
+    0.0065104166666666765,
+    0.08854166666666667
+   ],
+   "units": 32
+  },
+  "F": {
+   "mean": 0.8524739583333333,
+   "ci95": [
+    0.7658854166666667,
+    0.9259114583333333
+   ],
+   "units": 32
+  },
+  "F-base": {
+   "mean": 0.04872395833333334,
+   "ci95": [
+    0.024140625,
+    0.07916666666666668
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.822890625,
+   "ci95": [
+    0.7296875,
+    0.9022916666666666
+   ],
+   "units": 32
+  },
+  "WA-base": {
+   "mean": 0.019140625000000005,
+   "ci95": [
+    -0.011328125000000007,
+    0.049869791666666684
+   ],
+   "units": 32
+  },
+  "R": {
+   "mean": 0.802109375,
+   "ci95": [
+    0.69578125,
+    0.893828125
+   ],
+   "units": 32
+  },
+  "R-base": {
+   "mean": -0.0016406249999999915,
+   "ci95": [
+    -0.024817708333333334,
+    0.020104166666666673
+   ],
+   "units": 32
+  }
+ },
+ "p1_spearman_pass64_vs_outside": {
+  "A": {
+   "rho": 0.7199095552588367,
+   "ci95": [
+    0.5731561594888627,
+    0.8249538797021999
+   ],
+   "units": 69,
+   "draws_used": 10000
+  },
+  "F": {
+   "rho": 0.7028769114105653,
+   "ci95": [
+    0.5396497618506731,
+    0.8241092443557724
+   ],
+   "units": 69,
+   "draws_used": 10000
+  }
+ },
+ "rows": {
+  "x-qwen3-8b-base": {
+   "records": 2800,
+   "overflow_counted_wrong": 30,
+   "other_errors": 0,
+   "ungradable_after_attempts": 2,
+   "graded_from_reasoning": 2,
+   "truncated": 2
+  },
+  "x-qwen3-8b-F1-A-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 26,
+   "other_errors": 0,
+   "ungradable_after_attempts": 3,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen3-8b-F2-A-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 18,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen3-8b-F1-F-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 15,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen3-8b-F2-F-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 22,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen3-8b-F1-WA-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 11,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen3-8b-F2-WA-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 2,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen3-8b-F1-R-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 84,
+   "other_errors": 0,
+   "ungradable_after_attempts": 3,
+   "graded_from_reasoning": 1,
+   "truncated": 1
+  },
+  "x-qwen3-8b-F2-R-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 54,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  }
+ }
+}

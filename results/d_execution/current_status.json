@@ -1,0 +1,130 @@
+{
+  "checked_unix": 1791690577.3090785,
+  "runs": {
+    "d_context_v2_20261010": {
+      "status": {
+        "attempt": "/path/to/workdir/experiments/d_context_v2_20261010/run/attempt-20261010T031403Z",
+        "commit": "8c0e446c45abaa462a424ee281d8095870472b4b",
+        "completed_configurations": [
+          "qwen3.5-9b.think-off"
+        ],
+        "configuration": "qwen3.5-9b.think-on",
+        "contract_sha256": "dee32000a5952f8ab8c5423d50355e30d440d6248ddb72704879cf6ab8df4a07",
+        "elapsed_seconds": 86406.7,
+        "error": "ValueError: fixed wall-time limit reached",
+        "gpu_memory_after_mib": 0,
+        "pid": 1745663,
+        "server_pid": 1746382,
+        "state": "stopped_incomplete",
+        "updated_utc": "2026-10-11T03:14:10Z",
+        "worker_pid": 2835594
+      },
+      "stored_rows": {
+        "qwen3.5-9b.think-off.templates.run1.json": 5760,
+        "qwen3.5-9b.think-off.textbook.run3.json": 398,
+        "qwen3.5-9b.think-on.textbook.run1.json": 398,
+        "qwen3.5-9b.think-off.textbook.run1.json": 398,
+        "qwen3.5-9b.think-on.textbook.run2.json": 316,
+        "qwen3.5-9b.think-off.textbook.run2.json": 398
+      }
+    },
+    "d_bridge_ready_20261010": {
+      "status": {
+        "attempt": "/path/to/workdir/experiments/d_bridge_ready_20261010/run/attempt-20261010T045415Z",
+        "commit": "302d50f8550332b26a1ebab0e6e7b98d8b24d8e4",
+        "completed_configurations": [
+          "qwen3-8b.think-off"
+        ],
+        "configuration": "qwen3-8b.think-on",
+        "contract_sha256": "0d1b9c746909ef4914735edbf170685c4e7b67c112cad7b8a651326ea159af69",
+        "elapsed_seconds": 82522.0,
+        "pid": 1888499,
+        "server_pid": 1889475,
+        "state": "evaluating",
+        "updated_utc": "2026-10-11T03:49:37Z",
+        "worker_pid": 2073369
+      },
+      "stored_rows": {
+        "qwen3-8b.think-off.textbook.run1.json": 398,
+        "qwen3-8b.think-off.templates.run1.json": 5760,
+        "qwen3-8b.think-on.textbook.run3.json": 398,
+        "qwen3-8b.think-on.textbook.run1.json": 398,
+        "qwen3-8b.think-on.templates.run1.json": 3383,
+        "qwen3-8b.think-off.textbook.run3.json": 398,
+        "qwen3-8b.think-on.textbook.run2.json": 398,
+        "qwen3-8b.think-off.textbook.run2.json": 398
+      }
+    },
+    "d_gemma_ready_20261010": {
+      "status": {
+        "attempt": "/path/to/workdir/experiments/d_gemma_ready_20261010/run/attempt-20261010T060956Z",
+        "commit": "83ae1c3a138bb455d9d7bc0e53a510cdc172535e",
+        "completed_configurations": [
+          "gemma4-e4b.think-off",
+          "gemma4-e4b.think-on"
+        ],
+        "configuration": "gemma4-e4b.think-on",
+        "contract_sha256": "f84d6895276ed81b6585868ac3c63608bf1889d0afc15e87e284fdbdd3799638",
+        "elapsed_seconds": 76953.7,
+        "gpu_memory_after_mib": 0,
+        "pid": 2015386,
+        "server_pid": 2016490,
+        "state": "complete",
+        "updated_utc": "2026-10-11T03:32:30Z",
+        "worker_pid": 2728359
+      },
+      "stored_rows": {
+        "gemma4-e4b.think-off.textbook.run3.json": 398,
+        "gemma4-e4b.think-off.textbook.run2.json": 398,
+        "gemma4-e4b.think-on.templates.run1.json": 5760,
+        "gemma4-e4b.think-off.textbook.run1.json": 398,
+        "gemma4-e4b.think-on.textbook.run3.json": 398,
+        "gemma4-e4b.think-on.textbook.run2.json": 398,
+        "gemma4-e4b.think-on.textbook.run1.json": 398,
+        "gemma4-e4b.think-off.templates.run1.json": 5760
+      }
+    },
+    "d_qwen35_27b_v2": {
+      "status": {
+        "attempt": "/path/to/workdir/experiments/d_qwen35_27b_v2/run/attempt-20261010T114243Z",
+        "commit": "0189de99599421e104d36054e87d6ffe9338557b",
+        "completed_configurations": [],
+        "contract_sha256": "b40d1e3c393b5b8a935d8a38368ccc5206c225f08da3f5257b8ee7841d0d2cf1",
+        "elapsed_seconds": 0.0,
+        "error": "OSError: [Errno 98] Address already in use",
+        "pid": 2490924,
+        "state": "stopped_incomplete",
+        "updated_utc": "2026-10-10T11:42:43Z"
+      },
+      "stored_rows": {}
+    },
+    "d_qwen35_27b_114_20261011": {
+      "status": {
+        "attempt": "/path/to/workdir/experiments/d_qwen35_27b_114_20261011/run/attempt-20261011T034054Z",
+        "commit": "2b333008b7dbe31599600568addeb4eb01a94a24",
+        "completed_configurations": [],
+        "contract_sha256": "ececcae8aa0c599cee81b3b7915763202f30885e9edd25c117d3b2904bf90fe8",
+        "elapsed_seconds": 525.5,
+        "pid": 162168,
+        "server_pid": 163155,
+        "state": "synthetic_probe",
+        "updated_utc": "2026-10-11T03:49:40Z"
+      },
+      "stored_rows": {}
+    }
+  },
+  "completed_report_files": {
+    "qwen35_9b": {
+      "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/qwen35_9b.json",
+      "sha256": "fe5705a320911b62d44c5c583349200da8c43a63597c7ad337409da07bdc6270"
+    },
+    "gemma_e4b": {
+      "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/gemma_e4b.json",
+      "sha256": "3e65cbd19f9ff7b49b3389805a3c9dcd9030c6275c99926af913a64071d1f2bd"
+    },
+    "qwen3_8b": {
+      "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/qwen3_8b.json",
+      "sha256": "f535677776979d7c777218042c9b8e8dac9db6e8d483139a6ee7a6e825fea5d1"
+    }
+  }
+}

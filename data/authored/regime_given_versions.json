@@ -1,0 +1,1016 @@
+[
+ {
+  "id": "given_trap_1.1_gen",
+  "trap_id": "trap_1.1_gen",
+  "parent_id": "1.1",
+  "problem": "A weather station reports T = 253 K, RH = 50% at sunset, where RH is measured with respect to saturation over liquid water. Because ice fog forms when the air becomes saturated with respect to ice, not liquid water, the liquid-water dew point does not apply: obtain the vapour pressure e from RH and ln(e_s,liquid/e_0) = (L_v/R_v)(1/273.16 K − 1/T), then find the frost-point temperature T_f from ln(e/e_0) = (L_s/R_v)(1/273.16 K − 1/T_f), where e_0 is the common saturation vapour pressure at 273.16 K. Assuming that P_H2O remains constant, by how much must the temperature drop over the course of the night in order for ice fog to form? Use L_v = 2.5e6 J/kg, L_s = 2.834e6 J/kg, R_v = 461.5 J/(kg K), and take the liquid and ice saturation vapor pressures to be equal at 273.16 K. Express your answer in K.",
+  "inserted_sentence": "Because ice fog forms when the air becomes saturated with respect to ice, not liquid water, the liquid-water dew point does not apply: obtain the vapour pressure e from RH and ln(e_s,liquid/e_0) = (L_v/R_v)(1/273.16 K − 1/T), then find the frost-point temperature T_f from ln(e/e_0) = (L_s/R_v)(1/273.16 K − 1/T_f), where e_0 is the common saturation vapour pressure at 273.16 K.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 4.926572808425107,
+    "unit": "K"
+   }
+  ],
+  "code": "def solve(T=253.0, RH=0.5, L_v=2500000.0, L_s=2834000.0, R_v=461.5, T_triple=273.16) -> dict:\n    import math\n    ln_e_over_e0 = math.log(RH) + L_v / R_v * (1.0 / T_triple - 1.0 / T)\n    inv_Tice = 1.0 / T_triple - R_v / L_s * ln_e_over_e0\n    Tice = 1.0 / inv_Tice\n    drop = T - Tice\n    return {'1': {'value': drop, 'unit': 'K'}}",
+  "author_check": "Computed e/e_0 from RH and the liquid Clausius-Clapeyron relation, then solved the ice relation for T_f: T − T_f = 4.9266 K vs key 4.9266 K (0.000%).",
+  "author_flag": "Weak concealment: the problem already supplies L_s and states that liquid and ice saturation pressures are equal at 273.16 K, which points at the ice curve.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_1.2_gen",
+  "trap_id": "trap_1.2_gen",
+  "parent_id": "1.2",
+  "problem": "What is the equilibrium mass concentration of water vapor (g H₂O per m³ of air) in a liquid-water cloud of pure water droplets of radius 0.01 micrometer at a temperature of 273 K? Take the surface tension of liquid water to be 0.075 N m^-1 and the density of liquid water to be 1000 kg m^-3. Because the droplets are only 0.01 μm in radius, the flat-surface saturation vapour pressure does not apply: multiply it by the Kelvin factor exp[2σM_w/(ρ_l R T r)], with M_w = 0.018015 kg mol^-1 and R = 8.314 J mol^-1 K^-1, and convert the result to a mass concentration with ρ_v = e_s M_w/(R T). Considering that the liquid water mass concentration in a cloud ranges typically from 0.1 to 1 g liquid water per m³ of air, is most of the water in a cloud present as vapor or as liquid?\n\nExpress your answer in g m^-3.",
+  "inserted_sentence": "Because the droplets are only 0.01 μm in radius, the flat-surface saturation vapour pressure does not apply: multiply it by the Kelvin factor exp[2σM_w/(ρ_l R T r)], with M_w = 0.018015 kg mol^-1 and R = 8.314 J mol^-1 K^-1, and convert the result to a mass concentration with ρ_v = e_s M_w/(R T).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 5.403510203586928,
+    "unit": "g m^-3"
+   }
+  ],
+  "code": "def solve(T=273.0, r_um=0.01, sigma=0.075, rho_l=1000.0) -> dict:\n    import math\n    e_s0 = 611.0\n    T0 = 273.15\n    L = 2500000.0\n    R_v = 461.5\n    e_flat = e_s0 * math.exp(L / R_v * (1.0 / T0 - 1.0 / T))\n    r_m = r_um * 1e-06\n    R = 8.314\n    M_w_kg = 0.018015\n    kelvin = math.exp(2.0 * sigma * M_w_kg / (rho_l * R * T * r_m))\n    e_s = e_flat * kelvin\n    M_w_g = 18.015\n    mass_conc = e_s * M_w_g / (R * T)\n    return {'1': {'value': mass_conc, 'unit': 'g m^-3'}}",
+  "author_check": "Flat e_s from Clausius-Clapeyron (611 Pa at 273.15 K, L = 2.5e6, R_v = 461.5, as in the code) times the Kelvin factor (1.1264): 5.4035 g m^-3 vs key 5.4035 (0.000%). With a Bolton/Magnus flat e_s instead: 5.4053 (+0.03%), so the choice of flat-surface formula does not matter.",
+  "author_flag": "The inserted sentence goes before the qualitative vapour-vs-liquid question, which is where the computation ends. The answer to that question is unchanged by the trap (vapour dominates either way).",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_11.1_gen",
+  "trap_id": "trap_11.1_gen",
+  "parent_id": "11.1",
+  "problem": "The two principal sources of CO to the atmosphere are oxidation of CH₄ and combustion. Mean rate constants for oxidation of CH₄ and CO by OH in the troposphere are k₁ = 2.5 × 10⁻¹⁵ cm³ molecule⁻¹ s⁻¹ and k₂ = 1.5 × 10⁻¹³ cm³ molecule⁻¹ s⁻¹, respectively. Observations indicate mean CO concentrations of 80 ppbv in the northern hemisphere and 50 ppbv in the southern hemisphere, and a globally uniform CH₄ concentration of 1700 ppbv. In both hemispheres, the CO burden is increasing at a rate equal to 50% of the contemporaneous chemical loss rate of CO by reaction with OH. Because the CO burden is not in steady state, the total source is not equal to the OH loss alone: take the total CO source in each hemisphere as loss plus accumulation, (1 + 0.5) k₂[OH][CO], and the CH₄-oxidation source as k₁[OH][CH₄] (one CO per CH₄ oxidised). Calculate the fraction of the total CO source in each hemisphere contributed by oxidation of CH₄.\n\nExpress your answers: (1) in %, (2) in %.",
+  "inserted_sentence": "Because the CO burden is not in steady state, the total source is not equal to the OH loss alone: take the total CO source in each hemisphere as loss plus accumulation, (1 + 0.5) k₂[OH][CO], and the CH₄-oxidation source as k₁[OH][CH₄] (one CO per CH₄ oxidised).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 23.61111111111111,
+    "unit": "%"
+   },
+   {
+    "sub": "2",
+    "value": 37.77777777777778,
+    "unit": "%"
+   }
+  ],
+  "code": "def solve(k1=2.5e-15, k2=1.5e-13, CH4_ppbv=1700.0, CO_NH_ppbv=80.0, CO_SH_ppbv=50.0, growth_loss_fraction=0.5):\n    frac_NH = k1 * CH4_ppbv / ((1.0 + growth_loss_fraction) * k2 * CO_NH_ppbv)\n    frac_SH = k1 * CH4_ppbv / ((1.0 + growth_loss_fraction) * k2 * CO_SH_ppbv)\n    pct_NH = frac_NH * 100.0\n    pct_SH = frac_SH * 100.0\n    return {'1': {'value': pct_NH, 'unit': '%'}, '2': {'value': pct_SH, 'unit': '%'}}",
+  "author_check": "Fraction = k1[CH4] / (1.5 k2 [CO]): NH 23.611 % vs key 23.611 %, SH 37.778 % vs key 37.778 % (both 0.000%).",
+  "author_flag": "Weak concealment: the problem text already states the accumulation rate explicitly; the trap is only whether the solver adds it to the source.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_2.10_gen",
+  "trap_id": "trap_2.10_gen",
+  "parent_id": "2.10",
+  "problem": "Show that the density of water vapour at saturation is given as a function of temperature by\n\n$$\n\\rho _ { \\mathrm { v s } } = { \\frac { A e ^ { - T _ { 1 } / T } } { T } } ,\n$$\n\nwhere $T _ { 1 } = L / R _ { \\mathrm { v } }$ and $A$ is a constant. Assuming a constant lapse rate, as in Problem 2.3, show that the following approximations are valid for heights $z \\ll T _ { 0 } / \\Gamma$ :\n\n$$\nT ^ { - 1 } \\approx T _ { 0 } ^ { - 1 } \\left( 1 + \\frac { \\Gamma z } { T _ { 0 } } \\right) \\approx T _ { 0 } ^ { - 1 } \\exp \\left( \\frac { \\Gamma z } { T _ { 0 } } \\right) .\n$$\n\nHence show that $\\rho _ { \\mathrm { v s } }$ decays exponentially with $z$ under these approximations. Evaluate the $e$-folding height in km for this decay in a cold polar atmosphere with $T _ { 0 } = 250 \\mathrm { K }$ and $\\Gamma = 6.5 \\mathrm { K }\\,\\mathrm { km } ^ { -1 }$, where condensate is ice and saturation is with respect to ice. Take the latent heat of sublimation to be $L_s = 2.83 \\times 10^6 \\mathrm { J }\\,\\mathrm { kg }^{-1}$.\n\nBecause the condensate is ice, the liquid-water relations do not apply: use T_1 = L_s/R_v (R_v = 461.5 J kg^-1 K^-1) in the e-folding height, take the surface saturation vapour pressure over ice as e_si(T_0) = 611.2 Pa × exp[(L_s/R_v)(1/273.15 K − 1/T_0)] with ρ_vs = e_si/(R_v T_0), and use L_s for the latent heat released. Given a relative humidity of $80\\%$ with respect to ice, calculate the total mass of water vapour per unit horizontal area in a vertical column of atmosphere. If all this water vapour were to precipitate out, how many millimetres of liquid-water-equivalent precipitation would result? How much latent heat per unit horizontal area would be released? Give the depth in mm and the latent heat per unit area in MJ/m^2.",
+  "inserted_sentence": "Because the condensate is ice, the liquid-water relations do not apply: use T_1 = L_s/R_v (R_v = 461.5 J kg^-1 K^-1) in the e-folding height, take the surface saturation vapour pressure over ice as e_si(T_0) = 611.2 Pa × exp[(L_s/R_v)(1/273.15 K − 1/T_0)] with ρ_vs = e_si/(R_v T_0), and use L_s for the latent heat released.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 1.6346640880416263,
+    "unit": "km"
+   },
+   {
+    "sub": "2",
+    "value": 0.8664714014988485,
+    "unit": "kg/m^2"
+   },
+   {
+    "sub": "3",
+    "value": 0.8664714014988485,
+    "unit": "mm"
+   },
+   {
+    "sub": "4",
+    "value": 2.4521140662417413,
+    "unit": "MJ/m^2"
+   }
+  ],
+  "code": "def solve(T0=250.0, Gamma=6.5, relative_humidity=80.0, L_s=2830000.0):\n    import math\n    R_v = 461.5\n    T_ref = 273.15\n    e_s_ref = 611.2\n    rho_liquid_water = 1000.0\n    Gamma_K_per_m = Gamma / 1000.0\n    RH = relative_humidity / 100.0\n    T1 = L_s / R_v\n    H_m = T0 * T0 / (Gamma_K_per_m * (T1 - T0))\n    H_km = H_m / 1000.0\n    e_s_T0 = e_s_ref * math.exp(L_s / R_v * (1.0 / T_ref - 1.0 / T0))\n    rho_vs_0 = e_s_T0 / (R_v * T0)\n    column_mass = RH * rho_vs_0 * H_m\n    precip_mm = column_mass / rho_liquid_water * 1000.0\n    latent_heat_MJ_per_m2 = L_s * column_mass / 1000000.0\n    return {'1': {'value': H_km, 'unit': 'km'}, '2': {'value': column_mass, 'unit': 'kg/m^2'}, '3': {'value': precip_mm, 'unit': 'mm'}, '4': {'value': latent_heat_MJ_per_m2, 'unit': 'MJ/m^2'}}",
+  "author_check": "H = T_0²/[Γ(T_1 − T_0)] = 1.6347 km (key 1.6347); column = 0.8·ρ_vs0·H = 0.86647 kg m^-2 (key 0.86647); depth 0.86647 mm (key 0.86647); latent heat 2.4521 MJ m^-2 (key 2.4521). All 0.000%.",
+  "author_flag": "Weak concealment: the problem already says saturation is with respect to ice and gives L_s. The H formula T_0²/[Γ(T_1 − T_0)] is left for the solver to derive, as the base problem intends. The 611.2 Pa / 273.15 K anchor is not in the problem; other ice-saturation formulas (e.g. Murphy-Koop) give slightly different column values, so I stated the code's anchor. Sub-answer 2 (kg m^-2) is not asked as a separately graded unit, but it is in the key.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_3.4_regime",
+  "trap_id": "trap_3.4_regime",
+  "parent_id": "3.4",
+  "problem": "A high-altitude Earth satellite in an equatorial orbit at an altitude of 35,786 km above a spherical Earth of radius 6,371 km carries below it two isolated spherical radiation sensors of negligible heat capacity. One is painted white and may be assumed to be perfectly reflecting at all wavelengths at which there is significant solar energy (λ < 4 μm) and perfectly absorbing at longer wavelengths. The other is painted black and is perfectly absorbing at all wavelengths. Assume that there is no input of direct or scattered energy from the spacecraft. Because at this altitude the cloud sheet no longer fills the lower half of each sphere's sky, the view factor of 1/2 does not apply: each sphere receives cloud radiation only from the solid angle Ω = 2π(1 − cos θ) that the Earth subtends, with sin θ = a/(a + h), so a fraction Ω/(4π) of its sky is filled by the 280 K emitter. At midnight over a thick cloud sheet covering the visible Earth and at a temperature of 280 K, calculate the equilibrium temperature of the spheres. Express your answer in K.",
+  "inserted_sentence": "Because at this altitude the cloud sheet no longer fills the lower half of each sphere's sky, the view factor of 1/2 does not apply: each sphere receives cloud radiation only from the solid angle Ω = 2π(1 − cos θ) that the Earth subtends, with sin θ = a/(a + h), so a fraction Ω/(4π) of its sky is filled by the 280 K emitter.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 77.07921648670057,
+    "unit": "K"
+   }
+  ],
+  "code": "def solve(T_cloud=280.0, earth_radius_km=6371.0, altitude_km=35786.0):\n    import math\n    R = earth_radius_km * 1000.0\n    h = altitude_km * 1000.0\n    d = R + h\n    sin_theta = R / d\n    cos_theta = math.sqrt(1.0 - sin_theta ** 2)\n    omega_earth = 2.0 * math.pi * (1.0 - cos_theta)\n    absorbed_fraction = omega_earth / (4.0 * math.pi)\n    T_sphere = T_cloud * absorbed_fraction ** 0.25\n    return {'1': {'value': T_sphere, 'unit': 'K'}}",
+  "author_check": "Balance 4πr²σT⁴ = Ω r² σT_c⁴ gives T = 280·(Ω/4π)^(1/4) = 77.079 K vs key 77.079 K (0.000%).",
+  "author_flag": "The problem does not say explicitly that the emission from the rest of the sky (deep space) is 0 K; the key assumes it, as the base problem does. Both spheres have the same temperature (no sunlight at midnight); the key has one value.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_3.8_gen",
+  "trap_id": "trap_3.8_gen",
+  "parent_id": "3.8",
+  "problem": "Consider a CO2 line at 15 μm (wavenumber \\widetilde{\\nu} = 667 cm^{-1}) with \\gamma_{\\mathrm{L}} = (p/p_0)(T_0/T)^{1/2}\\gamma_{L0}, where p_0 = 1000 hPa, T_0 = 250 K and \\gamma_{L0} = 3×10^9 Hz. Because the path is vertical, the pressure varies along it and a single-level comparison of line-centre absorption coefficients does not apply: equate the line-centre optical depths integrated over the layer, (√(ln 2/π)/α_D)·Δp = [p_0/(π γ_L0)](T/T_0)^(1/2)·ln(p_bottom/p_top), where α_D is the Doppler half-width at half-maximum and ln(p_bottom/p_top) = Δz/H. Find the approximate pressure difference between the top and bottom of a vertical layer of thickness Δz = 10 km in the atmosphere at which the transmittance of the vertical path at the line centre under the assumption of pure Doppler broadening is the same as that under the assumption of pure Lorentz broadening. Assume the atmosphere is isothermal at 250 K, has a constant CO2 mixing ratio, and has a pressure scale height H = 7.2 km.",
+  "inserted_sentence": "Because the path is vertical, the pressure varies along it and a single-level comparison of line-centre absorption coefficients does not apply: equate the line-centre optical depths integrated over the layer, (√(ln 2/π)/α_D)·Δp = [p_0/(π γ_L0)](T/T_0)^(1/2)·ln(p_bottom/p_top), where α_D is the Doppler half-width at half-maximum and ln(p_bottom/p_top) = Δz/H.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 5.355165570798208,
+    "unit": "hPa"
+   }
+  ],
+  "code": "def solve(nu_tilde_cm=667.0, p0_hPa=1000.0, T0_K=250.0, gammaL0_Hz=3000000000.0, T_K=250.0, delta_z_km=10.0, H_km=7.2):\n    import math\n    c = 299792458.0\n    k_B = 1.380649e-23\n    N_A = 6.02214076e+23\n    M_CO2 = 0.044\n    m_CO2 = M_CO2 / N_A\n    nu_tilde_m = nu_tilde_cm * 100.0\n    alpha_D = nu_tilde_m * math.sqrt(2.0 * k_B * T_K * math.log(2.0) / m_CO2)\n    gamma_L_eq = alpha_D / math.sqrt(math.pi * math.log(2.0))\n    p_eq_hPa = gamma_L_eq / (math.sqrt(T0_K / T_K) * gammaL0_Hz) * p0_hPa\n    delta_p_hPa = p_eq_hPa * (delta_z_km / H_km)\n    return {'1': {'value': delta_p_hPa, 'unit': 'hPa'}}",
+  "author_check": "α_D from ν̃·√(2kT ln2/m_CO2) (M = 0.044 kg/mol) = 5.586e7 Hz; solving the stated equality for Δp gives 5.3552 hPa vs key 5.3552 hPa (0.000%).",
+  "author_flag": "The problem does not give the CO2 molar mass (the code uses 0.044 kg/mol). The shortcut (3.856 hPa) is the single-level equal-width pressure, whereas the sub asks for a pressure difference, so the base-to-trap change also changes what is asked. The problem gives no explicit 'Express your answer' line; the key is in hPa.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_5.3_gen",
+  "trap_id": "trap_5.3_gen",
+  "parent_id": "5.3",
+  "problem": "Calculate the horizontal and vertical air-parcel displacements X and Z associated with an internal gravity wave, defined by X_t = u and Z_t = W, given that these displacements vanish when x = z = t = 0. Show that the air parcels oscillate in straight lines perpendicular to the vector (k, 0, m).\n\nBecause the horizontal and vertical wavelengths are equal, the hydrostatic relation ω = N_B|k/m| does not apply: use the full Boussinesq dispersion relation ω = N_B|k|/(k² + m²)^(1/2), whose vertical group velocity is ∂ω/∂m = −N_B k m/(k² + m²)^(3/2). Find the period (in minutes) of an internal gravity wave of horizontal wavelength 5 km and vertical wavelength 5 km in the Earth’s mesosphere, where N_B^2 = 3 x 10^-4 s^-2. How long (in minutes) does the information associated with this wave take to propagate through a vertical distance of 20 km? If the maximum horizontal wind fluctuation (peak-to-peak) due to the wave is 2 m s^-1, find the maximum horizontal and vertical distances traversed by an air parcel.",
+  "inserted_sentence": "Because the horizontal and vertical wavelengths are equal, the hydrostatic relation ω = N_B|k/m| does not apply: use the full Boussinesq dispersion relation ω = N_B|k|/(k² + m²)^(1/2), whose vertical group velocity is ∂ω/∂m = −N_B k m/(k² + m²)^(3/2).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 8.55,
+    "unit": "min"
+   },
+   {
+    "sub": "2",
+    "value": 68.4,
+    "unit": "min"
+   },
+   {
+    "sub": "3",
+    "value": 0.1633,
+    "unit": "km"
+   },
+   {
+    "sub": "4",
+    "value": 163.3,
+    "unit": "m"
+   }
+  ],
+  "code": "def solve(\n    horizontal_wavelength_km=5.0,\n    vertical_wavelength_km=5.0,\n    brunt_vaisala_frequency_squared_s_minus_2=3.0e-4,\n    vertical_propagation_distance_km=20.0,\n    horizontal_wind_fluctuation_peak_to_peak_m_s=2.0,\n):\n    import math\n\n    km_to_m = 1000.0\n    seconds_per_minute = 60.0\n\n    horizontal_wavelength_m = horizontal_wavelength_km * km_to_m\n    vertical_wavelength_m = vertical_wavelength_km * km_to_m\n    vertical_propagation_distance_m = vertical_propagation_distance_km * km_to_m\n\n    n_b = math.sqrt(brunt_vaisala_frequency_squared_s_minus_2)\n\n    k = 2.0 * math.pi / horizontal_wavelength_m\n    m = 2.0 * math.pi / vertical_wavelength_m\n\n    # Full nonhydrostatic Boussinesq internal-gravity-wave dispersion relation:\n    # omega = N |k| / sqrt(k^2 + m^2).\n    angular_frequency_s_minus_1 = n_b * abs(k) / math.sqrt(k * k + m * m)\n\n    period_s = 2.0 * math.pi / angular_frequency_s_minus_1\n\n    # Magnitude of vertical group velocity: |d omega / d m|.\n    vertical_group_velocity_m_s = n_b * abs(k * m) / ((k * k + m * m) ** 1.5)\n\n    information_time_s = vertical_propagation_distance_m / vertical_group_velocity_m_s\n\n    horizontal_displacement_m = abs(horizontal_wind_fluctuation_peak_to_peak_m_s) / angular_frequency_s_minus_1\n    vertical_displacement_m = abs(k / m) * horizontal_displacement_m\n\n    return {\n        \"1\": {\"value\": period_s / seconds_per_minute, \"unit\": \"min\"},\n        \"2\": {\"value\": information_time_s / seconds_per_minute, \"unit\": \"min\"},\n        \"3\": {\"value\": horizontal_displacement_m / km_to_m, \"unit\": \"km\"},\n        \"4\": {\"value\": vertical_displacement_m, \"unit\": \"m\"},\n    }",
+  "author_check": "Period 8.5503 min (key 8.55), information time 20 km/|c_gz| = 68.403 min (key 68.4), horizontal excursion Δu/ω = 0.16330 km (key 0.1633), vertical = (k/m)·X = 163.30 m (key 163.3). All within 0.004%.",
+  "author_flag": "The key values are rounded to 3-4 significant figures (8.55, 68.4, 0.1633, 163.3), unlike the other records. The mechanism field is None. The 'max distances traversed' are read as peak-to-peak excursions (Δu/ω and (k/m)Δu/ω); this reading is the base problem's, not introduced by the trap.",
+  "blind_solve": "subs 1-2 match; subs 3-4 at half the key: the parent text asks for 'the maximum distance traversed' from a peak-to-peak wind, readable as amplitude or peak-to-peak (the key); an ambiguity of the original trap, shared by both arms",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_5.7_regime",
+  "trap_id": "trap_5.7_regime",
+  "parent_id": "5.7",
+  "problem": "Consider shallow-water Rossby waves of equivalent depth H = 30 km that vary with x and y in a uniform zonal flow U. At 60°N, show that stationary waves can exist only if the zonal (x) wavelength is greater than a certain value, L say. Because the equivalent depth is finite, the nondivergent stationary condition k² + l² = β/U does not apply: use the shallow-water Rossby-wave relation ω = Uk − βk/(k² + l² + L_D^-2), with L_D = (gH)^(1/2)/f, f = 2Ω sin φ and β = 2Ω cos φ/a. Calculate L for (a) U = 50 m s⁻¹ and (b) U = 150 m s⁻¹. Compare this with the length of a latitude circle. Take Earth's radius to be a = 6371 km.\n\nExpress your answers: (a) in km, (b) in km, (latitude circle) in km.",
+  "inserted_sentence": "Because the equivalent depth is finite, the nondivergent stationary condition k² + l² = β/U does not apply: use the shallow-water Rossby-wave relation ω = Uk − βk/(k² + l² + L_D^-2), with L_D = (gH)^(1/2)/f, f = 2Ω sin φ and β = 2Ω cos φ/a.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 15032.89813263624,
+    "unit": "km"
+   },
+   {
+    "sub": "2",
+    "value": 42282.55827038148,
+    "unit": "km"
+   },
+   {
+    "sub": "3",
+    "value": 20015.086796020576,
+    "unit": "km"
+   }
+  ],
+  "code": "def solve(lat_deg=60.0, U_a=50.0, U_b=150.0, H_km=30.0, a_km=6371.0):\n    import math\n    Omega = 7.292115e-05\n    g = 9.80665\n    lat_rad = math.radians(lat_deg)\n    a = a_km * 1000.0\n    H = H_km * 1000.0\n    beta = 2.0 * Omega * math.cos(lat_rad) / a\n    f = 2.0 * Omega * math.sin(lat_rad)\n    Ld = math.sqrt(g * H) / abs(f)\n\n    def critical_wavelength_km(U):\n        q = beta / U - 1.0 / (Ld * Ld)\n        if q <= 0.0:\n            raise ValueError('No stationary shallow-water Rossby wave exists for this U and H.')\n        return 2.0 * math.pi / math.sqrt(q) / 1000.0\n    L_a_km = critical_wavelength_km(U_a)\n    L_b_km = critical_wavelength_km(U_b)\n    lat_circle_km = 2.0 * math.pi * a * math.cos(lat_rad) / 1000.0\n    return {'1': {'value': L_a_km, 'unit': 'km'}, '2': {'value': L_b_km, 'unit': 'km'}, '3': {'value': lat_circle_km, 'unit': 'km'}}",
+  "author_check": "Stationary with l = 0: L = 2π/(β/U − L_D^-2)^(1/2) = 15033 km (a), 42283 km (b), latitude circle 20015 km: all 0.000% vs key (Ω = 7.292115e-5, g = 9.80665). With g = 9.81, Ω = 7.29e-5: (b) 42256 km (−0.06%), so the case is not sensitive to the constants.",
+  "author_flag": "(b) exceeds the latitude circle, so no stationary wave actually fits at U = 150 m s^-1; the key reports the formal L. The problem calls the waves 'shallow-water Rossby waves' in the text, so there is some disclosure.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_5.9_gen",
+  "trap_id": "trap_5.9_gen",
+  "parent_id": "5.9",
+  "problem": "Suppose that friction is represented by linear Rayleigh friction $$ F^{(x)}=-r u, \\qquad F^{(y)}=-r v, $$ rather than by an eddy-viscosity assumption. Use this representation in the linear Boussinesq momentum equations on an f plane to model the following situation. During the daytime, convection is active, leading to a strong frictional coupling with the ground (modelled by taking r to be large, $r=10^{-5}\\,\\mathrm{s}^{-1}$) and the atmosphere can be assumed to be in a steady state at this time. At sunset, convection is quenched and r decreases to $2\\times 10^{-6}\\,\\mathrm{s}^{-1}$. Because friction does not vanish after sunset, the oscillation is not about the geostrophic wind: its initial amplitude is the magnitude of the vector difference between the daytime steady wind and the new night-time steady wind, where the steady wind for friction coefficient r is u = u_g f²/(f² + r²), v = u_g r f/(f² + r²). Assuming that the pressure gradient is purely in the y direction, is independent of height and does not change with time, calculate the initial amplitude of the resulting damped inertial oscillation at $30^\\circ\\,\\mathrm{N}$ when the geostrophic flow is $20\\,\\mathrm{m}\\,\\mathrm{s}^{-1}$ from the west.",
+  "inserted_sentence": "Because friction does not vanish after sunset, the oscillation is not about the geostrophic wind: its initial amplitude is the magnitude of the vector difference between the daytime steady wind and the new night-time steady wind, where the steady wind for friction coefficient r is u = u_g f²/(f² + r²), v = u_g r f/(f² + r²).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 2.17298873208612,
+    "unit": "m s^-1"
+   }
+  ],
+  "code": "def solve(r_day=1e-05, r_night=2e-06, ug=20.0, lat_deg=30.0):\n    import math\n    Omega = 7.292115e-05\n    f = 2.0 * Omega * math.sin(math.radians(lat_deg))\n    u_day = ug * f ** 2 / (f ** 2 + r_day ** 2)\n    v_day = ug * r_day * f / (f ** 2 + r_day ** 2)\n    u_night = ug * f ** 2 / (f ** 2 + r_night ** 2)\n    v_night = ug * r_night * f / (f ** 2 + r_night ** 2)\n    amplitude = math.sqrt((u_day - u_night) ** 2 + (v_day - v_night) ** 2)\n    return {'1': {'value': amplitude, 'unit': 'm s^-1'}}",
+  "author_check": "Steady winds for r = 1e-5 and 2e-6 s^-1 at f = 2Ω sin30°; |Δ(u,v)| = 2.1730 m s^-1 vs key 2.1730 (0.000%).",
+  "author_flag": "The problem gives no 'Express your answer' unit line (key in m s^-1). The inserted sentence names the steady-state formulas, which removes most of the derivation. That is unavoidable for this mechanism.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_6.1.4_gen",
+  "trap_id": "trap_6.1.4_gen",
+  "parent_id": "6.1.4",
+  "problem": "Hydrogen atoms are produced in the upper atmosphere by photolysis of water vapor and can then escape to outer space because of their light mass. This escape of H atoms is effectively a source of O2 to the atmosphere; explain why. Consider a dry Earth-like planet with a total initial water inventory of 1.0 × 10^17 kg H2O and no resupply of water from the interior or space. The present-day rate of H atom escape to outer space is 5.4 × 10^7 kg H yr^-1. Because the water inventory is finite and is not resupplied, the present escape rate cannot simply be multiplied by 4.5 × 10^9 yr: the hydrogen escaped is the smaller of (escape rate × time) and the hydrogen contained in the water inventory (mass fraction 2M_H/M_H2O), and every 4 H atoms escaped leave one O₂ molecule behind. Assuming that this rate would have applied whenever water remained, over the history of the Earth, 4.5 × 10^9 years, calculate the resulting accumulation of oxygen. Is this an important source of oxygen? Express your answer in kg.",
+  "inserted_sentence": "Because the water inventory is finite and is not resupplied, the present escape rate cannot simply be multiplied by 4.5 × 10^9 yr: the hydrogen escaped is the smaller of (escape rate × time) and the hydrogen contained in the water inventory (mass fraction 2M_H/M_H2O), and every 4 H atoms escaped leave one O₂ molecule behind.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 8.880994671403198e+16,
+    "unit": "kg"
+   }
+  ],
+  "code": "def solve(H_escape_rate=54000000.0, earth_age=4500000000.0, water_inventory=1e+17):\n    M_H = 1.008\n    M_O = 16.0\n    M_H2O = 2.0 * M_H + M_O\n    potential_H_escaped = H_escape_rate * earth_age\n    H_mass_fraction_in_water = 2.0 * M_H / M_H2O\n    available_H = water_inventory * H_mass_fraction_in_water\n    actual_H_escaped = min(potential_H_escaped, available_H)\n    mass_ratio_O2_to_H = 2.0 * M_O / (4.0 * M_H)\n    total_O2 = mass_ratio_O2_to_H * actual_H_escaped\n    return {'1': {'value': total_O2, 'unit': 'kg'}}",
+  "author_check": "min(2.43e17, 1e17·2.016/18.016 = 1.119e16) kg H × 32/4.032 = 8.8810e16 kg O2 vs key 8.8810e16 (0.000%).",
+  "author_flag": "The phrase 'whenever water remained' already hints at the cap. The escape-rate product (2.4e17 kg H) exceeds the whole reservoir about 22-fold, so the answer is just the oxygen content of the water.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_6.2_gen",
+  "trap_id": "trap_6.2_gen",
+  "parent_id": "6.2",
+  "problem": "Can the reaction\n\nNO3 + H2O -> HNO3 + OH\n\noccur spontaneously at 298.15 K in an ideal-gas mixture if all species are at their standard ideal-gas state except HNO3, whose partial pressure is 1.0e-13 bar? Take the standard pressure to be p° = 1.0 bar, so ideal-gas activities are a_i = p_i/p°. Use the following standard Gibbs free energies of formation at 298.15 K, all in kJ mol^-1: HNO3, -74.7; OH, 34.2; NO3, 115.8; and H2O, -228.4.\n\nBecause HNO3 is not in its standard state, the standard reaction Gibbs energy from formation values alone does not apply: use ΔG = ΔG° + RT ln Q with Q = a_HNO3·a_OH/(a_NO3·a_H2O). Express the reaction Gibbs free energy under these conditions in kJ mol^-1.",
+  "inserted_sentence": "Because HNO3 is not in its standard state, the standard reaction Gibbs energy from formation values alone does not apply: use ΔG = ΔG° + RT ln Q with Q = a_HNO3·a_OH/(a_NO3·a_H2O).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": -2.10412353159073,
+    "unit": "kJ mol^{-1}"
+   }
+  ],
+  "code": "def solve(G_f_HNO3=-74.7, G_f_OH=34.2, G_f_NO3=115.8, G_f_H2O=-228.4, T=298.15, p_standard_bar=1.0, p_HNO3_bar=1e-13, a_NO3=1.0, a_H2O=1.0, a_OH=1.0) -> dict:\n    import math\n    G_products = G_f_HNO3 + G_f_OH\n    G_reactants = G_f_NO3 + G_f_H2O\n    delta_G_standard = G_products - G_reactants\n    R_kJ_per_mol_K = 0.008314462618\n    a_HNO3 = p_HNO3_bar / p_standard_bar\n    Q = a_HNO3 * a_OH / (a_NO3 * a_H2O)\n    delta_G = delta_G_standard + R_kJ_per_mol_K * T * math.log(Q)\n    return {'1': {'value': delta_G, 'unit': 'kJ mol^{-1}'}}",
+  "author_check": "ΔG° = +72.1 kJ/mol; RT ln(1e-13) = −74.204 kJ/mol; ΔG = −2.1041 kJ/mol vs key −2.1041 (0.000%).",
+  "author_flag": "Weak concealment: the problem already defines a_i = p_i/p° and gives the non-standard HNO3 pressure. The key sits close to zero (−2.1 out of ±74), so the spontaneous/non-spontaneous verdict flips with small changes in R or T (e.g. p_HNO3 = 2e-13 would flip it). The magnitude is fine at 1% tolerance, though: R = 8.314 gives −2.10.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_6.6_gen",
+  "trap_id": "trap_6.6_gen",
+  "parent_id": "6.6",
+  "problem": "The surface ocean is saturated with respect to CaCO3. Calculate the pH of the surface ocean for present-day conditions (P_CO2 = 365 ppmv) using the observed hypersaline brine Ca2+ concentration [Ca2+] = 1.0 M and the carbonate equilibria:\n\nCO2(g) ⇌ CO2·H2O\n\nCO2·H2O ⇌ HCO3− + H+\n\nHCO3− ⇌ CO3^2− + H+\n\nCaCO3(s) ⇌ Ca2+ + CO3^2−\n\nEquilibrium constants are K_H = 3 x 10^-2 M atm^-1, K_1 = 9 x 10^-7 M, K_2 = 7 x 10^-10 M, K_W = 1 x 10^-14 M^2, K_S = 9 x 10^-7 M^2. At this hypersaline ionic strength, the calcium ion activity coefficient is gamma_Ca = 0.010; take the activity of neutral dissolved CO2·H2O equal to its molar concentration. Because the brine is hypersaline, molar concentrations cannot be used in the equilibria: write K_S = a_Ca·a_CO3 with a_Ca = γ_Ca[Ca2+], take a_CO2·H2O = K_H·P_CO2, and obtain a_H+ from K_1K_2 = a_H+²·a_CO3/a_CO2·H2O, with pH = −log10 a_H+. Express your answer in pH.",
+  "inserted_sentence": "Because the brine is hypersaline, molar concentrations cannot be used in the equilibria: write K_S = a_Ca·a_CO3 with a_Ca = γ_Ca[Ca2+], take a_CO2·H2O = K_H·P_CO2, and obtain a_H+ from K_1K_2 = a_H+²·a_CO3/a_CO2·H2O, with pH = −log10 a_H+.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 8.057743920404803,
+    "unit": "pH"
+   }
+  ],
+  "code": "def solve(P_CO2_ppmv=365.0, Ca_2_plus=1.0, gamma_Ca=0.01, K_H=0.03, K_1=9e-07, K_2=7e-10, K_S=9e-07):\n    import math\n    P_CO2_atm = P_CO2_ppmv * 1e-06\n    CO2_aq = K_H * P_CO2_atm\n    a_Ca = gamma_Ca * Ca_2_plus\n    a_CO3 = K_S / a_Ca\n    a_H = math.sqrt(K_1 * K_2 * CO2_aq / a_CO3)\n    pH = -math.log10(a_H)\n    return {'1': {'value': pH, 'unit': 'pH'}}",
+  "author_check": "a_CO3 = 9e-7/0.01 = 9e-5; a_H = √(K1K2·1.095e-5/9e-5) = 8.76e-9; pH = 8.0577 vs key 8.0577 (0.000%).",
+  "author_flag": "Weak concealment: the problem already gives γ_Ca and says activities matter. Only Ca2+ gets a non-unit activity coefficient; the carbonate ion is used as an activity directly (no γ_CO3 given), a modelling choice the key depends on. No question sentence is left to insert before, so the sentence goes before the 'Express your answer' line. K_W is given but not used.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_7.1_gen",
+  "trap_id": "trap_7.1_gen",
+  "parent_id": "7.1",
+  "problem": "Consider a thin layer of gas of uniform density between altitudes z = 3000 km and z + d in a spherical atmosphere around Earth, emitting thermal radiation. The Earth's radius is a = 6371 km. Because the layer lies at an altitude that is not small compared with a, the shell radius cannot be approximated by a: the maximum limb path is the chord tangent to the inner surface of the shell, of length 2[(r + d)² − r²]^(1/2) with r = a + z, while the nadir path length is d. Find the ratio of the maximum mass of the gas in a limb-viewing path to the mass of gas in a nadir-viewing path. Evaluate this ratio for d = 10 km.",
+  "inserted_sentence": "Because the layer lies at an altitude that is not small compared with a, the shell radius cannot be approximated by a: the maximum limb path is the chord tangent to the inner surface of the shell, of length 2[(r + d)² − r²]^(1/2) with r = a + z, while the nadir path length is d.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 86.6071590574359,
+    "unit": ""
+   }
+  ],
+  "code": "def solve(d_km=10.0, z_km=3000.0, a_km=6371.0):\n    import math\n    d = d_km * 1000.0\n    z = z_km * 1000.0\n    a = a_km * 1000.0\n    r = a + z\n    limb_length = 2.0 * math.sqrt((r + d) ** 2 - r ** 2)\n    nadir_length = d\n    ratio = limb_length / nadir_length\n    return {'1': {'value': ratio, 'unit': ''}}",
+  "author_check": "2√((9381 km)² − (9371 km)²)/10 km = 86.607 vs key 86.607 (0.000%). The small-d form 2√(2rd)/d with r = a + z gives 86.58 (−0.03%).",
+  "author_flag": "The stated relation leaves only arithmetic, since the replacement is the whole problem. A weaker alternative is 'use shell radius r = a + z instead of a'.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_7.4_gen",
+  "trap_id": "trap_7.4_gen",
+  "parent_id": "7.4",
+  "problem": "Sedimentary deposits in rocks show that liquid water was present on Earth as early as 3.8 billion years ago, when solar radiation was 25% less than today according to current models of the evolution of the Sun. Consider a simple greenhouse model where the atmosphere is represented as a thin layer absorbing a fraction f of terrestrial radiation. Assume throughout this problem a constant planetary albedo A = 0.28 for the Earth. Unlike the usual transparent-shortwave approximation, suppose a high-altitude photochemical haze absorbs 90% of the non-reflected solar radiation before it reaches the surface. In the one-layer model, treat this absorbed solar radiation as absorbed by the atmospheric layer. In the two-layer model, treat it as absorbed by the upper atmospheric layer; the lower layer absorbs no solar radiation. Use the current solar constant S0 = 1361 W m^-2 and the Stefan-Boltzmann constant sigma = 5.67e-8 W m^-2 K^-4.\n\nBecause the haze deposits a fraction α = 0.9 of the absorbed solar flux Q = S(1 − A)/4 in the atmosphere, the transparent-shortwave formulas do not apply: in the one-layer model T_s = [Q(1 − α/2)/(σ(1 − f/2))]^(1/4), and in the two-layer model (both layers black, solar absorbed in the upper one) T_s = [(3 − 2α)Q/σ]^(1/4). 1. If the greenhouse effect 3.8 billion years ago were the same as today (f = 0.77), what would be the surface temperature of the Earth? Would liquid water be present?\n\n2. Current thinking is that a stronger greenhouse effect offset the weaker Sun. Let us try to simulate this stronger greenhouse effect by keeping our 1-layer model for the atmosphere but assuming that the atmospheric layer absorbs 100% of terrestrial radiation. Calculate the resulting surface temperature. What do you conclude?\n\n3. We can modify our model to produce a warmer surface temperature by representing the atmosphere as two superimposed layers, both absorbing 100% of terrestrial radiation. Provide a physical justification for this 2-layer model. Calculate the resulting surface temperature.\n\n4. It has been proposed that the strong greenhouse effect in the early Earth could have resulted from accumulation in the atmosphere of CO2 emitted by volcanoes. Imagine an Earth initially covered by ice. Explain why volcanic CO2 would accumulate in the atmosphere under such conditions, eventually thawing the Earth.\n\nExpress your answers: (1) in K, (2) in K, (3) in K.",
+  "inserted_sentence": "Because the haze deposits a fraction α = 0.9 of the absorbed solar flux Q = S(1 − A)/4 in the atmosphere, the transparent-shortwave formulas do not apply: in the one-layer model T_s = [Q(1 − α/2)/(σ(1 − f/2))]^(1/4), and in the two-layer model (both layers black, solar absorbed in the upper one) T_s = [(3 − 2α)Q/σ]^(1/4).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 232.0192946226513,
+    "unit": "K"
+   },
+   {
+    "sub": "2",
+    "value": 244.34326906023634,
+    "unit": "K"
+   },
+   {
+    "sub": "3",
+    "value": 249.71666153687733,
+    "unit": "K"
+   }
+  ],
+  "code": "def solve(A=0.28, f_today=0.77, solar_reduction_percent=25.0, haze_absorption_percent=90.0, S0_current=1361.0, sigma=5.67e-08):\n    solar_reduction = solar_reduction_percent / 100.0\n    alpha = haze_absorption_percent / 100.0\n    S_early = S0_current * (1.0 - solar_reduction)\n    Q = S_early * (1.0 - A) / 4.0\n    f1 = f_today\n    Ts1 = (Q * (1.0 - alpha / 2.0) / (sigma * (1.0 - f1 / 2.0))) ** 0.25\n    f2 = 1.0\n    Ts2 = (Q * (1.0 - alpha / 2.0) / (sigma * (1.0 - f2 / 2.0))) ** 0.25\n    Ts3 = (Q * (3.0 - 2.0 * alpha) / sigma) ** 0.25\n    return {'1': {'value': Ts1, 'unit': 'K'}, '2': {'value': Ts2, 'unit': 'K'}, '3': {'value': Ts3, 'unit': 'K'}}",
+  "author_check": "Energy balances rederived by hand and match the code. With S = 0.75·1361, Q = 183.7 W m^-2: T_s = 232.02 K (key 232.02), 244.34 K (key 244.34), 249.72 K (key 249.72), all 0.000%.",
+  "author_flag": "Not a concealed trap: the problem text already announces the change ('Unlike the usual transparent-shortwave approximation, suppose a high-altitude photochemical haze absorbs 90%...') and says where to deposit the absorbed flux. Treatment and control arms will differ only in whether the closed-form result is handed over, and the closed form hands over nearly the whole computation. Consider excluding this record or flagging it as disclosed.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_7.5_gen",
+  "trap_id": "trap_7.5_gen",
+  "parent_id": "7.5",
+  "problem": "Consider a two-layer model for the Earth's atmosphere including: a main atmospheric layer of temperature T_main that is transparent to solar radiation and absorbs a fraction f_main = 0.77 of terrestrial radiation; an upper atmospheric layer above this main layer that is transparent to solar radiation and absorbs a fraction f_top = 1.0 of terrestrial radiation. The planet is in radiative equilibrium with an absorbed solar flux, and hence outgoing longwave radiation to space, of F = 239.9 W/m^2. Treat each atmospheric layer as a gray emitter with emissivity equal to its absorptivity, emitting equally upward and downward. Because the upper layer absorbs all terrestrial radiation, the optically thin skin-temperature formula does not apply: combining the upper layer's energy balance with the outgoing flux gives F = (2 − f_top)σT_top⁴. Calculate the temperature T_top of the upper layer. Express your answer in K.",
+  "inserted_sentence": "Because the upper layer absorbs all terrestrial radiation, the optically thin skin-temperature formula does not apply: combining the upper layer's energy balance with the outgoing flux gives F = (2 − f_top)σT_top⁴.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 255.0420539506554,
+    "unit": "K"
+   }
+  ],
+  "code": "def solve(f_main=0.77, f_top=1.0, F=239.9):\n    sigma = 5.67e-08\n    T_top = (F / ((2.0 - f_top) * sigma)) ** 0.25\n    return {'1': {'value': T_top, 'unit': 'K'}}",
+  "author_check": "T_top = (239.9/(1·5.67e-8))^(1/4) = 255.04 K vs key 255.04 (0.000%).",
+  "author_flag": "Weak concealment: f_top = 1.0 is stated explicitly, and a black top layer trivially radiates F. f_main is irrelevant to the answer (a distractor, which is fine).",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_7.6_regime",
+  "trap_id": "trap_7.6_regime",
+  "parent_id": "7.6",
+  "problem": "The water vapor dimer absorbs radiation in the 8-12 μm atmospheric window. The resulting optical depth for an elemental path length ds is dδ = k ρ ds, where ρ is the mass density of air and k = 1.0e-11 P_H2O^2 m^2 per kg of air is an absorption coefficient for the water vapor dimer; P_H2O is the water vapor pressure in Pascals.\n\nAssuming a scale height of 4 km for the water vapor mixing ratio, a surface air density ρ0 of 1.2 kg m^-3, and p0 = 1.0e3 Pa for the water vapor pressure in surface air, calculate the total optical depth from absorption by the water vapor dimer for radiation traveling from the surface to space along a ray initially horizontal at the surface. Treat Earth as a sphere of radius 6.371e6 m. Because the ray starts horizontal at the surface, the vertical-column integral does not apply: integrate dδ = kρ ds along the ray from the surface to space, where the altitude z at distance s along the ray satisfies (R + z)² = R² + s² with R = 6.371 × 10^6 m. How efficient is the dimer at absorbing radiation in the 8-12 μm window along this path?\n\nExpress your answer in %.\n\nTake the air-density scale height as H_a = 7.4 km. Report only the absorption efficiency, in %.",
+  "inserted_sentence": "Because the ray starts horizontal at the surface, the vertical-column integral does not apply: integrate dδ = kρ ds along the ray from the surface to space, where the altitude z at distance s along the ray satisfies (R + z)² = R² + s² with R = 6.371 × 10^6 m.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 71.68241342723718,
+    "unit": "%"
+   }
+  ],
+  "code": "def solve(lambda_min_um=8.0, lambda_max_um=12.0, H_w_km=4.0, H_a_km=7.4, rho_0=1.2, P_H2O_0=1000.0, R_earth=6371000.0, coeff=1e-11):\n    import math\n    H_w = H_w_km * 1000.0\n    H_a = H_a_km * 1000.0\n    decay_rate = 2.0 / H_w + 3.0 / H_a\n    y_max = math.sqrt(40.0 / decay_rate)\n    n = 20000\n    if n % 2:\n        n += 1\n    h = y_max / n\n\n    def f(y):\n        z = y * y\n        ds_dy = 2.0 * (R_earth + z) / math.sqrt(2.0 * R_earth + z)\n        return math.exp(-decay_rate * z) * ds_dy\n    total = f(0.0) + f(y_max)\n    for i in range(1, n):\n        total += (4.0 if i % 2 else 2.0) * f(i * h)\n    path_integral = total * h / 3.0\n    tau = coeff * P_H2O_0 ** 2 * rho_0 * path_integral\n    efficiency_percent = (1.0 - math.exp(-tau)) * 100.0\n    return {'1': {'value': efficiency_percent, 'unit': '%'}}",
+  "author_check": "Numerical integral over s of exp[−(2/H_w + 3/H_a)z(s)] (the code's altitude dependence: P_H2O ∝ mixing ratio × air pressure, ρ ∝ exp(−z/H_a)); τ = 1.2617, efficiency 71.682 % vs key 71.682 % (0.000%). The z ≈ s²/2R Gaussian form gives the same result.",
+  "author_flag": "The key's altitude dependence of P_H2O (mixing-ratio scale height 4 km times the air-pressure scale height, giving the exponent 2/H_w + 3/H_a) is an interpretation that the problem text does not state. The shortcut uses the same convention, so it is not part of the trap, and I left it out of the sentence. A solver who reads '4 km' as the scale height of P_H2O itself would get a different key in both arms. The problem text also has odd ordering: the 'Take H_a = 7.4 km' line comes after 'Express your answer'.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air170_cunningham",
+  "trap_id": "trap_air170_cunningham",
+  "parent_id": "air_170",
+  "problem": "What updraft wind velocity is needed to keep a 0.1 µm-radius droplet from falling, given the Stokes constant k1 = 1.19×10⁸ m⁻¹ s⁻¹ and an air mean free path of 0.066 µm? Because the droplet radius R is comparable to the air mean free path λ, plain Stokes drag does not apply: multiply the Stokes fall speed k1·R² by the Cunningham slip correction C_c = 1 + (λ/R)[1.257 + 0.4 exp(−1.1 R/λ)]. Express your answer in cm s⁻¹.",
+  "inserted_sentence": "Because the droplet radius R is comparable to the air mean free path λ, plain Stokes drag does not apply: multiply the Stokes fall speed k1·R² by the Cunningham slip correction C_c = 1 + (λ/R)[1.257 + 0.4 exp(−1.1 R/λ)].",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.0002237,
+    "unit": "cm s^-1"
+   }
+  ],
+  "code": "def solve(R_um=0.1, k1=1.19e8):\n    import math\n    lam=6.6e-8; R=R_um*1e-6\n    w=k1*R**2\n    Kn=lam/R\n    Cc=1+Kn*(1.257+0.4*math.exp(-1.1/Kn))\n    return {\"1\":{\"value\": w*Cc*100.0, \"unit\":\"cm s^-1\"}}",
+  "author_check": "Stated relation evaluated independently: 2.2366e-4 cm/s vs key 2.237e-4 (0.02%, key rounded).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air_202_regime",
+  "trap_id": "trap_air_202_regime",
+  "parent_id": "air_202",
+  "problem": "Find the steady, frictionless balanced wind components (U, V) at a location where air density rho = 1.2 kg m^-3 and Coriolis parameter f_c = 1.1 x 10^-4 s^-1. The location is 800 km south of the center of a circular low-pressure system, and the flow follows the circular isobars. Pressure decreases by 2 kPa for each 800 km of distance north toward the low center (Delta P = -2 kPa, Delta y = 800 km, Delta P / Delta x = 0). Because the flow follows circular isobars of radius R = 800 km around the low, the straight-isobar geostrophic wind does not apply: the balanced wind is purely tangential (eastward here) with the gradient-wind speed V_t = [−f_c R + sqrt(f_c² R² + 4 (R/rho) ∂P/∂r)]/2, where ∂P/∂r > 0 is the magnitude of the outward pressure gradient. Express your answer in m s^{-1}.",
+  "inserted_sentence": "Because the flow follows circular isobars of radius R = 800 km around the low, the straight-isobar geostrophic wind does not apply: the balanced wind is purely tangential (eastward here) with the gradient-wind speed V_t = [−f_c R + sqrt(f_c² R² + 4 (R/rho) ∂P/∂r)]/2, where ∂P/∂r > 0 is the magnitude of the outward pressure gradient.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 16.02221810851934,
+    "unit": "m s^{-1}"
+   },
+   {
+    "sub": "2",
+    "value": 0.0,
+    "unit": "m s^{-1}"
+   }
+  ],
+  "code": "def solve(rho=1.2, f_c=0.00011, delta_P=-2000.0, delta_y=800000.0, radius=800000.0, dP_dx=0.0):\n    import math\n    dP_dy = delta_P / delta_y\n    dp_dr = -dP_dy\n    A = dp_dr / rho\n    V_tan = (-f_c * radius + math.sqrt((f_c * radius) ** 2 + 4.0 * radius * A)) / 2.0\n    U = V_tan\n    V = 0.0\n    return {'1': {'value': U, 'unit': 'm s^{-1}'}, '2': {'value': V, 'unit': 'm s^{-1}'}}",
+  "author_check": "U = 16.0222, V = 0 vs key 16.0222, 0 (exact).",
+  "author_flag": "The sentence necessarily gives away sub 2 (V = 0), but the shortcut gives V = 0 too, so sub 2 does not discriminate anyway.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air_226_gen",
+  "trap_id": "trap_air_226_gen",
+  "parent_id": "air_226",
+  "problem": "Given a Northern Hemisphere high-pressure center with tangential winds of 5 m s^{-1} at a surface, great-circle radius of 5000 km on a spherical Earth of radius 6371 km. Because the 5000 km radius is not small compared with the Earth's radius a, the tangent-plane result zeta = 2M/R does not apply: for solid-body rotation on the sphere the angular rate about the high's centre is Omega = M/[a sin(R/a)] and the relative vorticity at great-circle radius R is zeta = −2 Omega cos(R/a) (negative for anticyclonic rotation). What is the value of relative vorticity at that radius? Assume solid-body rotation about the high-pressure center on the spherical surface, and apply the correct sign for anti-cyclonic rotation in the Northern Hemisphere.\n\nExpress your answer in s^{-1}.",
+  "inserted_sentence": "Because the 5000 km radius is not small compared with the Earth's radius a, the tangent-plane result zeta = 2M/R does not apply: for solid-body rotation on the sphere the angular rate about the high's centre is Omega = M/[a sin(R/a)] and the relative vorticity at great-circle radius R is zeta = −2 Omega cos(R/a) (negative for anticyclonic rotation).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": -1.571471860839789e-06,
+    "unit": "s^{-1}"
+   }
+  ],
+  "code": "def solve(M=5.0, R_km=5000.0, earth_radius_km=6371.0) -> dict:\n    import math\n    R_m = R_km * 1000.0\n    a_m = earth_radius_km * 1000.0\n    theta = R_m / a_m\n    Omega = M / (a_m * math.sin(theta))\n    zeta_r = -2.0 * Omega * math.cos(theta)\n    return {'1': {'value': zeta_r, 'unit': 's^{-1}'}}",
+  "author_check": "-1.57147e-6 vs key -1.57147e-6 (exact).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air_301_gen",
+  "trap_id": "trap_air_301_gen",
+  "parent_id": "air_301",
+  "problem": "Find the steady-state updraft speed W in the middle of a thunderstorm in a z_i = 11,000 m thick troposphere. The vapor-only virtual temperature excess (Θ_vp - Θ_ve) is 5°C, and the updraft carries a liquid-water mixing ratio r_l = 5 g/kg. Assume |g|/T_ve = 0.0333 m·s⁻²·K⁻¹, |g| = 9.81 m/s², and a vertical drag coefficient C_w = 5 defined for a condensate-free parcel by W^2 = |g| z_i (Θ_vp - Θ_ve) / (C_w T_ve). Because the updraft carries liquid water, the condensate-free drag formula does not apply as written: reduce the buoyancy by the water-loading term, W^2 = z_i [(|g|/T_ve)(Θ_vp - Θ_ve) - |g| r_l] / C_w, with r_l in kg/kg. Express your answer in m/s.",
+  "inserted_sentence": "Because the updraft carries liquid water, the condensate-free drag formula does not apply as written: reduce the buoyancy by the water-loading term, W^2 = z_i [(|g|/T_ve)(Θ_vp - Θ_ve) - |g| r_l] / C_w, with r_l in kg/kg.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 16.074513989542577,
+    "unit": "m/s"
+   }
+  ],
+  "code": "def solve(g_over_Tve=0.0333, Cw=5, zi=11000.0, delta_theta=5.0, r_l_g_kg=5.0, g=9.81):\n    import math\n    r_l = r_l_g_kg / 1000.0\n    buoyancy = g_over_Tve * delta_theta - g * r_l\n    W = math.sqrt(zi / Cw * buoyancy)\n    return {'1': {'value': W, 'unit': 'm/s'}}",
+  "author_check": "16.0745 vs key 16.0745 (exact).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air_332_gen",
+  "trap_id": "trap_air_332_gen",
+  "parent_id": "air_332",
+  "problem": "Find the vertical gradient of potential temperature (ΔΘ/Δz) at the 26.5 kPa level in the troposphere for a standard atmosphere, where the temperature is T = 223.15 K. Given: The vertical temperature gradient is ΔT/Δz = -6.5 °C km⁻¹. Use θ = T(p0/p)^(R_d/c_p), with p0 = 100.0 kPa, R_d = 287.05 J kg⁻¹ K⁻¹, c_p = 1004.0 J kg⁻¹ K⁻¹, and Γ_d = 9.8 °C km⁻¹. Because 26.5 kPa is far from the reference pressure p0, the approximation θ/T ≈ 1 behind ΔΘ/Δz ≈ ΔT/Δz + Γ_d does not apply: use ΔΘ/Δz = (p0/p)^(R_d/c_p) (ΔT/Δz + Γ_d). Express your answer in ^{\\circ}\\mathrm{C\\ km^{-1}}.",
+  "inserted_sentence": "Because 26.5 kPa is far from the reference pressure p0, the approximation θ/T ≈ 1 behind ΔΘ/Δz ≈ ΔT/Δz + Γ_d does not apply: use ΔΘ/Δz = (p0/p)^(R_d/c_p) (ΔT/Δz + Γ_d).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 4.824048006564204,
+    "unit": "^{\\circ}\\mathrm{C\\ km^{-1}}"
+   }
+  ],
+  "code": "def solve(dT_dz_C_per_km=-6.5, p_kPa=26.5, T_K=223.15, p0_kPa=100.0, R_d=287.05, c_p=1004.0, Gamma_d_C_per_km=9.8):\n    dT_dz_K_per_km = dT_dz_C_per_km\n    Gamma_d_K_per_km = Gamma_d_C_per_km\n    kappa = R_d / c_p\n    theta_over_T = (p0_kPa / p_kPa) ** kappa\n    dTheta_dz_K_per_km = theta_over_T * (dT_dz_K_per_km + Gamma_d_K_per_km)\n    return {'1': {'value': dTheta_dz_K_per_km, 'unit': '^{\\\\circ}\\\\mathrm{C\\\\ km^{-1}}'}}",
+  "author_check": "4.82405 vs key 4.82405 (exact).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air_68_gen",
+  "trap_id": "trap_air_68_gen",
+  "parent_id": "air_68",
+  "problem": "Find the standard atmosphere temperature (T) and pressure (P) at a geopotential height of H = 25.0 km, using the International Standard Atmosphere layers: sea-level T0 = 288.15 K and P0 = 101.325 kPa; from 0 to 11 km, temperature decreases at 6.5 K/km; from 11 to 20 km, temperature is isothermal; from 20 to 32 km, temperature increases at 1.0 K/km. Because H = 25.0 km lies above the tropopause, the single tropospheric lapse-rate formula does not apply: integrate the hydrostatic equation layer by layer from each layer base (T_b, P_b, H_b), using T = T_b + a(H − H_b) and P = P_b (T/T_b)^(−g0/(R a)) in the linear layers (a = −6.5 K/km for 0–11 km, +1.0 K/km for 20–32 km) and P = P_b exp[−g0 (H − H_b)/(R T_b)] in the isothermal 11–20 km layer, with g0 = 9.80665 m s⁻² and R = 287.05 J kg⁻¹ K⁻¹. Express your answers: (1) in K, (2) in kPa.",
+  "inserted_sentence": "Because H = 25.0 km lies above the tropopause, the single tropospheric lapse-rate formula does not apply: integrate the hydrostatic equation layer by layer from each layer base (T_b, P_b, H_b), using T = T_b + a(H − H_b) and P = P_b (T/T_b)^(−g0/(R a)) in the linear layers (a = −6.5 K/km for 0–11 km, +1.0 K/km for 20–32 km) and P = P_b exp[−g0 (H − H_b)/(R T_b)] in the isothermal 11–20 km layer, with g0 = 9.80665 m s⁻² and R = 287.05 J kg⁻¹ K⁻¹.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 221.6,
+    "unit": "K"
+   },
+   {
+    "sub": "2",
+    "value": 2.5,
+    "unit": "kPa"
+   }
+  ],
+  "code": "def solve(H=25.0, T0=288.15, P0=101.325, L_trop=6.5, H_trop=11.0, H_iso_top=20.0, L_strat=1.0):\n    import math\n    g0 = 9.80665\n    R = 287.05287\n    # Convert km-layer inputs and K/km lapse rates to SI\n    H_m = H * 1000.0\n    H_trop_m = H_trop * 1000.0\n    H_iso_top_m = H_iso_top * 1000.0\n    a_trop = -L_trop / 1000.0  # K/m\n    a_strat = L_strat / 1000.0  # K/m\n\n    # 0 to 11 km: linear lapse rate\n    T11 = T0 + a_trop * H_trop_m\n    P11 = P0 * (T11 / T0) ** (-g0 / (R * a_trop))\n\n    # 11 to 20 km: isothermal\n    T20 = T11\n    P20 = P11 * math.exp(-g0 * (H_iso_top_m - H_trop_m) / (R * T11))\n\n    if H_m <= H_trop_m:\n        T = T0 + a_trop * H_m\n        P = P0 * (T / T0) ** (-g0 / (R * a_trop))\n    elif H_m <= H_iso_top_m:\n        T = T11\n        P = P11 * math.exp(-g0 * (H_m - H_trop_m) / (R * T11))\n    else:\n        T = T20 + a_strat * (H_m - H_iso_top_m)\n        P = P20 * (T / T20) ** (-g0 / (R * a_strat))\n\n    return {\"1\": {\"value\": round(T, 1), \"unit\": \"K\"}, \"2\": {\"value\": round(P, 1), \"unit\": \"kPa\"}}",
+  "author_check": "T = 221.65 K, P = 2.5109 kPa vs key 221.6 K, 2.5 kPa (0.02%, 0.44%; the key is rounded to one decimal by the solver).",
+  "author_flag": "Weak trap: the problem text already lists all three ISA layers, so there is little to 'recognise'; mechanism is None and the shortcut (125.6 K) is an absurd extrapolation. Key P is rounded to 2.5 kPa (unrounded 2.511); the sentence is long because the layered method has three pieces.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_air_91_gen",
+  "trap_id": "trap_air_91_gen",
+  "parent_id": "air_91",
+  "problem": "If 500 W·m^-2 of visible light strikes a hot translucent object, a detector on the far side measures 100 W·m^-2 of total visible radiation emerging through the object, and a detector on the illuminated side measures 150 W·m^-2 of total visible radiation emerging back from the object. At the same temperature, with the incident light blocked, the object emits 80 W·m^-2 of visible radiation from each face. Because the hot object's own visible emission adds to both measured fluxes, the measured fluxes are not the transmitted and reflected parts of the beam: subtract the per-face self-emission from each measured flux and divide by the incident flux to get t_λ and r_λ, then take a_λ = 1 − t_λ − r_λ and e_λ = a_λ (Kirchhoff). Find the transmissivity (t_λ), reflectivity (r_λ), absorptivity (a_λ), and emissivity (e_λ). Assume the object is in local thermodynamic equilibrium and its temperature is unchanged by the incident beam. Express your answers as dimensionless fractions.",
+  "inserted_sentence": "Because the hot object's own visible emission adds to both measured fluxes, the measured fluxes are not the transmitted and reflected parts of the beam: subtract the per-face self-emission from each measured flux and divide by the incident flux to get t_λ and r_λ, then take a_λ = 1 − t_λ − r_λ and e_λ = a_λ (Kirchhoff).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.04,
+    "unit": ""
+   },
+   {
+    "sub": "2",
+    "value": 0.14,
+    "unit": ""
+   },
+   {
+    "sub": "3",
+    "value": 0.82,
+    "unit": ""
+   },
+   {
+    "sub": "4",
+    "value": 0.82,
+    "unit": ""
+   }
+  ],
+  "code": "def solve(incident=500.0, total_far_side=100.0, total_illuminated_side=150.0, emitted_each_face=80.0):\n    transmitted_from_incident = total_far_side - emitted_each_face\n    reflected_from_incident = total_illuminated_side - emitted_each_face\n    t_lambda = transmitted_from_incident / incident\n    r_lambda = reflected_from_incident / incident\n    a_lambda = 1.0 - t_lambda - r_lambda\n    e_lambda = a_lambda\n    return {'1': {'value': t_lambda, 'unit': ''}, '2': {'value': r_lambda, 'unit': ''}, '3': {'value': a_lambda, 'unit': ''}, '4': {'value': e_lambda, 'unit': ''}}",
+  "author_check": "t=0.04, r=0.14, a=0.82, e=0.82 vs key 0.04, 0.14, 0.82, 0.82 (exact).",
+  "author_flag": "The relation is close to the whole solution (the problem is a single arithmetic step once the emission term is recognised).",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_ca_5.3_gen",
+  "trap_id": "trap_ca_5.3_gen",
+  "parent_id": "ca_5.3",
+  "problem": "An ESP operating in laminar, unmixed plug flow, with no transverse turbulent mixing and particles initially uniformly distributed across each gas passage, must treat 500,000 acfm with 99% efficiency. Because the flow is laminar and unmixed, the Deutsch-Anderson exponential law does not apply: the collection efficiency is linear in plate area, η = w A / Q, with w the drift velocity and Q the volumetric flow in ft³/s. Assuming an effective drift velocity of 0.4 ft/sec, calculate the required collecting plate area in ft2, and the number of plates if each plate is 20 ft tall by 10 ft long and collects on both sides.",
+  "inserted_sentence": "Because the flow is laminar and unmixed, the Deutsch-Anderson exponential law does not apply: the collection efficiency is linear in plate area, η = w A / Q, with w the drift velocity and Q the volumetric flow in ft³/s.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 20625.0,
+    "unit": "ft2"
+   },
+   {
+    "sub": "2",
+    "value": 51.5625,
+    "unit": "plates"
+   }
+  ],
+  "code": "def solve(flow_acfm=500000.0, efficiency=0.99, drift_velocity_ft_s=0.4, plate_height_ft=20.0, plate_length_ft=10.0):\n    flow_ft3_s = flow_acfm / 60.0\n    area_ft2 = efficiency * flow_ft3_s / drift_velocity_ft_s\n    plate_area_one_side_ft2 = plate_height_ft * plate_length_ft\n    collection_area_per_plate_ft2 = 2.0 * plate_area_one_side_ft2\n    num_plates = area_ft2 / collection_area_per_plate_ft2\n    return {'1': {'value': area_ft2, 'unit': 'ft2'}, '2': {'value': num_plates, 'unit': 'plates'}}",
+  "author_check": "A = 20625 ft², plates = 51.5625 vs key 20625, 51.5625 (exact).",
+  "author_flag": "Key gives a non-integer plate count (51.56); a physical answer is 52 plates (0.85% off, passes at 5%).",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_dn_10.39_gen",
+  "trap_id": "trap_dn_10.39_gen",
+  "parent_id": "dn_10.39",
+  "problem": "Estimate the temperature required for a well-stirred afterburner that behaves as a completely mixed flow reactor to destroy 99.5 percent of the toluene contained in an airstream with a mean residence time of 0.5 s using the values in Table 10.4. Because the afterburner is completely mixed, the plug-flow exponential destruction law does not apply: for a first-order continuously stirred reactor the destruction efficiency is η = kτ/(1 + kτ), with k = A exp(−E/(RT)). Compare your results with the example calculation in Cooper and Alley [37], in which they show that three different methods of making this estimate lead to answers of 1326°, 1263°, and 1331°F. The first-order thermal-oxidation Arrhenius parameters for toluene are A = 2.28 × 10^13 s^-1 and E = 56.5 kcal mol^-1.",
+  "inserted_sentence": "Because the afterburner is completely mixed, the plug-flow exponential destruction law does not apply: for a first-order continuously stirred reactor the destruction efficiency is η = kτ/(1 + kτ), with k = A exp(−E/(RT)).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 1606.5367074611534,
+    "unit": "°F"
+   }
+  ],
+  "code": "def solve(eta=0.995, tau=0.5, A=22800000000000.0, E_kcal_per_mol=56.5):\n    import math\n    k_required = eta / ((1.0 - eta) * tau)\n    E_cal_per_mol = E_kcal_per_mol * 1000.0\n    R = 1.987\n    T_K = -E_cal_per_mol / (R * math.log(k_required / A))\n    T_C = T_K - 273.15\n    T_F = T_C * 9.0 / 5.0 + 32.0\n    return {'1': {'value': T_F, 'unit': '°F'}}",
+  "author_check": "1606.54 °F vs key 1606.54 °F (exact; R = 1.987 cal mol⁻¹ K⁻¹).",
+  "author_flag": "No answer unit is stated in the problem (key is °F, implied by the comparison values); the comparison sentence with Cooper and Alley's plug-flow values is ungraded and could mislead toward ~1300 °F.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_dn_15.19_gen",
+  "trap_id": "trap_dn_15.19_gen",
+  "parent_id": "dn_15.19",
+  "problem": "Measurements in the basement of our house indicate a radon concentration of 6 pCi/L. The outdoor air in our area has a radon concentration of 1 pCi/L. The basement, which has a volume of 8000 ft^3, is believed to have an infiltration rate of outside air of 0.005 air change per hour. The air in the soil under the house has a radon concentration of 1000 pCi/L. Use a radon-222 half-life of 3.8 days. Because the infiltration rate is so low that radioactive decay removes radon at a comparable rate, a ventilation-only balance does not apply: use the steady radon balance Q_o C_o + Q_s C_s = (Q_o + Q_s) C_b + λ V C_b with λ = ln 2 / t_½, where Q_o is the outdoor-air flow, Q_s the soil-air leakage (the same in part (b)), C_o, C_s, C_b the outdoor, soil and basement concentrations and V the basement volume. (a) Estimate the rate at which air from underneath the house leaks into the basement. (b) If we decide to force outdoor air into the basement to increase the ventilation, how large must the total outdoor-air ventilation rate be to reduce the radon concentration to 4 pCi/L? Express your answers: (a) in ft^3/hr, (b) in ft^3/min.",
+  "inserted_sentence": "Because the infiltration rate is so low that radioactive decay removes radon at a comparable rate, a ventilation-only balance does not apply: use the steady radon balance Q_o C_o + Q_s C_s = (Q_o + Q_s) C_b + λ V C_b with λ = ln 2 / t_½, where Q_o is the outdoor-air flow, Q_s the soil-air leakage (the same in part (b)), C_o, C_s, C_b the outdoor, soil and basement concentrations and V the basement volume.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.5682236474425211,
+    "unit": "ft^3/hr"
+   },
+   {
+    "sub": "2",
+    "value": 1.7930067545231871,
+    "unit": "ft^3/min"
+   }
+  ],
+  "code": "def solve(C_basement=6.0, C_outdoor=1.0, C_soil=1000.0, V_basement_ft3=8000.0, air_changes_per_hour=0.005, C_target=4.0, half_life_days=3.8):\n    import math\n    ft3_to_L = 28.316846592\n    V_L = V_basement_ft3 * ft3_to_L\n    Q_out_L_per_hr = air_changes_per_hour * V_L\n    lambda_per_hr = math.log(2.0) / (half_life_days * 24.0)\n\n    # Steady activity balance including radioactive decay:\n    # Q_out*C_out + Q_soil*C_soil = (Q_out + Q_soil)*C_basement + lambda*V*C_basement\n    Q_soil_L_per_hr = (Q_out_L_per_hr * (C_basement - C_outdoor) + lambda_per_hr * V_L * C_basement) / (C_soil - C_basement)\n    Q_soil_ft3_per_hr = Q_soil_L_per_hr / ft3_to_L\n\n    # With total outdoor-air flow Q_o_total at C_outdoor and same soil leakage:\n    # Q_o_total*C_out + Q_soil*C_soil = (Q_o_total + Q_soil)*C_target + lambda*V*C_target\n    Q_o_total_L_per_hr = (Q_soil_L_per_hr * (C_soil - C_target) - lambda_per_hr * V_L * C_target) / (C_target - C_outdoor)\n    Q_o_total_ft3_per_min = Q_o_total_L_per_hr / ft3_to_L / 60.0\n\n    return {\"1\": {\"value\": Q_soil_ft3_per_hr, \"unit\": \"ft^3/hr\"}, \"2\": {\"value\": Q_o_total_ft3_per_min, \"unit\": \"ft^3/min\"}}",
+  "author_check": "Q_s = 0.56822 ft³/hr, Q_o,total = 1.79301 ft³/min vs key 0.56822, 1.79301 (exact).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_dn_15.2_gen",
+  "trap_id": "trap_dn_15.2_gen",
+  "parent_id": "dn_15.2",
+  "problem": "Find the steady-state percent COHb for a person breathing air containing 150 ppm CO. Use the Haldane affinity ratio M = 218, alveolar O2 partial pressure = 100 torr, alveolar ventilation rate = 6 L min^-1, pulmonary CO diffusing capacity = 30 mL(stp) min^-1 torr^-1, endogenous CO production = 0.007 mL(stp) min^-1, barometric pressure = 1 atm, and water-vapour pressure at body temperature = 47 torr. Because COHb occupies a non-negligible fraction of the binding sites, [O2Hb] cannot be held at the full 0.20 mL(stp)/mL: combine the Haldane relation [COHb]/[O2Hb] = x = M P_CO/P_O2 with [O2Hb] + [COHb] = 0.20 mL(stp)/mL, so %COHb = 100 x/(1 + x), where P_CO = P_I,CO + V̇_CO (1/D_L + (P_B − P_H2O)/V̇_A) is the steady blood-equivalent CO pressure and P_I,CO = (ppm × 10⁻⁶)(P_B − P_H2O). Because this exposure makes COHb a non-negligible fraction of the hemoglobin binding sites, take the total hemoglobin binding capacity to be [O2Hb] + [COHb] = 0.20 mL(stp)/mL blood, and use %COHb = [COHb]/0.20 * 100.",
+  "inserted_sentence": "Because COHb occupies a non-negligible fraction of the binding sites, [O2Hb] cannot be held at the full 0.20 mL(stp)/mL: combine the Haldane relation [COHb]/[O2Hb] = x = M P_CO/P_O2 with [O2Hb] + [COHb] = 0.20 mL(stp)/mL, so %COHb = 100 x/(1 + x), where P_CO = P_I,CO + V̇_CO (1/D_L + (P_B − P_H2O)/V̇_A) is the steady blood-equivalent CO pressure and P_I,CO = (ppm × 10⁻⁶)(P_B − P_H2O).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 19.05934417526044,
+    "unit": "%"
+   }
+  ],
+  "code": "def solve(\n    co_in_air_ppm=150.0,\n    total_hemoglobin_binding_capacity_ml_stp_per_ml_blood=0.20,\n    haldane_affinity_ratio=218.0,\n    alveolar_o2_pressure_torr=100.0,\n    endogenous_co_production_ml_stp_per_min=0.007,\n    alveolar_ventilation_l_per_min=6.0,\n    pulmonary_diffusing_capacity_ml_stp_per_min_per_torr=30.0,\n    barometric_pressure_atm=1.0,\n    water_vapor_pressure_torr=47.0,\n):\n    torr_per_atm = 760.0\n    ml_per_l = 1000.0\n    ppm_per_fraction = 1000000.0\n    percent_per_fraction = 100.0\n\n    alveolar_ventilation_ml_per_min = alveolar_ventilation_l_per_min * ml_per_l\n    dry_inspired_pressure_torr = barometric_pressure_atm * torr_per_atm - water_vapor_pressure_torr\n\n    inspired_co_pressure_torr = co_in_air_ppm / ppm_per_fraction * dry_inspired_pressure_torr\n\n    total_co_transfer_resistance_torr_per_ml_stp_per_min = (\n        1.0 / pulmonary_diffusing_capacity_ml_stp_per_min_per_torr\n        + dry_inspired_pressure_torr / alveolar_ventilation_ml_per_min\n    )\n\n    blood_equivalent_co_pressure_torr = (\n        inspired_co_pressure_torr\n        + endogenous_co_production_ml_stp_per_min\n        * total_co_transfer_resistance_torr_per_ml_stp_per_min\n    )\n\n    # Haldane equilibrium gives [COHb]/[O2Hb] = M P_CO / P_O2.\n    # With conservation of binding sites, [O2Hb] = H_total - [COHb].\n    ratio_cohb_to_o2hb = (\n        haldane_affinity_ratio * blood_equivalent_co_pressure_torr / alveolar_o2_pressure_torr\n    )\n    cohb_fraction_of_total_capacity = ratio_cohb_to_o2hb / (1.0 + ratio_cohb_to_o2hb)\n    cohb_ml_stp_per_ml_blood = (\n        total_hemoglobin_binding_capacity_ml_stp_per_ml_blood\n        * cohb_fraction_of_total_capacity\n    )\n    cohb_percent = (\n        cohb_ml_stp_per_ml_blood\n        / total_hemoglobin_binding_capacity_ml_stp_per_ml_blood\n        * percent_per_fraction\n    )\n\n    return {\"1\": {\"value\": cohb_percent, \"unit\": \"%\"}}",
+  "author_check": "19.0593 % vs key 19.0593 % (exact); shortcut x·100 = 23.547 reproduced as a check.",
+  "author_flag": "The problem already carries a partial cue ('Because this exposure makes COHb a non-negligible fraction ... take ... [O2Hb] + [COHb] = 0.20'), so the trap is already half de-trapped; with this insertion there are two consecutive 'Because' sentences. No question sentence follows, so the insertion goes before the existing cue sentence.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_dn_4.4_regime",
+  "trap_id": "trap_dn_4.4_regime",
+  "parent_id": "dn_4.4",
+  "problem": "We have tested a plant's emissions of particulates and found the following data: Sample number, Stack gas velocity, ft/s, Particle concentration, g/m^3: 1, 50, 0.50; 2, 60, 0.30; 3, 40, 0.70. The stack is vertical with upward gas flow. The particles are coarse enough to settle downward through the gas at a terminal speed of 30 ft/s; the listed velocities are gas velocities, and the listed concentrations are in-stack particle mass per gas volume. Each sample represents the average over a 20-min period. Because the particles settle at speed w_s relative to the upward-moving gas, they do not move with the gas: in each 20-min sample the particle mass flux is c_i (v_i − w_s) while the gas volume flux is v_i, so the average is Σ c_i (v_i − w_s) / Σ v_i over the three equal periods. What was the average particle concentration of the discharge over the whole 60 min of this test, defined as total particle mass leaving the stack divided by total gas volume leaving the stack?",
+  "inserted_sentence": "Because the particles settle at speed w_s relative to the upward-moving gas, they do not move with the gas: in each 20-min sample the particle mass flux is c_i (v_i − w_s) while the gas volume flux is v_i, so the average is Σ c_i (v_i − w_s) / Σ v_i over the three equal periods.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.1733333333333333,
+    "unit": "g/m^3"
+   }
+  ],
+  "code": "def solve(v1_ft_s=50.0, c1_g_m3=0.5, v2_ft_s=60.0, c2_g_m3=0.3, v3_ft_s=40.0, c3_g_m3=0.7, settling_ft_s=30.0, duration_min=20.0):\n    ft_to_m = 0.3048\n    min_to_s = 60.0\n    v1 = v1_ft_s * ft_to_m\n    v2 = v2_ft_s * ft_to_m\n    v3 = v3_ft_s * ft_to_m\n    ws = settling_ft_s * ft_to_m\n    dt = duration_min * min_to_s\n    vp1 = v1 - ws\n    vp2 = v2 - ws\n    vp3 = v3 - ws\n    area_m2 = 1.0\n    total_particle_mass_g = area_m2 * dt * (c1_g_m3 * vp1 + c2_g_m3 * vp2 + c3_g_m3 * vp3)\n    total_gas_volume_m3 = area_m2 * dt * (v1 + v2 + v3)\n    avg_conc = total_particle_mass_g / total_gas_volume_m3\n    return {'1': {'value': avg_conc, 'unit': 'g/m^3'}}",
+  "author_check": "0.173333 g/m³ vs key 0.173333 (exact).",
+  "author_flag": "A 30 ft/s (≈9 m/s) settling speed implies millimetre-size particles, physically implausible for stack particulate; the stated relation is essentially the whole solution.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_fp_13.2_gen",
+  "trap_id": "trap_fp_13.2_gen",
+  "parent_id": "fp_13.2",
+  "problem": "One of the approaches to the development of alternate CFCs is to use compounds with one or more abstractable hydrogen atoms so that their atmospheric lifetimes are reduced and less persists. (a) Calculate the sunlit upper-stratospheric lifetimes with respect to total chemical loss, including both reaction with OH and photolysis, of CCl4, CHCl3, CH2Cl2, and CH3Cl. Assume for the sake of these calculations a temperature of 298 K and an OH concentration of 1×10^6 radicals cm−3. The OH rate constants are 5×10−16, 1.0×10−13, 1.1×10−13, and 3.6×10−14 cm3 molecule−1 s−1, respectively. The photolysis frequencies J at this altitude are 1.0×10−8, 2.0×10−7, 2.0×10−7, and 5.0×10−8 s−1, respectively. (b) Are there any potential negative implications of their reactivity with OH in terms of air quality? Because in the sunlit upper stratosphere photolysis is a first-order loss comparable to or larger than reaction with OH, the OH-only lifetime does not apply: use τ = 1/(k_OH [OH] + J). Express the CCl4 lifetime in years and the other three in days.",
+  "inserted_sentence": "Because in the sunlit upper stratosphere photolysis is a first-order loss comparable to or larger than reaction with OH, the OH-only lifetime does not apply: use τ = 1/(k_OH [OH] + J).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 3.017913125145614,
+    "unit": "years"
+   },
+   {
+    "sub": "2",
+    "value": 38.58024691358025,
+    "unit": "days"
+   },
+   {
+    "sub": "3",
+    "value": 37.33572281959379,
+    "unit": "days"
+   },
+   {
+    "sub": "4",
+    "value": 134.58225667527992,
+    "unit": "days"
+   }
+  ],
+  "code": "def solve(k_CCl4=5e-16, k_CHCl3=1e-13, k_CH2Cl2=1.1e-13, k_CH3Cl=3.6e-14, J_CCl4=1e-08, J_CHCl3=2e-07, J_CH2Cl2=2e-07, J_CH3Cl=5e-08, OH_conc=1000000.0, T=298.0):\n    seconds_per_day = 86400.0\n    days_per_year = 365.25\n    loss_CCl4 = k_CCl4 * OH_conc + J_CCl4\n    loss_CHCl3 = k_CHCl3 * OH_conc + J_CHCl3\n    loss_CH2Cl2 = k_CH2Cl2 * OH_conc + J_CH2Cl2\n    loss_CH3Cl = k_CH3Cl * OH_conc + J_CH3Cl\n    tau_CCl4_years = 1.0 / loss_CCl4 / seconds_per_day / days_per_year\n    tau_CHCl3_days = 1.0 / loss_CHCl3 / seconds_per_day\n    tau_CH2Cl2_days = 1.0 / loss_CH2Cl2 / seconds_per_day\n    tau_CH3Cl_days = 1.0 / loss_CH3Cl / seconds_per_day\n    return {'1': {'value': tau_CCl4_years, 'unit': 'years'}, '2': {'value': tau_CHCl3_days, 'unit': 'days'}, '3': {'value': tau_CH2Cl2_days, 'unit': 'days'}, '4': {'value': tau_CH3Cl_days, 'unit': 'days'}}",
+  "author_check": "3.01791 yr, 38.5802 d, 37.3357 d, 134.582 d vs key identical (exact; 365.25 d/yr).",
+  "author_flag": "The problem already says 'with respect to total chemical loss, including both reaction with OH and photolysis', so the trap is already explicitly de-trapped in the original text; the control adds little. Also [OH] = 1e6 at 298 K is not a realistic upper-stratospheric state; part (b) is ungraded.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_fp_6.1_gen",
+  "trap_id": "trap_fp_6.1_gen",
+  "parent_id": "fp_6.1",
+  "problem": "The individual gas-phase rate constants for trans-2-butene with respect to OH, O3, and NO3 are kOH = 6.4 × 10−11, kO3 = 1.9 × 10−16, and kNO3 = 3.9 × 10−13 cm3 molecule−1 s−1. Calculate the overall “instantaneous” lifetime of this compound with respect to these three oxidants acting together at the same time in a 10.0 Torr, 298 K low-pressure chamber, at concentrations of OH of 4 × 104 molecules cm−3, of O3 of 50 ppb, and of NO3 of 100 ppt, which might be used to simulate a nighttime situation. Because the chamber is at 10.0 Torr rather than 1 atm, the ppb/ppt mixing ratios must not be converted with the 1-atm air number density: use n_air = P/(k_B T) at the chamber pressure and temperature, [O3] = (50 × 10⁻⁹) n_air and [NO3] = (100 × 10⁻¹²) n_air, with τ = 1/(k_OH[OH] + k_O3[O3] + k_NO3[NO3]). Express your answer in minutes.",
+  "inserted_sentence": "Because the chamber is at 10.0 Torr rather than 1 atm, the ppb/ppt mixing ratios must not be converted with the 1-atm air number density: use n_air = P/(k_B T) at the chamber pressure and temperature, [O3] = (50 × 10⁻⁹) n_air and [NO3] = (100 × 10⁻¹²) n_air, with τ = 1/(k_OH[OH] + k_O3[O3] + k_NO3[NO3]).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 911.9370394745378,
+    "unit": "min"
+   }
+  ],
+  "code": "def solve(OH_conc=40000.0, O3_ppb=50.0, NO3_ppt=100.0, P_torr=10.0, T=298.0, k_OH=6.4e-11, k_O3=1.9e-16, k_NO3=3.9e-13):\n    k_B = 1.380649e-23\n    torr_to_Pa = 101325.0 / 760.0\n    P = P_torr * torr_to_Pa\n    n_air = P / (k_B * T) * 1e-06\n    O3_conc = O3_ppb * 1e-09 * n_air\n    NO3_conc = NO3_ppt * 1e-12 * n_air\n    inv_tau = k_OH * OH_conc + k_O3 * O3_conc + k_NO3 * NO3_conc\n    tau_min = 1.0 / inv_tau / 60.0\n    return {'1': {'value': tau_min, 'unit': 'min'}}",
+  "author_check": "911.94 min vs key 911.94 (0.0002%).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_holton_28_gen",
+  "trap_id": "trap_holton_28_gen",
+  "parent_id": "holton_28",
+  "problem": "Two balls 4 cm in diameter are placed with their centers 8 cm apart on a frictionless horizontal plane at 43°N. Because at the speeds required the Coriolis deflection is not small compared with the separation, the small-deflection estimate does not apply: the relative position of the two centres moves on an inertial circle of radius 2v/f (f = 2Ω sin φ), so their closest approach is sqrt(S² + (2v/f)²) − 2v/f with S the initial centre separation, and just missing means this closest approach equals one ball diameter. If the balls are impulsively propelled directly at each other with equal speeds, at what speed must they travel so that they just miss each other?",
+  "inserted_sentence": "Because at the speeds required the Coriolis deflection is not small compared with the separation, the small-deflection estimate does not apply: the relative position of the two centres moves on an inertial circle of radius 2v/f (f = 2Ω sin φ), so their closest approach is sqrt(S² + (2v/f)²) − 2v/f with S the initial centre separation, and just missing means this closest approach equals one ball diameter.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 2.984e-06,
+    "unit": "m/s"
+   }
+  ],
+  "code": "def solve(diameter_cm=4.0, center_separation_cm=8.0, latitude_deg=43.0):\n    import math\n\n    Omega = 7.2921159e-5  # Earth's rotation rate, rad/s\n\n    d = diameter_cm / 100.0\n    S = center_separation_cm / 100.0\n    lat = math.radians(latitude_deg)\n    f = 2.0 * Omega * math.sin(lat)\n\n    # Exact f-plane inertial-motion geometry for the relative separation of the two centers:\n    # r(t) = (S - 2(v/f) sin(ft), -2(v/f)(1 - cos(ft))).\n    # This is a circle with center distance sqrt(S^2 + (2v/f)^2) from the origin\n    # and radius 2v/f, so its minimum distance from the origin is\n    # sqrt(S^2 + (2v/f)^2) - 2v/f.  Just missing requires this minimum to equal d.\n    # Solving gives v = f * (S^2 - d^2) / (4d).\n    v = f * (S*S - d*d) / (4.0 * d)\n\n    return {\"1\": {\"value\": v, \"unit\": \"m/s\"}}",
+  "author_check": "Solved sqrt(S²+R²)−R = d numerically for R = 2v/f: v = 2.98392e-6 m/s vs key 2.984e-6 (0.003%, key rounded).",
+  "author_flag": "Mechanism is None and what_changed describes the base method rather than the change (apparently the separation was reduced so deflection is no longer small). No answer unit is stated in the problem (key m/s); Ω = 7.2921e-5 s⁻¹ is not given.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_holton_38_gen",
+  "trap_id": "trap_holton_38_gen",
+  "parent_id": "holton_38",
+  "problem": "An aircraft flying a heading of 60° (i.e., 60° to the east of north) at air speed 200 m s−1 moves relative to the ground due east (90°) at 225 m s−1. Because the pressure surface is itself rising with time, its slope alone does not give the altitude change: the aircraft's rate of climb is dz/dt = ∂z/∂t + u ∂z/∂x + v ∂z/∂y, where (u, v) is the ground velocity and the slope of the pressure surface follows from the geostrophic wind (u_g, v_g) (the ground velocity minus the air velocity) as ∂z/∂x = f v_g/g and ∂z/∂y = −f u_g/g; divide dz/dt by the ground speed to get the change per unit horizontal distance. If the plane is flying at constant pressure, what is its rate of change in altitude (in meters per kilometer horizontal distance) assuming the height of this pressure surface is rising uniformly at 0.10 m s−1 everywhere, geostrophic winds, and f = 10−4 s−1?",
+  "inserted_sentence": "Because the pressure surface is itself rising with time, its slope alone does not give the altitude change: the aircraft's rate of climb is dz/dt = ∂z/∂t + u ∂z/∂x + v ∂z/∂y, where (u, v) is the ground velocity and the slope of the pressure surface follows from the geostrophic wind (u_g, v_g) (the ground velocity minus the air velocity) as ∂z/∂x = f v_g/g and ∂z/∂y = −f u_g/g; divide dz/dt by the ground speed to get the change per unit horizontal distance.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": -0.5749235474006117,
+    "unit": "m per km"
+   }
+  ],
+  "code": "def solve(heading_deg=60.0, airspeed=200.0, ground_course_deg=90.0, ground_speed=225.0, height_tendency=0.1, f=0.0001):\n    import math\n    g = 9.81\n\n    def to_vec(speed, compass_deg):\n        rad = math.radians(compass_deg)\n        east = speed * math.sin(rad)\n        north = speed * math.cos(rad)\n        return (east, north)\n    air_e, air_n = to_vec(airspeed, heading_deg)\n    grd_e, grd_n = to_vec(ground_speed, ground_course_deg)\n    wind_e = grd_e - air_e\n    wind_n = grd_n - air_n\n    dPhi_dx = f * wind_n\n    dPhi_dy = -f * wind_e\n    dz_dx = dPhi_dx / g\n    dz_dy = dPhi_dy / g\n    horiz_speed = math.hypot(grd_e, grd_n)\n    dzdt_total = height_tendency + grd_e * dz_dx + grd_n * dz_dy\n    dz_per_km = dzdt_total / horiz_speed * 1000.0\n    return {'1': {'value': dz_per_km, 'unit': 'm per km'}}",
+  "author_check": "Independent python implementation of the stated relation (rate of climb = 0.10 m/s + ground-velocity dot slope (slope from geostrophic wind, g = 9.81), divided by 225 m/s): -0.574924 vs key -0.574924 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_holton_39_gen",
+  "trap_id": "trap_holton_39_gen",
+  "parent_id": "holton_39",
+  "problem": "In the surface boundary layer, the actual wind is 20 m s^-1 and directed 30° to the right of the geostrophic wind. Because the wind is in the surface layer with linear drag, the frictionless result is incomplete: the material rate of change of speed is dV/dt = −f V_g sin α − rV, where α is the angle by which the actual wind is turned to the right of the geostrophic wind. If the geostrophic wind is 20 m s^-1, what is the instantaneous material rate of change of wind speed? Let f = 10^-4 s^-1, and represent turbulent drag as a linear acceleration -r V with r = 10^-4 s^-1.",
+  "inserted_sentence": "Because the wind is in the surface layer with linear drag, the frictionless result is incomplete: the material rate of change of speed is dV/dt = −f V_g sin α − rV, where α is the angle by which the actual wind is turned to the right of the geostrophic wind.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": -0.003,
+    "unit": "m s^-2"
+   }
+  ],
+  "code": "def solve(angle_deg=30.0, V=20.0, Vg=20.0, f=0.0001, r=0.0001):\n    import math\n    angle_rad = math.radians(angle_deg)\n    dVdt = -f * Vg * math.sin(angle_rad) - r * V\n    return {'1': {'value': dVdt, 'unit': 'm s^-2'}}",
+  "author_check": "Independent python implementation of the stated relation (dV/dt = -1e-4*20*sin30 - 1e-4*20): -0.003 vs key -0.003 (all within 0.001 %).",
+  "author_flag": "In the Northern Hemisphere surface layer friction normally turns the wind to the LEFT of geostrophic (toward low pressure); 'to the right' (toward high pressure) is inherited from the parent but is physically unusual for a boundary-layer wind.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_holton_50_gen",
+  "trap_id": "trap_holton_50_gen",
+  "parent_id": "holton_50",
+  "problem": "Suppose that the environmental lapse rate at the 850-hPa level is 4 K km^-1. At this level the air is saturated; take the saturated adiabatic lapse rate to be 6 K km^-1. Because the air is saturated, rising air cools at the saturated adiabatic lapse rate rather than the dry one: use w = −(∂T/∂t + u ∂T/∂x)/(Γ_s − Γ), where Γ_s is the saturated adiabatic lapse rate and Γ the environmental lapse rate. If the temperature at a given location is decreasing at a rate of 2 K h^-1, the wind is westerly at 10 m s^-1, and the temperature decreases toward the west at a rate of 5 K/100 km, compute the vertical velocity at the 850-hPa level using the adiabatic method.",
+  "inserted_sentence": "Because the air is saturated, rising air cools at the saturated adiabatic lapse rate rather than the dry one: use w = −(∂T/∂t + u ∂T/∂x)/(Γ_s − Γ), where Γ_s is the saturated adiabatic lapse rate and Γ the environmental lapse rate.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.027777777777777773,
+    "unit": "m/s"
+   }
+  ],
+  "code": "def solve(lapse_rate=4.0, saturated_adiabatic_lapse_rate=6.0, dT_dt=-2.0, u=10.0, dT_dx_per_100km=-5.0):\n    Gamma_env = lapse_rate / 1000.0\n    Gamma_s = saturated_adiabatic_lapse_rate / 1000.0\n    dTdt = dT_dt / 3600.0\n    dTdx = -dT_dx_per_100km / (100.0 * 1000.0)\n    adv = u * dTdx\n    w = -(dTdt + adv) / (Gamma_s - Gamma_env)\n    return {'1': {'value': w, 'unit': 'm/s'}}",
+  "author_check": "Independent python implementation of the stated relation (dT/dt = -2 K/h, dT/dx = +5 K/100 km (decreasing westward), Γ_s-Γ = 2 K/km): 0.0277778 vs key 0.0277778 (all within 0.001 %).",
+  "author_flag": "The change is already cued in the text ('the air is saturated; take the saturated adiabatic lapse rate to be 6 K km^-1'), so the control sentence adds little beyond the sign/formula.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_holton_5_gen",
+  "trap_id": "trap_holton_5_gen",
+  "parent_id": "holton_5",
+  "problem": "For turbulent flow in a rotating cylindrical vessel filled with water (molecular kinematic viscosity ν = 0.01 cm² s⁻¹, effective turbulent eddy kinematic viscosity K = 1.0 cm² s⁻¹), compute the depth of the Ekman layer and the spin-down time if the depth of the fluid is 30 cm and the rotation rate of the tank is 10 revolutions per minute. Because the flow is turbulent, the molecular viscosity is not the relevant momentum diffusivity: use the eddy viscosity K throughout, with Ekman-layer depth δ = (K/Ω)^{1/2}, spin-down time τ = H/(KΩ)^{1/2} and side-wall diffusion time R²/K, where Ω is the tank's angular velocity and H the fluid depth. How small would the radius of the tank have to be in order that the time scale for turbulent momentum diffusion from the side walls be comparable to the spin-down time?",
+  "inserted_sentence": "Because the flow is turbulent, the molecular viscosity is not the relevant momentum diffusivity: use the eddy viscosity K throughout, with Ekman-layer depth δ = (K/Ω)^{1/2}, spin-down time τ = H/(KΩ)^{1/2} and side-wall diffusion time R²/K, where Ω is the tank's angular velocity and H the fluid depth.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.97720502380584,
+    "unit": "cm"
+   },
+   {
+    "sub": "2",
+    "value": 29.316150714175194,
+    "unit": "s"
+   },
+   {
+    "sub": "3",
+    "value": 5.414439095065637,
+    "unit": "cm"
+   }
+  ],
+  "code": "def solve(nu=0.01, K=1.0, depth=30.0, rpm=10.0):\n    import math\n    Omega = rpm * 2.0 * math.pi / 60.0\n    delta_E = math.sqrt(K / Omega)\n    tau_spindown = depth / (delta_E * Omega)\n    R = math.sqrt(K * tau_spindown)\n    return {'1': {'value': delta_E, 'unit': 'cm'}, '2': {'value': tau_spindown, 'unit': 's'}, '3': {'value': R, 'unit': 'cm'}}",
+  "author_check": "Independent python implementation of the stated relation (Ω = 2π·10/60 s^-1, K = 1 cm^2/s, H = 30 cm; R from R^2/K = τ): 0.977205 vs key 0.977205; 29.3162 vs key 29.3162; 5.41444 vs key 5.41444 (all within 0.001 %).",
+  "author_flag": "The change is already cued in the text ('For turbulent flow ... effective turbulent eddy kinematic viscosity K'); ν is given but unused by the key.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_jacob_13.4_p11",
+  "trap_id": "trap_jacob_13.4_p11",
+  "parent_id": "jacob_13.4",
+  "problem": "The southern San Joaquin Valley of California experiences extended stagnation episodes in winter due to strong and persistent subsidence inversions. These stagnation episodes are often accompanied by thick valley fogs. We use here a box model to describe the valley air during such a foggy stagnation episode. The top of the box is defined by the base of the inversion, 400 m above the valley floor. We assume no ventilation out of the box. The temperature in the box is 273 K and the pressure is 1 atm. A frontal passage has just scoured the valley out, so at the moment the inversion closes the valley air contains no SO2 and no H2SO4 at all, and the fog forms immediately. 1. The major sources of air pollution in the valley are steam generators for oil recovery, emitting SO2 with a mean flux E = 4 x 10^2 moles km^-2 day^-1. This SO2 is removed from the valley air by deposition to the surface (first-order rate constant k_d = 0.5 day^-1) and by oxidation to H2SO4 (first-order rate constant k_o = 1 day^-1). Calculate the SO2 concentration in the valley 6 hours after the inversion closes, in units of ppbv. 2. Sulfuric acid produced from SO2 oxidation in the valley air is incorporated immediately into the fog droplets. These fog droplets are then removed from the valley air by deposition with a first-order rate constant k_d' = 2 day^-1. The liquid water content of the fog is 1 x 10^-4 l water per m^3 of air. Calculate the fogwater pH at that same moment, 6 hours after the inversion closes, if H2SO4 is the only substance dissolved in the fog droplets. Because the valley starts clean and 6 hours is short compared with the SO2 lifetime, steady state has not been reached: integrate the column budgets dN_SO2/dt = E − (k_d + k_o) N_SO2 and dN_H2SO4/dt = k_o N_SO2 − k_d' N_H2SO4 from N_SO2 = N_H2SO4 = 0 up to t = 6 h, and use these amounts at that moment. Express your answers: (1) in ppbv, (2) as pH.",
+  "inserted_sentence": "Because the valley starts clean and 6 hours is short compared with the SO2 lifetime, steady state has not been reached: integrate the column budgets dN_SO2/dt = E − (k_d + k_o) N_SO2 and dN_H2SO4/dt = k_o N_SO2 − k_d' N_H2SO4 from N_SO2 = N_H2SO4 = 0 up to t = 6 h, and use these amounts at that moment.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 4.669899850737704,
+    "unit": "ppbv"
+   },
+   {
+    "sub": "2",
+    "value": 3.3283035788397752,
+    "unit": "pH"
+   }
+  ],
+  "code": "import math\n\ndef solve(E=4e2, kd=0.5, ko=1.0, h=400.0, T=273.0,\n          kd_prime=2.0, LWC=1e-4, t_hours=6.0):\n    R = 8.314\n    P = 101325.0\n    t_day = t_hours/24.0\n    k = kd + ko\n    # the box starts empty, so the column is still filling: S(t) = (E/k)(1 - exp(-k t))\n    S = (E/k)*(1.0 - math.exp(-k*t_day))                 # mol SO2 per km2\n    n_SO2 = (S/1e6)/h                                     # mol per m3 of air\n    n_air = P/(R*T)\n    SO2_ppbv = n_SO2/n_air*1e9\n    # H2SO4 is produced from that filling column and removed with kd_prime\n    A = ko*(E/k)*((1.0 - math.exp(-kd_prime*t_day))/kd_prime\n                  - (math.exp(-k*t_day) - math.exp(-kd_prime*t_day))/(kd_prime - k))\n    n_A = (A/1e6)/h                                       # mol H2SO4 per m3 of air\n    conc = n_A/LWC                                        # mol per litre of fog water\n    pH = -math.log10(2.0*conc)\n    return {\"1\": {\"value\": SO2_ppbv, \"unit\": \"ppbv\"},\n            \"2\": {\"value\": pH, \"unit\": \"pH\"}}",
+  "author_check": "Independent python implementation of the stated relation (RK4 integration of the two ODEs (days, mol/km^2) to t = 0.25 day; ppbv with n_air = P/(RT) at 273 K, 1 atm, box depth 400 m; pH = -log10(2[H2SO4]) with LWC 1e-4 L/m^3): 4.6699 vs key 4.6699; 3.3283 vs key 3.3283 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_jacob_8.2_gen",
+  "trap_id": "trap_jacob_8.2_gen",
+  "parent_id": "jacob_8.2",
+  "problem": "Desert dust aerosols scatter solar radiation and absorb terrestrial radiation. Consider the same one-layer greenhouse model, with a single isothermal atmospheric layer transparent to solar radiation. However, in the terrestrial infrared the layer is not optically thin: its present infrared optical depth is tau = 2.0, so its absorption efficiency is f = 1 - exp(-tau). The present surface temperature is T0 = 288 K and the solar constant is FS = 1370 W m^-2. We add a small amount of desert dust so that the planetary albedo increases by epsilon and the infrared optical depth of the layer increases by Delta_tau, with epsilon and Delta_tau both small. Because the layer is not optically thin, an optical-depth increment Δτ does not raise the absorption efficiency by the same amount: it raises it by Δf = exp(−τ) Δτ, so do the critical-ratio analysis in terms of Δf and convert with this relation. What is the critical value of Delta_tau/epsilon above which the dust increases T0?",
+  "inserted_sentence": "Because the layer is not optically thin, an optical-depth increment Δτ does not raise the absorption efficiency by the same amount: it raises it by Δf = exp(−τ) Δτ, so do the critical-ratio analysis in terms of Δf and convert with this relation.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 12.974715616578887,
+    "unit": "dimensionless"
+   }
+  ],
+  "code": "def solve(surface_temperature_K=288.0, solar_constant_W_m2=1370.0, infrared_optical_depth=2.0):\n    import math\n    stefan_boltzmann_constant_W_m2_K4 = 5.670374419e-08\n    absorptivity_increment_threshold = solar_constant_W_m2 / (2.0 * stefan_boltzmann_constant_W_m2_K4 * surface_temperature_K ** 4)\n    optical_depth_increment_threshold = absorptivity_increment_threshold * math.exp(infrared_optical_depth)\n    return {'1': {'value': optical_depth_increment_threshold, 'unit': 'dimensionless'}}",
+  "author_check": "Independent python implementation of the stated relation (one-layer balance σT0^4(1-f/2) = FS(1-A)/4 gives dT0>0 iff Δf/ε > FS/(2σT0^4); Δf = e^-2 Δτ; σ = 5.670374419e-8): 12.9747 vs key 12.9747 (all within 0.001 %).",
+  "author_flag": "Text says 'Consider the same one-layer greenhouse model', referring to a previous problem not included here; the model is still standard (layer transparent to solar, absorptivity f in the IR).",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_p_108_gen",
+  "trap_id": "trap_p_108_gen",
+  "parent_id": "p_108",
+  "problem": "Given an ambient relative vorticity of ζ₀ = 10⁻⁶ s⁻¹ at a latitude where the Coriolis parameter is f = 10⁻⁴ s⁻¹, and vertical stretching that concentrates the vorticity exponentially with an e-folding time of T = 5 min, how long would it take to generate an axially symmetric tornado with a maximum wind speed ν = 100 m s⁻¹ at a radius r₀ of 200 m? Assume that the region of the tornado inside the radius of peak wind speed is characterized by solid body rotation. Because ζ₀ is much smaller than f, stretching must be applied to the absolute vorticity: ζ + f grows as exp(t/T), from ζ₀ + f initially to ζ_tornado + f, where ζ_tornado is the solid-body relative vorticity of the tornado core. Express your answer in minutes.",
+  "inserted_sentence": "Because ζ₀ is much smaller than f, stretching must be applied to the absolute vorticity: ζ + f grows as exp(t/T), from ζ₀ + f initially to ζ_tornado + f, where ζ_tornado is the solid-body relative vorticity of the tornado core.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 46.00245018061674,
+    "unit": "minutes"
+   }
+  ],
+  "code": "def solve(zeta_0=1e-06, f=0.0001, T=5.0, nu=100.0, r_0=200.0):\n    import math\n    zeta_tornado_rel = 2.0 * nu / r_0\n    zeta_initial_abs = zeta_0 + f\n    zeta_target_abs = zeta_tornado_rel + f\n    T_seconds = T * 60.0\n    t_seconds = T_seconds * math.log(zeta_target_abs / zeta_initial_abs)\n    t_minutes = t_seconds / 60.0\n    return {'1': {'value': t_minutes, 'unit': 'minutes'}}",
+  "author_check": "Independent python implementation of the stated relation (t = T ln((2ν/r0 + f)/(ζ0 + f)) with T = 5 min): 46.0025 vs key 46.0025 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_p_40_regime",
+  "trap_id": "trap_p_40_regime",
+  "parent_id": "p_40",
+  "problem": "A small blackbody satellite is orbiting the Earth at a distance d = 6.80 × 10^6 m from Earth's center. The Earth has radius R_E = 6.37 × 10^6 m and radiates uniformly as a blackbody with equivalent temperature T_earth = 255 K. Suppose that the satellite suddenly passes into the Earth's shadow. At what rate will it initially cool? The satellite has a mass m = 10^3 kg and a specific heat c = 10^3 J (kg K)^-1; it is spherical with a radius r = 1 m, and its temperature is uniform over its surface. It radiates and absorbs as a perfect blackbody from its entire surface. The equivalent blackbody temperature of the satellite before entering the shadow is T_s = 279 K. Because the satellite is close to the Earth, the terrestrial thermal radiation it still absorbs in the shadow is not negligible: the cooling rate is [4πr²σT_s⁴ − πr²(σT_earth⁴/π)Ω]/(mc), where Ω = 2π(1 − cos α), with sin α = R_E/d, is the solid angle subtended by the Earth. Express the cooling rate as a positive number in K s^-1.",
+  "inserted_sentence": "Because the satellite is close to the Earth, the terrestrial thermal radiation it still absorbs in the shadow is not negligible: the cooling rate is [4πr²σT_s⁴ − πr²(σT_earth⁴/π)Ω]/(mc), where Ω = 2π(1 − cos α), with sin α = R_E/d, is the solid angle subtended by the Earth.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.0033380922818191613,
+    "unit": "K s^-1"
+   }
+  ],
+  "code": "def solve(m=1000.0, c=1000.0, r=1.0, T_s=279.0, d=6800000.0, R_E=6370000.0, T_earth=255.0):\n    import math\n    sigma = 5.67e-08\n    P_emit = 4.0 * math.pi * r ** 2 * sigma * T_s ** 4\n    alpha = math.asin(R_E / d)\n    Omega_earth = 2.0 * math.pi * (1.0 - math.cos(alpha))\n    P_abs_earth = math.pi * r ** 2 * (sigma * T_earth ** 4 / math.pi) * Omega_earth\n    cooling_rate = (P_emit - P_abs_earth) / (m * c)\n    return {'1': {'value': cooling_rate, 'unit': 'K s^-1'}}",
+  "author_check": "Independent python implementation of the stated relation (σ = 5.67e-8; α = asin(6.37/6.80)): 0.00333809 vs key 0.00333809 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_p_55_regime",
+  "trap_id": "trap_p_55_regime",
+  "parent_id": "p_55",
+  "problem": "Consider monochromatic radiation with wavelength λ and zenith angle 89.9° at Earth's surface passing through a uniform-density spherical shell of gas extending from Earth's surface to altitude 10 km. Take Earth's radius to be 6371 km. The gas has an absorption coefficient k_λ of 0.01 m² kg⁻¹. The vertical column mass of the gas shell is 1 kg m⁻². Because the beam is only 0.1° above the horizon, neither the vertical path nor the plane-parallel sec(zenith) path applies: the geometric path length through the shell is s = −R cos θ + √(R² cos²θ + (R + H)² − R²), with R Earth's radius, H the shell thickness and θ the zenith angle, and the slant column mass equals the vertical column mass times s/H. What fraction of the beam is absorbed in passing through the shell? What vertical column mass of gas would the shell have to contain in order to absorb half the incident radiation? Express your answers as a dimensionless fraction and in kg m⁻², respectively.",
+  "inserted_sentence": "Because the beam is only 0.1° above the horizon, neither the vertical path nor the plane-parallel sec(zenith) path applies: the geometric path length through the shell is s = −R cos θ + √(R² cos²θ + (R + H)² − R²), with R Earth's radius, H the shell thickness and θ the zenith angle, and the slant column mass equals the vertical column mass times s/H.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.2925957669040765,
+    "unit": "dimensionless"
+   },
+   {
+    "sub": "2",
+    "value": 2.002429977781135,
+    "unit": "kg m^-2"
+   }
+  ],
+  "code": "def solve(k_lambda=0.01, vertical_column_mass=1.0, A2=0.5, zenith_deg=89.9, earth_radius_km=6371.0, layer_thickness_km=10.0):\n    import math\n    R = earth_radius_km * 1000.0\n    H = layer_thickness_km * 1000.0\n    z = math.radians(zenith_deg)\n    mu = math.cos(z)\n    s = -R * mu + math.sqrt((R * mu) ** 2 + (R + H) ** 2 - R ** 2)\n    air_mass_factor = s / H\n    slant_column_mass = vertical_column_mass * air_mass_factor\n    T1 = math.exp(-k_lambda * slant_column_mass)\n    fraction_absorbed = 1.0 - T1\n    T2 = 1.0 - A2\n    required_vertical_column_mass = -math.log(T2) / (k_lambda * air_mass_factor)\n    return {'1': {'value': fraction_absorbed, 'unit': 'dimensionless'}, '2': {'value': required_vertical_column_mass, 'unit': 'kg m^-2'}}",
+  "author_check": "Independent python implementation of the stated relation (s/H with R = 6371 km, H = 10 km; absorbed = 1-exp(-k·m_v·s/H); required m_v = ln2/(k s/H)): 0.292596 vs key 0.292596; 2.00243 vs key 2.00243 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_p_96_gen",
+  "trap_id": "trap_p_96_gen",
+  "parent_id": "p_96",
+  "problem": "Within a local region near 40°N, the geopotential height contours on a 500-hPa chart are locally oriented east-west but are curved cyclonically around a low-height center to the north, with radius of curvature R = 500 km. The spacing between adjacent contours at ΔZ = 60 m intervals is Δy = 300 km, with geopotential height decreasing toward the north. Because the contours are curved cyclonically, geostrophic balance is not sufficient: use the cyclonic gradient-wind balance V²/R + fV = g ΔZ/Δy and take its positive root. Assuming steady, frictionless gradient-wind balance, calculate the speed of the wind. Express your answer in m s⁻¹.",
+  "inserted_sentence": "Because the contours are curved cyclonically, geostrophic balance is not sufficient: use the cyclonic gradient-wind balance V²/R + fV = g ΔZ/Δy and take its positive root.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 15.682345556221339,
+    "unit": "m s^-1"
+   }
+  ],
+  "code": "def solve(phi_deg=40, delta_Z=60, delta_y_km=300, R_km=500):\n    import math\n    g = 9.81\n    Omega = 7.292e-05\n    phi_rad = math.radians(phi_deg)\n    delta_y = delta_y_km * 1000.0\n    R = R_km * 1000.0\n    f = 2.0 * Omega * math.sin(phi_rad)\n    pressure_gradient_accel = g * delta_Z / delta_y\n    V = (-f * R + math.sqrt((f * R) ** 2 + 4.0 * R * pressure_gradient_accel)) / 2.0\n    return {'1': {'value': V, 'unit': 'm s^-1'}}",
+  "author_check": "Independent python implementation of the stated relation (f = 2·7.292e-5·sin40°, g = 9.81, R = 500 km): 15.6823 vs key 15.6823 (all within 0.001 %).",
+  "author_flag": "The change is already cued in the text ('Assuming steady, frictionless gradient-wind balance'), so the sentence mainly supplies the formula.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_ry_12.2_gen",
+  "trap_id": "trap_ry_12.2_gen",
+  "parent_id": "ry_12.2",
+  "problem": "In a rapidly developing cumulonimbus cloud, the radar echo is observed to appear simultaneously over a deep interval of altitude. For the particular radar used, the initial echo is caused by the formation of large raindrops of radius 2.0 mm. As the cloud continues to develop, these drops grow rapidly by sweeping out cloud droplets, and the radar echo strengthens at all levels.\n\nBecause the fall speed V is constant for these large drops rather than proportional to r, the continuous-collection growth law gives a constant growth rate dr/dt = E M V/(4ρ_w) (E the collection efficiency, M the cloud liquid water content, ρ_w the density of water), so the drop radius grows linearly in time. Calculate the time required for the signal to increase by 10 dB. Make the following assumptions:\n\n(1) Cloud liquid water content M is constant at 5 g/m^3.\n\n(2) All the precipitation growth is by the collection of cloud droplets: there is no growth by diffusion or by coalescence among the raindrops.\n\n(3) The effective average collection efficiency is 0.5.\n\n(4) The linear fall-speed relation V = 8000 r, with V in m/s and r in m, is valid only for r <= 0.5 mm. The drops in this problem are larger than that; use the large-drop turbulent-regime approximation V = 9.0 m/s over the 10 dB growth interval.\n\n(5) Raindrops account for the reflectivity: the contribution of cloud droplets is negligible.\n\n(6) Breakup effects are negligible.",
+  "inserted_sentence": "Because the fall speed V is constant for these large drops rather than proportional to r, the continuous-collection growth law gives a constant growth rate dr/dt = E M V/(4ρ_w) (E the collection efficiency, M the cloud liquid water content, ρ_w the density of water), so the drop radius grows linearly in time.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 166.32862848784694,
+    "unit": "s"
+   }
+  ],
+  "code": "def solve(M_g_per_m3=5.0, dB_increase=10.0, collection_efficiency=0.5, r0_mm=2.0, V_large_m_per_s=9.0):\n    import math\n    rho_w_g_per_m3 = 1000000.0\n    r0_m = r0_mm * 0.001\n    radius_ratio = 10.0 ** (dB_increase / 60.0)\n    r1_m = r0_m * radius_ratio\n    drdt_m_per_s = collection_efficiency * M_g_per_m3 * V_large_m_per_s / (4.0 * rho_w_g_per_m3)\n    t_s = (r1_m - r0_m) / drdt_m_per_s\n    return {'1': {'value': t_s, 'unit': 's'}}",
+  "author_check": "Independent python implementation of the stated relation (r1/r0 = 10^(10/60) (Z ∝ r^6), dr/dt = 0.5·5e-3·9/(4·1000) m/s): 166.329 vs key 166.329 (all within 0.001 %).",
+  "author_flag": "The change is already cued in assumption (4), which states the V = 8000 r law is invalid and gives V = 9.0 m/s.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_ry_14.2_p11",
+  "trap_id": "trap_ry_14.2_p11",
+  "parent_id": "ry_14.2",
+  "problem": "The supercooled portion of a convective cloud is rapidly converted to ice by seeding with a material that promotes freezing. At the 600 mb level the cloud temperature is initially -20 °C and the liquid water content is 10 g/kg. Calculate the total increase in temperature at this level as a result of complete glaciation of the cloud liquid. Treat the latent heats as constant, with L_f = 3.34 x 10^5 J/kg and L_s = 2.83 x 10^6 J/kg, and take the specific heat of air at constant pressure to be 1005 J/(kg K). Saturation mixing ratios over ice and water at 600 mb are given for various temperatures in the following table: T (°C) / w_s (g/kg) / w_i (g/kg): -23 / 1.002 / 0.800; -22 / 1.094 / 0.883; -21 / 1.194 / 0.973; -20 / 1.303 / 1.072; -19 / 1.420 / 1.179; -18 / 1.546 / 1.296; -17 / 1.682 / 1.425; -16 / 1.824 / 1.565. Because the fusion warming carries the air past ice saturation, the vapour exchange with the ice must be kept signed: the final temperature T satisfies c_p (T − T0) = L_f w_l + L_s [w_s(T0) − w_i(T)], where w_s(T0) is the initial water-saturation mixing ratio and w_i(T) the ice-saturation mixing ratio at the final temperature (interpolated linearly in the table), so a negative bracket means sublimation, which absorbs heat. Express your answer in K.",
+  "inserted_sentence": "Because the fusion warming carries the air past ice saturation, the vapour exchange with the ice must be kept signed: the final temperature T satisfies c_p (T − T0) = L_f w_l + L_s [w_s(T0) − w_i(T)], where w_s(T0) is the initial water-saturation mixing ratio and w_i(T) the ice-saturation mixing ratio at the final temperature (interpolated linearly in the table), so a negative bracket means sublimation, which absorbs heat.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 2.985212434401163,
+    "unit": "K"
+   }
+  ],
+  "code": "def solve(T0_C=-20.0, wl_g_per_kg=10.0, cp=1005.0, Lf=3.34e5, Ls=2.83e6):\n    T_tab = [-23.0, -22.0, -21.0, -20.0, -19.0, -18.0, -17.0, -16.0]\n    ws_tab = [1.002, 1.094, 1.194, 1.303, 1.420, 1.546, 1.682, 1.824]\n    wi_tab = [0.800, 0.883, 0.973, 1.072, 1.179, 1.296, 1.425, 1.565]\n\n    def interp(T, tab):\n        for i in range(len(T_tab) - 1):\n            if T_tab[i] <= T <= T_tab[i + 1]:\n                f = (T - T_tab[i])/(T_tab[i + 1] - T_tab[i])\n                return tab[i] + f*(tab[i + 1] - tab[i])\n        raise ValueError(\"outside the tabulated range\")\n\n    wl = wl_g_per_kg*1e-3\n    ws0 = interp(T0_C, ws_tab)*1e-3          # the parcel starts saturated over water\n    T = T0_C\n    for _ in range(500):\n        # SIGNED: once the fusion warming carries the parcel past ice saturation the vapour\n        # budget reverses and ice sublimates, absorbing Ls instead of releasing it\n        dep = ws0 - interp(T, wi_tab)*1e-3\n        T = T0_C + (Lf*wl + Ls*dep)/cp\n    return {\"1\": {\"value\": T - T0_C, \"unit\": \"K\"}}",
+  "author_check": "Independent python implementation of the stated relation (bisection on the implicit equation with linear table interpolation, w_s(-20) = 1.303 g/kg; single root in [0, 4] K): 2.98521 vs key 2.98521 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_ry_5.1_p11",
+  "trap_id": "trap_ry_5.1_p11",
+  "parent_id": "ry_5.1",
+  "problem": "Cloudy air consists of dry air, water vapor, and cloud particles. In a particular cloud volume there are 200 cloud particles per cubic centimeter, all spherical and of the same size, with a radius of 10 μm. The cloud is fully glaciated: every particle is ice and no liquid water remains anywhere in the volume, and the water vapor is in equilibrium with the particles. The temperature is −20 °C and the pressure is 80 kPa. Because the cloud is fully glaciated, the liquid-water treatment does not apply: take the particle density as that of ice, 917 kg m^-3, and the vapour pressure as the saturation vapour pressure over ice, e_i = 6.112 exp[22.46 T/(272.62 + T)] hPa with T in °C. Determine the following properties of the cloud: (a) The mass of cloud condensate per unit volume. (b) The mass of water vapor per unit volume. (c) The mass of dry air per unit volume. (d) The mean distance between the particles. Express your answers: (a) in g m^-3, (b) in g m^-3, (c) in kg m^-3, (d) in cm. For part (d), define the mean distance between the particles as the diameter of the sphere whose volume equals the mean volume of air available per particle.",
+  "inserted_sentence": "Because the cloud is fully glaciated, the liquid-water treatment does not apply: take the particle density as that of ice, 917 kg m^-3, and the vapour pressure as the saturation vapour pressure over ice, e_i = 6.112 exp[22.46 T/(272.62 + T)] hPa with T in °C.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.7682241235578237,
+    "unit": "g/m^3"
+   },
+   {
+    "sub": "2",
+    "value": 0.883866215191054,
+    "unit": "g/m^3"
+   },
+   {
+    "sub": "3",
+    "value": 1.0996873407195973,
+    "unit": "kg/m^3"
+   },
+   {
+    "sub": "4",
+    "value": 0.21215688358941112,
+    "unit": "cm"
+   }
+  ],
+  "code": "import math\n\ndef solve(N_per_cm3=200.0, r_um=10.0, T_C=-20.0, P_kPa=80.0,\n          rho_ice=917.0, R_v=461.5, R_d=287.0):\n    N = N_per_cm3 * 1e6\n    r = r_um * 1e-6\n    T = T_C + 273.15\n    P = P_kPa * 1000.0\n    vol_particle = (4.0/3.0)*math.pi*r**3\n    M_ice_g = N * vol_particle * rho_ice * 1000.0\n    # the condensate is ice, so the vapour is in equilibrium over ice\n    e_s = 6.112*math.exp(22.46*T_C/(272.62 + T_C))*100.0\n    rho_v_g = e_s/(R_v*T)*1000.0\n    rho_d = (P - e_s)/(R_d*T)\n    d_cm = (6.0/(math.pi*N))**(1.0/3.0)*100.0\n    return {\"1\": {\"value\": M_ice_g, \"unit\": \"g/m^3\"},\n            \"2\": {\"value\": rho_v_g, \"unit\": \"g/m^3\"},\n            \"3\": {\"value\": rho_d, \"unit\": \"kg/m^3\"},\n            \"4\": {\"value\": d_cm, \"unit\": \"cm\"}}",
+  "author_check": "Independent python implementation of the stated relation (R_v = 461.5, R_d = 287, dry-air density from (P - e_i)/(R_d T)): 0.768224 vs key 0.768224; 0.883866 vs key 0.883866; 1.09969 vs key 1.09969; 0.212157 vs key 0.212157 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_ry_7.7_regime",
+  "trap_id": "trap_ry_7.7_regime",
+  "parent_id": "ry_7.7",
+  "problem": "In a developing cumulus cloud the droplet spectrum has a Gaussian shape, centered at a mean radius of 4 μm with a standard deviation of 0.6 μm. Given that the cloud water content is 0.2 g/m^3, consider a parcel of this cloudy air that is exactly saturated and at rest until it is caught in an updraft of 8 m/s. Estimate the supersaturation in the parcel 1 s after it is caught. Assume a temperature of 0 °C and a pressure of 80 kPa. Because the parcel starts exactly saturated and 1 s is comparable to the phase-relaxation time, the supersaturation has not yet reached its quasi-steady value s_qs: it obeys ds/dt = Q1 w − s/τ with s(0) = 0, so s(t) = s_qs [1 − exp(−t/τ)], where τ = s_qs/(Q1 w) is the phase-relaxation time and Q1 w is the rate at which the updraft alone would raise the supersaturation. Express your answer as a percentage.",
+  "inserted_sentence": "Because the parcel starts exactly saturated and 1 s is comparable to the phase-relaxation time, the supersaturation has not yet reached its quasi-steady value s_qs: it obeys ds/dt = Q1 w − s/τ with s(0) = 0, so s(t) = s_qs [1 − exp(−t/τ)], where τ = s_qs/(Q1 w) is the phase-relaxation time and Q1 w is the rate at which the updraft alone would raise the supersaturation.",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 0.30781690522948607,
+    "unit": "%"
+   }
+  ],
+  "code": "import math\n\ndef solve(mean_radius_um=4.0, sigma_um=0.6, cloud_water_content_g_per_m3=0.2,\n          updraft_m_per_s=8.0, elapsed_s=1.0, temperature_C=0.0, pressure_kPa=80.0):\n    rho_l = 1000.0\n    g = 9.81\n    c_p = 1004.0\n    R_d = 287.0\n    R_v = 461.0\n    epsilon = 0.622\n    L_v = 2.50e6\n    D_v0 = 2.11e-5\n    p0 = 101325.0\n    T0 = 273.15\n    k_air = 0.0243\n\n    r_bar = mean_radius_um*1e-6\n    sigma = sigma_um*1e-6\n    lwc = cloud_water_content_g_per_m3*1e-3\n    w = updraft_m_per_s\n    T = temperature_C + 273.15\n    p = pressure_kPa*1e3\n\n    e_s = 611.2*math.exp(17.67*temperature_C/(temperature_C + 243.5))\n    q_vs = epsilon*e_s/(p - e_s)\n    Q1 = g*(L_v/(c_p*R_v*T*T) - 1.0/(R_d*T))\n    Q2 = 1.0/q_vs + L_v*L_v/(c_p*R_v*T*T)\n    D_v = D_v0*(T/T0)**1.94*(p0/p)\n    F_k = (L_v/(R_v*T) - 1.0)*L_v*rho_l/(k_air*T)\n    F_d = rho_l*R_v*T/(D_v*e_s)\n\n    r3_mean = r_bar**3 + 3.0*r_bar*sigma**2\n    n_per_m3 = lwc/((4.0/3.0)*math.pi*rho_l*r3_mean)\n    nu0 = n_per_m3/(p/(R_d*T))\n\n    # ds/dt = Q1 w - s/tau. The quasi-steady value Q1 w tau is only reached after several tau;\n    # a parcel that was exactly saturated when the updraft began is still relaxing towards it.\n    tau = (F_k + F_d)/(4.0*math.pi*rho_l*Q2*nu0*r_bar)\n    s = Q1*w*tau*(1.0 - math.exp(-elapsed_s/tau))\n    return {\"1\": {\"value\": 100.0*s, \"unit\": \"%\"}}\n",
+  "author_check": "Independent python implementation of the stated relation (s = s_qs(1-exp(-Q1 w t/s_qs)) using s_qs = shortcut value and Q1 from the code's constants): 0.307817 vs key 0.307817 (all within 0.001 %).",
+  "author_flag": "The key depends on the solver's quasi-steady formula and many unstated constants (F_k, F_d, D_v, k_air, e_s formula); the sentence reproduces the key exactly only if s_qs and Q1 are computed as in the code (s_qs = 0.5166 %, Q1 with L_v = 2.5e6, c_p = 1004, R_v = 461, R_d = 287). A solver's s_qs can plausibly differ by several percent, so the 5 % tolerance is tight for this item even with the sentence.",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ },
+ {
+  "id": "given_trap_turner_2_p11",
+  "trap_id": "trap_turner_2_p11",
+  "parent_id": "turner_2",
+  "problem": "A petroleum refinery emits 80 g/sec of sulfur dioxide from an effective height of H = 60 m. Wind speed is 6 m/sec, stability class D. A subsidence inversion caps the mixed layer at 100 m above the ground; the inversion is strong enough that no pollutant crosses it. At x = 20 km directly downwind (y = 0) the dispersion coefficients the plume would have in an unbounded atmosphere are sigma_y = 924 m and sigma_z = 216 m. Because σ_z is more than twice the 100 m mixing height, the plume is uniformly mixed beneath the lid and the Gaussian vertical profile does not apply: use χ = Q/(√(2π) u σ_y L), where L is the mixing height (the effective height H drops out). Find the ground-level concentration of SO2 directly downwind at that distance. Express your answer in g/m^3.",
+  "inserted_sentence": "Because σ_z is more than twice the 100 m mixing height, the plume is uniformly mixed beneath the lid and the Gaussian vertical profile does not apply: use χ = Q/(√(2π) u σ_y L), where L is the mixing height (the effective height H drops out).",
+  "sub_answers": [
+   {
+    "sub": "1",
+    "value": 5.756742862935537e-05,
+    "unit": "g/m^3"
+   }
+  ],
+  "code": "import math\n\ndef solve(Q=80.0, u=6.0, sigma_y=924.0, L=100.0):\n    # sigma_z (216 m) is more than twice the 100 m lid: the pollutant is mixed\n    # uniformly through the depth of the layer, so the vertical profile is a\n    # top-hat of depth L rather than a Gaussian, and H drops out.\n    chi = Q / (math.sqrt(2.0*math.pi) * u * sigma_y * L)\n    return {\"1\": {\"value\": chi, \"unit\": \"g/m^3\"}}",
+  "author_check": "Independent python implementation of the stated relation (χ = 80/(√(2π)·6·924·100)): 5.75674e-05 vs key 5.75674e-05 (all within 0.001 %).",
+  "author_flag": "",
+  "blind_solve": "match (all subs within 5 %)",
+  "provenance": "authored 2026-09-28: one sentence stating the relation the trap's own solver computes, inserted into the unchanged trap text; written from the trap's code by an agent, checked by recomputation and by a blind solve"
+ }
+]

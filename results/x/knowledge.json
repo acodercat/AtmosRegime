@@ -1,0 +1,1545 @@
+{
+ "families": {
+  "qwen3-8b": {
+   "actinic_flux_horizontal": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.85,
+    "D_given_minus_outside": 0.8,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": -0.0625
+   },
+   "anelastic_continuity": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "bay_tidal_resonance": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "box_ventilation_loss": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.4,
+    "D_given_minus_outside": 0.4,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666,
+    "hint_share": 0.0
+   },
+   "capillary_rise_gravity": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.05,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "ch4_forcing_sqrt": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "clausius_clapeyron_extrapolation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.75,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 1.0,
+    "hint_share": 0.0
+   },
+   "co2_forcing_log": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "condensate_loading": {
+    "D_flag": 0.35,
+    "D_flag_minus_outside": -0.35,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.3,
+    "D_outside": 0.7,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": -1.166667
+   },
+   "constant_pressure_expansion": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.05,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "cooper_jacob_early_time": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "coriolis_neglect": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.35,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "cstr_vs_pfr": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "cunningham_slip": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.35,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "deposition_brownian": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "diffuse_transmission": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "displacement_height_canopy": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.75,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "doppler_aliasing": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "drop_size_truncation": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 0.35,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.2,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "drop_ventilation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "effective_henry": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.5,
+    "D_given_minus_outside": 0.45,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.0
+   },
+   "evaporative_cooling_limit": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K_any": 0.0
+   },
+   "finite_line_source": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.9,
+    "D_outside": 0.05,
+    "K_any": 0.0,
+    "hint_share": -0.055556
+   },
+   "freezing_latent_heat": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.05
+   },
+   "freezing_point_depth": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.6,
+    "D_given_minus_outside": 0.6,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "fresnel_reflectance_grazing": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": -0.05,
+    "D_outside": 0.05,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "frictional_three_force_balance": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.15,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "gradient_wind_curvature": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.55,
+    "D_given_minus_outside": 0.55,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "gravity_wave_doppler_shift": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "ground_heat_flux_neglect": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.6666666666666666
+   },
+   "henry_depletion": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.1,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "hydrostatic_constant_density": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": -0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.25,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333,
+    "hint_share": -0.266667
+   },
+   "ice_above_flotation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "ice_capacitance_shape": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "ice_saturation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.9,
+    "D_given_minus_outside": 0.85,
+    "D_outside": 0.05,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666,
+    "hint_share": -0.058824
+   },
+   "inertia_gravity_wave": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "ionic_strength_activity": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 0.05,
+    "D_given_minus_outside": -0.05,
+    "D_outside": 0.1,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "isa_above_tropopause": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666
+   },
+   "isotope_mixing_weighting": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "kelvin_curvature": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.65,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.0,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.0
+   },
+   "limiting_reagent": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 0.0,
+    "D_given_minus_outside": -0.1,
+    "D_outside": 0.1,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.0
+   },
+   "line_broadening": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.35,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "log_wind_stability": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.95,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.052632
+   },
+   "lognormal_mass": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "mie_geometric": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.85,
+    "D_outside": 0.15,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": -0.176471
+   },
+   "mixed_layer_response": {
+    "D_flag": 0.45,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.35,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0,
+    "hint_share": 0.153846
+   },
+   "nonsteady_burden": {
+    "D_flag": 0.15,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 0.15,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.05,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333
+   },
+   "optically_thin_emission": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.9,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.3333333333333333
+   },
+   "photostationary_peroxy": {
+    "D_flag": 0.4,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 0.8,
+    "D_given_minus_outside": 0.6,
+    "D_outside": 0.2,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.333333
+   },
+   "planck_linearization": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.9,
+    "D_given_minus_outside": -0.05,
+    "D_outside": 0.95,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "plume_ground_reflection": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.75,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "plume_mixing_lid": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.85,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.1,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "ppm_conversion_pressure": {
+    "D_flag": 0.8,
+    "D_flag_minus_outside": 0.45,
+    "D_given": 0.85,
+    "D_given_minus_outside": 0.5,
+    "D_outside": 0.35,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.0,
+    "hint_share": 0.9
+   },
+   "pseudo_first_order": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.2,
+    "D_given_minus_outside": 0.2,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "racemization_reversibility": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.05
+   },
+   "radar_beam_height": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "raindrop_drag_regime": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.65,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "rossby_deformation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.1,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "saturated_lapse": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "sea_ice_insulation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.15,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "semivolatile_partitioning_temperature": {
+    "D_flag": 0.3,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 0.05,
+    "D_given_minus_outside": -0.15,
+    "D_outside": 0.2,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "shallow_water_wave_speed": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.95,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": -0.052632
+   },
+   "snowpack_cold_content": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.2,
+    "D_given_minus_outside": 0.2,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "solid_angle": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "sonic_humidity_flux": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.15,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "spherical_slant_path": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "sun_photometer_airmass": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.55,
+    "D_given_minus_outside": 0.55,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "surface_multiple_reflection": {
+    "D_flag": 0.2,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.2
+   },
+   "taylor_dispersion": {
+    "D_flag": 0.2,
+    "D_flag_minus_outside": -0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.6,
+    "D_outside": 0.4,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": -0.333333
+   },
+   "unconfined_dupuit": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "weak_acid_dissociation": {
+    "D_flag": 0.75,
+    "D_flag_minus_outside": 0.7,
+    "D_given": 0.4,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.05,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666,
+    "hint_share": 2.0
+   },
+   "weir_approach_velocity": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.5,
+    "D_given_minus_outside": 0.45,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.111111
+   }
+  },
+  "qwen35-9b": {
+   "actinic_flux_horizontal": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.6666666666666666
+   },
+   "anelastic_continuity": {
+    "D_flag": 0.55,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.35,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.307692
+   },
+   "bay_tidal_resonance": {
+    "D_flag": 0.45,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.4,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.4,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.3333333333333333
+   },
+   "box_ventilation_loss": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.95,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.3333333333333333
+   },
+   "capillary_rise_gravity": {
+    "D_flag": 0.25,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 0.6,
+    "D_given_minus_outside": 0.55,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.6666666666666666,
+    "hint_share": 0.363636
+   },
+   "ch4_forcing_sqrt": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.95,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "clausius_clapeyron_extrapolation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.0
+   },
+   "co2_forcing_log": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.0
+   },
+   "condensate_loading": {
+    "D_flag": 0.6,
+    "D_flag_minus_outside": 0.35,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.25,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.6666666666666666,
+    "hint_share": 0.466667
+   },
+   "constant_pressure_expansion": {
+    "D_flag": 0.5,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 0.85,
+    "D_given_minus_outside": 0.45,
+    "D_outside": 0.4,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.222222
+   },
+   "cooper_jacob_early_time": {
+    "D_flag": 0.6,
+    "D_flag_minus_outside": 0.35,
+    "D_given": 0.15,
+    "D_given_minus_outside": -0.1,
+    "D_outside": 0.25,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333
+   },
+   "coriolis_neglect": {
+    "D_flag": 0.7,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 0.85,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.8,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333
+   },
+   "cstr_vs_pfr": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.95,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.6666666666666666
+   },
+   "cunningham_slip": {
+    "D_flag": 0.4,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.3,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 1.0,
+    "hint_share": 0.153846
+   },
+   "deposition_brownian": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.05,
+    "D_given_minus_outside": -0.1,
+    "D_outside": 0.15,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "diffuse_transmission": {
+    "D_flag": 0.35,
+    "D_flag_minus_outside": 0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.8,
+    "D_outside": 0.2,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.1875
+   },
+   "displacement_height_canopy": {
+    "D_flag": 0.8,
+    "D_flag_minus_outside": 0.55,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.25,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.6666666666666666,
+    "hint_share": 0.733333
+   },
+   "doppler_aliasing": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 0.95,
+    "D_given_minus_outside": -0.05,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0
+   },
+   "drop_size_truncation": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 0.95,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666
+   },
+   "drop_ventilation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.15,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "effective_henry": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 1.0
+   },
+   "evaporative_cooling_limit": {
+    "D_flag": 0.15,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 0.4,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.05,
+    "K_any": 0.0,
+    "hint_share": 0.285714
+   },
+   "finite_line_source": {
+    "D_flag": 0.35,
+    "D_flag_minus_outside": -0.25,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.6,
+    "K_any": 0.0,
+    "hint_share": -0.714286
+   },
+   "freezing_latent_heat": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.6666666666666666
+   },
+   "freezing_point_depth": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.95,
+    "D_outside": 0.05,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.052632
+   },
+   "fresnel_reflectance_grazing": {
+    "D_flag": 0.7,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.25,
+    "D_outside": 0.75,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": -0.2
+   },
+   "frictional_three_force_balance": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.15,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.8,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333
+   },
+   "gradient_wind_curvature": {
+    "D_flag": 0.8,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.8,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.75,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666
+   },
+   "gravity_wave_doppler_shift": {
+    "D_flag": 0.55,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 0.9,
+    "D_given_minus_outside": 0.25,
+    "D_outside": 0.65,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 1.0,
+    "hint_share": -0.4
+   },
+   "ground_heat_flux_neglect": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.6666666666666666
+   },
+   "henry_depletion": {
+    "D_flag": 0.7,
+    "D_flag_minus_outside": 0.4,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.3,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.615385
+   },
+   "hydrostatic_constant_density": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.6666666666666666
+   },
+   "ice_above_flotation": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 0.5,
+    "D_given_minus_outside": 0.5,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "ice_capacitance_shape": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.4,
+    "D_given_minus_outside": 0.4,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.125
+   },
+   "ice_saturation": {
+    "D_flag": 0.65,
+    "D_flag_minus_outside": -0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.2,
+    "D_outside": 0.8,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666
+   },
+   "inertia_gravity_wave": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.05
+   },
+   "ionic_strength_activity": {
+    "D_flag": 0.85,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.65,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.571429
+   },
+   "isa_above_tropopause": {
+    "D_flag": 0.9,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 0.55,
+    "D_given_minus_outside": -0.15,
+    "D_outside": 0.7,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.0,
+    "K_any": 1.0
+   },
+   "isotope_mixing_weighting": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.85,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "kelvin_curvature": {
+    "D_flag": 0.9,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.0,
+    "K_any": 0.6666666666666666
+   },
+   "limiting_reagent": {
+    "D_flag": 0.65,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 0.4,
+    "D_given_minus_outside": -0.05,
+    "D_outside": 0.45,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.3333333333333333
+   },
+   "line_broadening": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.0
+   },
+   "log_wind_stability": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.95,
+    "D_outside": 0.05,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.0
+   },
+   "lognormal_mass": {
+    "D_flag": 0.3,
+    "D_flag_minus_outside": -0.15,
+    "D_given": 0.25,
+    "D_given_minus_outside": -0.2,
+    "D_outside": 0.45,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "mie_geometric": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.85,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "mixed_layer_response": {
+    "D_flag": 0.9,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333
+   },
+   "nonsteady_burden": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.6666666666666666
+   },
+   "optically_thin_emission": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.1,
+    "D_outside": 0.9,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 1.0
+   },
+   "photostationary_peroxy": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.85,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0
+   },
+   "planck_linearization": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0
+   },
+   "plume_ground_reflection": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.0,
+    "hint_share": 0.1
+   },
+   "plume_mixing_lid": {
+    "D_flag": 0.15,
+    "D_flag_minus_outside": 0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.15
+   },
+   "ppm_conversion_pressure": {
+    "D_flag": 0.95,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.05,
+    "D_outside": 0.95,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.0
+   },
+   "pseudo_first_order": {
+    "D_flag": 0.35,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 0.6,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.45,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333
+   },
+   "racemization_reversibility": {
+    "D_flag": 0.2,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.9,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.15,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0,
+    "hint_share": 0.066667
+   },
+   "radar_beam_height": {
+    "D_flag": 0.55,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.65,
+    "D_outside": 0.35,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.307692
+   },
+   "raindrop_drag_regime": {
+    "D_flag": 0.55,
+    "D_flag_minus_outside": -0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.25,
+    "D_outside": 0.75,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": -0.8
+   },
+   "rossby_deformation": {
+    "D_flag": 0.4,
+    "D_flag_minus_outside": 0.4,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.4
+   },
+   "saturated_lapse": {
+    "D_flag": 0.0,
+    "D_flag_minus_outside": 0.0,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.0
+   },
+   "sea_ice_insulation": {
+    "D_flag": 0.9,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 0.9,
+    "D_given_minus_outside": 0.2,
+    "D_outside": 0.7,
+    "K2_lenient": 1.0,
+    "K2_strict": 1.0,
+    "K_any": 0.3333333333333333,
+    "hint_share": 1.0
+   },
+   "semivolatile_partitioning_temperature": {
+    "D_flag": 0.45,
+    "D_flag_minus_outside": 0.35,
+    "D_given": 0.6,
+    "D_given_minus_outside": 0.5,
+    "D_outside": 0.1,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.6666666666666666,
+    "hint_share": 0.7
+   },
+   "shallow_water_wave_speed": {
+    "D_flag": 0.9,
+    "D_flag_minus_outside": -0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0
+   },
+   "snowpack_cold_content": {
+    "D_flag": 0.15,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.9,
+    "D_outside": 0.1,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.0,
+    "hint_share": 0.055556
+   },
+   "solid_angle": {
+    "D_flag": 0.7,
+    "D_flag_minus_outside": -0.15,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.15,
+    "D_outside": 0.85,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.6666666666666666
+   },
+   "sonic_humidity_flux": {
+    "D_flag": 0.05,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.95,
+    "D_given_minus_outside": 0.95,
+    "D_outside": 0.0,
+    "K2_lenient": 0.0,
+    "K2_strict": 0.0,
+    "K_any": 0.0,
+    "hint_share": 0.052632
+   },
+   "spherical_slant_path": {
+    "D_flag": 0.7,
+    "D_flag_minus_outside": -0.05,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.25,
+    "D_outside": 0.75,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.6666666666666666,
+    "hint_share": -0.2
+   },
+   "sun_photometer_airmass": {
+    "D_flag": 0.25,
+    "D_flag_minus_outside": 0.25,
+    "D_given": 1.0,
+    "D_given_minus_outside": 1.0,
+    "D_outside": 0.0,
+    "K2_lenient": 0.6666666666666666,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.25
+   },
+   "surface_multiple_reflection": {
+    "D_flag": 0.35,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.75,
+    "D_outside": 0.25,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0,
+    "hint_share": 0.133333
+   },
+   "taylor_dispersion": {
+    "D_flag": 0.8,
+    "D_flag_minus_outside": 0.1,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.3,
+    "D_outside": 0.7,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.3333333333333333,
+    "hint_share": 0.333333
+   },
+   "unconfined_dupuit": {
+    "D_flag": 1.0,
+    "D_flag_minus_outside": 0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.2,
+    "D_outside": 0.8,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.3333333333333333,
+    "K_any": 0.3333333333333333
+   },
+   "weak_acid_dissociation": {
+    "D_flag": 0.8,
+    "D_flag_minus_outside": -0.2,
+    "D_given": 1.0,
+    "D_given_minus_outside": 0.0,
+    "D_outside": 1.0,
+    "K2_lenient": 1.0,
+    "K2_strict": 0.0,
+    "K_any": 0.3333333333333333
+   },
+   "weir_approach_velocity": {
+    "D_flag": 0.1,
+    "D_flag_minus_outside": 0.05,
+    "D_given": 0.4,
+    "D_given_minus_outside": 0.35,
+    "D_outside": 0.05,
+    "K2_lenient": 0.3333333333333333,
+    "K2_strict": 0.6666666666666666,
+    "K_any": 1.0,
+    "hint_share": 0.142857
+   }
+  }
+ },
+ "sources": {
+  "D:qwen3-8b": {
+   "configuration": "qwen3-8b.think-off",
+   "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/qwen3_8b.json",
+   "sha256": "f535677776979d7c777218042c9b8e8dac9db6e8d483139a6ee7a6e825fea5d1"
+  },
+  "D:qwen35-9b": {
+   "configuration": "qwen3.5-9b.think-off",
+   "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/qwen35_9b.json",
+   "sha256": "fe5705a320911b62d44c5c583349200da8c43a63597c7ad337409da07bdc6270"
+  },
+  "K2_lenient": {
+   "path": "x7/k2_table_lenient.json",
+   "sha256": "f2072c2a1fd8de0a63dfc6605c5d840620f2ab6dd0833226579401936c70d831"
+  },
+  "K2_strict": {
+   "path": "x7/k2_table_strict.json",
+   "sha256": "a4b8781b4a19125dd2a6e381a43cdb95b9e4c1f8afff744da808a9ccd5e3e52f"
+  },
+  "K_any": {
+   "path": "x6/report_kany.json",
+   "sha256": "6819a0793f0510e5ea5b0ea0e084411f7f44971ae2ba0dfbf5f80f91fd0807e2"
+  }
+ }
+}

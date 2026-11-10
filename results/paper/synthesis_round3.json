@@ -1,0 +1,212 @@
+{
+ "R1_dynamic_sampling_near_ablation": {
+  "units": 33,
+  "per_arm": {
+   "A": {
+    "mean": 0.9500000000000001,
+    "ci95": [
+     0.8954545454545455,
+     0.9939393939393939
+    ],
+    "units": 33,
+    "learned": 33
+   },
+   "P": {
+    "mean": 0.5560606060606061,
+    "ci95": [
+     0.4212121212121212,
+     0.6893939393939394
+    ],
+    "units": 33,
+    "learned": 17
+   },
+   "S": {
+    "mean": 0.17272727272727273,
+    "ci95": [
+     0.0893939393939394,
+     0.26666666666666666
+    ],
+    "units": 33,
+    "learned": 4
+   },
+   "Pk3": {
+    "mean": 0.32727272727272727,
+    "ci95": [
+     0.20454545454545456,
+     0.4575757575757576
+    ],
+    "units": 33,
+    "learned": 10
+   },
+   "Pk2": {
+    "mean": 0.4151515151515151,
+    "ci95": [
+     0.27878787878787875,
+     0.5545454545454546
+    ],
+    "units": 33,
+    "learned": 13
+   },
+   "Pshuf": {
+    "mean": 0.19242424242424241,
+    "ci95": [
+     0.10303030303030303,
+     0.2924242424242424
+    ],
+    "units": 33,
+    "learned": 6
+   }
+  },
+  "A-S": {
+   "mean": 0.7772727272727272,
+   "ci95": [
+    0.6833333333333333,
+    0.8651515151515152
+   ],
+   "units": 33
+  },
+  "P_kept_by_teacher": {
+   "kept": 17,
+   "of": 33,
+   "teacher_median_kept": 0.84375,
+   "teacher_median_lost": 0.18125,
+   "auc_teacher": 0.8786764705882353
+  }
+ },
+ "R2_error_magnitude": {
+  "base": {
+   "n": 67,
+   "q25": 0.4453517787147037,
+   "median": 0.8856666201017682,
+   "q75": 1.2252248897084252,
+   "share_over_0.5": 0.7164179104477612
+  },
+  "A": {
+   "n": 41,
+   "q25": 0.2517460374374806,
+   "median": 0.46272085772113103,
+   "q75": 0.966407887520678,
+   "share_over_0.5": 0.4878048780487805
+  },
+  "P": {
+   "n": 56,
+   "q25": 0.5875483745302571,
+   "median": 0.9999950247930722,
+   "q75": 4.917525773195877,
+   "share_over_0.5": 0.8035714285714286
+  },
+  "S": {
+   "n": 67,
+   "q25": 0.46272085772113103,
+   "median": 0.966407887520678,
+   "q75": 1.2936185959896196,
+   "share_over_0.5": 0.7164179104477612
+  },
+  "Pk2": {
+   "n": 55,
+   "q25": 0.616753783772075,
+   "median": 0.9999845216003573,
+   "q75": 2.241040547678944,
+   "share_over_0.5": 0.8
+  },
+  "Pshuf": {
+   "n": 69,
+   "q25": 0.4323838064009639,
+   "median": 0.8179590269879701,
+   "q75": 1.0,
+   "share_over_0.5": 0.6521739130434783
+  }
+ },
+ "R3_type_by_method": {
+  "dimensionless-number regime crossing": {
+   "templates": 8,
+   "A": {
+    "learned": 4,
+    "of": 8
+   },
+   "P": {
+    "learned": 4,
+    "of": 8
+   },
+   "DOSE_dosed": {
+    "learned": 1,
+    "of": 1
+   }
+  },
+  "fixed reservoir / steady state / reactant in excess": {
+   "templates": 7,
+   "A": {
+    "learned": 6,
+    "of": 7
+   },
+   "P": {
+    "learned": 3,
+    "of": 7
+   },
+   "DOSE_dosed": {
+    "learned": 0,
+    "of": 1
+   }
+  },
+  "geometric idealisation (plane-parallel, flat, infinite)": {
+   "templates": 9,
+   "A": {
+    "learned": 2,
+    "of": 8
+   },
+   "P": {
+    "learned": 5,
+    "of": 9
+   },
+   "DOSE_dosed": {
+    "learned": 1,
+    "of": 4
+   }
+  },
+  "linearisation / local-slope extrapolation": {
+   "templates": 12,
+   "A": {
+    "learned": 6,
+    "of": 12
+   },
+   "P": {
+    "learned": 6,
+    "of": 12
+   },
+   "DOSE_dosed": {
+    "learned": 3,
+    "of": 3
+   }
+  },
+  "neglected process / missing term": {
+   "templates": 20,
+   "A": {
+    "learned": 9,
+    "of": 20
+   },
+   "P": {
+    "learned": 6,
+    "of": 20
+   },
+   "DOSE_dosed": {
+    "learned": 5,
+    "of": 5
+   }
+  },
+  "reference state / datum / boundary condition": {
+   "templates": 10,
+   "A": {
+    "learned": 6,
+    "of": 10
+   },
+   "P": {
+    "learned": 6,
+    "of": 10
+   },
+   "DOSE_dosed": {
+    "learned": 1,
+    "of": 2
+   }
+  }
+ }
+}

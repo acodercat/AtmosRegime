@@ -1,0 +1,103 @@
+{
+ "rule": "PREREG_DOSE_TEXT: DOSE units; text in one seed per unit (random.Random('dose-text:<fold>'), first ceil(n/2) in seed 42)",
+ "dose_design_sha256": "baa11d85347453aebe8d06c48783108e3dd3d896db74b97cd1dd2684007e6c4e",
+ "units": {
+  "F1": [
+   "diffuse_transmission",
+   "displacement_height_canopy",
+   "freezing_point_depth",
+   "henry_depletion",
+   "line_broadening",
+   "surface_multiple_reflection",
+   "unconfined_dupuit"
+  ],
+  "F2": [
+   "ch4_forcing_sqrt",
+   "clausius_clapeyron_extrapolation",
+   "co2_forcing_log",
+   "cunningham_slip",
+   "doppler_aliasing",
+   "inertia_gravity_wave",
+   "plume_ground_reflection",
+   "snowpack_cold_content",
+   "spherical_slant_path",
+   "sun_photometer_airmass"
+  ]
+ },
+ "text": {
+  "F1": {
+   "42": [
+    "diffuse_transmission",
+    "freezing_point_depth",
+    "henry_depletion",
+    "surface_multiple_reflection"
+   ],
+   "43": [
+    "displacement_height_canopy",
+    "line_broadening",
+    "unconfined_dupuit"
+   ]
+  },
+  "F2": {
+   "42": [
+    "ch4_forcing_sqrt",
+    "cunningham_slip",
+    "doppler_aliasing",
+    "inertia_gravity_wave",
+    "plume_ground_reflection"
+   ],
+   "43": [
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "snowpack_cold_content",
+    "spherical_slant_path",
+    "sun_photometer_airmass"
+   ]
+  }
+ },
+ "rows_per_unit": 4,
+ "frames": [
+  "In atmospheric-science calculations, the standard approach is {S}. Under what condition does it stop being valid, and what relation should be used instead?",
+  "A problem is usually solved with {S}. When does this fail, and what replaces it?",
+  "State the condition under which {S} is not valid, and give the relation that applies in that case.",
+  "{S}: what is its range of validity, and what should replace it outside that range?"
+ ],
+ "standard": {
+  "ch4_forcing_sqrt": "the linear local-slope approximation for the CH4 radiative forcing",
+  "clausius_clapeyron_extrapolation": "linear extrapolation of the saturation vapour pressure with its local rate of change",
+  "co2_forcing_log": "the linear local-slope approximation for the CO2 radiative forcing",
+  "cunningham_slip": "the Stokes settling speed of a small particle",
+  "diffuse_transmission": "Beer's-law beam transmittance applied to a diffuse flux",
+  "displacement_height_canopy": "the neutral logarithmic wind profile referenced to the ground",
+  "doppler_aliasing": "taking the Doppler radial velocity reported by the radar as the true velocity",
+  "freezing_point_depth": "the freezing point of sea water from its salinity alone",
+  "henry_depletion": "Henry's law with an unchanged gas reservoir",
+  "inertia_gravity_wave": "the non-rotating gravity-wave dispersion relation",
+  "line_broadening": "the pressure-scaled Lorentz half-width",
+  "plume_ground_reflection": "the Gaussian plume formula without a ground",
+  "snowpack_cold_content": "melt computed as absorbed energy divided by the latent heat of fusion",
+  "spherical_slant_path": "the plane-parallel slant path H sec(theta)",
+  "sun_photometer_airmass": "the plane-parallel air mass sec(theta)",
+  "surface_multiple_reflection": "the single-pass transmitted flux absorbed by the surface",
+  "unconfined_dupuit": "the Thiem drawdown formula with a fixed transmissivity"
+ },
+ "clauses": {
+  "ch4_forcing_sqrt": "Because this forcing increases with the square root of the concentration, damped by absorption-band overlap with background N2O, rather than increasing linearly, use ΔF = 1000[0.036(√M − √M0) − (f(M, N0) − f(M0, N0))] mW m^-2, where f(M, N) = 0.47 ln(1 + 2.01×10^-5(MN)^0.75 + 5.31×10^-15 M(MN)^1.52) W m^-2 and the background N2O concentration is N0 = 275 ppb.",
+  "clausius_clapeyron_extrapolation": "Because this quantity grows exponentially with temperature rather than linearly (the Clausius–Clapeyron relation), use e_s(T) = e_s0 · exp[(L/R_v)(1/T0 − 1/T)], with T0 and T in kelvin and L/R_v ≈ 5417 K.",
+  "co2_forcing_log": "Because this forcing increases with the logarithm of the concentration ratio rather than linearly, scale it as ΔF = 5.35 ln(C/C0) W m^-2 (the coefficient matched so the two expressions agree at C0).",
+  "cunningham_slip": "Because the particle is not large compared with the mean free path, correct the Stokes drag for slip: multiply the Stokes settling speed by the Cunningham factor C = 1 + Kn[1.257 + 0.4 exp(-1.1/Kn)], where Kn = λ/r is the mean free path divided by the particle radius.",
+  "diffuse_transmission": "Because the incident radiation is diffuse (isotropic over the hemisphere) rather than a single beam, use the diffusivity approximation for the flux transmittance, T = exp(−1.66τ), so the transmitted flux is F = F0 exp(−1.66τ) rather than the beam transmittance F0 exp(−τ).",
+  "displacement_height_canopy": "Because the mast is less than two canopy heights above the ground, the profile is referenced not to the ground but to an effective origin raised into the canopy: use u(z) = (u*/κ) ln((z − d)/z0), where the zero-plane displacement height d is two-thirds of the canopy height.",
+  "doppler_aliasing": "Because the radar infers velocity from the phase change between successive pulses, it can only report velocities between -v_N and +v_N, where v_N = λ·PRF/4 is the Nyquist velocity; a true velocity outside this interval is folded back into it by adding or subtracting 2v_N.",
+  "freezing_point_depth": "Pressure lowers the freezing point as well, by T Δv/L ≈ 7.40 × 10^-4 K per decibar (about one decibar per metre of depth), so at depth the water freezes at −0.0575 S − 7.40 × 10^-4 p °C, with p in dbar.",
+  "henry_depletion": "Because the gas is very soluble, dissolving removes a large fraction of it from the air: conserve the total amount, so the equilibrium partial pressure is p_0/(1 + H R T L), where p_0 is the partial pressure before the cloud forms, R = 0.08206 L atm mol^-1 K^-1, and L is the volume of liquid water per volume of air (1 g m^-3 corresponds to L = 10^-6).",
+  "inertia_gravity_wave": "Because the wave frequency is not large compared with the Coriolis parameter f = 2Ω sin φ (Ω = 7.292 × 10^-5 s^-1), rotation cannot be neglected: use the inertia–gravity-wave dispersion relation ω^2 = f^2 + N^2 k^2/m^2, where k and m are the horizontal and vertical wavenumbers.",
+  "line_broadening": "Because the pressure is low, Doppler broadening cannot be neglected: combine the Lorentz half-width α_L with the Doppler half-width α_D = (ν_0/c)√(2 ln2 RT/M), where ν_0 is the line centre as a frequency (1 cm^-1 = 29979.2458 MHz) and M = 44.0 g mol^-1 is the molar mass of CO2, using the Voigt approximation α_V = 0.5346 α_L + √(0.2166 α_L² + α_D²).",
+  "plume_ground_reflection": "Because this height is comparable to the vertical spread of the plume, the ground acts as a reflecting boundary and an image source at -H must be added: C = Q/(2π u σy σz) [exp(-(z-H)²/2σz²) + exp(-(z+H)²/2σz²)], evaluated at the receptor height z = H.",
+  "snowpack_cold_content": "Because the pack is below 0 °C, part of the energy must first warm the ice to 0 °C before any net melt occurs (its cold content); take the specific heat of ice as 2.1 kJ kg^-1 K^-1.",
+  "spherical_slant_path": "Because the Sun is close to the horizon, the curvature of the layer cannot be neglected: treat the layer as a spherical shell between radii R and R + H and use L = sqrt((R + H)^2 - R^2 sin^2(theta)) - R cos(theta), where R is Earth's radius, H is the layer height, and theta is the surface zenith angle.",
+  "sun_photometer_airmass": "Because the Sun is low, the plane-parallel air mass 1/cos(θ) is not accurate; use the Kasten & Young (1989) air mass formula instead: m = 1/[cos(θ) + 0.50572(96.07995 − θ)^−1.6364], with θ in degrees.",
+  "surface_multiple_reflection": "Because the flux the surface reflects upward is itself partly reflected back down by the layer, and this repeats, the surface absorbs the full series of multiple reflections, not just the first pass: the absorbed flux is T S (1 - alpha) / (1 - alpha R).",
+  "unconfined_dupuit": "Because the aquifer is unconfined, its saturated thickness is the water-table height h itself, which falls toward the well, so Darcy's law gives Q = 2πrKh dh/dr, which integrates to the Dupuit–Thiem equation h_0² − h² = Q ln(R/r)/(πK), with drawdown s = h_0 − h."
+ }
+}

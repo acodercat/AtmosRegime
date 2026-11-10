@@ -1,0 +1,606 @@
+{
+ "analysis": "PREREG_PAPER_ANALYSES §25-C",
+ "trap_level": {
+  "traps": 46,
+  "log10_fold": {
+   "median": 0.22484221487420558,
+   "q1": 0.09948500216800943,
+   "q3": 0.47712125471966255
+  },
+  "factor_at_least": {
+   "1.5": 27,
+   "2": 19,
+   "10": 7
+  },
+  "sign_flipped": 1,
+  "by_category_example": {
+   "air_quality": {
+    "trap": "trap_turner_2_p11",
+    "shortcut": 2.046010947761569e-05,
+    "truth": 5.756742862935537e-05,
+    "unit": "g/m^3",
+    "factor": 2.8136422579916696,
+    "traps": 6
+   },
+   "atmospheric_chemistry": {
+    "trap": "trap_fp_13.2_gen",
+    "shortcut": 63.376175628057894,
+    "truth": 3.017913125145614,
+    "unit": "years",
+    "factor": 21.0,
+    "traps": 7
+   },
+   "atmospheric_dynamics": {
+    "trap": "trap_p_108_gen",
+    "shortcut": 69.07755278982137,
+    "truth": 46.00245018061674,
+    "unit": "minutes",
+    "factor": 1.5016059474790189,
+    "traps": 11
+   },
+   "atmospheric_radiation": {
+    "trap": "trap_3.4_regime",
+    "shortcut": 235.45099627104008,
+    "truth": 77.07921648670057,
+    "unit": "K",
+    "factor": 3.054662553707527,
+    "traps": 6
+   },
+   "atmospheric_thermodynamics": {
+    "trap": "trap_air_332_gen",
+    "shortcut": 3.3000000000000007,
+    "truth": 4.824048006564204,
+    "unit": "^{\\circ}\\mathrm{C\\ km^{-1}}",
+    "factor": 1.4618327292618796,
+    "traps": 7
+   },
+   "climate_dynamics": {
+    "trap": "trap_7.4_gen",
+    "shortcut": 314.0020781652884,
+    "truth": 249.71666153687733,
+    "unit": "K",
+    "factor": 1.2574334296829355,
+    "traps": 3
+   },
+   "cloud_physics": {
+    "trap": "trap_ry_7.7_regime",
+    "shortcut": 0.5165765439235248,
+    "truth": 0.30781690522948607,
+    "unit": "%",
+    "factor": 1.6781941964441576,
+    "traps": 5
+   },
+   "observation_and_modeling": {
+    "trap": "trap_7.1_gen",
+    "shortcut": 71.39187628855261,
+    "truth": 86.6071590574359,
+    "unit": "",
+    "factor": 1.2131234470906178,
+    "traps": 1
+   }
+  },
+  "per_trap": {
+   "trap_1.1_gen": {
+    "sub": "1",
+    "shortcut": 7.933443397167849,
+    "truth": 4.926572808425107,
+    "unit": "K",
+    "log10_fold": 0.20691682203136016,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_1.2_gen": {
+    "sub": "1",
+    "shortcut": 4.797007804097654,
+    "truth": 5.403510203586928,
+    "unit": "g m^-3",
+    "log10_fold": 0.05170555088786478,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_11.1_gen": {
+    "sub": "1",
+    "shortcut": 35.41666666666667,
+    "truth": 23.61111111111111,
+    "unit": "%",
+    "log10_fold": 0.17609125905568132,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_2.10_gen": {
+    "sub": "2",
+    "shortcut": 1.256960615276645,
+    "truth": 0.8664714014988485,
+    "unit": "kg/m^2",
+    "log10_fold": 0.16156743693000283,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_3.4_regime": {
+    "sub": "1",
+    "shortcut": 235.45099627104008,
+    "truth": 77.07921648670057,
+    "unit": "K",
+    "log10_fold": 0.48496324104104277,
+    "category": "atmospheric_radiation"
+   },
+   "trap_3.8_gen": {
+    "sub": "1",
+    "shortcut": 3.85571921097471,
+    "truth": 5.355165570798208,
+    "unit": "hPa",
+    "log10_fold": 0.14266750356873156,
+    "category": "atmospheric_radiation"
+   },
+   "trap_5.3_gen": {
+    "sub": "2",
+    "shortcut": 24.183991523122906,
+    "truth": 68.4,
+    "unit": "min",
+    "log10_fold": 0.45152811977751367,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_5.7_regime": {
+    "sub": "2",
+    "shortcut": 22745.86964453809,
+    "truth": 42282.55827038148,
+    "unit": "km",
+    "log10_fold": 0.26925871015332953,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_5.9_gen": {
+    "sub": "1",
+    "shortcut": 2.7172573455919924,
+    "truth": 2.17298873208612,
+    "unit": "m s^-1",
+    "log10_fold": 0.0970732971447763,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_6.1.4_gen": {
+    "sub": "1",
+    "shortcut": 1.9285714285714286e+18,
+    "truth": 8.880994671403198e+16,
+    "unit": "kg",
+    "log10_fold": 1.3367741189960767,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_6.2_gen": {
+    "sub": "1",
+    "shortcut": 72.10000000000001,
+    "truth": -2.10412353159073,
+    "unit": "kJ mol^{-1}",
+    "log10_fold": Infinity,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_6.6_gen": {
+    "sub": "1",
+    "shortcut": 7.057743920404803,
+    "truth": 8.057743920404803,
+    "unit": "pH",
+    "log10_fold": 0.05754756456140571,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_7.1_gen": {
+    "sub": "1",
+    "shortcut": 71.39187628855261,
+    "truth": 86.6071590574359,
+    "unit": "",
+    "log10_fold": 0.08390499679598698,
+    "category": "observation_and_modeling"
+   },
+   "trap_7.4_gen": {
+    "sub": "3",
+    "shortcut": 314.0020781652884,
+    "truth": 249.71666153687733,
+    "unit": "K",
+    "log10_fold": 0.09948500216800943,
+    "category": "climate_dynamics"
+   },
+   "trap_7.5_gen": {
+    "sub": "1",
+    "shortcut": 214.4639489060506,
+    "truth": 255.0420539506554,
+    "unit": "K",
+    "log10_fold": 0.07525749891599526,
+    "category": "climate_dynamics"
+   },
+   "trap_7.6_regime": {
+    "sub": "1",
+    "shortcut": 1.3166287391873976,
+    "truth": 71.68241342723718,
+    "unit": "%",
+    "log10_fold": 1.7359492882921397,
+    "category": "atmospheric_radiation"
+   },
+   "trap_air170_cunningham": {
+    "sub": "1",
+    "shortcut": 0.00011899999999999998,
+    "truth": 0.0002237,
+    "unit": "cm s^-1",
+    "log10_fold": 0.274119022704099,
+    "category": "cloud_physics"
+   },
+   "trap_air_202_regime": {
+    "sub": "1",
+    "shortcut": 18.939393939393938,
+    "truth": 16.02221810851934,
+    "unit": "m s^{-1}",
+    "log10_fold": 0.07264343802715245,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_air_226_gen": {
+    "sub": "1",
+    "shortcut": -2e-06,
+    "truth": -1.571471860839789e-06,
+    "unit": "s^{-1}",
+    "log10_fold": 0.10472338682417025,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_air_301_gen": {
+    "sub": "1",
+    "shortcut": 19.138965489283898,
+    "truth": 16.074513989542577,
+    "unit": "m/s",
+    "log10_fold": 0.07578060836435697,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_air_332_gen": {
+    "sub": "1",
+    "shortcut": 3.3000000000000007,
+    "truth": 4.824048006564204,
+    "unit": "^{\\circ}\\mathrm{C\\ km^{-1}}",
+    "log10_fold": 0.16489768116179213,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_air_68_gen": {
+    "sub": "2",
+    "shortcut": 1.3,
+    "truth": 2.5,
+    "unit": "kPa",
+    "log10_fold": 0.2839966563652008,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_air_91_gen": {
+    "sub": "1",
+    "shortcut": 0.2,
+    "truth": 0.04,
+    "unit": "",
+    "log10_fold": 0.6989700043360189,
+    "category": "atmospheric_radiation"
+   },
+   "trap_ca_5.3_gen": {
+    "sub": "1",
+    "shortcut": 95941.04554141856,
+    "truth": 20625.0,
+    "unit": "ft2",
+    "log10_fold": 0.6676104897658944,
+    "category": "air_quality"
+   },
+   "trap_dn_10.39_gen": {
+    "sub": "1",
+    "shortcut": 1342.7121376186715,
+    "truth": 1606.5367074611534,
+    "unit": "°F",
+    "log10_fold": 0.0779077383201299,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_dn_15.19_gen": {
+    "sub": "1",
+    "shortcut": 0.2012072434607646,
+    "truth": 0.5682236474425211,
+    "unit": "ft^3/hr",
+    "log10_fold": 0.4508756922844442,
+    "category": "air_quality"
+   },
+   "trap_dn_15.2_gen": {
+    "sub": "1",
+    "shortcut": 23.54730633333333,
+    "truth": 19.05934417526044,
+    "unit": "%",
+    "log10_fold": 0.09183328104265318,
+    "category": "air_quality"
+   },
+   "trap_dn_4.4_regime": {
+    "sub": "1",
+    "shortcut": 0.47333333333333333,
+    "truth": 0.1733333333333333,
+    "unit": "g/m^3",
+    "log10_fold": 0.4362850007482574,
+    "category": "air_quality"
+   },
+   "trap_fp_13.2_gen": {
+    "sub": "1",
+    "shortcut": 63.376175628057894,
+    "truth": 3.017913125145614,
+    "unit": "years",
+    "log10_fold": 1.3222192947339193,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_fp_6.1_gen": {
+    "sub": "1",
+    "shortcut": 13.923875196884568,
+    "truth": 911.9370394745378,
+    "unit": "min",
+    "log10_fold": 1.816204733544063,
+    "category": "atmospheric_chemistry"
+   },
+   "trap_holton_28_gen": {
+    "sub": "1",
+    "shortcut": 3.978568868148536e-06,
+    "truth": 2.984e-06,
+    "unit": "m/s",
+    "log10_fold": 0.1249280612031096,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_holton_38_gen": {
+    "sub": "1",
+    "shortcut": -1.0193679918450562,
+    "truth": -0.5749235474006117,
+    "unit": "m per km",
+    "log10_fold": 0.24872089601665776,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_holton_39_gen": {
+    "sub": "1",
+    "shortcut": -0.0009999999999999998,
+    "truth": -0.003,
+    "unit": "m s^-2",
+    "log10_fold": 0.47712125471966255,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_holton_50_gen": {
+    "sub": "1",
+    "shortcut": 0.009578544061302678,
+    "truth": 0.027777777777777773,
+    "unit": "m/s",
+    "log10_fold": 0.4623979978989562,
+    "category": "atmospheric_thermodynamics"
+   },
+   "trap_holton_5_gen": {
+    "sub": "1",
+    "shortcut": 0.097720502380584,
+    "truth": 0.97720502380584,
+    "unit": "cm",
+    "log10_fold": 1.0,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_jacob_13.4_p11": {
+    "sub": "1",
+    "shortcut": 14.933609671848016,
+    "truth": 4.669899850737704,
+    "unit": "ppbv",
+    "log10_fold": 0.5048572288238993,
+    "category": "air_quality"
+   },
+   "trap_jacob_8.2_gen": {
+    "sub": "1",
+    "shortcut": 1.7559368128842057,
+    "truth": 12.974715616578887,
+    "unit": "dimensionless",
+    "log10_fold": 0.8685889638065036,
+    "category": "climate_dynamics"
+   },
+   "trap_p_108_gen": {
+    "sub": "1",
+    "shortcut": 69.07755278982137,
+    "truth": 46.00245018061674,
+    "unit": "minutes",
+    "log10_fold": 0.17655597974661694,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_p_40_regime": {
+    "sub": "1",
+    "shortcut": 0.004317275228257676,
+    "truth": 0.0033380922818191613,
+    "unit": "K s^-1",
+    "log10_fold": 0.1117113973956845,
+    "category": "atmospheric_radiation"
+   },
+   "trap_p_55_regime": {
+    "sub": "2",
+    "shortcut": 69.31471805599453,
+    "truth": 2.002429977781135,
+    "unit": "kg m^-2",
+    "log10_fold": 1.5392681227033251,
+    "category": "atmospheric_radiation"
+   },
+   "trap_p_96_gen": {
+    "sub": "1",
+    "shortcut": 20.929307105733198,
+    "truth": 15.682345556221339,
+    "unit": "m s^-1",
+    "log10_fold": 0.12534383145807046,
+    "category": "atmospheric_dynamics"
+   },
+   "trap_ry_12.2_gen": {
+    "sub": "1",
+    "shortcut": 76.75283643313487,
+    "truth": 166.32862848784694,
+    "unit": "s",
+    "log10_fold": 0.33587257245099256,
+    "category": "cloud_physics"
+   },
+   "trap_ry_14.2_p11": {
+    "sub": "1",
+    "shortcut": 3.323383084577113,
+    "truth": 2.985212434401163,
+    "unit": "K",
+    "log10_fold": 0.046605163122187376,
+    "category": "cloud_physics"
+   },
+   "trap_ry_5.1_p11": {
+    "sub": "2",
+    "shortcut": 1.0762762974401903,
+    "truth": 0.883866215191054,
+    "unit": "g/m^3",
+    "log10_fold": 0.08553724223387882,
+    "category": "cloud_physics"
+   },
+   "trap_ry_7.7_regime": {
+    "sub": "1",
+    "shortcut": 0.5165765439235248,
+    "truth": 0.30781690522948607,
+    "unit": "%",
+    "log10_fold": 0.22484221487420558,
+    "category": "cloud_physics"
+   },
+   "trap_turner_2_p11": {
+    "sub": "1",
+    "shortcut": 2.046010947761569e-05,
+    "truth": 5.756742862935537e-05,
+    "unit": "g/m^3",
+    "log10_fold": 0.4492688780110402,
+    "category": "air_quality"
+   }
+  }
+ },
+ "model_level": {
+  "qwen35-9b-base": {
+   "files": 1,
+   "failed_rows": 30,
+   "captured_rows": 7,
+   "capture_share": 0.23333333333333334,
+   "fold_rows": 27,
+   "unit_handling": {
+    "converted": 5,
+    "same": 22,
+    "unconvertible": 3
+   },
+   "log10_fold_median": 0.1445873811293177,
+   "share_off_2x_or_more": 0.3333333333333333,
+   "share_sign_flipped": 0.0
+  },
+  "qwen35-9b-A": {
+   "files": 4,
+   "failed_rows": 83,
+   "captured_rows": 28,
+   "capture_share": 0.3373493975903614,
+   "fold_rows": 80,
+   "unit_handling": {
+    "converted": 16,
+    "same": 64,
+    "unconvertible": 3
+   },
+   "log10_fold_median": 0.10823173097561833,
+   "share_off_2x_or_more": 0.35,
+   "share_sign_flipped": 0.05
+  },
+  "qwen3-8b-base": {
+   "files": 1,
+   "failed_rows": 45,
+   "captured_rows": 4,
+   "capture_share": 0.08888888888888889,
+   "fold_rows": 39,
+   "unit_handling": {
+    "converted": 6,
+    "no_number": 3,
+    "same": 33,
+    "unconvertible": 3
+   },
+   "log10_fold_median": 1.6372044025661543,
+   "share_off_2x_or_more": 0.8205128205128205,
+   "share_sign_flipped": 0.10256410256410256
+  },
+  "qwen3-8b-A": {
+   "files": 4,
+   "failed_rows": 153,
+   "captured_rows": 32,
+   "capture_share": 0.20915032679738563,
+   "fold_rows": 131,
+   "unit_handling": {
+    "converted": 39,
+    "no_number": 16,
+    "same": 92,
+    "unconvertible": 6
+   },
+   "log10_fold_median": 0.4362850007482574,
+   "share_off_2x_or_more": 0.5954198473282443,
+   "share_sign_flipped": 0.08396946564885496
+  },
+  "frontier21-deepseek-v4-flash-off": {
+   "files": 3,
+   "failed_rows": 60,
+   "captured_rows": 23,
+   "capture_share": 0.38333333333333336,
+   "fold_rows": 56,
+   "unit_handling": {
+    "converted": 14,
+    "no_number": 1,
+    "same": 42,
+    "unconvertible": 3
+   },
+   "log10_fold_median": 0.1249271142502793,
+   "share_off_2x_or_more": 0.25,
+   "share_sign_flipped": 0.017857142857142856
+  },
+  "frontier21-gpt-5.5-off": {
+   "files": 3,
+   "failed_rows": 30,
+   "captured_rows": 10,
+   "capture_share": 0.3333333333333333,
+   "fold_rows": 29,
+   "unit_handling": {
+    "converted": 6,
+    "same": 23,
+    "unconvertible": 1
+   },
+   "log10_fold_median": 0.15025804308108937,
+   "share_off_2x_or_more": 0.2413793103448276,
+   "share_sign_flipped": 0.034482758620689655
+  },
+  "frontier21-gpt-5.4-off": {
+   "files": 3,
+   "failed_rows": 40,
+   "captured_rows": 7,
+   "capture_share": 0.175,
+   "fold_rows": 36,
+   "unit_handling": {
+    "converted": 11,
+    "same": 25,
+    "unconvertible": 4
+   },
+   "log10_fold_median": 0.1249280612031096,
+   "share_off_2x_or_more": 0.2777777777777778,
+   "share_sign_flipped": 0.027777777777777776
+  },
+  "frontier21-minimax-m3-off": {
+   "files": 3,
+   "failed_rows": 118,
+   "captured_rows": 11,
+   "capture_share": 0.09322033898305085,
+   "fold_rows": 108,
+   "unit_handling": {
+    "converted": 24,
+    "same": 84,
+    "unconvertible": 10
+   },
+   "log10_fold_median": 1.0061114300850207,
+   "share_off_2x_or_more": 0.6944444444444444,
+   "share_sign_flipped": 0.09259259259259259
+  },
+  "frontier21-deepseek-v4-flash-on": {
+   "files": 3,
+   "failed_rows": 4,
+   "captured_rows": 0,
+   "capture_share": 0.0,
+   "fold_rows": 3,
+   "unit_handling": {
+    "converted": 1,
+    "no_number": 1,
+    "same": 2
+   },
+   "log10_fold_median": 1.6873718458174487e-05,
+   "share_off_2x_or_more": 0.0,
+   "share_sign_flipped": 0.0
+  },
+  "frontier21-gpt-5.5-on": {
+   "files": 3,
+   "failed_rows": 2,
+   "captured_rows": 0,
+   "capture_share": 0.0,
+   "fold_rows": 2,
+   "unit_handling": {
+    "same": 2
+   },
+   "log10_fold_median": 0.24858337320629598,
+   "share_off_2x_or_more": 0.5,
+   "share_sign_flipped": 0.0
+  }
+ }
+}

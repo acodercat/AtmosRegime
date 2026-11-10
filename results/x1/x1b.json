@@ -1,0 +1,60 @@
+{
+ "gemma4-31b.think-on": {
+  "rows": 2880,
+  "unjudged": 0,
+  "yes_among_outside_wrong": {
+   "mean": 0.02222222222222222,
+   "ci95": [
+    0.0,
+    0.06666666666666667
+   ],
+   "units": 15
+  },
+  "yes_among_outside_right": {
+   "mean": 0.023032407407407408,
+   "ci95": [
+    0.0017857142857142859,
+    0.049305555555555554
+   ],
+   "units": 28
+  },
+  "yes_among_inside": {
+   "mean": 0.0013020833333333335,
+   "ci95": [
+    0.0,
+    0.0033854166666666668
+   ],
+   "units": 32
+  },
+  "reading": "numbers only; audit precision decides whether to read at all"
+ },
+ "qwen3-8b.think-on": {
+  "rows": 2880,
+  "unjudged": 0,
+  "yes_among_outside_wrong": {
+   "mean": 0.005406212664277181,
+   "ci95": [
+    0.0,
+    0.011977299880525689
+   ],
+   "units": 31
+  },
+  "yes_among_outside_right": {
+   "mean": 0.016666666666666666,
+   "ci95": [
+    0.0,
+    0.05
+   ],
+   "units": 20
+  },
+  "yes_among_inside": {
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "units": 32
+  },
+  "reading": "numbers only; audit precision decides whether to read at all"
+ }
+}

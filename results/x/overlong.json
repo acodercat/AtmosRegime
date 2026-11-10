@@ -1,0 +1,31 @@
+{
+ "x-qwen35-9b-F2-F-s43": {
+  "files": [
+   "x-qwen35-9b-F2-F-s43.attempt1.nohup"
+  ],
+  "steps": 20,
+  "last_step": 120,
+  "clip_last20": 0.0189453125,
+  "final_truncated": [
+   4,
+   5600
+  ],
+  "final_share": 0.0007142857142857143,
+  "verdict": "未退化：不做"
+ },
+ "x-qwen35-9b-F2-F-s42": {
+  "files": [
+   "x-qwen35-9b-F2-F-s42.attempt1.nohup",
+   "x-qwen35-9b-F2-F-s42.attempt2.nohup"
+  ],
+  "steps": 20,
+  "last_step": 120,
+  "clip_last20": 0.771142578125,
+  "final_truncated": [
+   850,
+   5600
+  ],
+  "final_share": 0.15178571428571427,
+  "verdict": "退化：做超长惩罚检验"
+ }
+}

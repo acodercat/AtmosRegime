@@ -1,0 +1,27 @@
+{
+ "host": "host-B",
+ "max_num_seqs": 32,
+ "max_num_batched_tokens": 16384,
+ "language_model_only": false,
+ "wall_seconds": 345600,
+ "extra_vllm_args": [
+  "--limit-mm-per-prompt",
+  "{\"image\":0}"
+ ],
+ "reasoning_parser": null,
+ "modes": [
+  "off"
+ ],
+ "name": "ministral3_8b_mistraltok",
+ "config_prefix": "ministral3-8b",
+ "model_path": "/path/to/local/models/Ministral-3-8B-Instruct-2512-BF16",
+ "upstream_repo": "mistralai/Ministral-3-8B-Instruct-2512-BF16",
+ "revision": "f6fae9795746f63c9be8344932f01275f3c63734",
+ "served_name": "d-v2-ministral3-8b",
+ "port": 8213,
+ "gpus": "1,2",
+ "tensor_parallel": 1,
+ "data_parallel": 2,
+ "workers": 48,
+ "no_thinking_switch": true
+}

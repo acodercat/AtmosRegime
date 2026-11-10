@@ -1,0 +1,169 @@
+{
+ "levels": [
+  0,
+  1,
+  2,
+  4
+ ],
+ "rule": {
+  "max_base_pass64": 0.1,
+  "max_A_mean": null,
+  "min_pairs": 4,
+  "excluded": [
+   "plume_mixing_lid"
+  ],
+  "note": "no A arm for this family; dose 0 is the RL-only control"
+ },
+ "inputs": {
+  "reach": "results/x/reach_ministral3-8b.json",
+  "reach_sha256": "14d7bc72a0d65642a815dbaaff075e590d231273d66003668911ca464027a31b",
+  "family": "ministral3-8b",
+  "reach_inputs_sha256": {
+   "experiments/_x/ministral3-8b/passk_final_outside.x18.jsonl": "90e9e08364541dd12c752514aa93af287cbe6f566f03fa5e9274b795aa58836e",
+   "experiments/_x/ministral3-8b/warm_samples_F1.jsonl": "b35d8a21dde46f417cde8d0d428e14a833a9c2fb9488337de44687fd228627d1",
+   "experiments/_x/ministral3-8b/warm_samples_F2.jsonl": "aada33f9faa693ac5e18d0c17a31be8d97f776c7d8268b7e837e7e53d0d5909c"
+  }
+ },
+ "units": {
+  "F1": [
+   "diffuse_transmission",
+   "freezing_point_depth",
+   "henry_depletion",
+   "line_broadening",
+   "rossby_deformation"
+  ],
+  "F2": [
+   "ch4_forcing_sqrt",
+   "clausius_clapeyron_extrapolation",
+   "co2_forcing_log",
+   "doppler_aliasing",
+   "inertia_gravity_wave",
+   "snowpack_cold_content",
+   "sun_photometer_airmass"
+  ]
+ },
+ "unit_facts": {
+  "diffuse_transmission": {
+   "fold": "F1",
+   "base_pass64": 0.1,
+   "base_pass1": 0.0015625,
+   "given_acc": 1.0,
+   "pairs": 20
+  },
+  "freezing_point_depth": {
+   "fold": "F1",
+   "base_pass64": 0.1,
+   "base_pass1": 0.0015625,
+   "given_acc": 0.48125,
+   "pairs": 18
+  },
+  "henry_depletion": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.25625,
+   "pairs": 16
+  },
+  "line_broadening": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.05625,
+   "pairs": 4
+  },
+  "rossby_deformation": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.05625,
+   "pairs": 7
+  },
+  "ch4_forcing_sqrt": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.63125,
+   "pairs": 20
+  },
+  "clausius_clapeyron_extrapolation": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.51875,
+   "pairs": 20
+  },
+  "co2_forcing_log": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.85,
+   "pairs": 20
+  },
+  "doppler_aliasing": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.35625,
+   "pairs": 16
+  },
+  "inertia_gravity_wave": {
+   "fold": "F2",
+   "base_pass64": 0.05,
+   "base_pass1": 0.0015625,
+   "given_acc": 0.6125,
+   "pairs": 20
+  },
+  "snowpack_cold_content": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "base_pass1": 0.0,
+   "given_acc": 0.46875,
+   "pairs": 20
+  },
+  "sun_photometer_airmass": {
+   "fold": "F2",
+   "base_pass64": 0.05,
+   "base_pass1": 0.00078125,
+   "given_acc": 0.55,
+   "pairs": 20
+  }
+ },
+ "doses": {
+  "F1": {
+   "42": {
+    "diffuse_transmission": 1,
+    "freezing_point_depth": 4,
+    "henry_depletion": 0,
+    "line_broadening": 2,
+    "rossby_deformation": 4
+   },
+   "43": {
+    "diffuse_transmission": 1,
+    "freezing_point_depth": 2,
+    "henry_depletion": 0,
+    "line_broadening": 4,
+    "rossby_deformation": 2
+   }
+  },
+  "F2": {
+   "42": {
+    "ch4_forcing_sqrt": 0,
+    "clausius_clapeyron_extrapolation": 4,
+    "co2_forcing_log": 4,
+    "doppler_aliasing": 0,
+    "inertia_gravity_wave": 1,
+    "snowpack_cold_content": 2,
+    "sun_photometer_airmass": 2
+   },
+   "43": {
+    "ch4_forcing_sqrt": 0,
+    "clausius_clapeyron_extrapolation": 4,
+    "co2_forcing_log": 1,
+    "doppler_aliasing": 0,
+    "inertia_gravity_wave": 1,
+    "snowpack_cold_content": 2,
+    "sun_photometer_airmass": 4
+   }
+  }
+ }
+}

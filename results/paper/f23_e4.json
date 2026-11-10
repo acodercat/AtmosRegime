@@ -1,0 +1,72 @@
+{
+ "analysis": "PREREG_PAPER_ANALYSES §23 E4",
+ "mechanisms": 70,
+ "mean_pass@64": 0.8971428571428571,
+ "zero_hit": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "ice_above_flotation",
+  "line_broadening",
+  "sonic_humidity_flux"
+ ],
+ "vs": {
+  "qwen35-9b": {
+   "common": 69,
+   "spearman": {
+    "rho": 0.7602784460670633,
+    "ci95": [
+     0.5546586669058793,
+     0.8959322710448768
+    ],
+    "units": 69,
+    "draws_used": 9998
+   },
+   "zero_hit_other": [
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "sonic_humidity_flux",
+    "sun_photometer_airmass"
+   ],
+   "zero_hit_both": [
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "sonic_humidity_flux"
+   ]
+  },
+  "qwen3-8b": {
+   "common": 69,
+   "spearman": {
+    "rho": 0.42598309083318386,
+    "ci95": [
+     0.24433329145936644,
+     0.5711810366311671
+    ],
+    "units": 69,
+    "draws_used": 9998
+   },
+   "zero_hit_other": [
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "diffuse_transmission",
+    "displacement_height_canopy",
+    "drop_ventilation",
+    "freezing_point_depth",
+    "ice_above_flotation",
+    "line_broadening",
+    "plume_ground_reflection",
+    "rossby_deformation",
+    "saturated_lapse",
+    "snowpack_cold_content",
+    "sun_photometer_airmass"
+   ],
+   "zero_hit_both": [
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "ice_above_flotation",
+    "line_broadening"
+   ]
+  }
+ }
+}

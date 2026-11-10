@@ -1,0 +1,248 @@
+{
+ "levels": [
+  0,
+  1,
+  2,
+  4
+ ],
+ "rule": {
+  "max_base_pass64": 0.1,
+  "max_A_mean": 0.5,
+  "min_pairs": 4,
+  "excluded": [
+   "plume_mixing_lid"
+  ]
+ },
+ "inputs": {
+  "report": "results/x/report_qwen3-8b.json",
+  "report_sha256": "1bf787cda2661ac576fbedce8d38a8d342c74e8e37add64517b934a235dc3e12",
+  "warm_summary_F1_sha256": "4b94faa4e27ad60b93bea13d76ad4f25ef20048e3ad457dcd9960dc7a73435d1",
+  "warm_summary_F2_sha256": "01f321226d8b5d36c73f6765117f397a3834588a0fe1645abcae7b6d83e60ed1"
+ },
+ "units": {
+  "F1": [
+   "diffuse_transmission",
+   "displacement_height_canopy",
+   "freezing_point_depth",
+   "henry_depletion",
+   "line_broadening",
+   "surface_multiple_reflection",
+   "unconfined_dupuit"
+  ],
+  "F2": [
+   "ch4_forcing_sqrt",
+   "clausius_clapeyron_extrapolation",
+   "co2_forcing_log",
+   "cunningham_slip",
+   "doppler_aliasing",
+   "inertia_gravity_wave",
+   "plume_ground_reflection",
+   "snowpack_cold_content",
+   "spherical_slant_path",
+   "sun_photometer_airmass"
+  ]
+ },
+ "unit_facts": {
+  "diffuse_transmission": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "displacement_height_canopy": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "freezing_point_depth": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 19
+  },
+  "henry_depletion": {
+   "fold": "F1",
+   "base_pass64": 0.05,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 13
+  },
+  "line_broadening": {
+   "fold": "F1",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 6
+  },
+  "surface_multiple_reflection": {
+   "fold": "F1",
+   "base_pass64": 0.1,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "unconfined_dupuit": {
+   "fold": "F1",
+   "base_pass64": 0.05,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 19
+  },
+  "ch4_forcing_sqrt": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "clausius_clapeyron_extrapolation": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 19
+  },
+  "co2_forcing_log": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 19
+  },
+  "cunningham_slip": {
+   "fold": "F2",
+   "base_pass64": 0.05,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 19
+  },
+  "doppler_aliasing": {
+   "fold": "F2",
+   "base_pass64": 0.1,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "inertia_gravity_wave": {
+   "fold": "F2",
+   "base_pass64": 0.05,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "plume_ground_reflection": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 18
+  },
+  "snowpack_cold_content": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "spherical_slant_path": {
+   "fold": "F2",
+   "base_pass64": 0.1,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  },
+  "sun_photometer_airmass": {
+   "fold": "F2",
+   "base_pass64": 0.0,
+   "A": [
+    0.0,
+    0.0
+   ],
+   "pairs": 20
+  }
+ },
+ "doses": {
+  "F1": {
+   "42": {
+    "diffuse_transmission": 0,
+    "displacement_height_canopy": 2,
+    "freezing_point_depth": 4,
+    "henry_depletion": 2,
+    "line_broadening": 4,
+    "surface_multiple_reflection": 1,
+    "unconfined_dupuit": 1
+   },
+   "43": {
+    "diffuse_transmission": 1,
+    "displacement_height_canopy": 1,
+    "freezing_point_depth": 2,
+    "henry_depletion": 2,
+    "line_broadening": 0,
+    "surface_multiple_reflection": 0,
+    "unconfined_dupuit": 4
+   }
+  },
+  "F2": {
+   "42": {
+    "ch4_forcing_sqrt": 0,
+    "clausius_clapeyron_extrapolation": 4,
+    "co2_forcing_log": 2,
+    "cunningham_slip": 2,
+    "doppler_aliasing": 0,
+    "inertia_gravity_wave": 0,
+    "plume_ground_reflection": 2,
+    "snowpack_cold_content": 4,
+    "spherical_slant_path": 1,
+    "sun_photometer_airmass": 1
+   },
+   "43": {
+    "ch4_forcing_sqrt": 0,
+    "clausius_clapeyron_extrapolation": 1,
+    "co2_forcing_log": 4,
+    "cunningham_slip": 1,
+    "doppler_aliasing": 2,
+    "inertia_gravity_wave": 1,
+    "plume_ground_reflection": 4,
+    "snowpack_cold_content": 2,
+    "spherical_slant_path": 0,
+    "sun_photometer_airmass": 4
+   }
+  }
+ }
+}

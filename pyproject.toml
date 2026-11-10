@@ -1,0 +1,22 @@
+[project]
+name = "atmoscoder-rl"
+version = "0.1.0"
+description = "RL and SFT on execution-verified atmospheric-science computation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+# Model evaluation (atmoscoder_rl.evaluation): the OpenAI-compatible client. The reward path stays stdlib-only.
+eval = ["openai>=2.29.0"]
+
+# Manuscript figures (paper/fig/*.py): read results/ only, write paper/figures/*.pdf.
+paper = ["matplotlib>=3.9", "numpy>=1.26"]
+
+# Not a library: nothing is installed. Run modules from the repo root:
+#   uv run python -m atmoscoder_rl.<module>
+# The reward path is deliberately dependency-free (engine.py is pure stdlib); trainer
+# extras (verl / trl / torch) go in an optional group when that work starts.
+
+[tool.uv]
+package = false

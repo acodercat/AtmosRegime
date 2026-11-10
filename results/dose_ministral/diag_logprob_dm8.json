@@ -1,0 +1,138 @@
+{
+ "model": "/path/to/local/dose/merged/sft-dose-ministral3-8b-F1-s42/global_step_59",
+ "attn": "flash_attention_2",
+ "n": 8,
+ "temperature": 1.0,
+ "response_tokens": [
+  330,
+  1326,
+  2048,
+  539,
+  2048,
+  2048,
+  692,
+  2048
+ ],
+ "vllm_vs_hf_single": {
+  "tokens": 11079,
+  "nll_a": 3.190004306356689,
+  "nll_b": 3.2630870901277023,
+  "ppl_a": 24.28853203795175,
+  "ppl_b": 26.1300786669705,
+  "mean_abs_logprob_diff": 0.23490227205203282,
+  "max_abs_logprob_diff": 5.818017482757568,
+  "mean_signed_diff_b_minus_a": -0.07308278377101331,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.12802721005240514
+   },
+   "256-1024": {
+    "tokens": 4633,
+    "mean_abs": 0.2604533122444483
+   },
+   "1024-end": {
+    "tokens": 4398,
+    "mean_abs": 0.2577540587195582
+   }
+  }
+ },
+ "vllm_vs_hf_packed": {
+  "tokens": 11079,
+  "nll_a": 3.190004306356689,
+  "nll_b": 4.299891459916405,
+  "ppl_a": 24.28853203795175,
+  "ppl_b": 73.69179475193779,
+  "mean_abs_logprob_diff": 1.4029259350104293,
+  "max_abs_logprob_diff": 14.455028146505356,
+  "mean_signed_diff_b_minus_a": -1.1098871535597161,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.2988846127026266
+   },
+   "256-1024": {
+    "tokens": 4633,
+    "mean_abs": 1.6549569357198626
+   },
+   "1024-end": {
+    "tokens": 4398,
+    "mean_abs": 1.1858765948102417
+   }
+  }
+ },
+ "hf_single_vs_packed": {
+  "tokens": 11079,
+  "nll_a": 3.2630870901277023,
+  "nll_b": 4.299891459916405,
+  "ppl_a": 26.1300786669705,
+  "ppl_b": 73.69179475193779,
+  "mean_abs_logprob_diff": 1.3295351155736326,
+  "max_abs_logprob_diff": 14.476397595368326,
+  "mean_signed_diff_b_minus_a": -1.0368043697887026,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.2836398127291693
+   },
+   "256-1024": {
+    "tokens": 4633,
+    "mean_abs": 1.5658352841018641
+   },
+   "1024-end": {
+    "tokens": 4398,
+    "mean_abs": 1.101980522448158
+   }
+  }
+ },
+ "ref": "eager/float32",
+ "ref_vs_vllm": {
+  "tokens": 11079,
+  "nll_a": 3.2623695735672764,
+  "nll_b": 3.190004306356689,
+  "ppl_a": 26.111336627467658,
+  "ppl_b": 24.28853203795175,
+  "mean_abs_logprob_diff": 0.23371544748286666,
+  "max_abs_logprob_diff": 5.519285202026367,
+  "mean_signed_diff_b_minus_a": 0.07236526721058771,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.12786670591077387
+   },
+   "256-1024": {
+    "tokens": 4633,
+    "mean_abs": 0.2592335656071834
+   },
+   "1024-end": {
+    "tokens": 4398,
+    "mean_abs": 0.25612399261012603
+   }
+  }
+ },
+ "ref_vs_hf_single": {
+  "tokens": 11079,
+  "nll_a": 3.2623695735672764,
+  "nll_b": 3.2630870901277023,
+  "ppl_a": 26.111336627467658,
+  "ppl_b": 26.1300786669705,
+  "mean_abs_logprob_diff": 0.01099498013605305,
+  "max_abs_logprob_diff": 0.29873228073120117,
+  "mean_signed_diff_b_minus_a": -0.0007175165604255883,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.007391523927866128
+   },
+   "256-1024": {
+    "tokens": 4633,
+    "mean_abs": 0.01197092171895408
+   },
+   "1024-end": {
+    "tokens": 4398,
+    "mean_abs": 0.011644898499124073
+   }
+  }
+ },
+ "first_response": "```python\ndef solve(W=7000, L=13000, H=1500, u=4, b=10, q=4.5e-6):\n    \"\"\"Compute the SO2 concentration (c) over the city using a fixed box model.\n\n    Parameters with default values:\n    W: width in meters [7 km = 7000 m]\n    L: length in meters [13 km = 13000 m]\n    H: height in meters [1.5 km = 1500 m]\n    u: wind velocity in m/s, parallel to L\n    b: background SO2 concentration in \u03bcg/m^3\n    q: emission rate for SO2 in g/(s\u00b7m^2)\n\n    Returns:\n    A dict with concentration (c) in \u03bcg/m^3.\n    \"\"\"\n    q_ug_m3 = q * 1e6  # Convert g/(s\u00b7m^2) to \u03bcg/(s\u00b7m^2) for consistency\n\n    city_cross_sectio"
+}

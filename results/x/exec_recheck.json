@@ -1,0 +1,1572 @@
+{
+ "attempts_rechecked": 80809,
+ "labels": {
+  "sft-x-qwen3-8b-F1": {
+   "host": "host-D",
+   "exec_failures": 1837,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     511
+    ],
+    [
+     "NameError: name 'temperature' is not defined",
+     300
+    ],
+    [
+     "ValueError: math domain error",
+     128
+    ],
+    [
+     "AttributeError: module 'math",
+     125
+    ],
+    [
+     "TypeError: math.gamma() takes exactly one argument (# given)",
+     79
+    ]
+   ]
+  },
+  "sft-x-qwen3-8b-F2": {
+   "host": "host-B",
+   "exec_failures": 1187,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     350
+    ],
+    [
+     "ValueError: math domain error",
+     175
+    ],
+    [
+     "TypeError: cannot unpack non-iterable float object",
+     38
+    ],
+    [
+     "NameError: name 'dynamic_viscosity' is not defined",
+     36
+    ],
+    [
+     "ValueError: The wave frequency squared is negative, which is n",
+     36
+    ]
+   ]
+  },
+  "sft-x-qwen35-9b-F1": {
+   "host": "host-C",
+   "exec_failures": 1494,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     542
+    ],
+    [
+     "NameError: name 'H' is not defined",
+     453
+    ],
+    [
+     "ZeroDivisionError: float division by zero",
+     65
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     50
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     46
+    ]
+   ]
+  },
+  "sft-x-qwen35-9b-F1-b2": {
+   "host": "host-C",
+   "exec_failures": 1460,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     525
+    ],
+    [
+     "NameError: name 'H' is not defined",
+     439
+    ],
+    [
+     "NameError: name 'von_karman_constant' is not defined",
+     55
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     50
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     49
+    ]
+   ]
+  },
+  "sft-x-qwen35-9b-F2": {
+   "host": "host-B",
+   "exec_failures": 604,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     176
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     58
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (dete",
+     40
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     39
+    ],
+    [
+     "ValueError: math domain error",
+     24
+    ]
+   ]
+  },
+  "sft-x-qwen35-9b-F2-b2": {
+   "host": "host-B",
+   "exec_failures": 594,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     174
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     49
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     37
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (dete",
+     33
+    ],
+    [
+     "ValueError: math domain error",
+     17
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-A-s42": {
+   "host": "host-D",
+   "exec_failures": 1036,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     803
+    ],
+    [
+     "OverflowError: math range error",
+     49
+    ],
+    [
+     "ValueError: math domain error",
+     20
+    ],
+    [
+     "ValueError: The wave frequency squared is non-positive, which",
+     19
+    ],
+    [
+     "NameError: name 'effective_height' is not defined",
+     15
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-A-s43": {
+   "host": "host-D",
+   "exec_failures": 1521,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     1259
+    ],
+    [
+     "OverflowError: math range error",
+     59
+    ],
+    [
+     "ValueError: math domain error",
+     26
+    ],
+    [
+     "ValueError: Radius is outside the given ranges for terminal ve",
+     15
+    ],
+    [
+     "ValueError: The dispersion relation yields a negative frequenc",
+     15
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-D-s42": {
+   "host": "host-D",
+   "exec_failures": 1409,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     1114
+    ],
+    [
+     "ValueError: math domain error",
+     49
+    ],
+    [
+     "OverflowError: math range error",
+     38
+    ],
+    [
+     "ValueError: The dispersion relation yields a non-positive freq",
+     10
+    ],
+    [
+     "NameError: name 'true_earth_radius_m' is not defined. Did you",
+     7
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-D-s43": {
+   "host": "host-D",
+   "exec_failures": 1545,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     1313
+    ],
+    [
+     "ValueError: math domain error",
+     31
+    ],
+    [
+     "OverflowError: math range error",
+     27
+    ],
+    [
+     "NameError: name 'effective_height' is not defined",
+     15
+    ],
+    [
+     "ungradable: Execution timeout (> ##s) — likely an infinite loop",
+     6
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-F-s42": {
+   "host": "host-D",
+   "exec_failures": 1279,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     1040
+    ],
+    [
+     "OverflowError: math range error",
+     53
+    ],
+    [
+     "Here is the corrected `solve()` function. The original code had repeat",
+     12
+    ],
+    [
+     "NameError: name 'true_earth_radius_m' is not defined. Did you",
+     11
+    ],
+    [
+     "TypeError: unsupported operand type(s) for *: 'range' and 'flo",
+     7
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-F-s43": {
+   "host": "host-D",
+   "exec_failures": 980,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     706
+    ],
+    [
+     "OverflowError: math range error",
+     89
+    ],
+    [
+     "NameError: name 'effective_height' is not defined",
+     35
+    ],
+    [
+     "ValueError: math domain error",
+     19
+    ],
+    [
+     "NameError: name 'true_earth_radius_m' is not defined. Did you",
+     12
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-R-s42": {
+   "host": "host-D",
+   "exec_failures": 1303,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     337
+    ],
+    [
+     "ValueError: math domain error",
+     72
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (dete",
+     71
+    ],
+    [
+     "TypeError: solve() missing # required positional arguments: 'latitude_deg', 'air_density_kg_m#', 'p",
+     70
+    ],
+    [
+     "TypeError: unsupported operand type(s) for <<: 'float' and 'fl",
+     31
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-WA-s42": {
+   "host": "host-D",
+   "exec_failures": 698,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     411
+    ],
+    [
+     "ValueError: math domain error",
+     34
+    ],
+    [
+     "OverflowError: math range error",
+     31
+    ],
+    [
+     "NameError: name 'true_earth_radius_m' is not defined. Did you",
+     23
+    ],
+    [
+     "ZeroDivisionError: float division by zero",
+     19
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-WA-s43": {
+   "host": "host-D",
+   "exec_failures": 1154,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     955
+    ],
+    [
+     "OverflowError: math range error",
+     49
+    ],
+    [
+     "ZeroDivisionError: float division by zero",
+     24
+    ],
+    [
+     "ValueError: math domain error",
+     21
+    ],
+    [
+     "ValueError: The intrinsic frequency squared is negative, which",
+     12
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-WD-s42": {
+   "host": "host-D",
+   "exec_failures": 909,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     764
+    ],
+    [
+     "OverflowError: math range error",
+     51
+    ],
+    [
+     "ValueError: The wave is not a valid internal gravity wave.",
+     10
+    ],
+    [
+     "ValueError: math domain error",
+     8
+    ],
+    [
+     "ValueError: Radius is outside the valid range for terminal vel",
+     6
+    ]
+   ]
+  },
+  "x-qwen3-8b-F1-WD-s43": {
+   "host": "host-D",
+   "exec_failures": 1233,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     977
+    ],
+    [
+     "OverflowError: math range error",
+     85
+    ],
+    [
+     "ValueError: math domain error",
+     40
+    ],
+    [
+     "TypeError: math.gamma() takes exactly one argument (# given)",
+     24
+    ],
+    [
+     "SyntaxError:",
+     10
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-A-s42": {
+   "host": "host-B",
+   "exec_failures": 865,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     600
+    ],
+    [
+     "ValueError: math domain error",
+     88
+    ],
+    [
+     "ValueError: Temperature difference must be positive for heat t",
+     45
+    ],
+    [
+     "ValueError: Discriminant is negative, no real solution exists.",
+     16
+    ],
+    [
+     "ValueError: Temperature difference must be positive for ice to",
+     8
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-A-s43": {
+   "host": "host-B",
+   "exec_failures": 795,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     637
+    ],
+    [
+     "ValueError: math domain error",
+     67
+    ],
+    [
+     "ValueError: Discriminant is negative, no real solution exists.",
+     9
+    ],
+    [
+     "ValueError: The computed fraction f is not between # and #.",
+     5
+    ],
+    [
+     "def solve(P_CO#=###, K_H=#e-#, K_#=#e-#, K_#=#e-##, K_W=#e-##, K_S=#e-",
+     5
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-D-s42": {
+   "host": "host-B",
+   "exec_failures": 921,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     664
+    ],
+    [
+     "ValueError: math domain error",
+     60
+    ],
+    [
+     "ValueError: Discriminant is negative, no real solution for win",
+     17
+    ],
+    [
+     "ValueError: Discriminant is negative, no real solution.",
+     15
+    ],
+    [
+     "NameError: name 'np' is not defined",
+     8
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-D-s43": {
+   "host": "host-B",
+   "exec_failures": 709,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     446
+    ],
+    [
+     "ValueError: math domain error",
+     92
+    ],
+    [
+     "ValueError: The term inside the square root is negative, which",
+     21
+    ],
+    [
+     "ValueError: Temperature difference must be positive for heat t",
+     16
+    ],
+    [
+     "ValueError: Temperature difference must be positive for ice to",
+     15
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-F-s42": {
+   "host": "host-B",
+   "exec_failures": 926,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     718
+    ],
+    [
+     "ValueError: math domain error",
+     89
+    ],
+    [
+     "ValueError: Temperature difference must be positive for heat t",
+     16
+    ],
+    [
+     "NameError: name 'R' is not defined",
+     10
+    ],
+    [
+     "IndentationError: expected an indented block afte",
+     9
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-F-s43": {
+   "host": "host-B",
+   "exec_failures": 575,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     319
+    ],
+    [
+     "ValueError: math domain error",
+     88
+    ],
+    [
+     "ValueError: Discriminant is negative, no real solution exists.",
+     25
+    ],
+    [
+     "ValueError: Temperature difference must be positive for heat t",
+     24
+    ],
+    [
+     "ValueError: Discriminant is negative, no real solution.",
+     13
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-R-s42": {
+   "host": "host-B",
+   "exec_failures": 1168,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     146
+    ],
+    [
+     "ValueError: math domain error",
+     139
+    ],
+    [
+     "TypeError: cannot unpack non-iterable float object",
+     76
+    ],
+    [
+     "ModuleNotFoundError: No module named 'numpy'",
+     46
+    ],
+    [
+     "ValueError: E_observed must be provided.",
+     44
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-WA-s42": {
+   "host": "host-B",
+   "exec_failures": 528,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     169
+    ],
+    [
+     "ValueError: math domain error",
+     128
+    ],
+    [
+     "ValueError: Temperature difference must be positive for ice to",
+     50
+    ],
+    [
+     "ValueError: Discriminant is negative; no real solution exists.",
+     34
+    ],
+    [
+     "ValueError: The temperature difference must be positive for ic",
+     26
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-WA-s43": {
+   "host": "host-B",
+   "exec_failures": 724,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     483
+    ],
+    [
+     "ValueError: math domain error",
+     162
+    ],
+    [
+     "ValueError: Temperature difference must be positive for ice to",
+     14
+    ],
+    [
+     "OverflowError: (##, 'Numerical result out of range')",
+     11
+    ],
+    [
+     "ZeroDivisionError: float division by zero",
+     6
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-WD-s42": {
+   "host": "host-B",
+   "exec_failures": 937,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     684
+    ],
+    [
+     "ValueError: math domain error",
+     165
+    ],
+    [
+     "OverflowError: math range error",
+     9
+    ],
+    [
+     "^^^^^^^^",
+     8
+    ],
+    [
+     "File \"<string>\"",
+     5
+    ]
+   ]
+  },
+  "x-qwen3-8b-F2-WD-s43": {
+   "host": "host-B",
+   "exec_failures": 791,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     603
+    ],
+    [
+     "ValueError: math domain error",
+     113
+    ],
+    [
+     "TypeError: unsupported operand type(s) for <<: 'float' and 'fl",
+     10
+    ],
+    [
+     "ValueError: Discriminant is negative; no real solution exists.",
+     8
+    ],
+    [
+     "UnboundL",
+     5
+    ]
+   ]
+  },
+  "x-qwen3-8b-base": {
+   "host": "host-B",
+   "exec_failures": 777,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     237
+    ],
+    [
+     "OverflowError: math range error",
+     63
+    ],
+    [
+     "ValueError: math domain error",
+     53
+    ],
+    [
+     "TypeError: cannot unpack non-iterable float object",
+     23
+    ],
+    [
+     "NameError: name 'exp' i",
+     21
+    ]
+   ]
+  },
+  "x-qwen3-8b-base-b2": {
+   "host": "host-B",
+   "exec_failures": 846,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     232
+    ],
+    [
+     "OverflowError: math range error",
+     89
+    ],
+    [
+     "ValueError: math domain error",
+     88
+    ],
+    [
+     "NameError: name 'exp' i",
+     28
+    ],
+    [
+     "TypeError: cannot unpack non-iterable float object",
+     25
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-A-s42": {
+   "host": "host-C",
+   "exec_failures": 161,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "NameError: name 'h' is not defined",
+     77
+    ],
+    [
+     "NameError: name 'h_eff' is not defined",
+     66
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     10
+    ],
+    [
+     "diff_f = f_M - f_M# = f_M - f_M# # Wait, variable name conflict in th",
+     2
+    ],
+    [
+     "ValueError: math domain error",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-A-s43": {
+   "host": "host-C",
+   "exec_failures": 60,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     9
+    ],
+    [
+     "To find the ratio of the extinction cross-sections for the spherical p",
+     3
+    ],
+    [
+     "The previous code failed due to syntax errors caused by explanatory te",
+     3
+    ],
+    [
+     "To find the particle-phase mass concentration of the compound, we need",
+     3
+    ],
+    [
+     "NameError: name 'v_true' is not defined",
+     2
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-D-s42": {
+   "host": "host-C",
+   "exec_failures": 465,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "NameError: name 'h_eff' is not defined",
+     141
+    ],
+    [
+     "NameError: name 'h' is not defined",
+     135
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     84
+    ],
+    [
+     "NameError: name 'H' is not defined",
+     45
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (dete",
+     21
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-D-s43": {
+   "host": "host-B",
+   "exec_failures": 155,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "NameError: name 'H' is not defined",
+     125
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     18
+    ],
+    [
+     "T",
+     4
+    ],
+    [
+     "ValueError: math domain error",
+     2
+    ],
+    [
+     "NameError: name 'ratio' is not defined",
+     2
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-F-s42": {
+   "host": "host-C",
+   "exec_failures": 163,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     112
+    ],
+    [
+     "NameError: name 'specific_heat_kj_k_k' is not defined. Did you",
+     14
+    ],
+    [
+     "ValueError: math domain error",
+     5
+    ],
+    [
+     "File \"<s",
+     5
+    ],
+    [
+     "OverflowError: (##, 'Numerical result out of range')",
+     5
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-F-s43": {
+   "host": "host-B",
+   "exec_failures": 721,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "NameError: name 'H' is not defined",
+     415
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     285
+    ],
+    [
+     "NameError: name 'h_eff' is not defined",
+     10
+    ],
+    [
+     "ValueError: math domain error",
+     3
+    ],
+    [
+     "IndexErr",
+     2
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-R-s42": {
+   "host": "host-C",
+   "exec_failures": 38905,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "SyntaxError: '(' was never closed",
+     17882
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     5245
+    ],
+    [
+     "ungradable: No solve() function defined",
+     2154
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     1229
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     913
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-WA-s42": {
+   "host": "host-C",
+   "exec_failures": 353,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     296
+    ],
+    [
+     "ungradable: Execution timeout (> ##s) — likely an infinite loop",
+     17
+    ],
+    [
+     "File \"<strin",
+     7
+    ],
+    [
+     "File \"<string",
+     5
+    ],
+    [
+     "File \"<stri",
+     5
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-WA-s43": {
+   "host": "host-C",
+   "exec_failures": 366,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "NameError: name 'H' is not defined",
+     300
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     49
+    ],
+    [
+     "File \"<strin",
+     4
+    ],
+    [
+     "UnboundLocalError: cannot access local variable 'P#_Pa' where",
+     3
+    ],
+    [
+     "File \"<stri",
+     2
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-WD-s42": {
+   "host": "host-C",
+   "exec_failures": 113,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     48
+    ],
+    [
+     "ungradable: Execution timeout (> ##s) — likely an infinite loop",
+     23
+    ],
+    [
+     "File \"<stri",
+     9
+    ],
+    [
+     "ZeroDivisionError: float division by zero",
+     6
+    ],
+    [
+     "ValueError: math domain error",
+     5
+    ]
+   ]
+  },
+  "x-qwen35-9b-F1-WD-s43": {
+   "host": "host-C",
+   "exec_failures": 229,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     131
+    ],
+    [
+     "ungradable: Execution timeout (> ##s) — likely an infinite loop",
+     39
+    ],
+    [
+     "UnboundLocalError: cannot access local variable 'P#_Pa' where",
+     16
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     9
+    ],
+    [
+     "File \"<string",
+     7
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-A-s42": {
+   "host": "host-C",
+   "exec_failures": 169,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     133
+    ],
+    [
+     "NameError: name 'z_canopy' is not defined",
+     30
+    ],
+    [
+     "ZeroDivisionError: f",
+     1
+    ],
+    [
+     "TypeError: must be real number, not function",
+     1
+    ],
+    [
+     "# psi_m = #.# * math.log(# + ## *",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-A-s43": {
+   "host": "host-D",
+   "exec_failures": 105,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     99
+    ],
+    [
+     "NameError: name 'n_gas_total' is not defined. Did you mean: '",
+     1
+    ],
+    [
+     "NameError: name 'eta_m' is not defined",
+     1
+    ],
+    [
+     "# Let's use the formula: psi_m = # * math.log( (# + math.sqrt(# - ##",
+     1
+    ],
+    [
+     "UnboundLocalError: cannot access local variable 'L_sph' where",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-D-s42": {
+   "host": "host-C",
+   "exec_failures": 95,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "NameError: name 'z_canopy' is not defined",
+     36
+    ],
+    [
+     "ungradable: Execution timeout (> ##s) — likely an infinite loop",
+     7
+    ],
+    [
+     "def solve(z=##.#, z#=#.##, u_*=#.#, L=##.#, kappa=#.#) -> dict:",
+     5
+    ],
+    [
+     "def solve(z=##.#, z#=#.##, u_*=#.#, L=####, kappa=#.#) -> dict:",
+     5
+    ],
+    [
+     "def solve(z=##.#, z#=#.###, u_*=#.#, L=####, kappa=#.#) -> dict:",
+     5
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-D-s43": {
+   "host": "host-D",
+   "exec_failures": 140,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     93
+    ],
+    [
+     "AttributeError: module 'math' has no attribute 'expint'",
+     5
+    ],
+    [
+     "ValueError: math domain error",
+     5
+    ],
+    [
+     "AttributeError: module 'math' has no attribute 'e#'",
+     4
+    ],
+    [
+     "ValueError: Input parameters result in an invalid stability co",
+     4
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-F-s42": {
+   "host": "host-B",
+   "exec_failures": 37,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "To solve this problem, we need to calculate the mean wind speed $u(z)$",
+     6
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     5
+    ],
+    [
+     "ValueError: math domain error",
+     4
+    ],
+    [
+     "NameError: name 's' is not defined",
+     3
+    ],
+    [
+     "TypeError: must be real number, not complex",
+     3
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-F-s43": {
+   "host": "host-D",
+   "exec_failures": 69,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     61
+    ],
+    [
+     "NameError: name 'n_gas_air_per_m#_air' is not defined. Did you",
+     2
+    ],
+    [
+     "ZeroDivisionError: float division by zero",
+     1
+    ],
+    [
+     "AttributeError: module 'math' has no attribute 'expint'",
+     1
+    ],
+    [
+     "NameError: name 'tau' is not defined",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-R-s42": {
+   "host": "host-D",
+   "exec_failures": 4817,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "IndentationError: unexpected indent",
+     92
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     81
+    ],
+    [
+     "To find the rate of mass increase of the ice particle, we need to calc",
+     69
+    ],
+    [
+     "To find the intrinsic period of the internal gravity wave, we need to",
+     69
+    ],
+    [
+     "To solve this problem, we must determine the height of the wetting fro",
+     52
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-WA-s42": {
+   "host": "host-B",
+   "exec_failures": 27,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     11
+    ],
+    [
+     "NameError: name 'r_w' is not defined",
+     7
+    ],
+    [
+     "UnboundLocalError: cannot access local variable 'h#_m' where i",
+     4
+    ],
+    [
+     "NameError: name 'freezing_point_depth_celsius' is not defined.",
+     1
+    ],
+    [
+     "integral = sum(integrand_values[i] + integrand_values[i+#]) * (#.#/(n",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-WA-s43": {
+   "host": "host-B",
+   "exec_failures": 52,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     30
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (det",
+     9
+    ],
+    [
+     "ungradable: Execution timeout (> ##s) — likely an infinite loop",
+     2
+    ],
+    [
+     "u_amplitude = (#.##### * amplitude_m * k * math.tan(k * length_km *",
+     1
+    ],
+    [
+     "AttributeError: module 'math' has no attribute 'expint'",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-WD-s42": {
+   "host": "host-B",
+   "exec_failures": 23,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "TypeError: unsupported operand type(s) for *: 'float' and 'fun",
+     4
+    ],
+    [
+     "ValueError: math domain error",
+     3
+    ],
+    [
+     "UnboundLocalError: cannot access local variable 'gamma' where",
+     2
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     2
+    ],
+    [
+     "AttributeError: module 'math' has no attribute 'expint'",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-F2-WD-s43": {
+   "host": "host-B",
+   "exec_failures": 18,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ValueError: math domain error",
+     4
+    ],
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     4
+    ],
+    [
+     "AttributeError: module 'math' has no attribute 'expint'",
+     1
+    ],
+    [
+     "UnboundLocalError: cannot access local variable 'W_u' where it",
+     1
+    ],
+    [
+     "NameError: name 'tau' is not defined",
+     1
+    ]
+   ]
+  },
+  "x-qwen35-9b-base": {
+   "host": "host-C",
+   "exec_failures": 1462,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     246
+    ],
+    [
+     "NameError: name 'H' is not defined",
+     182
+    ],
+    [
+     "TypeError: solve() missing # required positional arguments: 'rate_constant', 'initial_d_l_ratio', a",
+     66
+    ],
+    [
+     "TypeError: solve() missing # required positional arguments: 'latitude_deg', 'density_kg_m#', 'press",
+     53
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     52
+    ]
+   ]
+  },
+  "x-qwen35-9b-base-b2": {
+   "host": "host-C",
+   "exec_failures": 1299,
+   "ran_both": 0,
+   "ran_one": 0,
+   "ran_both_on_last_attempt": 0,
+   "top_kinds": [
+    [
+     "ungradable: solve() returned NoneType, expected dict",
+     228
+    ],
+    [
+     "NameError: name 'H' is not defined",
+     150
+    ],
+    [
+     "SyntaxError: invalid syntax",
+     73
+    ],
+    [
+     "TypeError: solve() missing # required positional arguments: 'rate_constant', 'initial_d_l_ratio', a",
+     66
+    ],
+    [
+     "SyntaxError: unterminated triple-quoted string literal (dete",
+     48
+    ]
+   ]
+  }
+ },
+ "ran_now": []
+}

@@ -1,0 +1,272 @@
+{
+ "D5-1": {
+  "mean": 0.1273010361552028,
+  "ci95": [
+   0.04428461199294533,
+   0.21341765873015875
+  ],
+  "units": [
+   54,
+   56
+  ],
+  "configurations": 16
+ },
+ "verdict": "在独立陷阱上重复出现",
+ "configurations": [
+  "qwen3-8b.think-off",
+  "qwen3-8b.think-on",
+  "qwen3.5-9b.think-off",
+  "qwen3.5-9b.think-on",
+  "qwen3.5-27b.think-off",
+  "qwen3.5-27b.think-on",
+  "gemma4-e4b.think-off",
+  "gemma4-e4b.think-on",
+  "gemma4-31b.think-off",
+  "gemma4-31b.think-on",
+  "granite4.2-8b.think-off",
+  "granite4.2-8b.think-on",
+  "granite4.2-30b.think-off",
+  "granite4.2-30b.think-on",
+  "ministral3-8b.think-off",
+  "ministral3-14b.think-off"
+ ],
+ "incomplete": [],
+ "note": null,
+ "per_configuration": {
+  "qwen3-8b.think-off": {
+   "mean": 0.11992945326278659,
+   "ci95": [
+    -0.035934744268077606,
+    0.2771164021164021
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "qwen3-8b.think-on": {
+   "mean": 0.1920194003527337,
+   "ci95": [
+    0.03725749559082893,
+    0.3498677248677248
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "qwen3.5-9b.think-off": {
+   "mean": 0.20943562610229277,
+   "ci95": [
+    0.05621693121693122,
+    0.3683862433862434
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "qwen3.5-9b.think-on": {
+   "mean": 0.17394179894179893,
+   "ci95": [
+    0.046296296296296294,
+    0.3024691358024691
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "qwen3.5-27b.think-off": {
+   "mean": 0.0511463844797178,
+   "ci95": [
+    -0.0753968253968254,
+    0.17416225749559083
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "qwen3.5-27b.think-on": {
+   "mean": 0.0736331569664903,
+   "ci95": [
+    -0.029541446208112873,
+    0.17702821869488536
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "gemma4-e4b.think-off": {
+   "mean": 0.2222222222222222,
+   "ci95": [
+    0.057098765432098755,
+    0.3882275132275132
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "gemma4-e4b.think-on": {
+   "mean": 0.13117283950617287,
+   "ci95": [
+    -0.0443121693121693,
+    0.30687830687830686
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "gemma4-31b.think-off": {
+   "mean": 0.05202821869488536,
+   "ci95": [
+    -0.0619488536155203,
+    0.16887125220458554
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "gemma4-31b.think-on": {
+   "mean": 0.09126984126984126,
+   "ci95": [
+    0.018518518518518517,
+    0.1710758377425044
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "granite4.2-8b.think-off": {
+   "mean": 0.08245149911816578,
+   "ci95": [
+    -0.05599647266313931,
+    0.2224426807760141
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "granite4.2-8b.think-on": {
+   "mean": 0.09325396825396826,
+   "ci95": [
+    -0.05864197530864197,
+    0.2493386243386243
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "granite4.2-30b.think-off": {
+   "mean": 0.12544091710758376,
+   "ci95": [
+    -0.03990299823633157,
+    0.29651675485008816
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "granite4.2-30b.think-on": {
+   "mean": 0.14748677248677247,
+   "ci95": [
+    0.012566137566137567,
+    0.28615520282186946
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "ministral3-8b.think-off": {
+   "mean": 0.09126984126984125,
+   "ci95": [
+    -0.06613756613756613,
+    0.25418871252204583
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  },
+  "ministral3-14b.think-off": {
+   "mean": 0.18011463844797176,
+   "ci95": [
+    0.022707231040564366,
+    0.33752204585537915
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 1
+  }
+ },
+ "by_mode": {
+  ".think-off": {
+   "mean": 0.1260043111894964,
+   "ci95": [
+    0.034514011365863226,
+    0.2203360768175583
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 9
+  },
+  ".think-on": {
+   "mean": 0.12896825396825395,
+   "ci95": [
+    0.041068279163517254,
+    0.2183169564121945
+   ],
+   "units": [
+    54,
+    56
+   ],
+   "configurations": 7
+  }
+ },
+ "family_gaps": {
+  "regime:recognise": 0.158179012345679,
+  "geometry_detail": 0.03087797619047619
+ },
+ "old_plus_new (事后决定：加题时已知旧结果)": {
+  "mean": 0.1231530230978261,
+  "ci95": [
+   0.055175781250000014,
+   0.1930480072463768
+  ],
+  "units": [
+   92,
+   128
+  ],
+  "configurations": 16
+ },
+ "old_plus_new_skipped": []
+}

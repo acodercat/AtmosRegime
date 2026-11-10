@@ -1,0 +1,1556 @@
+{
+ "analysis": "PREREG_PAPER_ANALYSES §23",
+ "anchors": {
+  "co2_forcing_log": [
+   {
+    "correct": 3.7069511216345874,
+    "params": {
+     "dc": 280.0
+    },
+    "ratio": 1.4426950408889634,
+    "relative_deviation": 0.44269504088896344,
+    "shortcut": 5.348,
+    "unit": "W m^-2"
+   }
+  ],
+  "line_broadening": [
+   {
+    "correct": 17.685799977700626,
+    "params": {
+     "p": 0.4,
+     "t": 255.0
+    },
+    "ratio": 21.328232592155636,
+    "relative_deviation": 0.9531137896363812,
+    "shortcut": 0.8292201382033564,
+    "unit": "MHz"
+   },
+   {
+    "correct": 17.349274767678583,
+    "params": {
+     "p": 0.1,
+     "t": 255.0
+    },
+    "ratio": 83.68959685551621,
+    "relative_deviation": 0.9880510835567003,
+    "shortcut": 0.2073050345508391,
+    "unit": "MHz"
+   }
+  ],
+  "sun_photometer_airmass": [
+   {
+    "correct": 0.22440313879892174,
+    "params": {
+     "t": 0.0334,
+     "theta": 87.0
+    },
+    "ratio": 1.2613979615493984,
+    "relative_deviation": 0.20722878070004055,
+    "shortcut": 0.17790034996035922,
+    "unit": ""
+   }
+  ]
+ },
+ "definition": {
+  "F_max": "results/paper/cost.json templates.per_template.F_max (final set, 20 rows; training-study templates only)",
+  "example": "first admissible (inside, outside) pair from random.Random('paper:examples:<template>:20261108'); values at the outside parameters",
+  "ratio": "max(shortcut/correct, correct/shortcut)",
+  "universal_failure": "configs_kept_local >= 10 and conditional outside accuracy <= 0.5 in every kept local configuration (paper_atlas.py)"
+ },
+ "examples": {
+  "actinic_flux_horizontal": {
+   "F_max_final_set": 2.952211529022245,
+   "category": "atmospheric_chemistry",
+   "correct": 1.4794553004926354,
+   "inside_params": {
+    "e": 1.8,
+    "phi": 0.83,
+    "sigma": 3.8,
+    "sza": 9.8
+   },
+   "mechanism": "photolysis rate from a flat-sensor photon flux -> from the actinic flux (direct beam / cos SZA)",
+   "params": {
+    "e": 1.8,
+    "phi": 0.83,
+    "sigma": 3.8,
+    "sza": 72.4
+   },
+   "ratio": 3.307207597681518,
+   "relative_deviation": 2.307207597681518,
+   "shortcut": 4.892865810219437,
+   "unit": "h"
+  },
+  "anelastic_continuity": {
+   "F_max_final_set": 1.3182506632434745,
+   "category": "atmospheric_dynamics",
+   "correct": 217.63240309075002,
+   "inside_params": {
+    "c": 2.5e-05,
+    "t": 275.0,
+    "z": 98.0
+   },
+   "mechanism": "incompressible kinematic w -> mass continuity with density decreasing over a deep layer",
+   "params": {
+    "c": 2.5e-05,
+    "t": 275.0,
+    "z": 5900.0
+   },
+   "ratio": 1.4754739192593218,
+   "relative_deviation": 0.322251659655229,
+   "shortcut": 147.50000000000003,
+   "unit": "mm/s"
+  },
+  "bay_tidal_resonance": {
+   "F_max_final_set": 1.4808530160468254,
+   "category": "oceanography",
+   "correct": 68.57972966227739,
+   "inside_params": {
+    "L": 14.7,
+    "a": 0.88,
+    "h": 25.0
+   },
+   "mechanism": "uniformly filling bay (tidal prism) -> co-oscillating standing wave in a closed channel",
+   "params": {
+    "L": 99.6,
+    "a": 0.88,
+    "h": 25.0
+   },
+   "ratio": 1.3919960252052026,
+   "relative_deviation": 0.28160714406308457,
+   "shortcut": 49.267187851465046,
+   "unit": "cm/s"
+  },
+  "box_ventilation_loss": {
+   "F_max_final_set": 2.0325051620120456,
+   "category": "air_quality",
+   "correct": 91.49683766690092,
+   "inside_params": {
+    "l": 310.0,
+    "p": 4.2,
+    "tau": 0.22,
+    "u": 1.8
+   },
+   "mechanism": "steady state with chemical loss only (C = P tau) -> chemical loss plus ventilation u/L",
+   "params": {
+    "l": 310.0,
+    "p": 4.2,
+    "tau": 40.0,
+    "u": 1.8
+   },
+   "ratio": 1.8361290322580646,
+   "relative_deviation": 0.8361290322580645,
+   "shortcut": 168.0,
+   "unit": "ug/m^3"
+  },
+  "capillary_rise_gravity": {
+   "F_max_final_set": 1.2612819312628905,
+   "category": "soil",
+   "correct": 78.14653633227128,
+   "inside_params": {
+    "r": 11.0,
+    "t": 7.1
+   },
+   "mechanism": "Lucas-Washburn capillary rise -> rise against gravity toward the Jurin height",
+   "params": {
+    "r": 11.0,
+    "t": 2600.0
+   },
+   "ratio": 1.3056415871329912,
+   "relative_deviation": 0.3056415871329911,
+   "shortcut": 102.03136772581263,
+   "unit": "cm"
+  },
+  "ch4_forcing_sqrt": {
+   "F_max_final_set": 1.3228112109001515,
+   "category": "climate_dynamics",
+   "correct": 541.3100552424102,
+   "inside_params": {
+    "dm": 2.88,
+    "m0": 709.0
+   },
+   "mechanism": "linear local-slope CH4 forcing -> square-root forcing damped by N2O overlap",
+   "params": {
+    "dm": 1210.0,
+    "m0": 709.0
+   },
+   "ratio": 1.3344847246122324,
+   "relative_deviation": 0.33448472461223233,
+   "shortcut": 722.37,
+   "unit": "mW/m^2"
+  },
+  "clausius_clapeyron_extrapolation": {
+   "F_max_final_set": 1.3674192962761804,
+   "category": "atmospheric_thermodynamics",
+   "correct": 42.45575442862656,
+   "inside_params": {
+    "dt": 1.2,
+    "es0": 17.0,
+    "rate": 1.1,
+    "t0": 15.0
+   },
+   "mechanism": "linear local-rate extrapolation -> exponential Clausius-Clapeyron growth of e_s",
+   "params": {
+    "dt": 15.0,
+    "es0": 17.0,
+    "rate": 1.1,
+    "t0": 15.0
+   },
+   "ratio": 1.2673359530933301,
+   "relative_deviation": 0.210943240772751,
+   "shortcut": 33.5,
+   "unit": "hPa"
+  },
+  "co2_forcing_log": {
+   "F_max_final_set": 1.4584389762895933,
+   "category": "climate_dynamics",
+   "correct": 4.353805682148246,
+   "inside_params": {
+    "dc": 7.5
+   },
+   "mechanism": "linear local-slope CO2 forcing -> logarithmic forcing dF = K ln(C/C0)",
+   "params": {
+    "dc": 352.0
+   },
+   "ratio": 1.5442122342682625,
+   "relative_deviation": 0.5442122342682625,
+   "shortcut": 6.723199999999999,
+   "unit": "W m^-2"
+  },
+  "condensate_loading": {
+   "F_max_final_set": 1.502396195811369,
+   "category": "cloud_physics",
+   "correct": 7.61571812080537,
+   "inside_params": {
+    "dt": 3.18,
+    "rl": 0.041,
+    "tve": 298.0
+   },
+   "mechanism": "buoyancy from virtual-temperature excess alone -> buoyancy reduced by condensate (liquid-water) loading",
+   "params": {
+    "dt": 3.18,
+    "rl": 2.9,
+    "tve": 298.0
+   },
+   "ratio": 1.3731755764746525,
+   "relative_deviation": 0.3731755764746524,
+   "shortcut": 10.45771812080537,
+   "unit": "cm/s^2"
+  },
+  "constant_pressure_expansion": {
+   "F_max_final_set": 1.3352297868878455,
+   "category": "environmental_chemistry",
+   "correct": 317.47287873652516,
+   "inside_params": {
+    "P": 2250.0,
+    "k": 0.025,
+    "t": 38.0,
+    "y": 0.013
+   },
+   "mechanism": "constant-volume first-order decay of p_A -> constant-pressure reactor expanding as A -> 2B",
+   "params": {
+    "P": 2250.0,
+    "k": 0.025,
+    "t": 38.0,
+    "y": 0.47
+   },
+   "ratio": 1.2882317189763843,
+   "relative_deviation": 0.2882317189763842,
+   "shortcut": 408.978632303135,
+   "unit": "hPa"
+  },
+  "cooper_jacob_early_time": {
+   "F_max_final_set": 1.6310632752049394,
+   "category": "hydrology",
+   "correct": 0.8971592155285143,
+   "inside_params": {
+    "Q": 3300.0,
+    "S": 0.000571,
+    "T": 220.0,
+    "r": 72.5,
+    "t": 992.0
+   },
+   "mechanism": "Cooper-Jacob straight-line approximation -> full Theis well function",
+   "params": {
+    "Q": 3300.0,
+    "S": 0.000571,
+    "T": 220.0,
+    "r": 72.5,
+    "t": 13.2
+   },
+   "ratio": 1.8266144360726584,
+   "relative_deviation": 0.45253909076177784,
+   "shortcut": 0.49115959986469054,
+   "unit": "m"
+  },
+  "coriolis_neglect": {
+   "F_max_final_set": 1.7339352066394451,
+   "category": "atmospheric_dynamics",
+   "correct": 15.903502823633891,
+   "inside_params": {
+    "dp": 1.0,
+    "lat": 42.0,
+    "rho": 1.19,
+    "t": 0.4
+   },
+   "mechanism": "acceleration from rest without rotation -> inertial oscillation when ft is of order 1",
+   "params": {
+    "dp": 1.0,
+    "lat": 42.0,
+    "rho": 1.19,
+    "t": 6.7
+   },
+   "ratio": 1.2744932853977287,
+   "relative_deviation": 0.27449328539772866,
+   "shortcut": 20.268907563025213,
+   "unit": "m/s"
+  },
+  "cstr_vs_pfr": {
+   "F_max_final_set": 1.2931384480711303,
+   "category": "air_quality",
+   "correct": 74.28571428571428,
+   "inside_params": {
+    "k": 0.019,
+    "q": 45.0,
+    "v": 50.0
+   },
+   "mechanism": "plug-flow exponential removal -> well-mixed (CSTR) removal once the Damköhler number is not small",
+   "params": {
+    "k": 2.6,
+    "q": 45.0,
+    "v": 50.0
+   },
+   "ratio": 1.271256540779827,
+   "relative_deviation": 0.27125654077982714,
+   "shortcut": 94.43620017221572,
+   "unit": "%"
+  },
+  "cunningham_slip": {
+   "F_max_final_set": 1.661434067499492,
+   "category": "atmospheric_aerosols",
+   "correct": 7.164134870254145,
+   "inside_params": {
+    "r": 7.2,
+    "rho": 2400.0
+   },
+   "mechanism": "continuum Stokes drag -> slip-corrected drag at Knudsen number of order 1",
+   "params": {
+    "r": 0.12,
+    "rho": 2400.0
+   },
+   "ratio": 1.7211237623120548,
+   "relative_deviation": 0.4189842579033016,
+   "shortcut": 4.162475138121546,
+   "unit": "um/s"
+  },
+  "deposition_brownian": {
+   "F_max_final_set": 1.9037976598137551,
+   "category": "atmospheric_aerosols",
+   "correct": 14.221706397451303,
+   "inside_params": {
+    "d": 6.7,
+    "rho": 1430.0
+   },
+   "mechanism": "gravitational settling alone -> settling plus Brownian diffusion across a surface boundary layer",
+   "params": {
+    "d": 0.397,
+    "rho": 1430.0
+   },
+   "ratio": 1.4728891122469012,
+   "relative_deviation": 0.32106226348941236,
+   "shortcut": 9.655653150803731,
+   "unit": "um/s"
+  },
+  "diffuse_transmission": {
+   "F_max_final_set": 1.3051413030514398,
+   "category": "atmospheric_radiation",
+   "correct": 136.3123111307655,
+   "inside_params": {
+    "f0": 267.0,
+    "tau": 0.00392
+   },
+   "mechanism": "beam Beer's-law transmittance -> hemispheric diffusivity approximation for diffuse flux",
+   "params": {
+    "f0": 267.0,
+    "tau": 0.405
+   },
+   "ratio": 1.3064323172422512,
+   "relative_deviation": 0.3064323172422511,
+   "shortcut": 178.08280849921266,
+   "unit": "W m^-2"
+  },
+  "displacement_height_canopy": {
+   "F_max_final_set": 1.1823153976467573,
+   "category": "boundary_layer",
+   "correct": 2.5766272579883793,
+   "inside_params": {
+    "h": 0.145,
+    "ustar": 0.42
+   },
+   "mechanism": "ground-referenced log wind profile -> zero-plane-displaced profile over a tall canopy",
+   "params": {
+    "h": 15.3,
+    "ustar": 0.42
+   },
+   "ratio": 1.184604255057201,
+   "relative_deviation": 0.1846042550572008,
+   "shortcut": 3.052283613509402,
+   "unit": "m/s"
+  },
+  "doppler_aliasing": {
+   "F_max_final_set": null,
+   "category": "observation_and_modeling",
+   "correct": -7.875,
+   "inside_params": {
+    "lam": 5.5,
+    "prf": 1050.0,
+    "v": 10.0
+   },
+   "mechanism": "reported radial velocity = true velocity -> Nyquist-folded (aliased) velocity",
+   "params": {
+    "lam": 5.5,
+    "prf": 1050.0,
+    "v": 21.0
+   },
+   "ratio": 2.6666666666666665,
+   "relative_deviation": 3.6666666666666665,
+   "shortcut": 21.0,
+   "unit": "m/s"
+  },
+  "drop_size_truncation": {
+   "F_max_final_set": 1.456398628208503,
+   "category": "observation_and_modeling",
+   "correct": 931.342155544264,
+   "inside_params": {
+    "dmax": 5.1,
+    "lam": 3.1,
+    "n0": 5800.0
+   },
+   "mechanism": "sixth moment of an exponential DSD to infinity -> only up to the largest drop present",
+   "params": {
+    "dmax": 2.4,
+    "lam": 3.1,
+    "n0": 5800.0
+   },
+   "ratio": 1.6297439300286751,
+   "relative_deviation": 0.6297439300286751,
+   "shortcut": 1517.8492247780864,
+   "unit": "mm^6/m^3 (Z)"
+  },
+  "drop_ventilation": {
+   "F_max_final_set": 6.961485754161814,
+   "category": "cloud_physics",
+   "correct": 340.07662067184634,
+   "inside_params": {
+    "r": 9.26,
+    "rh": 53.0,
+    "t": 2.91
+   },
+   "mechanism": "stationary-drop diffusional evaporation -> ventilation-enhanced evaporation of a falling drop",
+   "params": {
+    "r": 499.0,
+    "rh": 53.0,
+    "t": 2.91
+   },
+   "ratio": 5.082462481387164,
+   "relative_deviation": 0.8032449814116348,
+   "shortcut": 66.91178182175753,
+   "unit": "nm/s"
+  },
+  "effective_henry": {
+   "F_max_final_set": 3.2660656407969073,
+   "category": "atmospheric_chemistry",
+   "correct": 21.488089741297834,
+   "inside_params": {
+    "ph": 1.8,
+    "xi": 1.3
+   },
+   "mechanism": "physical Henry's law -> effective Henry's law when a dissolved acid dissociates",
+   "params": {
+    "ph": 4.3,
+    "xi": 1.3
+   },
+   "ratio": 4.591472166943982,
+   "relative_deviation": 0.7822049304361599,
+   "shortcut": 4.68,
+   "unit": "umol/L"
+  },
+  "evaporative_cooling_limit": {
+   "F_max_final_set": null,
+   "category": "atmospheric_thermodynamics",
+   "correct": 10.941193764475068,
+   "inside_params": {
+    "m": 0.87,
+    "p": 1000.0,
+    "rh": 30.0,
+    "t": 26.0
+   },
+   "mechanism": "complete evaporation of the supplied rain -> evaporation limited by saturation (isobaric wet-bulb cooling)",
+   "params": {
+    "m": 10.0,
+    "p": 1000.0,
+    "rh": 30.0,
+    "t": 26.0
+   },
+   "ratio": 2.2281032561446388,
+   "relative_deviation": 1.2281032561446388,
+   "shortcut": 24.378109452736318,
+   "unit": "K"
+  },
+  "finite_line_source": {
+   "F_max_final_set": null,
+   "category": "air_quality",
+   "correct": 244.84738689628853,
+   "inside_params": {
+    "L": 4700.0,
+    "q": 0.017,
+    "sy": 29.0,
+    "sz": 20.0,
+    "u": 1.5
+   },
+   "mechanism": "infinite line source -> finite segment when its length is comparable to sigma_y",
+   "params": {
+    "L": 43.0,
+    "q": 0.017,
+    "sy": 29.0,
+    "sz": 20.0,
+    "u": 1.5
+   },
+   "ratio": 1.8465975487272421,
+   "relative_deviation": 0.8465975487272421,
+   "shortcut": 452.13458445495706,
+   "unit": "ug/m^3"
+  },
+  "freezing_latent_heat": {
+   "F_max_final_set": 1.6294613484848668,
+   "category": "cloud_physics",
+   "correct": 1.394228855721393,
+   "inside_params": {
+    "mf": 0.019,
+    "mv": 0.32
+   },
+   "mechanism": "isobaric warming from condensation alone -> warming from condensation plus freezing of supercooled liquid",
+   "params": {
+    "mf": 1.8,
+    "mv": 0.32
+   },
+   "ratio": 1.7515,
+   "relative_deviation": 0.4290608050242649,
+   "shortcut": 0.7960199004975125,
+   "unit": "K"
+  },
+  "freezing_point_depth": {
+   "F_max_final_set": 1.346227276015668,
+   "category": "oceanography",
+   "correct": 2.423887572524243,
+   "inside_params": {
+    "s": 34.0,
+    "t": -0.3,
+    "z": 2.0
+   },
+   "mechanism": "salinity-only freezing point of sea water -> with the pressure depression at depth",
+   "params": {
+    "s": 34.0,
+    "t": -0.3,
+    "z": 1030.0
+   },
+   "ratio": 1.4645846359663097,
+   "relative_deviation": 0.31721255607722815,
+   "shortcut": 1.655,
+   "unit": "K"
+  },
+  "fresnel_reflectance_grazing": {
+   "F_max_final_set": 1.5943633721210875,
+   "category": "atmospheric_radiation",
+   "correct": 0.6954738639158703,
+   "inside_params": {
+    "elev": 86.9
+   },
+   "mechanism": "normal-incidence reflectance of water -> unpolarised Fresnel reflectance at low sun",
+   "params": {
+    "elev": 11.4
+   },
+   "ratio": 1.4075125021430732,
+   "relative_deviation": 0.4075125021430733,
+   "shortcut": 0.9788881583753378,
+   "unit": ""
+  },
+  "frictional_three_force_balance": {
+   "F_max_final_set": 1.590616582792859,
+   "category": "boundary_layer",
+   "correct": 9.305131044317335,
+   "inside_params": {
+    "dp": 2.0,
+    "k": 1e-06,
+    "lat": 50.0,
+    "rho": 1.2
+   },
+   "mechanism": "geostrophic wind -> steady Guldberg-Mohn balance wind when k is not small compared with f",
+   "params": {
+    "dp": 2.0,
+    "k": 0.00014,
+    "lat": 50.0,
+    "rho": 1.2
+   },
+   "ratio": 1.603229272208071,
+   "relative_deviation": 0.6032292722080711,
+   "shortcut": 14.91825847198161,
+   "unit": "m/s"
+  },
+  "gradient_wind_curvature": {
+   "F_max_final_set": 1.3926215763460439,
+   "category": "atmospheric_dynamics",
+   "correct": 4.647697848625,
+   "inside_params": {
+    "dp": 0.9,
+    "lat": 53.0,
+    "r": 7700.0,
+    "rho": 1.22
+   },
+   "mechanism": "geostrophic wind -> gradient wind when the isobars are strongly curved",
+   "params": {
+    "dp": 0.9,
+    "lat": 53.0,
+    "r": 110.0,
+    "rho": 1.22
+   },
+   "ratio": 1.362760447601315,
+   "relative_deviation": 0.36276044760131504,
+   "shortcut": 6.333698800507873,
+   "unit": "m/s"
+  },
+  "gravity_wave_doppler_shift": {
+   "F_max_final_set": 2.212793498711928,
+   "category": "atmospheric_dynamics",
+   "correct": 41.13418521425173,
+   "inside_params": {
+    "lx": 50.0,
+    "lz": 5.6,
+    "n": 0.01,
+    "theta": 90.0,
+    "u": 12.0
+   },
+   "mechanism": "intrinsic gravity-wave period -> ground-observed period Doppler-shifted by the wind",
+   "params": {
+    "lx": 50.0,
+    "lz": 5.6,
+    "n": 0.01,
+    "theta": 19.0,
+    "u": 12.0
+   },
+   "ratio": 2.273043233258071,
+   "relative_deviation": 1.273043233258071,
+   "shortcut": 93.4997813568391,
+   "unit": "min"
+  },
+  "ground_heat_flux_neglect": {
+   "F_max_final_set": 1.3924963924963925,
+   "category": "boundary_layer",
+   "correct": 198.0,
+   "inside_params": {
+    "g": 2.0,
+    "h": 179.0,
+    "rn": 456.0
+   },
+   "mechanism": "surface energy balance with the ground heat flux neglected -> the full Rn = H + LE + G balance",
+   "params": {
+    "g": 79.0,
+    "h": 179.0,
+    "rn": 456.0
+   },
+   "ratio": 1.398989898989899,
+   "relative_deviation": 0.398989898989899,
+   "shortcut": 277.0,
+   "unit": "W/m^2"
+  },
+  "henry_depletion": {
+   "F_max_final_set": 1.926979852031402,
+   "category": "atmospheric_chemistry",
+   "correct": 19362.669185818602,
+   "inside_params": {
+    "h": 63.0,
+    "lwc": 0.93,
+    "p": 1000.0,
+    "t": 289.0,
+    "xi": 0.81
+   },
+   "mechanism": "Henry's law with a fixed gas reservoir -> closed-parcel partitioning for a very soluble gas",
+   "params": {
+    "h": 52000.0,
+    "lwc": 0.93,
+    "p": 1000.0,
+    "t": 289.0,
+    "xi": 0.81
+   },
+   "ratio": 2.1468738424,
+   "relative_deviation": 1.1468738424,
+   "shortcut": 41569.20799407846,
+   "unit": "nmol/L"
+  },
+  "hydrostatic_constant_density": {
+   "F_max_final_set": 1.3049339741313977,
+   "category": "atmospheric_thermodynamics",
+   "correct": 347.95390643069163,
+   "inside_params": {
+    "p0": 980.0,
+    "t": 23.0,
+    "z": 110.0
+   },
+   "mechanism": "constant-density hydrostatic drop -> isothermal exponential pressure profile",
+   "params": {
+    "p0": 980.0,
+    "t": 23.0,
+    "z": 3800.0
+   },
+   "ratio": 1.2352740820679053,
+   "relative_deviation": 0.23527408206790543,
+   "shortcut": 429.81844236811446,
+   "unit": "hPa"
+  },
+  "ice_above_flotation": {
+   "F_max_final_set": 2.422249322313842,
+   "category": "climate_dynamics",
+   "correct": 130.31717451523548,
+   "inside_params": {
+    "area": 79000.0,
+    "b": 210.0,
+    "s": 720.0
+   },
+   "mechanism": "sea-level equivalent of the whole ice volume -> ice above flotation only",
+   "params": {
+    "area": 79000.0,
+    "b": -780.0,
+    "s": 720.0
+   },
+   "ratio": 2.3098236775818637,
+   "relative_deviation": 1.309823677581864,
+   "shortcut": 301.00969529085876,
+   "unit": "mm"
+  },
+  "ice_capacitance_shape": {
+   "F_max_final_set": 1.5275635206410163,
+   "category": "cloud_physics",
+   "correct": 12.571280516403949,
+   "inside_params": {
+    "d": 1.4,
+    "drho": 0.099,
+    "t": 1.35
+   },
+   "mechanism": "diffusional growth of a sphere of the particle's radius -> capacitance of a flat (oblate) crystal",
+   "params": {
+    "d": 1.4,
+    "drho": 0.099,
+    "t": 0.068
+   },
+   "ratio": 1.5240045446167796,
+   "relative_deviation": 0.5240045446167797,
+   "shortcut": 19.158688638651995,
+   "unit": "ng/s"
+  },
+  "ice_saturation": {
+   "F_max_final_set": 1.2912110747521899,
+   "category": "cloud_physics",
+   "correct": 0.9560812912800308,
+   "inside_params": {
+    "p": 670.0,
+    "t": -0.9
+   },
+   "mechanism": "saturation vapour pressure over liquid water -> over ice below 0 degC",
+   "params": {
+    "p": 670.0,
+    "t": -20.8
+   },
+   "ratio": 1.227282862179435,
+   "relative_deviation": 0.22728286217943489,
+   "shortcut": 1.1733821836383662,
+   "unit": "hPa"
+  },
+  "inertia_gravity_wave": {
+   "F_max_final_set": 3.296185140529916,
+   "category": "atmospheric_dynamics",
+   "correct": 15.688182845852598,
+   "inside_params": {
+    "lat": 49.0,
+    "lx": 21.0,
+    "lz": 2.0,
+    "n": 0.017
+   },
+   "mechanism": "non-rotating gravity-wave period -> inertia-gravity-wave period when omega ~ f",
+   "params": {
+    "lat": 49.0,
+    "lx": 2100.0,
+    "lz": 2.0,
+    "n": 0.017
+   },
+   "ratio": 6.871397980027704,
+   "relative_deviation": 5.871397980027704,
+   "shortcut": 107.79974791729683,
+   "unit": "h"
+  },
+  "ionic_strength_activity": {
+   "F_max_final_set": 1.2251966250969275,
+   "category": "atmospheric_chemistry",
+   "correct": 74.58847518119921,
+   "inside_params": {
+    "c": 240.0,
+    "i": 9.61e-06
+   },
+   "mechanism": "concentration-based dissociation constant -> activity-corrected equilibrium in saline water",
+   "params": {
+    "c": 240.0,
+    "i": 0.12
+   },
+   "ratio": 1.243141253019987,
+   "relative_deviation": 0.19558618333139483,
+   "shortcut": 59.99999999999999,
+   "unit": "umol/L"
+  },
+  "isa_above_tropopause": {
+   "F_max_final_set": 1.216941053095543,
+   "category": "atmospheric_thermodynamics",
+   "correct": 57.99295574161716,
+   "inside_params": {
+    "p0": 1040.0,
+    "z_km": 5.71
+   },
+   "mechanism": "tropospheric barometric formula -> isothermal stratosphere above the ICAO tropopause",
+   "params": {
+    "p0": 1040.0,
+    "z_km": 19.8
+   },
+   "ratio": 1.2505052337140516,
+   "relative_deviation": 0.20032321893611021,
+   "shortcut": 46.375620171837035,
+   "unit": "hPa"
+  },
+  "isotope_mixing_weighting": {
+   "F_max_final_set": 2.8035149658796605,
+   "category": "environmental_chemistry",
+   "correct": 0.6857087901519524,
+   "inside_params": {
+    "ca": 3.08,
+    "cb": 3.1,
+    "da": -20.9,
+    "db": -10.0,
+    "dm": -12.3
+   },
+   "mechanism": "linear delta mixing -> concentration-weighted two-end-member mixing of a solute isotope",
+   "params": {
+    "ca": 0.38,
+    "cb": 3.1,
+    "da": -20.9,
+    "db": -10.0,
+    "dm": -12.3
+   },
+   "ratio": 3.2496633968070774,
+   "relative_deviation": 0.6922758212488902,
+   "shortcut": 0.2110091743119267,
+   "unit": ""
+  },
+  "kelvin_curvature": {
+   "F_max_final_set": 1.2659603538765856,
+   "category": "cloud_physics",
+   "correct": 11.745697207052636,
+   "inside_params": {
+    "r": 2200.0,
+    "t": 6.0
+   },
+   "mechanism": "flat-surface saturation vapour pressure -> Kelvin curvature enhancement for nanometre drops",
+   "params": {
+    "r": 5.1,
+    "t": 6.0
+   },
+   "ratio": 1.2564660608789462,
+   "relative_deviation": 0.20411698243527435,
+   "shortcut": 9.348200936550622,
+   "unit": "hPa"
+  },
+  "limiting_reagent": {
+   "F_max_final_set": 1.8730787758016096,
+   "category": "atmospheric_chemistry",
+   "correct": 1.1911440000000002,
+   "inside_params": {
+    "ch": 53.0,
+    "cs": 26.0,
+    "lwc": 0.62
+   },
+   "mechanism": "oxidant assumed in excess -> stoichiometric limiting-reagent sulfate production",
+   "params": {
+    "ch": 20.0,
+    "cs": 26.0,
+    "lwc": 0.62
+   },
+   "ratio": 1.3,
+   "relative_deviation": 0.30000000000000004,
+   "shortcut": 1.5484872000000003,
+   "unit": "ug/m^3"
+  },
+  "line_broadening": {
+   "F_max_final_set": 29.147800535634314,
+   "category": "atmospheric_radiation",
+   "correct": 17.96064043715032,
+   "inside_params": {
+    "p": 930.0,
+    "t": 270.0
+   },
+   "mechanism": "pressure-scaled Lorentz line width -> Doppler-dominated Voigt width at low pressure",
+   "params": {
+    "p": 0.2,
+    "t": 270.0
+   },
+   "ratio": 43.31935419722208,
+   "relative_deviation": 0.9769156300103817,
+   "shortcut": 0.4146100691016782,
+   "unit": "MHz"
+  },
+  "log_wind_stability": {
+   "F_max_final_set": 1.2185218286046964,
+   "category": "boundary_layer",
+   "correct": 4.450615684735741,
+   "inside_params": {
+    "L": 8300.0,
+    "ustar": 0.25,
+    "z0": 0.03
+   },
+   "mechanism": "neutral log wind profile -> stable Monin-Obukhov profile when z/L is not small",
+   "params": {
+    "L": 38.0,
+    "ustar": 0.25,
+    "z0": 0.03
+   },
+   "ratio": 1.2258236899058053,
+   "relative_deviation": 0.18422199845326698,
+   "shortcut": 3.6307143689462675,
+   "unit": "m/s"
+  },
+  "lognormal_mass": {
+   "F_max_final_set": 3.5503466490802884,
+   "category": "atmospheric_aerosols",
+   "correct": 112.74724051811283,
+   "inside_params": {
+    "d": 0.25,
+    "n": 3000.0,
+    "rho": 1.7,
+    "sg": 1.04
+   },
+   "mechanism": "median-particle mass -> third moment of a broad lognormal mode (Hatch-Choate)",
+   "params": {
+    "d": 0.25,
+    "n": 3000.0,
+    "rho": 1.7,
+    "sg": 1.6
+   },
+   "ratio": 2.702197556469231,
+   "relative_deviation": 0.6299308325529578,
+   "shortcut": 41.72427743048943,
+   "unit": "ug/m^3"
+  },
+  "mie_geometric": {
+   "F_max_final_set": 6.431235799247013,
+   "category": "atmospheric_radiation",
+   "correct": 1.0011953581459565,
+   "inside_params": {
+    "l1": 430.0,
+    "l2": 670.0,
+    "r": 0.012
+   },
+   "mechanism": "Rayleigh lambda^-4 extinction -> Mie extinction (Q_ext -> 2) for particles many wavelengths across",
+   "params": {
+    "l1": 430.0,
+    "l2": 670.0,
+    "r": 58.0
+   },
+   "ratio": 5.887169786290826,
+   "relative_deviation": 4.887169786290826,
+   "shortcut": 5.894207062651498,
+   "unit": ""
+  },
+  "mixed_layer_response": {
+   "F_max_final_set": 2.8166941611180567,
+   "category": "climate_dynamics",
+   "correct": 0.32520105896831136,
+   "inside_params": {
+    "f": 2.8,
+    "h": 100.0,
+    "lam": 1.0,
+    "yr": 120.0
+   },
+   "mechanism": "equilibrium warming F/lambda -> transient slab-ocean response before several e-folding times",
+   "params": {
+    "f": 2.8,
+    "h": 100.0,
+    "lam": 1.0,
+    "yr": 1.6
+   },
+   "ratio": 8.61005806341129,
+   "relative_deviation": 7.61005806341129,
+   "shortcut": 2.8,
+   "unit": "K"
+  },
+  "nonsteady_burden": {
+   "F_max_final_set": 1.5738623319863776,
+   "category": "atmospheric_chemistry",
+   "correct": 17.386411516552783,
+   "inside_params": {
+    "s": 7.5,
+    "t": 26.0,
+    "tau": 3.5
+   },
+   "mechanism": "steady-state buildup S*tau -> exact non-steady approach to steady state after a rain event",
+   "params": {
+    "s": 7.5,
+    "t": 3.8,
+    "tau": 3.5
+   },
+   "ratio": 1.5097997637412763,
+   "relative_deviation": 0.5097997637412764,
+   "shortcut": 26.25,
+   "unit": "ug/m^3"
+  },
+  "optically_thin_emission": {
+   "F_max_final_set": 1.481539062773404,
+   "category": "atmospheric_radiation",
+   "correct": 141.1075401834414,
+   "inside_params": {
+    "t": 286.0,
+    "tau": 0.017
+   },
+   "mechanism": "optically thin emission T_b = tau T -> self-absorbing isothermal layer T(1 - e^-tau)",
+   "params": {
+    "t": 286.0,
+    "tau": 0.68
+   },
+   "ratio": 1.3782396018467464,
+   "relative_deviation": 0.3782396018467464,
+   "shortcut": 194.48000000000002,
+   "unit": "K"
+  },
+  "photostationary_peroxy": {
+   "F_max_final_set": 1.8630215799422865,
+   "category": "atmospheric_chemistry",
+   "correct": 6.191623485923628,
+   "inside_params": {
+    "no": 7.39,
+    "no2": 5.68,
+    "ro2": 570000.0
+   },
+   "mechanism": "Leighton photostationary-state ozone -> peroxy radicals also convert NO to NO2",
+   "params": {
+    "no": 7.39,
+    "no2": 5.68,
+    "ro2": 330000000.0
+   },
+   "ratio": 1.9122432948041743,
+   "relative_deviation": 0.9122432948041742,
+   "shortcut": 11.839890494909506,
+   "unit": "ppb"
+  },
+  "planck_linearization": {
+   "F_max_final_set": 1.3003506702266354,
+   "category": "climate_dynamics",
+   "correct": 55.68088045568908,
+   "inside_params": {
+    "df": 1.2,
+    "t": 265.0
+   },
+   "mechanism": "linearised Planck response dF/(4 sigma T^3) -> exact Stefan-Boltzmann balance for large dF",
+   "params": {
+    "df": 320.0,
+    "t": 265.0
+   },
+   "ratio": 1.3616428575900523,
+   "relative_deviation": 0.3616428575900524,
+   "shortcut": 75.81747317681457,
+   "unit": "K"
+  },
+  "plume_ground_reflection": {
+   "F_max_final_set": 1.48966467098606,
+   "category": "air_quality",
+   "correct": 63.765527055418616,
+   "inside_params": {
+    "H": 50.0,
+    "q": 24.0,
+    "u": 5.0,
+    "x": 570.0
+   },
+   "mechanism": "Gaussian plume with no ground -> ground-reflected plume once sigma_z is comparable to H",
+   "params": {
+    "H": 50.0,
+    "q": 24.0,
+    "u": 5.0,
+    "x": 2500.0
+   },
+   "ratio": 1.652599504483638,
+   "relative_deviation": 0.3948927146069462,
+   "shortcut": 38.584984978161685,
+   "unit": "ug/m^3"
+  },
+  "plume_mixing_lid": {
+   "F_max_final_set": 2.721592562711817,
+   "category": "air_quality",
+   "correct": 3.073260115812138,
+   "inside_params": {
+    "h": 550.0,
+    "hs": 70.0,
+    "q": 80.0,
+    "u": 6.0,
+    "x": 1200.0
+   },
+   "mechanism": "Gaussian plume with ground reflection -> trapping under an inversion once sigma_z ~ h",
+   "params": {
+    "h": 550.0,
+    "hs": 70.0,
+    "q": 80.0,
+    "u": 6.0,
+    "x": 59000.0
+   },
+   "ratio": 3.6263561911784463,
+   "relative_deviation": 0.7242410984247433,
+   "shortcut": 0.8474788337914014,
+   "unit": "ug/m^3"
+  },
+  "ppm_conversion_pressure": {
+   "F_max_final_set": 1.2440116815855875,
+   "category": "air_quality",
+   "correct": 119.0889645799486,
+   "inside_params": {
+    "p": 1010.0,
+    "ppb": 75.0
+   },
+   "mechanism": "standard 24.45 L/mol conversion -> ideal gas at the actual (high-elevation) pressure",
+   "params": {
+    "p": 820.0,
+    "ppb": 75.0
+   },
+   "ratio": 1.2363804179759588,
+   "relative_deviation": 0.23638041797595868,
+   "shortcut": 147.23926380368098,
+   "unit": "ug/m^3"
+  },
+  "pseudo_first_order": {
+   "F_max_final_set": 1.2756572244853572,
+   "category": "atmospheric_chemistry",
+   "correct": 49.89996672561304,
+   "inside_params": {
+    "no": 0.079,
+    "o3": 39.0
+   },
+   "mechanism": "pseudo-first-order decay -> mixed second-order kinetics when the partner is not in excess",
+   "params": {
+    "no": 31.0,
+    "o3": 39.0
+   },
+   "ratio": 1.3122848349750225,
+   "relative_deviation": 0.23797031456281847,
+   "shortcut": 38.02525594724473,
+   "unit": "s"
+  },
+  "racemization_reversibility": {
+   "F_max_final_set": 1.7397672895997691,
+   "category": "environmental_chemistry",
+   "correct": 17756.30721616768,
+   "inside_params": {
+    "dl": 0.028,
+    "k": 5.1e-05
+   },
+   "mechanism": "irreversible first-order L -> D -> reversible racemization (D/L -> 1)",
+   "params": {
+    "dl": 0.719,
+    "k": 5.1e-05
+   },
+   "ratio": 1.6715898966306109,
+   "relative_deviation": 0.40176714275691705,
+   "shortcut": 10622.406400013962,
+   "unit": "yr"
+  },
+  "radar_beam_height": {
+   "F_max_final_set": 1.3296080087058986,
+   "category": "observation_and_modeling",
+   "correct": 9667.329237199738,
+   "inside_params": {
+    "el": 1.5,
+    "r": 8.0
+   },
+   "mechanism": "flat-Earth beam height r sin(theta) -> 4/3-effective-radius beam height at long range",
+   "params": {
+    "el": 1.5,
+    "r": 240.0
+   },
+   "ratio": 1.5387790056573247,
+   "relative_deviation": 0.35013410221773394,
+   "shortcut": 6282.467593889557,
+   "unit": "m"
+  },
+  "raindrop_drag_regime": {
+   "F_max_final_set": 4.531619027115351,
+   "category": "cloud_physics",
+   "correct": 2008.0,
+   "inside_params": {
+    "r": 13.3
+   },
+   "mechanism": "Stokes settling -> Rogers-Yau linear drag regime once the drop is too large for creeping flow",
+   "params": {
+    "r": 251.0
+   },
+   "ratio": 3.778867403314916,
+   "relative_deviation": 2.778867403314916,
+   "shortcut": 7587.9657458563515,
+   "unit": "mm/s"
+  },
+  "rossby_deformation": {
+   "F_max_final_set": 1.53456295660674,
+   "category": "atmospheric_dynamics",
+   "correct": 41.158993784324906,
+   "inside_params": {
+    "h": 10.0,
+    "lat": 46.0,
+    "lx": 1100.0
+   },
+   "mechanism": "non-divergent Rossby wave speed -> free-surface Rossby wave when the wave is not short compared with the deformation radius",
+   "params": {
+    "h": 10.0,
+    "lat": 46.0,
+    "lx": 12000.0
+   },
+   "ratio": 1.4092184813855793,
+   "relative_deviation": 0.4092184813855792,
+   "shortcut": 58.00201471610484,
+   "unit": "m/s"
+  },
+  "saturated_lapse": {
+   "F_max_final_set": 2.376013743576023,
+   "category": "atmospheric_thermodynamics",
+   "correct": 4.033296237935516,
+   "inside_params": {
+    "p": 940.0,
+    "rh": 30.0,
+    "t": 21.0
+   },
+   "mechanism": "dry adiabatic lapse rate -> saturated adiabatic lapse rate for a saturated parcel",
+   "params": {
+    "p": 940.0,
+    "rh": 100.0,
+    "t": 21.0
+   },
+   "ratio": 2.420153009848618,
+   "relative_deviation": 1.420153009848618,
+   "shortcut": 9.761194029850746,
+   "unit": "K/km"
+  },
+  "sea_ice_insulation": {
+   "F_max_final_set": 1.3895778653047617,
+   "category": "oceanography",
+   "correct": 1.1378003464478441,
+   "inside_params": {
+    "days": 34.0,
+    "h0": 0.22,
+    "ts": -13.0
+   },
+   "mechanism": "Stefan growth from open water added to existing ice -> growth insulated by the existing ice",
+   "params": {
+    "days": 34.0,
+    "h0": 93.0,
+    "ts": -13.0
+   },
+   "ratio": 1.393484505885728,
+   "relative_deviation": 0.39348450588572803,
+   "shortcut": 1.5855071535664842,
+   "unit": "m"
+  },
+  "semivolatile_partitioning_temperature": {
+   "F_max_final_set": 1.2804663820507307,
+   "category": "atmospheric_aerosols",
+   "correct": 389.9353737137487,
+   "inside_params": {
+    "coa": 14.0,
+    "cstar298": 3.9,
+    "ctot": 0.4,
+    "t": 298.0
+   },
+   "mechanism": "298 K saturation concentration used as-is -> Clausius-Clapeyron adjustment to the ambient temperature",
+   "params": {
+    "coa": 14.0,
+    "cstar298": 3.9,
+    "ctot": 0.4,
+    "t": 268.0
+   },
+   "ratio": 1.2464005695493037,
+   "relative_deviation": 0.19768971193458426,
+   "shortcut": 312.84916201117323,
+   "unit": "ng/m^3"
+  },
+  "shallow_water_wave_speed": {
+   "F_max_final_set": 1.215797060662748,
+   "category": "oceanography",
+   "correct": 9.82250994694755,
+   "inside_params": {
+    "h": 2.5,
+    "lam": 130.0
+   },
+   "mechanism": "shallow-water speed sqrt(gH) -> full linear dispersion omega^2 = g k tanh(kH)",
+   "params": {
+    "h": 27.0,
+    "lam": 130.0
+   },
+   "ratio": 1.2296896303015734,
+   "relative_deviation": 0.18678666928763435,
+   "shortcut": 7.987796029912559,
+   "unit": "s"
+  },
+  "snowpack_cold_content": {
+   "F_max_final_set": 1.4075351686622213,
+   "category": "hydrology",
+   "correct": 28.183233532934135,
+   "inside_params": {
+    "q": 13.0,
+    "swe": 280.0,
+    "t": -0.2
+   },
+   "mechanism": "energy-balance melt Q/L_f -> cold content satisfied before melt",
+   "params": {
+    "q": 13.0,
+    "swe": 280.0,
+    "t": -6.1
+   },
+   "ratio": 1.381039391492797,
+   "relative_deviation": 0.3810393914927971,
+   "shortcut": 38.92215568862275,
+   "unit": "mm"
+  },
+  "solid_angle": {
+   "F_max_final_set": 1.3007056389956335,
+   "category": "observation_and_modeling",
+   "correct": 13408.554260893761,
+   "inside_params": {
+    "h": 42800.0
+   },
+   "mechanism": "small-angle solid angle pi R^2/d^2 -> exact cone solid angle close to the sphere",
+   "params": {
+    "h": 430.0
+   },
+   "ratio": 1.4815528758223984,
+   "relative_deviation": 0.3250325274790427,
+   "shortcut": 9050.337979635575,
+   "unit": "deg^2"
+  },
+  "sonic_humidity_flux": {
+   "F_max_final_set": 1.196764608136728,
+   "category": "observation_and_modeling",
+   "correct": 110.83210305445832,
+   "inside_params": {
+    "cov": 0.116,
+    "e": 0.018,
+    "p": 980.0,
+    "t": 27.0
+   },
+   "mechanism": "sensible heat flux from the sonic-temperature covariance -> minus its humidity term (Schotanus)",
+   "params": {
+    "cov": 0.116,
+    "e": 0.51,
+    "p": 980.0,
+    "t": 27.0
+   },
+   "ratio": 1.1966421829674314,
+   "relative_deviation": 0.19664218296743136,
+   "shortcut": 132.6263697419583,
+   "unit": "W/m^2"
+  },
+  "spherical_slant_path": {
+   "F_max_final_set": 1.6209078815233509,
+   "category": "atmospheric_radiation",
+   "correct": 180.09511023856743,
+   "inside_params": {
+    "h": 6.0,
+    "theta": 51.0
+   },
+   "mechanism": "plane-parallel sec(theta) path -> spherical-shell path near the horizon",
+   "params": {
+    "h": 6.0,
+    "theta": 88.9
+   },
+   "ratio": 1.7354254246052876,
+   "relative_deviation": 0.7354254246052877,
+   "shortcut": 312.541633155102,
+   "unit": "km"
+  },
+  "sun_photometer_airmass": {
+   "F_max_final_set": 1.2253463515296696,
+   "category": "observation_and_modeling",
+   "correct": 0.20344459549173935,
+   "inside_params": {
+    "t": 0.0594,
+    "theta": 48.8
+   },
+   "mechanism": "plane-parallel air mass 1/cos(theta) -> Kasten-Young (1989) air mass",
+   "params": {
+    "t": 0.0594,
+    "theta": 86.6
+   },
+   "ratio": 1.2149628173646236,
+   "relative_deviation": 0.17692954409164513,
+   "shortcut": 0.16744923596347674,
+   "unit": ""
+  },
+  "surface_multiple_reflection": {
+   "F_max_final_set": 1.2755914563175046,
+   "category": "atmospheric_radiation",
+   "correct": 115.82896921051457,
+   "inside_params": {
+    "a": 0.0492,
+    "r": 0.265,
+    "s": 743.0,
+    "t": 0.635
+   },
+   "mechanism": "single-pass transmitted flux -> flux absorbed after multiple reflections between the surface and the overlying layer",
+   "params": {
+    "a": 0.807,
+    "r": 0.265,
+    "s": 743.0,
+    "t": 0.635
+   },
+   "ratio": 1.2720299690260701,
+   "relative_deviation": 0.213855,
+   "shortcut": 91.05836499999998,
+   "unit": "W/m^2"
+  },
+  "taylor_dispersion": {
+   "F_max_final_set": 3.4109620820718423,
+   "category": "boundary_layer",
+   "correct": 1479.4593607928016,
+   "inside_params": {
+    "sv": 1.0,
+    "tl": 240.0,
+    "u": 2.0,
+    "x": 36.0
+   },
+   "mechanism": "near-field sigma_y = sigma_v t -> Taylor diffusion when travel time >> Lagrangian time scale",
+   "params": {
+    "sv": 1.0,
+    "tl": 240.0,
+    "u": 2.0,
+    "x": 9600.0
+   },
+   "ratio": 3.24442842243927,
+   "relative_deviation": 2.24442842243927,
+   "shortcut": 4800.0,
+   "unit": "m"
+  },
+  "unconfined_dupuit": {
+   "F_max_final_set": 1.2289848330010793,
+   "category": "hydrology",
+   "correct": 10.201679686041917,
+   "inside_params": {
+    "K": 10.0,
+    "Q": 227.0,
+    "R": 700.0,
+    "h0": 29.0,
+    "r": 0.25
+   },
+   "mechanism": "Thiem drawdown with transmissivity K h_0 -> Dupuit-Thiem for a water-table aquifer",
+   "params": {
+    "K": 10.0,
+    "Q": 1930.0,
+    "R": 700.0,
+    "h0": 29.0,
+    "r": 0.25
+   },
+   "ratio": 1.2134317611797507,
+   "relative_deviation": 0.17589102906968834,
+   "shortcut": 8.40729574782467,
+   "unit": "m"
+  },
+  "weak_acid_dissociation": {
+   "F_max_final_set": 1.4302950112466832,
+   "category": "atmospheric_chemistry",
+   "correct": 16.96113571976158,
+   "inside_params": {
+    "c": 34.0
+   },
+   "mechanism": "small-dissociation approximation sqrt(K_a C) -> exact weak-acid equilibrium in dilute solution",
+   "params": {
+    "c": 0.0334
+   },
+   "ratio": 1.4254018838670672,
+   "relative_deviation": 0.4254018838670673,
+   "shortcut": 24.17643480747316,
+   "unit": "umol/L"
+  },
+  "weir_approach_velocity": {
+   "F_max_final_set": 1.2093932988318805,
+   "category": "hydrology",
+   "correct": 4.9248584371778765,
+   "inside_params": {
+    "H": 0.76,
+    "P": 3.7,
+    "b": 3.6
+   },
+   "mechanism": "broad-crested weir formula on the measured head -> energy head with the velocity of approach",
+   "params": {
+    "H": 0.76,
+    "P": 0.2,
+    "b": 3.6
+   },
+   "ratio": 1.211081157138277,
+   "relative_deviation": 0.1742915046560967,
+   "shortcut": 4.0664974499438715,
+   "unit": "m^3/s"
+  }
+ },
+ "n_templates": 72,
+ "n_universal_failures": 7,
+ "universal_failures": [
+  {
+   "category": "climate_dynamics",
+   "configs_kept_local": 16,
+   "deepseek_off": 0.0,
+   "mean_rec_outside_local": 0.01875,
+   "template": "ch4_forcing_sqrt"
+  },
+  {
+   "category": "atmospheric_thermodynamics",
+   "configs_kept_local": 16,
+   "deepseek_off": 0.0,
+   "mean_rec_outside_local": 0.0,
+   "template": "clausius_clapeyron_extrapolation"
+  },
+  {
+   "category": "cloud_physics",
+   "configs_kept_local": 13,
+   "deepseek_off": 0.0,
+   "mean_rec_outside_local": 0.0,
+   "template": "drop_ventilation"
+  },
+  {
+   "category": "cloud_physics",
+   "configs_kept_local": 10,
+   "deepseek_off": 0.2857142857142857,
+   "mean_rec_outside_local": 0.07705882352941176,
+   "template": "ice_capacitance_shape"
+  },
+  {
+   "category": "atmospheric_radiation",
+   "configs_kept_local": 16,
+   "deepseek_off": 0.0,
+   "mean_rec_outside_local": 0.0,
+   "template": "line_broadening"
+  },
+  {
+   "category": "observation_and_modeling",
+   "configs_kept_local": 16,
+   "deepseek_off": 0.0,
+   "mean_rec_outside_local": 0.0,
+   "template": "sonic_humidity_flux"
+  },
+  {
+   "category": "observation_and_modeling",
+   "configs_kept_local": 14,
+   "deepseek_off": 0.0,
+   "mean_rec_outside_local": 0.0,
+   "template": "sun_photometer_airmass"
+  }
+ ],
+ "zero_in_all_base_models": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log"
+ ]
+}

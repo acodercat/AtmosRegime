@@ -1,0 +1,819 @@
+{
+ "family": "qwen3-8b",
+ "design_levels": [
+  0,
+  1,
+  2,
+  4
+ ],
+ "labels": [
+  "sft-dose-qwen3-8b-F1-s42",
+  "dose-qwen3-8b-F1-WA-s42",
+  "sft-dose-qwen3-8b-F1-s43",
+  "dose-qwen3-8b-F1-WA-s43",
+  "sft-dose-qwen3-8b-F2-s42",
+  "dose-qwen3-8b-F2-WA-s42",
+  "sft-dose-qwen3-8b-F2-s43",
+  "dose-qwen3-8b-F2-WA-s43"
+ ],
+ "missing": [],
+ "complete": true,
+ "infra_errors": {
+  "sft-dose-qwen3-8b-F1-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "dose-qwen3-8b-F1-WA-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "sft-dose-qwen3-8b-F1-s43": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "dose-qwen3-8b-F1-WA-s43": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "sft-dose-qwen3-8b-F2-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "dose-qwen3-8b-F2-WA-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "sft-dose-qwen3-8b-F2-s43": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "dose-qwen3-8b-F2-WA-s43": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  }
+ },
+ "H1": {
+  "value": 0.6134615384615384,
+  "ci95": [
+   0.38461538461538464,
+   0.8291666666666666
+  ],
+  "draws_used": 9999,
+  "observations": 34,
+  "mechanisms": 17,
+  "verdict": "成立"
+ },
+ "H2": {
+  "pass64_0": {
+   "n": 1,
+   "successes": 0,
+   "share": 0.0,
+   "successful": [],
+   "observations": [
+    "henry_depletion/s43"
+   ]
+  },
+  "pass64_pos": {
+   "n": 25,
+   "successes": 16,
+   "share": 0.64,
+   "successful": [
+    "freezing_point_depth/s42",
+    "line_broadening/s42",
+    "surface_multiple_reflection/s42",
+    "unconfined_dupuit/s42",
+    "freezing_point_depth/s43",
+    "unconfined_dupuit/s43",
+    "clausius_clapeyron_extrapolation/s42",
+    "cunningham_slip/s42",
+    "snowpack_cold_content/s42",
+    "sun_photometer_airmass/s42",
+    "co2_forcing_log/s43",
+    "cunningham_slip/s43",
+    "doppler_aliasing/s43",
+    "inertia_gravity_wave/s43",
+    "snowpack_cold_content/s43",
+    "sun_photometer_airmass/s43"
+   ],
+   "observations": [
+    "displacement_height_canopy/s42",
+    "freezing_point_depth/s42",
+    "henry_depletion/s42",
+    "line_broadening/s42",
+    "surface_multiple_reflection/s42",
+    "unconfined_dupuit/s42",
+    "diffuse_transmission/s43",
+    "displacement_height_canopy/s43",
+    "freezing_point_depth/s43",
+    "unconfined_dupuit/s43",
+    "clausius_clapeyron_extrapolation/s42",
+    "co2_forcing_log/s42",
+    "cunningham_slip/s42",
+    "plume_ground_reflection/s42",
+    "snowpack_cold_content/s42",
+    "spherical_slant_path/s42",
+    "sun_photometer_airmass/s42",
+    "clausius_clapeyron_extrapolation/s43",
+    "co2_forcing_log/s43",
+    "cunningham_slip/s43",
+    "doppler_aliasing/s43",
+    "inertia_gravity_wave/s43",
+    "plume_ground_reflection/s43",
+    "snowpack_cold_content/s43",
+    "sun_photometer_airmass/s43"
+   ]
+  },
+  "verdict": "不可检验"
+ },
+ "secondary": {
+  "per_dose": {
+   "0": {
+    "n": 8,
+    "warm": 0.0,
+    "rl": 0.0,
+    "warm_pass64_pos": 3,
+    "rl_at_or_above_50": 0
+   },
+   "1": {
+    "n": 9,
+    "warm": 0.03333333333333333,
+    "rl": 0.55,
+    "warm_pass64_pos": 9,
+    "rl_at_or_above_50": 5
+   },
+   "2": {
+    "n": 9,
+    "warm": 0.15000000000000002,
+    "rl": 0.4444444444444444,
+    "warm_pass64_pos": 8,
+    "rl_at_or_above_50": 4
+   },
+   "4": {
+    "n": 8,
+    "warm": 0.50625,
+    "rl": 0.875,
+    "warm_pass64_pos": 8,
+    "rl_at_or_above_50": 7
+   }
+  },
+  "rl-warm": {
+   "all_dosed": {
+    "value": 0.3942307692307692,
+    "ci95": [
+     0.214,
+     0.59
+    ],
+    "draws_used": 10000,
+    "observations": 26,
+    "mechanisms": 16
+   },
+   "dosed_warm_below_50_pass64_pos": {
+    "value": 0.49000000000000005,
+    "ci95": [
+     0.2605263157894737,
+     0.7159090909090909
+    ],
+    "draws_used": 10000,
+    "observations": 20,
+    "mechanisms": 15
+   }
+  },
+  "dose0_spillover": {
+   "rl-A": {
+    "value": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "draws_used": 10000,
+    "observations": 8,
+    "mechanisms": 7
+   },
+   "warm-base": {
+    "value": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "draws_used": 10000,
+    "observations": 8,
+    "mechanisms": 7
+   }
+  },
+  "WA_full_dose_on_units": 1.0,
+  "non_unit_new_rl-WA": {
+   "value": 0.0004807692307692308,
+   "ci95": [
+    -0.007211538461538462,
+    0.009615384615384616
+   ],
+   "draws_used": 10000,
+   "observations": 104,
+   "mechanisms": 52
+  }
+ },
+ "exploratory": {
+  "h2_within_dose": {
+   "levels": {
+    "1": {
+     "pass64_0": {
+      "n": 0,
+      "successes": 0
+     },
+     "pass64_pos": {
+      "n": 9,
+      "successes": 5
+     }
+    },
+    "2": {
+     "pass64_0": {
+      "n": 1,
+      "successes": 0
+     },
+     "pass64_pos": {
+      "n": 8,
+      "successes": 4
+     }
+    },
+    "4": {
+     "pass64_0": {
+      "n": 0,
+      "successes": 0
+     },
+     "pass64_pos": {
+      "n": 8,
+      "successes": 7
+     }
+    }
+   },
+   "pooled_difference": {
+    "value": 0.5,
+    "ci95": [
+     0.125,
+     0.7777777777777778
+    ],
+    "draws_used": 6366,
+    "observations": 34,
+    "mechanisms": 17
+   }
+  },
+  "h1_per_run": {
+   "F1-s42": {
+    "n_dosed": 6,
+    "n_dose0": 1,
+    "rl_dosed": 0.6666666666666666,
+    "rl_dose0": 0.0,
+    "difference": 0.6666666666666666
+   },
+   "F1-s43": {
+    "n_dosed": 5,
+    "n_dose0": 2,
+    "rl_dosed": 0.4,
+    "rl_dose0": 0.0,
+    "difference": 0.4
+   },
+   "F2-s42": {
+    "n_dosed": 7,
+    "n_dose0": 3,
+    "rl_dosed": 0.5714285714285714,
+    "rl_dose0": 0.0,
+    "difference": 0.5714285714285714
+   },
+   "F2-s43": {
+    "n_dosed": 8,
+    "n_dose0": 2,
+    "rl_dosed": 0.74375,
+    "rl_dose0": 0.0,
+    "difference": 0.74375
+   }
+  }
+ },
+ "observations": [
+  {
+   "mechanism": "diffuse_transmission",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "displacement_height_canopy",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 2,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.2,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "freezing_point_depth",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 4,
+   "warm": 0.05,
+   "rl": 1.0,
+   "warm_pass64": 0.6,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.95,
+   "rl-A": 1.0,
+   "warm-base": 0.05
+  },
+  {
+   "mechanism": "henry_depletion",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 2,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.05,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "line_broadening",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 4,
+   "warm": 0.3,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.7,
+   "rl-A": 1.0,
+   "warm-base": 0.3
+  },
+  {
+   "mechanism": "surface_multiple_reflection",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 1,
+   "warm": 0.0,
+   "rl": 1.0,
+   "warm_pass64": 0.75,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 1.0,
+   "rl-A": 1.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "unconfined_dupuit",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 1,
+   "warm": 0.15,
+   "rl": 1.0,
+   "warm_pass64": 0.95,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.85,
+   "rl-A": 1.0,
+   "warm-base": 0.15
+  },
+  {
+   "mechanism": "diffuse_transmission",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 1,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.15,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "displacement_height_canopy",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 1,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.4,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "freezing_point_depth",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 2,
+   "warm": 0.0,
+   "rl": 1.0,
+   "warm_pass64": 0.5,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 1.0,
+   "rl-A": 1.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "henry_depletion",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 2,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "line_broadening",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "surface_multiple_reflection",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.35,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "unconfined_dupuit",
+   "fold": "F1",
+   "seed": 43,
+   "dose": 4,
+   "warm": 0.85,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.15000000000000002,
+   "rl-A": 1.0,
+   "warm-base": 0.85
+  },
+  {
+   "mechanism": "ch4_forcing_sqrt",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "clausius_clapeyron_extrapolation",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 4,
+   "warm": 0.9,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.09999999999999998,
+   "rl-A": 1.0,
+   "warm-base": 0.9
+  },
+  {
+   "mechanism": "co2_forcing_log",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 2,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.25,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "cunningham_slip",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 2,
+   "warm": 0.1,
+   "rl": 1.0,
+   "warm_pass64": 0.8,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.9,
+   "rl-A": 1.0,
+   "warm-base": 0.1
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "inertia_gravity_wave",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "plume_ground_reflection",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 2,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.05,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "snowpack_cold_content",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 4,
+   "warm": 0.95,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.050000000000000044,
+   "rl-A": 1.0,
+   "warm-base": 0.95
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 1,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.4,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "sun_photometer_airmass",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 1,
+   "warm": 0.1,
+   "rl": 1.0,
+   "warm_pass64": 0.85,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.9,
+   "rl-A": 1.0,
+   "warm-base": 0.1
+  },
+  {
+   "mechanism": "ch4_forcing_sqrt",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.05,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "clausius_clapeyron_extrapolation",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 1,
+   "warm": 0.05,
+   "rl": 0.0,
+   "warm_pass64": 0.45,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": -0.05,
+   "rl-A": 0.0,
+   "warm-base": 0.05
+  },
+  {
+   "mechanism": "co2_forcing_log",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 4,
+   "warm": 0.0,
+   "rl": 1.0,
+   "warm_pass64": 0.95,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 1.0,
+   "rl-A": 1.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "cunningham_slip",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 1,
+   "warm": 0.0,
+   "rl": 0.95,
+   "warm_pass64": 0.3,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.95,
+   "rl-A": 0.95,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 2,
+   "warm": 0.85,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.15000000000000002,
+   "rl-A": 1.0,
+   "warm-base": 0.85
+  },
+  {
+   "mechanism": "inertia_gravity_wave",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 1,
+   "warm": 0.0,
+   "rl": 1.0,
+   "warm_pass64": 0.25,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 1.0,
+   "rl-A": 1.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "plume_ground_reflection",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 4,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.2,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "snowpack_cold_content",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 2,
+   "warm": 0.4,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.6,
+   "rl-A": 1.0,
+   "warm-base": 0.4
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 0,
+   "warm": 0.0,
+   "rl": 0.0,
+   "warm_pass64": 0.5,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 0.0,
+   "warm-base": 0.0
+  },
+  {
+   "mechanism": "sun_photometer_airmass",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 4,
+   "warm": 1.0,
+   "rl": 1.0,
+   "warm_pass64": 1.0,
+   "A": 0.0,
+   "WA_full": 1.0,
+   "base": 0.0,
+   "rl-warm": 0.0,
+   "rl-A": 1.0,
+   "warm-base": 1.0
+  }
+ ]
+}

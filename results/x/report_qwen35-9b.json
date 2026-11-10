@@ -1,0 +1,3980 @@
+{
+ "family": "qwen35-9b",
+ "seeds": [
+  42
+ ],
+ "complete": true,
+ "missing": {
+  "F1": [],
+  "F2": []
+ },
+ "infra_errors": {
+  "x-qwen35-9b-base": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "sft-x-qwen35-9b-F1": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "sft-x-qwen35-9b-F2": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F1-A-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F1-D-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F1-F-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F1-WA-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F1-WD-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F2-A-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F2-D-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F2-F-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F2-WA-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  },
+  "x-qwen35-9b-F2-WD-s42": {
+   "final": 0,
+   "judge": 0,
+   "test_id": 0,
+   "textbook": 0
+  }
+ },
+ "final_responses_with_regime_key": {
+  "x-qwen35-9b-base": 0,
+  "sft-x-qwen35-9b-F1": 0,
+  "sft-x-qwen35-9b-F2": 0,
+  "x-qwen35-9b-F1-A-s42": 0,
+  "x-qwen35-9b-F1-D-s42": 0,
+  "x-qwen35-9b-F1-F-s42": 0,
+  "x-qwen35-9b-F1-WA-s42": 0,
+  "x-qwen35-9b-F1-WD-s42": 0,
+  "x-qwen35-9b-F2-A-s42": 0,
+  "x-qwen35-9b-F2-D-s42": 0,
+  "x-qwen35-9b-F2-F-s42": 0,
+  "x-qwen35-9b-F2-WA-s42": 0,
+  "x-qwen35-9b-F2-WD-s42": 0
+ },
+ "fold_mapping": {
+  "F1": {
+   "training_fold_templates": [
+    "actinic_flux_horizontal",
+    "bay_tidal_resonance",
+    "box_ventilation_loss",
+    "condensate_loading",
+    "cooper_jacob_early_time",
+    "cstr_vs_pfr",
+    "diffuse_transmission",
+    "displacement_height_canopy",
+    "effective_henry",
+    "freezing_point_depth",
+    "frictional_three_force_balance",
+    "gradient_wind_curvature",
+    "ground_heat_flux_neglect",
+    "henry_depletion",
+    "ionic_strength_activity",
+    "isotope_mixing_weighting",
+    "line_broadening",
+    "log_wind_stability",
+    "mixed_layer_response",
+    "nonsteady_burden",
+    "racemization_reversibility",
+    "rossby_deformation",
+    "saturated_lapse",
+    "sea_ice_insulation",
+    "shallow_water_wave_speed",
+    "surface_multiple_reflection",
+    "unconfined_dupuit",
+    "weak_acid_dissociation",
+    "weir_approach_velocity"
+   ],
+   "held_out_templates": [
+    "anelastic_continuity",
+    "capillary_rise_gravity",
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "constant_pressure_expansion",
+    "coriolis_neglect",
+    "cunningham_slip",
+    "deposition_brownian",
+    "doppler_aliasing",
+    "drop_size_truncation",
+    "drop_ventilation",
+    "freezing_latent_heat",
+    "fresnel_reflectance_grazing",
+    "gravity_wave_doppler_shift",
+    "hydrostatic_constant_density",
+    "ice_above_flotation",
+    "ice_capacitance_shape",
+    "ice_saturation",
+    "inertia_gravity_wave",
+    "isa_above_tropopause",
+    "kelvin_curvature",
+    "limiting_reagent",
+    "lognormal_mass",
+    "mie_geometric",
+    "optically_thin_emission",
+    "photostationary_peroxy",
+    "planck_linearization",
+    "plume_ground_reflection",
+    "plume_mixing_lid",
+    "ppm_conversion_pressure",
+    "pseudo_first_order",
+    "radar_beam_height",
+    "raindrop_drag_regime",
+    "semivolatile_partitioning_temperature",
+    "snowpack_cold_content",
+    "solid_angle",
+    "sonic_humidity_flux",
+    "spherical_slant_path",
+    "sun_photometer_airmass",
+    "taylor_dispersion"
+   ]
+  },
+  "F2": {
+   "training_fold_templates": [
+    "anelastic_continuity",
+    "capillary_rise_gravity",
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "constant_pressure_expansion",
+    "coriolis_neglect",
+    "cunningham_slip",
+    "deposition_brownian",
+    "doppler_aliasing",
+    "drop_size_truncation",
+    "drop_ventilation",
+    "freezing_latent_heat",
+    "fresnel_reflectance_grazing",
+    "gravity_wave_doppler_shift",
+    "hydrostatic_constant_density",
+    "ice_above_flotation",
+    "ice_capacitance_shape",
+    "ice_saturation",
+    "inertia_gravity_wave",
+    "isa_above_tropopause",
+    "kelvin_curvature",
+    "limiting_reagent",
+    "lognormal_mass",
+    "mie_geometric",
+    "optically_thin_emission",
+    "photostationary_peroxy",
+    "planck_linearization",
+    "plume_ground_reflection",
+    "plume_mixing_lid",
+    "ppm_conversion_pressure",
+    "pseudo_first_order",
+    "radar_beam_height",
+    "raindrop_drag_regime",
+    "semivolatile_partitioning_temperature",
+    "snowpack_cold_content",
+    "solid_angle",
+    "sonic_humidity_flux",
+    "spherical_slant_path",
+    "sun_photometer_airmass",
+    "taylor_dispersion"
+   ],
+   "held_out_templates": [
+    "actinic_flux_horizontal",
+    "bay_tidal_resonance",
+    "box_ventilation_loss",
+    "condensate_loading",
+    "cooper_jacob_early_time",
+    "cstr_vs_pfr",
+    "diffuse_transmission",
+    "displacement_height_canopy",
+    "effective_henry",
+    "freezing_point_depth",
+    "frictional_three_force_balance",
+    "gradient_wind_curvature",
+    "ground_heat_flux_neglect",
+    "henry_depletion",
+    "ionic_strength_activity",
+    "isotope_mixing_weighting",
+    "line_broadening",
+    "log_wind_stability",
+    "mixed_layer_response",
+    "nonsteady_burden",
+    "racemization_reversibility",
+    "rossby_deformation",
+    "saturated_lapse",
+    "sea_ice_insulation",
+    "shallow_water_wave_speed",
+    "surface_multiple_reflection",
+    "unconfined_dupuit",
+    "weak_acid_dissociation",
+    "weir_approach_velocity"
+   ]
+  }
+ },
+ "P1": {
+  "mechanisms": 69,
+  "with_pass64": 69,
+  "Z": [
+   "ch4_forcing_sqrt",
+   "clausius_clapeyron_extrapolation",
+   "co2_forcing_log",
+   "sonic_humidity_flux",
+   "sun_photometer_airmass"
+  ],
+  "per_mechanism": {
+   "actinic_flux_horizontal": {
+    "fold": "F1",
+    "pass@1": 0.8640625,
+    "pass@8": 0.9999999595473767,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "anelastic_continuity": {
+    "fold": "F2",
+    "pass@1": 0.2984375,
+    "pass@8": 0.9403704141268315,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "bay_tidal_resonance": {
+    "fold": "F1",
+    "pass@1": 0.44375,
+    "pass@8": 0.9904547915210203,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "box_ventilation_loss": {
+    "fold": "F1",
+    "pass@1": 0.89765625,
+    "pass@8": 0.9999999979892301,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "capillary_rise_gravity": {
+    "fold": "F2",
+    "pass@1": 0.04453125,
+    "pass@8": 0.3066659490206377,
+    "pass@64": 1.0,
+    "A_s42": 0.0,
+    "D_s42": 0.95,
+    "F_s42": 0.0
+   },
+   "ch4_forcing_sqrt": {
+    "fold": "F2",
+    "pass@1": 0.0,
+    "pass@8": 0.0,
+    "pass@64": 0.0,
+    "A_s42": 0.0,
+    "D_s42": 0.0,
+    "F_s42": 0.0
+   },
+   "clausius_clapeyron_extrapolation": {
+    "fold": "F2",
+    "pass@1": 0.0,
+    "pass@8": 0.0,
+    "pass@64": 0.0,
+    "A_s42": 0.0,
+    "D_s42": 0.0,
+    "F_s42": 0.4
+   },
+   "co2_forcing_log": {
+    "fold": "F2",
+    "pass@1": 0.0,
+    "pass@8": 0.0,
+    "pass@64": 0.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 0.7
+   },
+   "condensate_loading": {
+    "fold": "F1",
+    "pass@1": 0.49921875,
+    "pass@8": 0.9950948528252097,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "constant_pressure_expansion": {
+    "fold": "F2",
+    "pass@1": 0.4140625,
+    "pass@8": 0.9859191170983831,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "cooper_jacob_early_time": {
+    "fold": "F1",
+    "pass@1": 0.259375,
+    "pass@8": 0.9145156037242754,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "coriolis_neglect": {
+    "fold": "F2",
+    "pass@1": 0.45859375,
+    "pass@8": 0.9924896397589815,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "cstr_vs_pfr": {
+    "fold": "F1",
+    "pass@1": 0.925,
+    "pass@8": 1.0,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "cunningham_slip": {
+    "fold": "F2",
+    "pass@1": 0.334375,
+    "pass@8": 0.9622438602705184,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "deposition_brownian": {
+    "fold": "F2",
+    "pass@1": 0.07890625,
+    "pass@8": 0.4754376160488724,
+    "pass@64": 0.95,
+    "A_s42": 0.6,
+    "D_s42": 0.6,
+    "F_s42": 0.0
+   },
+   "diffuse_transmission": {
+    "fold": "F1",
+    "pass@1": 0.22734375,
+    "pass@8": 0.8739354701060054,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "displacement_height_canopy": {
+    "fold": "F1",
+    "pass@1": 0.1171875,
+    "pass@8": 0.623126407960273,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "doppler_aliasing": {
+    "fold": "F2",
+    "pass@1": 0.68671875,
+    "pass@8": 0.999906157753842,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "drop_size_truncation": {
+    "fold": "F2",
+    "pass@1": 0.8578125,
+    "pass@8": 0.999999677406992,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "drop_ventilation": {
+    "fold": "F2",
+    "pass@1": 0.00078125,
+    "pass@8": 0.00625,
+    "pass@64": 0.05,
+    "A_s42": 0.0,
+    "D_s42": 0.0,
+    "F_s42": 0.0
+   },
+   "effective_henry": {
+    "fold": "F1",
+    "pass@1": 0.8640625,
+    "pass@8": 0.9999999510637354,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "freezing_latent_heat": {
+    "fold": "F2",
+    "pass@1": 0.903125,
+    "pass@8": 0.999999999141469,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "freezing_point_depth": {
+    "fold": "F1",
+    "pass@1": 0.15,
+    "pass@8": 0.7194907757906437,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "fresnel_reflectance_grazing": {
+    "fold": "F2",
+    "pass@1": 0.690625,
+    "pass@8": 0.9998871889415588,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "frictional_three_force_balance": {
+    "fold": "F1",
+    "pass@1": 0.65703125,
+    "pass@8": 0.9998167841048454,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "gradient_wind_curvature": {
+    "fold": "F1",
+    "pass@1": 0.5109375,
+    "pass@8": 0.9968047623000607,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "gravity_wave_doppler_shift": {
+    "fold": "F2",
+    "pass@1": 0.41796875,
+    "pass@8": 0.9879996775800537,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "ground_heat_flux_neglect": {
+    "fold": "F1",
+    "pass@1": 0.9765625,
+    "pass@8": 1.0,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "henry_depletion": {
+    "fold": "F1",
+    "pass@1": 0.190625,
+    "pass@8": 0.799974261727584,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 0.9
+   },
+   "hydrostatic_constant_density": {
+    "fold": "F2",
+    "pass@1": 0.9453125,
+    "pass@8": 1.0,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "ice_above_flotation": {
+    "fold": "F2",
+    "pass@1": 0.00078125,
+    "pass@8": 0.00625,
+    "pass@64": 0.05,
+    "A_s42": 0.0,
+    "D_s42": 0.0,
+    "F_s42": 0.0
+   },
+   "ice_capacitance_shape": {
+    "fold": "F2",
+    "pass@1": 0.0078125,
+    "pass@8": 0.06180555555555556,
+    "pass@64": 0.45,
+    "A_s42": 0.0,
+    "D_s42": 1.0,
+    "F_s42": 0.0
+   },
+   "ice_saturation": {
+    "fold": "F2",
+    "pass@1": 0.45390625,
+    "pass@8": 0.9923303336573394,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "inertia_gravity_wave": {
+    "fold": "F2",
+    "pass@1": 0.00234375,
+    "pass@8": 0.01875,
+    "pass@64": 0.15,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 0.0
+   },
+   "ionic_strength_activity": {
+    "fold": "F1",
+    "pass@1": 0.57421875,
+    "pass@8": 0.9985321090583346,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "isa_above_tropopause": {
+    "fold": "F2",
+    "pass@1": 0.5671875,
+    "pass@8": 0.9987211485045446,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "isotope_mixing_weighting": {
+    "fold": "F1",
+    "pass@1": 0.6921875,
+    "pass@8": 0.9999359633844571,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "kelvin_curvature": {
+    "fold": "F2",
+    "pass@1": 0.88671875,
+    "pass@8": 0.9999999823662259,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "limiting_reagent": {
+    "fold": "F2",
+    "pass@1": 0.584375,
+    "pass@8": 0.999071891748623,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "line_broadening": {
+    "fold": "F1",
+    "pass@1": 0.0015625,
+    "pass@8": 0.0125,
+    "pass@64": 0.1,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "log_wind_stability": {
+    "fold": "F1",
+    "pass@1": 0.0640625,
+    "pass@8": 0.4063328033680462,
+    "pass@64": 0.95,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "lognormal_mass": {
+    "fold": "F2",
+    "pass@1": 0.475,
+    "pass@8": 0.9947173469344266,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "mie_geometric": {
+    "fold": "F2",
+    "pass@1": 0.628125,
+    "pass@8": 0.9996519973561909,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "mixed_layer_response": {
+    "fold": "F1",
+    "pass@1": 0.85234375,
+    "pass@8": 0.9999998189403392,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "nonsteady_burden": {
+    "fold": "F1",
+    "pass@1": 0.95078125,
+    "pass@8": 1.0,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "optically_thin_emission": {
+    "fold": "F2",
+    "pass@1": 0.9171875,
+    "pass@8": 0.9999999998757388,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "photostationary_peroxy": {
+    "fold": "F2",
+    "pass@1": 0.65234375,
+    "pass@8": 0.9998131480454889,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "planck_linearization": {
+    "fold": "F2",
+    "pass@1": 0.9328125,
+    "pass@8": 0.9999999999887036,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "plume_ground_reflection": {
+    "fold": "F2",
+    "pass@1": 0.10859375,
+    "pass@8": 0.6102309946499948,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "ppm_conversion_pressure": {
+    "fold": "F2",
+    "pass@1": 0.8625,
+    "pass@8": 0.9999999539217397,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "pseudo_first_order": {
+    "fold": "F2",
+    "pass@1": 0.34765625,
+    "pass@8": 0.9683827242398685,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "racemization_reversibility": {
+    "fold": "F1",
+    "pass@1": 0.146875,
+    "pass@8": 0.7208235703903777,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "radar_beam_height": {
+    "fold": "F2",
+    "pass@1": 0.4125,
+    "pass@8": 0.9850792387746141,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "raindrop_drag_regime": {
+    "fold": "F2",
+    "pass@1": 0.50234375,
+    "pass@8": 0.9963575895477026,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "rossby_deformation": {
+    "fold": "F1",
+    "pass@1": 0.040625,
+    "pass@8": 0.28143101030652684,
+    "pass@64": 0.9,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 0.0
+   },
+   "saturated_lapse": {
+    "fold": "F1",
+    "pass@1": 0.01484375,
+    "pass@8": 0.11395609318996418,
+    "pass@64": 0.65,
+    "A_s42": 1.0,
+    "D_s42": 0.0,
+    "F_s42": 0.0
+   },
+   "sea_ice_insulation": {
+    "fold": "F1",
+    "pass@1": 0.7921875,
+    "pass@8": 0.999996848852485,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "semivolatile_partitioning_temperature": {
+    "fold": "F2",
+    "pass@1": 0.46953125,
+    "pass@8": 0.9926386655849864,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "shallow_water_wave_speed": {
+    "fold": "F1",
+    "pass@1": 0.82734375,
+    "pass@8": 0.9999995811272635,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "snowpack_cold_content": {
+    "fold": "F2",
+    "pass@1": 0.12109375,
+    "pass@8": 0.6404232174521862,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "solid_angle": {
+    "fold": "F2",
+    "pass@1": 0.73125,
+    "pass@8": 0.9999784193219055,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "sonic_humidity_flux": {
+    "fold": "F2",
+    "pass@1": 0.0,
+    "pass@8": 0.0,
+    "pass@64": 0.0,
+    "A_s42": 0.0,
+    "D_s42": 0.0,
+    "F_s42": 0.0
+   },
+   "spherical_slant_path": {
+    "fold": "F2",
+    "pass@1": 0.64609375,
+    "pass@8": 0.9997250566576662,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "sun_photometer_airmass": {
+    "fold": "F2",
+    "pass@1": 0.0,
+    "pass@8": 0.0,
+    "pass@64": 0.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "surface_multiple_reflection": {
+    "fold": "F1",
+    "pass@1": 0.19921875,
+    "pass@8": 0.8306822540752391,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "taylor_dispersion": {
+    "fold": "F2",
+    "pass@1": 0.68046875,
+    "pass@8": 0.9998956812135086,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "unconfined_dupuit": {
+    "fold": "F1",
+    "pass@1": 0.78046875,
+    "pass@8": 0.9999839037080459,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "weak_acid_dissociation": {
+    "fold": "F1",
+    "pass@1": 0.83125,
+    "pass@8": 0.9999997641751012,
+    "pass@64": 1.0,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   },
+   "weir_approach_velocity": {
+    "fold": "F1",
+    "pass@1": 0.015625,
+    "pass@8": 0.11957885304659499,
+    "pass@64": 0.7,
+    "A_s42": 1.0,
+    "D_s42": 1.0,
+    "F_s42": 1.0
+   }
+  },
+  "pass64_in_(0,0.1]": [
+   "drop_ventilation",
+   "ice_above_flotation",
+   "line_broadening"
+  ],
+  "spearman_pass64_vs_outside": {
+   "A": {
+    "rho": 0.6025569932745699,
+    "ci95": [
+     0.3172374037598132,
+     0.8158942220010876
+    ],
+    "units": 69,
+    "draws_used": 9998
+   },
+   "D": {
+    "rho": 0.6116667944334012,
+    "ci95": [
+     0.32490237776229636,
+     0.8199208056250976
+    ],
+    "units": 69,
+    "draws_used": 9999
+   },
+   "F": {
+    "rho": 0.7464717844468893,
+    "ci95": [
+     0.529467772520393,
+     0.912535124598863
+    ],
+    "units": 69,
+    "draws_used": 10000
+   }
+  },
+  "Z_at_or_above_50": {
+   "A": {
+    "42": [
+     "co2_forcing_log",
+     "sun_photometer_airmass"
+    ]
+   },
+   "D": {
+    "42": [
+     "co2_forcing_log",
+     "sun_photometer_airmass"
+    ]
+   },
+   "F": {
+    "42": [
+     "co2_forcing_log",
+     "sun_photometer_airmass"
+    ]
+   }
+  },
+  "Z_at_or_above_50_every_seed": {
+   "A": [
+    "co2_forcing_log",
+    "sun_photometer_airmass"
+   ],
+   "D": [
+    "co2_forcing_log",
+    "sun_photometer_airmass"
+   ],
+   "F": [
+    "co2_forcing_log",
+    "sun_photometer_airmass"
+   ]
+  },
+  "verdict": "P1 不可判定、只报数字",
+  "sensitivity_pass32_T0.7": {
+   "Z": [
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "drop_ventilation",
+    "ice_above_flotation",
+    "sonic_humidity_flux",
+    "sun_photometer_airmass"
+   ],
+   "Z_at_or_above_50": {
+    "A": {
+     "42": [
+      "co2_forcing_log",
+      "sun_photometer_airmass"
+     ]
+    },
+    "D": {
+     "42": [
+      "co2_forcing_log",
+      "sun_photometer_airmass"
+     ]
+    },
+    "F": {
+     "42": [
+      "co2_forcing_log",
+      "sun_photometer_airmass"
+     ]
+    }
+   },
+   "spearman": {
+    "A": {
+     "rho": 0.665716633836995,
+     "ci95": [
+      0.4489106524472519,
+      0.840653740586814
+     ],
+     "units": 69,
+     "draws_used": 9998
+    },
+    "D": {
+     "rho": 0.6642142218176859,
+     "ci95": [
+      0.4471942631618872,
+      0.8385746461110155
+     ],
+     "units": 69,
+     "draws_used": 9999
+    },
+    "F": {
+     "rho": 0.7844161622007065,
+     "ci95": [
+      0.6067942579642549,
+      0.9233949468680331
+     ],
+     "units": 69,
+     "draws_used": 10000
+    }
+   }
+  }
+ },
+ "P1_knowledge": {
+  "verdict": "探索性（X-17）：只报数字",
+  "Z": [
+   "ch4_forcing_sqrt",
+   "clausius_clapeyron_extrapolation",
+   "co2_forcing_log",
+   "sonic_humidity_flux",
+   "sun_photometer_airmass"
+  ],
+  "with_pass64": 69,
+  "predictors": {
+   "D_given_minus_outside": {
+    "templates": 69,
+    "A": {
+     "all": {
+      "rho": -0.1762507605121904,
+      "ci95": [
+       -0.3745198906939594,
+       0.07000421463926014
+      ],
+      "units": 69,
+      "draws_used": 9998
+     },
+     "Z": {
+      "rho": 0.6666666666666666,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": -0.02487561427808749,
+      "ci95": [
+       -0.2219848110121877,
+       0.2107831093391799
+      ],
+      "units": 64,
+      "draws_used": 9940
+     }
+    },
+    "D": {
+     "all": {
+      "rho": -0.22674821838827666,
+      "ci95": [
+       -0.43720796188650474,
+       0.03826750188690683
+      ],
+      "units": 69,
+      "draws_used": 9999
+     },
+     "Z": {
+      "rho": 0.6666666666666666,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": -0.08145725132861847,
+      "ci95": [
+       -0.3271457834130207,
+       0.2004827170406718
+      ],
+      "units": 64,
+      "draws_used": 9952
+     }
+    },
+    "F": {
+     "all": {
+      "rho": -0.3807260055676684,
+      "ci95": [
+       -0.5759567802142285,
+       -0.13959706170472705
+      ],
+      "units": 69,
+      "draws_used": 10000
+     },
+     "Z": {
+      "rho": 0.8885233166386385,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": -0.26971855250224464,
+      "ci95": [
+       -0.48843715417168676,
+       0.00899229048884864
+      ],
+      "units": 64,
+      "draws_used": 10000
+     }
+    }
+   },
+   "K2_strict": {
+    "templates": 69,
+    "A": {
+     "all": {
+      "rho": 0.2849239656730775,
+      "ci95": [
+       0.12866750737357752,
+       0.4139416041427964
+      ],
+      "units": 69,
+      "draws_used": 9998
+     },
+     "Z": {
+      "rho": 0.6123724356957946,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.213875624205788,
+      "ci95": [
+       0.04234613051757185,
+       0.35213511947209364
+      ],
+      "units": 64,
+      "draws_used": 9940
+     }
+    },
+    "D": {
+     "all": {
+      "rho": 0.2912552261963092,
+      "ci95": [
+       0.13332726248998744,
+       0.4203744516489209
+      ],
+      "units": 69,
+      "draws_used": 9999
+     },
+     "Z": {
+      "rho": 0.6123724356957946,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.21931691649022478,
+      "ci95": [
+       0.04562881845784517,
+       0.3553795795154112
+      ],
+      "units": 64,
+      "draws_used": 9952
+     }
+    },
+    "F": {
+     "all": {
+      "rho": 0.36776457393253753,
+      "ci95": [
+       0.20776345931720916,
+       0.5057983037803311
+      ],
+      "units": 69,
+      "draws_used": 10000
+     },
+     "Z": {
+      "rho": 0.7254762501100117,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.2936141227964942,
+      "ci95": [
+       0.11949720129120385,
+       0.4396024429449643
+      ],
+      "units": 64,
+      "draws_used": 10000
+     }
+    }
+   },
+   "K2_lenient": {
+    "templates": 69,
+    "A": {
+     "all": {
+      "rho": 0.41987376051930203,
+      "ci95": [
+       0.2692448424576958,
+       0.5490147611252445
+      ],
+      "units": 69,
+      "draws_used": 9998
+     },
+     "Z": {
+      "rho": 0.9682458365518541,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.347170429282197,
+      "ci95": [
+       0.1713719754951954,
+       0.4814442061465102
+      ],
+      "units": 64,
+      "draws_used": 9940
+     }
+    },
+    "D": {
+     "all": {
+      "rho": 0.41961257922739537,
+      "ci95": [
+       0.27033644950723384,
+       0.5509258983460518
+      ],
+      "units": 69,
+      "draws_used": 9999
+     },
+     "Z": {
+      "rho": 0.9682458365518541,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.34706026890205344,
+      "ci95": [
+       0.17425468461802848,
+       0.48121518281402725
+      ],
+      "units": 64,
+      "draws_used": 9952
+     }
+    },
+    "F": {
+     "all": {
+      "rho": 0.41097373494727746,
+      "ci95": [
+       0.2090268184475967,
+       0.5711991034507262
+      ],
+      "units": 69,
+      "draws_used": 10000
+     },
+     "Z": {
+      "rho": 0.8029550685469661,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.3953146566369282,
+      "ci95": [
+       0.2226486830717232,
+       0.5440260455253246
+      ],
+      "units": 64,
+      "draws_used": 10000
+     }
+    }
+   },
+   "K_any": {
+    "templates": 69,
+    "A": {
+     "all": {
+      "rho": 0.3247981213328336,
+      "ci95": [
+       0.09620037157929387,
+       0.49502337618457337
+      ],
+      "units": 69,
+      "draws_used": 9998
+     },
+     "Z": {
+      "rho": 0.6666666666666666,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.2626852351433761,
+      "ci95": [
+       -0.00045298086684125044,
+       0.45469490614872093
+      ],
+      "units": 64,
+      "draws_used": 9940
+     }
+    },
+    "D": {
+     "all": {
+      "rho": 0.2839831121266649,
+      "ci95": [
+       0.06387761388412028,
+       0.4551394602258845
+      ],
+      "units": 69,
+      "draws_used": 9999
+     },
+     "Z": {
+      "rho": 0.6666666666666666,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.20962236736140719,
+      "ci95": [
+       -0.03394791575920027,
+       0.39643468814867344
+      ],
+      "units": 64,
+      "draws_used": 9952
+     }
+    },
+    "F": {
+     "all": {
+      "rho": 0.398692510859806,
+      "ci95": [
+       0.19884485853002376,
+       0.5654658557511031
+      ],
+      "units": 69,
+      "draws_used": 10000
+     },
+     "Z": {
+      "rho": 0.8885233166386385,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.351392826645177,
+      "ci95": [
+       0.13122919702009014,
+       0.5325003951352444
+      ],
+      "units": 64,
+      "draws_used": 10000
+     }
+    }
+   },
+   "D_flag_minus_outside": {
+    "templates": 69,
+    "A": {
+     "all": {
+      "rho": 0.06893405760430342,
+      "ci95": [
+       -0.11482751333233042,
+       0.23696852109103514
+      ],
+      "units": 69,
+      "draws_used": 9998
+     },
+     "Z": {
+      "rho": 0.3227486121839514,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.037305310320474266,
+      "ci95": [
+       -0.17124505639900175,
+       0.22315752342265643
+      ],
+      "units": 64,
+      "draws_used": 9940
+     }
+    },
+    "D": {
+     "all": {
+      "rho": 0.1120147891192826,
+      "ci95": [
+       -0.0674902784916411,
+       0.27483668040642056
+      ],
+      "units": 69,
+      "draws_used": 9999
+     },
+     "Z": {
+      "rho": 0.3227486121839514,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.08647113273243445,
+      "ci95": [
+       -0.13766454021975802,
+       0.262125167295159
+      ],
+      "units": 64,
+      "draws_used": 9952
+     }
+    },
+    "F": {
+     "all": {
+      "rho": -0.024934870010820506,
+      "ci95": [
+       -0.23921550839518402,
+       0.19079254141329396
+      ],
+      "units": 69,
+      "draws_used": 10000
+     },
+     "Z": {
+      "rho": 0.3441236008058426,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": -0.09066226607273713,
+      "ci95": [
+       -0.32562121053853665,
+       0.14158682337630057
+      ],
+      "units": 64,
+      "draws_used": 10000
+     }
+    }
+   },
+   "hint_share": {
+    "templates": 35,
+    "A": {
+     "all": {
+      "rho": 0.18466865369903207,
+      "ci95": [
+       -0.10536139793427546,
+       0.4497804736129494
+      ],
+      "units": 35,
+      "draws_used": 9988
+     },
+     "Z": {
+      "rho": 0.3227486121839514,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.0385629279567272,
+      "ci95": [
+       -0.25226791764796197,
+       0.32239527157069187
+      ],
+      "units": 30,
+      "draws_used": 9597
+     }
+    },
+    "D": {
+     "all": {
+      "rho": 0.2797067672118088,
+      "ci95": [
+       -0.011281394664820567,
+       0.5306270853234331
+      ],
+      "units": 35,
+      "draws_used": 9985
+     },
+     "Z": {
+      "rho": 0.3227486121839514,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.1489262418951046,
+      "ci95": [
+       -0.2250523499047425,
+       0.44367165082985976
+      ],
+      "units": 30,
+      "draws_used": 9593
+     }
+    },
+    "F": {
+     "all": {
+      "rho": 0.16387484607432343,
+      "ci95": [
+       -0.16505379176666238,
+       0.46982768517834245
+      ],
+      "units": 35,
+      "draws_used": 10000
+     },
+     "Z": {
+      "rho": 0.3441236008058426,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": 0.010288591058569893,
+      "ci95": [
+       -0.344617807865867,
+       0.35390905832031483
+      ],
+      "units": 30,
+      "draws_used": 9998
+     }
+    }
+   },
+   "D_given_minus_outside|D_given>=0.75": {
+    "templates": 56,
+    "A": {
+     "all": {
+      "rho": -0.29670182754868124,
+      "ci95": [
+       -0.4546871249517043,
+       -0.1471684497523136
+      ],
+      "units": 56,
+      "draws_used": 9559
+     },
+     "Z": {
+      "rho": 0.6666666666666666,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": null,
+      "ci95": null,
+      "units": 51,
+      "draws_used": 0
+     }
+    },
+    "D": {
+     "all": {
+      "rho": -0.36317433647403186,
+      "ci95": [
+       -0.5191304534139927,
+       -0.1765806770781857
+      ],
+      "units": 56,
+      "draws_used": 9858
+     },
+     "Z": {
+      "rho": 0.6666666666666666,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": -0.2229066407828347,
+      "ci95": [
+       -0.41017134264271876,
+       -0.20518822800180425
+      ],
+      "units": 51,
+      "draws_used": 6318
+     }
+    },
+    "F": {
+     "all": {
+      "rho": -0.5246095221895289,
+      "ci95": [
+       -0.6708013772606416,
+       -0.33151325477543647
+      ],
+      "units": 56,
+      "draws_used": 9999
+     },
+     "Z": {
+      "rho": 0.8885233166386385,
+      "ci95": null,
+      "units": 5
+     },
+     "not_Z": {
+      "rho": -0.4007698976833007,
+      "ci95": [
+       -0.5762154821826797,
+       -0.18987991116664388
+      ],
+      "units": 51,
+      "draws_used": 9850
+     }
+    }
+   }
+  },
+  "Z_x_knowledge": {
+   "K2_strict_and_lenient_high": {
+    "Z_with_knowledge": [
+     "sun_photometer_airmass"
+    ],
+    "Z_without_knowledge": 4,
+    "outside": {
+     "A": {
+      "with": 1.0,
+      "without": 0.25
+     },
+     "D": {
+      "with": 1.0,
+      "without": 0.25
+     },
+     "F": {
+      "with": 1.0,
+      "without": 0.275
+     }
+    }
+   },
+   "K_any_high": {
+    "Z_with_knowledge": [],
+    "Z_without_knowledge": 5,
+    "outside": {
+     "A": {
+      "with": null,
+      "without": 0.4
+     },
+     "D": {
+      "with": null,
+      "without": 0.4
+     },
+     "F": {
+      "with": null,
+      "without": 0.42000000000000004
+     }
+    }
+   }
+  }
+ },
+ "warm_x_reward": {
+  "A": {
+   "mean": 0.8625,
+   "ci95": [
+    0.7395833333333334,
+    0.9666666666666667
+   ],
+   "units": 32
+  },
+  "D": {
+   "mean": 0.8661458333333333,
+   "ci95": [
+    0.7520833333333333,
+    0.9583333333333334
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.96015625,
+   "ci95": [
+    0.8890625,
+    1.0
+   ],
+   "units": 32
+  },
+  "WD": {
+   "mean": 0.96875,
+   "ci95": [
+    0.90625,
+    1.0
+   ],
+   "units": 32
+  },
+  "per_fold": {
+   "F1": {
+    "A": {
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "units": 16
+    },
+    "D": {
+     "mean": 0.9375,
+     "ci95": [
+      0.8125,
+      1.0
+     ],
+     "units": 16
+    },
+    "WA": {
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "units": 16
+    },
+    "WD": {
+     "mean": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "units": 16
+    }
+   },
+   "F2": {
+    "A": {
+     "mean": 0.725,
+     "ci95": [
+      0.5,
+      0.9208333333333333
+     ],
+     "units": 16
+    },
+    "D": {
+     "mean": 0.7947916666666667,
+     "ci95": [
+      0.6208333333333333,
+      0.94375
+     ],
+     "units": 16
+    },
+    "WA": {
+     "mean": 0.9203125,
+     "ci95": [
+      0.778125,
+      1.0
+     ],
+     "units": 16
+    },
+    "WD": {
+     "mean": 0.9375,
+     "ci95": [
+      0.8125,
+      1.0
+     ],
+     "units": 16
+    }
+   }
+  },
+  "D-A": {
+   "mean": 0.003645833333333331,
+   "ci95": [
+    -0.08854166666666667,
+    0.09947916666666666
+   ],
+   "units": 32
+  },
+  "WD-WA": {
+   "mean": 0.00859375,
+   "ci95": [
+    0.0,
+    0.025781250000000002
+   ],
+   "units": 32
+  },
+  "WA-A": {
+   "mean": 0.09765625,
+   "ci95": [
+    0.01458333333333334,
+    0.20364583333333333
+   ],
+   "units": 32
+  },
+  "WD-D": {
+   "mean": 0.10260416666666668,
+   "ci95": [
+    0.02395833333333334,
+    0.203125
+   ],
+   "units": 32
+  },
+  "reading": "只报数字"
+ },
+ "transfer": {
+  "A": {
+   "held_out": {
+    "mean": 0.604140625,
+    "ci95": [
+     0.47734375,
+     0.7283072916666666
+    ],
+    "units": 32
+   },
+   "start": {
+    "mean": 0.43778645833333335,
+    "ci95": [
+     0.3215104166666667,
+     0.55390625
+    ],
+    "units": 32
+   },
+   "endpoint-start": {
+    "mean": 0.16635416666666666,
+    "ci95": [
+     0.09742187499999999,
+     0.245
+    ],
+    "units": 32
+   },
+   "verdict": "迁移"
+  },
+  "D": {
+   "held_out": {
+    "mean": 0.617734375,
+    "ci95": [
+     0.4861979166666667,
+     0.7437760416666667
+    ],
+    "units": 32
+   },
+   "start": {
+    "mean": 0.43778645833333335,
+    "ci95": [
+     0.3215104166666667,
+     0.55390625
+    ],
+    "units": 32
+   },
+   "endpoint-start": {
+    "mean": 0.17994791666666665,
+    "ci95": [
+     0.11341145833333333,
+     0.25703125
+    ],
+    "units": 32
+   },
+   "verdict": "迁移"
+  },
+  "F": {
+   "held_out": {
+    "mean": 0.5738020833333334,
+    "ci95": [
+     0.44177083333333333,
+     0.70390625
+    ],
+    "units": 32
+   },
+   "start": {
+    "mean": 0.43778645833333335,
+    "ci95": [
+     0.3215104166666667,
+     0.55390625
+    ],
+    "units": 32
+   },
+   "endpoint-start": {
+    "mean": 0.136015625,
+    "ci95": [
+     0.06390624999999998,
+     0.21830729166666665
+    ],
+    "units": 32
+   },
+   "verdict": "只报数字"
+  },
+  "WA": {
+   "held_out": {
+    "mean": 0.5623697916666667,
+    "ci95": [
+     0.42630208333333336,
+     0.6955729166666667
+    ],
+    "units": 32
+   },
+   "start": {
+    "mean": 0.3675,
+    "ci95": [
+     0.26875,
+     0.4677604166666667
+    ],
+    "units": 32
+   },
+   "endpoint-start": {
+    "mean": 0.19486979166666668,
+    "ci95": [
+     0.10861979166666667,
+     0.284375
+    ],
+    "units": 32
+   },
+   "verdict": "迁移"
+  },
+  "WD": {
+   "held_out": {
+    "mean": 0.6034895833333334,
+    "ci95": [
+     0.48096354166666666,
+     0.7196614583333334
+    ],
+    "units": 32
+   },
+   "start": {
+    "mean": 0.3675,
+    "ci95": [
+     0.26875,
+     0.4677604166666667
+    ],
+    "units": 32
+   },
+   "endpoint-start": {
+    "mean": 0.23598958333333334,
+    "ci95": [
+     0.16091145833333334,
+     0.3139322916666667
+    ],
+    "units": 32
+   },
+   "verdict": "迁移"
+  },
+  "secondary": {
+   "D-A": {
+    "mean": 0.013593750000000005,
+    "ci95": [
+     -0.042708333333333334,
+     0.07083333333333336
+    ],
+    "units": 32
+   },
+   "WD-WA": {
+    "mean": 0.04111979166666667,
+    "ci95": [
+     -0.00044270833333333835,
+     0.08669270833333334
+    ],
+    "units": 32
+   }
+  }
+ },
+ "P2": {
+  "by_arm": {
+   "A": {
+    "train": {
+     "H": {
+      "mean": 0.15473958333333335,
+      "ci95": [
+       0.08075520833333334,
+       0.24205729166666667
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.026953124999999998,
+      "ci95": [
+       0.0036458333333333334,
+       0.056640625
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.12778645833333332,
+      "ci95": [
+       0.06197916666666667,
+       0.21200520833333333
+      ],
+      "units": 32
+     }
+    },
+    "held": {
+     "H": {
+      "mean": 0.23817297149122807,
+      "ci95": [
+       0.14864583333333334,
+       0.33866776315789476
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.037161458333333335,
+      "ci95": [
+       0.010338541666666666,
+       0.06979166666666667
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.20101151315789473,
+      "ci95": [
+       0.11395833333333333,
+       0.30054276315789474
+      ],
+      "units": 32
+     }
+    }
+   },
+   "D": {
+    "train": {
+     "H": {
+      "mean": 0.22367598684210527,
+      "ci95": [
+       0.13203536184210526,
+       0.3254728618421053
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.030546875,
+      "ci95": [
+       0.00984375,
+       0.05755208333333333
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.19312911184210527,
+      "ci95": [
+       0.09752604166666667,
+       0.2970394736842105
+      ],
+      "units": 32
+     }
+    },
+    "held": {
+     "H": {
+      "mean": 0.27748000515995874,
+      "ci95": [
+       0.181151011208577,
+       0.38465136237243436
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.04145010964912281,
+      "ci95": [
+       0.01763980263157895,
+       0.06947916666666668
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.23602989551083592,
+      "ci95": [
+       0.13323114644249512,
+       0.3491212393217521
+      ],
+      "units": 32
+     }
+    }
+   },
+   "F": {
+    "train": {
+     "H": {
+      "mean": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.0125,
+      "ci95": [
+       0.0,
+       0.037500000000000006
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.9875,
+      "ci95": [
+       0.9625,
+       1.0
+      ],
+      "units": 32
+     }
+    },
+    "held": {
+     "H": {
+      "mean": 0.8768229166666667,
+      "ci95": [
+       0.8247395833333333,
+       0.9240885416666667
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.12668311403508772,
+      "ci95": [
+       0.061787280701754384,
+       0.2061266447368421
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.750139802631579,
+      "ci95": [
+       0.6488473135964912,
+       0.83984375
+      ],
+      "units": 32
+     }
+    }
+   },
+   "WA": {
+    "train": {
+     "H": {
+      "mean": 0.10569490131578947,
+      "ci95": [
+       0.04114583333333333,
+       0.18599917763157894
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.01802662037037037,
+      "ci95": [
+       0.004861111111111111,
+       0.03359375
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.0876682809454191,
+      "ci95": [
+       0.024103009259259258,
+       0.16851699561403508
+      ],
+      "units": 32
+     }
+    },
+    "held": {
+     "H": {
+      "mean": 0.14778645833333334,
+      "ci95": [
+       0.0828125,
+       0.223046875
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.031126644736842103,
+      "ci95": [
+       0.010416666666666666,
+       0.05820997807017544
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.11665981359649122,
+      "ci95": [
+       0.04595668859649123,
+       0.19725877192982455
+      ],
+      "units": 32
+     }
+    }
+   },
+   "WD": {
+    "train": {
+     "H": {
+      "mean": 0.12213541666666666,
+      "ci95": [
+       0.050520833333333334,
+       0.21263020833333332
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.033662280701754387,
+      "ci95": [
+       0.0109375,
+       0.06140350877192982
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.08847313596491228,
+      "ci95": [
+       0.013925438596491228,
+       0.18098958333333334
+      ],
+      "units": 32
+     }
+    },
+    "held": {
+     "H": {
+      "mean": 0.19872395833333334,
+      "ci95": [
+       0.11309895833333333,
+       0.29520833333333335
+      ],
+      "units": 32
+     },
+     "F": {
+      "mean": 0.03526041666666667,
+      "ci95": [
+       0.014166666666666666,
+       0.06
+      ],
+      "units": 32
+     },
+     "H-F": {
+      "mean": 0.16346354166666666,
+      "ci95": [
+       0.07653645833333333,
+       0.2618489583333333
+      ],
+      "units": 32
+     }
+    }
+   }
+  },
+  "starts": {
+   "base": {
+    "H": {
+     "mean": 0.3319432126834652,
+     "ci95": [
+      0.2609124392629859,
+      0.40681293716316935
+     ],
+     "units": 32
+    },
+    "F": {
+     "mean": 0.09176078568305977,
+     "ci95": [
+      0.059195566018805185,
+      0.12868421308581912
+     ],
+     "units": 32
+    },
+    "H-F": {
+     "mean": 0.24018242700040543,
+     "ci95": [
+      0.16594471140064213,
+      0.3208224218506847
+     ],
+     "units": 32
+    }
+   },
+   "W_F1": {
+    "H": {
+     "mean": 0.24369686613821193,
+     "ci95": [
+      0.1631048976608187,
+      0.331156401670261
+     ],
+     "units": 32
+    },
+    "F": {
+     "mean": 0.09655571219715957,
+     "ci95": [
+      0.05515958247334021,
+      0.14582038224646585
+     ],
+     "units": 32
+    },
+    "H-F": {
+     "mean": 0.14714115394105237,
+     "ci95": [
+      0.06636206785345718,
+      0.23437231055265112
+     ],
+     "units": 32
+    }
+   },
+   "W_F2": {
+    "H": {
+     "mean": 0.24356262899896802,
+     "ci95": [
+      0.16667490826740053,
+      0.33084750530329093
+     ],
+     "units": 32
+    },
+    "F": {
+     "mean": 0.06366182766966436,
+     "ci95": [
+      0.043112879471964224,
+      0.08714931476976756
+     ],
+     "units": 32
+    },
+    "H-F": {
+     "mean": 0.17990080132930367,
+     "ci95": [
+      0.10395263203965797,
+      0.2676377294338788
+     ],
+     "units": 32
+    }
+   }
+  },
+  "rates_held_out": {
+   "A": {
+    "rows": 2800,
+    "parse_rate": 0.99,
+    "all_zero_rate": 0.15728715728715728,
+    "format_failure_rate": 0.010000000000000009
+   },
+   "F": {
+    "rows": 2800,
+    "parse_rate": 0.9992857142857143,
+    "all_zero_rate": 0.5089349535382416,
+    "format_failure_rate": 0.0007142857142856673
+   }
+  },
+  "rates_training_fold": {
+   "A": {
+    "rows": 2800,
+    "parse_rate": 0.9992857142857143,
+    "all_zero_rate": 0.11579699785561115,
+    "format_failure_rate": 0.0007142857142856673
+   },
+   "F": {
+    "rows": 2800,
+    "parse_rate": 1.0,
+    "all_zero_rate": 0.5028571428571429,
+    "format_failure_rate": 0.0
+   }
+  },
+  "F-A_H-F_held": {
+   "mean": 0.5491282894736842,
+   "ci95": [
+    0.4431811951754386,
+    0.6535416666666667
+   ],
+   "units": 32
+  },
+  "F-A_H-F_held_both_parsed (X-4)": {
+   "mean": 0.5489488043024227,
+   "ci95": [
+    0.443562291144528,
+    0.6528893196532999
+   ],
+   "units": 32
+  },
+  "held_out_accuracy_no_judge_prompt": {
+   "outside": {
+    "A": 0.604140625,
+    "F": 0.5738020833333334
+   },
+   "inside": {
+    "A": 0.9513020833333333,
+    "F": 0.9653125
+   }
+  },
+  "base_D3": {
+   "can_detect": true,
+   "discrimination": {
+    "mean": 0.2479455928935902,
+    "ci95": [
+     0.1663269572266041,
+     0.3301233091920979
+    ],
+    "units": 32
+   },
+   "parse_rate": 0.9163194444444445
+  },
+  "F-start_H-F_held": {
+   "mean": 0.5099573756311735,
+   "ci95": [
+    0.4178146413444764,
+    0.6040343329857527
+   ],
+   "units": 32
+  },
+  "F_arm_failure": {
+   "all_zero": false,
+   "format_failure_over_20": false,
+   "flag": null
+  },
+  "threshold_points": 15,
+  "checks": {
+   "gain": 0.5099573756311735,
+   "gain_is": "F - start",
+   "parse_ok": true,
+   "accuracy_ok": false
+  },
+  "verdict": "其余只报数字"
+ },
+ "P2b": {
+  "verdict": "只报数字（X-8：K2 未启用）",
+  "strict": {
+   "F-A": {
+    "K_high": {
+     "templates": 23,
+     "clusters": 17,
+     "mean": 0.01323529411764705,
+     "ci95": [
+      -0.01470588235294119,
+      0.05441176470588234
+     ],
+     "units": 17
+    },
+    "K_low": {
+     "templates": 47,
+     "clusters": 25,
+     "mean": -0.05793333333333333,
+     "ci95": [
+      -0.11386666666666664,
+      -0.013266666666666666
+     ],
+     "units": 25
+    },
+    "high-low": {
+     "mean": 0.07116862745098038,
+     "ci95": [
+      0.014724736048265434,
+      0.14051879084967317
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": -0.7999999999999999,
+     "capillary_rise_gravity": 0.0,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": -0.050000000000000044,
+     "coriolis_neglect": 0.050000000000000044,
+     "cunningham_slip": 0.0,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": -0.15000000000000002,
+     "gravity_wave_doppler_shift": -0.050000000000000044,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.04999999999999993,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": 0.0,
+     "limiting_reagent": -0.050000000000000044,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.25,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": 0.0,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": -0.25,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": -0.04999999999999993,
+     "radar_beam_height": 0.04999999999999999,
+     "raindrop_drag_regime": 0.09999999999999998,
+     "semivolatile_partitioning_temperature": -0.7,
+     "snowpack_cold_content": 0.09999999999999998,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.25,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.15000000000000002,
+     "bay_tidal_resonance": -0.04999999999999999,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": 0.29999999999999993,
+     "cooper_jacob_early_time": -0.14999999999999997,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": 0.0,
+     "displacement_height_canopy": 0.0,
+     "effective_henry": 0.0,
+     "freezing_point_depth": -0.45,
+     "frictional_three_force_balance": 0.09999999999999998,
+     "gradient_wind_curvature": 0.0,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": 0.55,
+     "ionic_strength_activity": 0.0,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": 0.0,
+     "log_wind_stability": -0.09999999999999999,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": 0.0,
+     "rossby_deformation": -0.25,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": -0.050000000000000044,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": -0.05000000000000002,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": -0.19999999999999996,
+     "weir_approach_velocity": 0.0
+    }
+   },
+   "WA-A": {
+    "K_high": {
+     "templates": 23,
+     "clusters": 17,
+     "mean": -0.01911764705882353,
+     "ci95": [
+      -0.10588235294117647,
+      0.04411764705882353
+     ],
+     "units": 17
+    },
+    "K_low": {
+     "templates": 47,
+     "clusters": 25,
+     "mean": -0.043,
+     "ci95": [
+      -0.091,
+      0.0036666666666666614
+     ],
+     "units": 25
+    },
+    "high-low": {
+     "mean": 0.023882352941176466,
+     "ci95": [
+      -0.07354497354497354,
+      0.10239197530864198
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": -0.04999999999999993,
+     "capillary_rise_gravity": 0.0,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": 0.35,
+     "coriolis_neglect": 0.0,
+     "cunningham_slip": -0.19999999999999996,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": 0.0,
+     "gravity_wave_doppler_shift": -0.6000000000000001,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.19999999999999996,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": -0.050000000000000044,
+     "limiting_reagent": 0.0,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.44999999999999996,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": -0.050000000000000044,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": -0.30000000000000004,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": 0.0,
+     "radar_beam_height": 0.09999999999999998,
+     "raindrop_drag_regime": -0.8,
+     "semivolatile_partitioning_temperature": -0.25,
+     "snowpack_cold_content": -0.25,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.04999999999999993,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.0,
+     "bay_tidal_resonance": -0.15,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": -0.6,
+     "cooper_jacob_early_time": -0.35,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": 0.0,
+     "displacement_height_canopy": 0.2,
+     "effective_henry": 0.0,
+     "freezing_point_depth": 0.24999999999999994,
+     "frictional_three_force_balance": 0.19999999999999996,
+     "gradient_wind_curvature": 0.0,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": 0.0,
+     "ionic_strength_activity": -0.09999999999999998,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": 0.0,
+     "log_wind_stability": 0.0,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": 0.15,
+     "rossby_deformation": 0.0,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": 0.0,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": -0.05000000000000002,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": 0.0,
+     "weir_approach_velocity": 0.0
+    }
+   },
+   "WD-D": {
+    "K_high": {
+     "templates": 23,
+     "clusters": 17,
+     "mean": -0.050490196078431374,
+     "ci95": [
+      -0.1426470588235294,
+      0.03970588235294117
+     ],
+     "units": 17
+    },
+    "K_low": {
+     "templates": 47,
+     "clusters": 25,
+     "mean": 0.004266666666666668,
+     "ci95": [
+      -0.09106666666666667,
+      0.08933333333333333
+     ],
+     "units": 25
+    },
+    "high-low": {
+     "mean": -0.05475686274509804,
+     "ci95": [
+      -0.1863766339869281,
+      0.07722756410256412
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": 0.3999999999999999,
+     "capillary_rise_gravity": -0.05,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": 0.7999999999999999,
+     "coriolis_neglect": -0.09999999999999998,
+     "cunningham_slip": 0.0,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": 0.0,
+     "gravity_wave_doppler_shift": 0.35,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.04999999999999993,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": 0.0,
+     "limiting_reagent": 0.0,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.75,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": -0.09999999999999998,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": 0.3,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": -0.09999999999999998,
+     "radar_beam_height": -0.35,
+     "raindrop_drag_regime": -0.35,
+     "semivolatile_partitioning_temperature": 0.19999999999999996,
+     "snowpack_cold_content": -0.85,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.20000000000000007,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.09999999999999998,
+     "bay_tidal_resonance": -0.20000000000000007,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": -0.5499999999999999,
+     "cooper_jacob_early_time": 0.45000000000000007,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": -0.6,
+     "displacement_height_canopy": 0.1499999999999999,
+     "effective_henry": 0.0,
+     "freezing_point_depth": 0.25000000000000006,
+     "frictional_three_force_balance": 0.0,
+     "gradient_wind_curvature": 0.44999999999999996,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": -0.04999999999999999,
+     "ionic_strength_activity": -0.35,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": -0.05,
+     "log_wind_stability": 0.4,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": -0.55,
+     "rossby_deformation": 0.25,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": 0.0,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": -0.15000000000000002,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": 0.0,
+     "weir_approach_velocity": 0.0
+    }
+   },
+   "D-A": {
+    "K_high": {
+     "templates": 23,
+     "clusters": 17,
+     "mean": 0.06862745098039215,
+     "ci95": [
+      -0.006372549019607843,
+      0.15
+     ],
+     "units": 17
+    },
+    "K_low": {
+     "templates": 47,
+     "clusters": 25,
+     "mean": -0.002999999999999996,
+     "ci95": [
+      -0.07633333333333332,
+      0.07633333333333332
+     ],
+     "units": 25
+    },
+    "high-low": {
+     "mean": 0.07162745098039215,
+     "ci95": [
+      -0.04884920634920635,
+      0.193383487654321
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": -0.3999999999999999,
+     "capillary_rise_gravity": 0.05,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": -0.5,
+     "coriolis_neglect": 0.050000000000000044,
+     "cunningham_slip": 0.0,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": -0.09999999999999998,
+     "gravity_wave_doppler_shift": -0.30000000000000004,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.09999999999999998,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": 0.0,
+     "limiting_reagent": 0.0,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.04999999999999993,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": 0.0,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": -0.35000000000000003,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": 0.050000000000000044,
+     "radar_beam_height": 0.44999999999999996,
+     "raindrop_drag_regime": 0.04999999999999993,
+     "semivolatile_partitioning_temperature": -0.25,
+     "snowpack_cold_content": 0.7,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.04999999999999993,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.050000000000000044,
+     "bay_tidal_resonance": 0.30000000000000004,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": 0.29999999999999993,
+     "cooper_jacob_early_time": -0.5,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": 0.09999999999999998,
+     "displacement_height_canopy": 0.35000000000000003,
+     "effective_henry": 0.0,
+     "freezing_point_depth": -0.15000000000000002,
+     "frictional_three_force_balance": 0.19999999999999996,
+     "gradient_wind_curvature": -0.44999999999999996,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": 0.25,
+     "ionic_strength_activity": -0.050000000000000044,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": 0.05,
+     "log_wind_stability": -0.09999999999999999,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": 0.8,
+     "rossby_deformation": -0.25,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": 0.0,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": 0.45,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": 0.0,
+     "weir_approach_velocity": 0.0
+    }
+   }
+  },
+  "lenient": {
+   "F-A": {
+    "K_high": {
+     "templates": 30,
+     "clusters": 18,
+     "mean": 0.015740740740740736,
+     "ci95": [
+      -0.011111111111111115,
+      0.05462962962962961
+     ],
+     "units": 18
+    },
+    "K_low": {
+     "templates": 40,
+     "clusters": 24,
+     "mean": -0.07284722222222222,
+     "ci95": [
+      -0.1634722222222222,
+      0.01493055555555556
+     ],
+     "units": 24
+    },
+    "high-low": {
+     "mean": 0.08858796296296295,
+     "ci95": [
+      -0.005845588235294125,
+      0.18899456521739127
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": -0.7999999999999999,
+     "capillary_rise_gravity": 0.0,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": -0.050000000000000044,
+     "coriolis_neglect": 0.050000000000000044,
+     "cunningham_slip": 0.0,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": -0.15000000000000002,
+     "gravity_wave_doppler_shift": -0.050000000000000044,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.04999999999999993,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": 0.0,
+     "limiting_reagent": -0.050000000000000044,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.25,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": 0.0,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": -0.25,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": -0.04999999999999993,
+     "radar_beam_height": 0.04999999999999999,
+     "raindrop_drag_regime": 0.09999999999999998,
+     "semivolatile_partitioning_temperature": -0.7,
+     "snowpack_cold_content": 0.09999999999999998,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.25,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.15000000000000002,
+     "bay_tidal_resonance": -0.04999999999999999,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": 0.29999999999999993,
+     "cooper_jacob_early_time": -0.14999999999999997,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": 0.0,
+     "displacement_height_canopy": 0.0,
+     "effective_henry": 0.0,
+     "freezing_point_depth": -0.45,
+     "frictional_three_force_balance": 0.09999999999999998,
+     "gradient_wind_curvature": 0.0,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": 0.55,
+     "ionic_strength_activity": 0.0,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": 0.0,
+     "log_wind_stability": -0.09999999999999999,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": 0.0,
+     "rossby_deformation": -0.25,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": -0.050000000000000044,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": -0.05000000000000002,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": -0.19999999999999996,
+     "weir_approach_velocity": 0.0
+    }
+   },
+   "WA-A": {
+    "K_high": {
+     "templates": 30,
+     "clusters": 18,
+     "mean": -0.03657407407407408,
+     "ci95": [
+      -0.11342592592592592,
+      0.018981481481481478
+     ],
+     "units": 18
+    },
+    "K_low": {
+     "templates": 40,
+     "clusters": 24,
+     "mean": -0.025902777777777778,
+     "ci95": [
+      -0.08201388888888889,
+      0.02513888888888888
+     ],
+     "units": 24
+    },
+    "high-low": {
+     "mean": -0.0106712962962963,
+     "ci95": [
+      -0.10456349206349205,
+      0.06777777777777778
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": -0.04999999999999993,
+     "capillary_rise_gravity": 0.0,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": 0.35,
+     "coriolis_neglect": 0.0,
+     "cunningham_slip": -0.19999999999999996,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": 0.0,
+     "gravity_wave_doppler_shift": -0.6000000000000001,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.19999999999999996,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": -0.050000000000000044,
+     "limiting_reagent": 0.0,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.44999999999999996,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": -0.050000000000000044,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": -0.30000000000000004,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": 0.0,
+     "radar_beam_height": 0.09999999999999998,
+     "raindrop_drag_regime": -0.8,
+     "semivolatile_partitioning_temperature": -0.25,
+     "snowpack_cold_content": -0.25,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.04999999999999993,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.0,
+     "bay_tidal_resonance": -0.15,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": -0.6,
+     "cooper_jacob_early_time": -0.35,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": 0.0,
+     "displacement_height_canopy": 0.2,
+     "effective_henry": 0.0,
+     "freezing_point_depth": 0.24999999999999994,
+     "frictional_three_force_balance": 0.19999999999999996,
+     "gradient_wind_curvature": 0.0,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": 0.0,
+     "ionic_strength_activity": -0.09999999999999998,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": 0.0,
+     "log_wind_stability": 0.0,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": 0.15,
+     "rossby_deformation": 0.0,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": 0.0,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": -0.05000000000000002,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": 0.0,
+     "weir_approach_velocity": 0.0
+    }
+   },
+   "WD-D": {
+    "K_high": {
+     "templates": 30,
+     "clusters": 18,
+     "mean": -0.04675925925925926,
+     "ci95": [
+      -0.14490740740740737,
+      0.045833333333333316
+     ],
+     "units": 18
+    },
+    "K_low": {
+     "templates": 40,
+     "clusters": 24,
+     "mean": 0.031736111111111104,
+     "ci95": [
+      -0.058750000000000004,
+      0.11958333333333333
+     ],
+     "units": 24
+    },
+    "high-low": {
+     "mean": -0.07849537037037035,
+     "ci95": [
+      -0.2076388888888889,
+      0.0396078431372549
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": 0.3999999999999999,
+     "capillary_rise_gravity": -0.05,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": 0.7999999999999999,
+     "coriolis_neglect": -0.09999999999999998,
+     "cunningham_slip": 0.0,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": 0.0,
+     "gravity_wave_doppler_shift": 0.35,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.04999999999999993,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": 0.0,
+     "limiting_reagent": 0.0,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.75,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": -0.09999999999999998,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": 0.3,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": -0.09999999999999998,
+     "radar_beam_height": -0.35,
+     "raindrop_drag_regime": -0.35,
+     "semivolatile_partitioning_temperature": 0.19999999999999996,
+     "snowpack_cold_content": -0.85,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.20000000000000007,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.09999999999999998,
+     "bay_tidal_resonance": -0.20000000000000007,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": -0.5499999999999999,
+     "cooper_jacob_early_time": 0.45000000000000007,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": -0.6,
+     "displacement_height_canopy": 0.1499999999999999,
+     "effective_henry": 0.0,
+     "freezing_point_depth": 0.25000000000000006,
+     "frictional_three_force_balance": 0.0,
+     "gradient_wind_curvature": 0.44999999999999996,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": -0.04999999999999999,
+     "ionic_strength_activity": -0.35,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": -0.05,
+     "log_wind_stability": 0.4,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": -0.55,
+     "rossby_deformation": 0.25,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": 0.0,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": -0.15000000000000002,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": 0.0,
+     "weir_approach_velocity": 0.0
+    }
+   },
+   "D-A": {
+    "K_high": {
+     "templates": 30,
+     "clusters": 18,
+     "mean": 0.033796296296296297,
+     "ci95": [
+      -0.04722222222222222,
+      0.11203703703703703
+     ],
+     "units": 18
+    },
+    "K_low": {
+     "templates": 40,
+     "clusters": 24,
+     "mean": 0.009583333333333341,
+     "ci95": [
+      -0.08784722222222223,
+      0.11618055555555556
+     ],
+     "units": 24
+    },
+    "high-low": {
+     "mean": 0.024212962962962957,
+     "ci95": [
+      -0.11004958047292146,
+      0.1579723707664884
+     ],
+     "draws_used": 10000
+    },
+    "fewer_than_5_templates": false,
+    "per_template": {
+     "anelastic_continuity": -0.3999999999999999,
+     "capillary_rise_gravity": 0.05,
+     "ch4_forcing_sqrt": 0.0,
+     "clausius_clapeyron_extrapolation": 0.0,
+     "co2_forcing_log": 0.0,
+     "constant_pressure_expansion": -0.5,
+     "coriolis_neglect": 0.050000000000000044,
+     "cunningham_slip": 0.0,
+     "deposition_brownian": 0.0,
+     "doppler_aliasing": 0.0,
+     "drop_size_truncation": 0.0,
+     "drop_ventilation": 0.0,
+     "freezing_latent_heat": 0.0,
+     "fresnel_reflectance_grazing": -0.09999999999999998,
+     "gravity_wave_doppler_shift": -0.30000000000000004,
+     "hydrostatic_constant_density": 0.0,
+     "ice_above_flotation": 0.0,
+     "ice_capacitance_shape": 0.0,
+     "ice_saturation": -0.09999999999999998,
+     "inertia_gravity_wave": 0.0,
+     "isa_above_tropopause": 0.0,
+     "kelvin_curvature": 0.0,
+     "limiting_reagent": 0.0,
+     "lognormal_mass": 0.0,
+     "mie_geometric": -0.04999999999999993,
+     "optically_thin_emission": 0.0,
+     "photostationary_peroxy": 0.0,
+     "planck_linearization": 0.0,
+     "plume_ground_reflection": -0.35000000000000003,
+     "plume_mixing_lid": 0.0,
+     "ppm_conversion_pressure": 0.0,
+     "pseudo_first_order": 0.050000000000000044,
+     "radar_beam_height": 0.44999999999999996,
+     "raindrop_drag_regime": 0.04999999999999993,
+     "semivolatile_partitioning_temperature": -0.25,
+     "snowpack_cold_content": 0.7,
+     "solid_angle": 0.0,
+     "sonic_humidity_flux": 0.0,
+     "spherical_slant_path": -0.04999999999999993,
+     "sun_photometer_airmass": 0.0,
+     "taylor_dispersion": 0.0,
+     "actinic_flux_horizontal": 0.050000000000000044,
+     "bay_tidal_resonance": 0.30000000000000004,
+     "box_ventilation_loss": 0.0,
+     "condensate_loading": 0.29999999999999993,
+     "cooper_jacob_early_time": -0.5,
+     "cstr_vs_pfr": 0.0,
+     "diffuse_transmission": 0.09999999999999998,
+     "displacement_height_canopy": 0.35000000000000003,
+     "effective_henry": 0.0,
+     "freezing_point_depth": -0.15000000000000002,
+     "frictional_three_force_balance": 0.19999999999999996,
+     "gradient_wind_curvature": -0.44999999999999996,
+     "ground_heat_flux_neglect": 0.0,
+     "henry_depletion": 0.25,
+     "ionic_strength_activity": -0.050000000000000044,
+     "isotope_mixing_weighting": 0.0,
+     "line_broadening": 0.05,
+     "log_wind_stability": -0.09999999999999999,
+     "mixed_layer_response": 0.0,
+     "nonsteady_burden": 0.0,
+     "racemization_reversibility": 0.8,
+     "rossby_deformation": -0.25,
+     "saturated_lapse": 0.0,
+     "sea_ice_insulation": 0.0,
+     "shallow_water_wave_speed": 0.0,
+     "surface_multiple_reflection": 0.45,
+     "unconfined_dupuit": 0.0,
+     "weak_acid_dissociation": 0.0,
+     "weir_approach_velocity": 0.0
+    }
+   }
+  }
+ },
+ "safety": {
+  "x-qwen35-9b-F1-A-s42": {
+   "test_id": 0.859375,
+   "start": 0.75,
+   "note": null
+  },
+  "x-qwen35-9b-F2-A-s42": {
+   "test_id": 0.84375,
+   "start": 0.75,
+   "note": null
+  },
+  "x-qwen35-9b-F1-D-s42": {
+   "test_id": 0.8125,
+   "start": 0.75,
+   "note": null
+  },
+  "x-qwen35-9b-F2-D-s42": {
+   "test_id": 0.84375,
+   "start": 0.75,
+   "note": null
+  },
+  "x-qwen35-9b-F1-F-s42": {
+   "test_id": 0.84375,
+   "start": 0.75,
+   "note": null
+  },
+  "x-qwen35-9b-F2-F-s42": {
+   "test_id": 0.859375,
+   "start": 0.75,
+   "note": null
+  },
+  "x-qwen35-9b-F1-WA-s42": {
+   "test_id": 0.859375,
+   "start": 0.65625,
+   "note": null
+  },
+  "x-qwen35-9b-F2-WA-s42": {
+   "test_id": 0.890625,
+   "start": 0.65625,
+   "note": null
+  },
+  "x-qwen35-9b-F1-WD-s42": {
+   "test_id": 0.859375,
+   "start": 0.65625,
+   "note": null
+  },
+  "x-qwen35-9b-F2-WD-s42": {
+   "test_id": 0.828125,
+   "start": 0.65625,
+   "note": null
+  }
+ },
+ "textbook": {
+  "x-qwen35-9b-base": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.34782608695652173,
+    "parent_acc": 0.5869565217391305,
+    "trap_right_given_parent_right": [
+     12,
+     27
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.3684210526315789,
+    "parent_acc": 0.5789473684210527,
+    "trap_right_given_parent_right": [
+     11,
+     22
+    ]
+   }
+  },
+  "sft-x-qwen35-9b-F1": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.34782608695652173,
+    "parent_acc": 0.5217391304347826,
+    "trap_right_given_parent_right": [
+     9,
+     24
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.42105263157894735,
+    "parent_acc": 0.5526315789473685,
+    "trap_right_given_parent_right": [
+     9,
+     21
+    ]
+   }
+  },
+  "sft-x-qwen35-9b-F2": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.45652173913043476,
+    "parent_acc": 0.5652173913043478,
+    "trap_right_given_parent_right": [
+     15,
+     26
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.47368421052631576,
+    "parent_acc": 0.5789473684210527,
+    "trap_right_given_parent_right": [
+     13,
+     22
+    ]
+   }
+  },
+  "x-qwen35-9b-F1-A-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.5652173913043478,
+    "parent_acc": 0.6521739130434783,
+    "trap_right_given_parent_right": [
+     20,
+     30
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.6578947368421053,
+    "parent_acc": 0.6842105263157895,
+    "trap_right_given_parent_right": [
+     19,
+     26
+    ]
+   }
+  },
+  "x-qwen35-9b-F1-D-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.45652173913043476,
+    "parent_acc": 0.6521739130434783,
+    "trap_right_given_parent_right": [
+     15,
+     30
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.47368421052631576,
+    "parent_acc": 0.6842105263157895,
+    "trap_right_given_parent_right": [
+     14,
+     26
+    ]
+   }
+  },
+  "x-qwen35-9b-F1-F-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.4782608695652174,
+    "parent_acc": 0.6739130434782609,
+    "trap_right_given_parent_right": [
+     19,
+     31
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.5526315789473685,
+    "parent_acc": 0.6842105263157895,
+    "trap_right_given_parent_right": [
+     19,
+     26
+    ]
+   }
+  },
+  "x-qwen35-9b-F1-WA-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.43478260869565216,
+    "parent_acc": 0.717391304347826,
+    "trap_right_given_parent_right": [
+     16,
+     33
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.47368421052631576,
+    "parent_acc": 0.7368421052631579,
+    "trap_right_given_parent_right": [
+     15,
+     28
+    ]
+   }
+  },
+  "x-qwen35-9b-F1-WD-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.45652173913043476,
+    "parent_acc": 0.6739130434782609,
+    "trap_right_given_parent_right": [
+     18,
+     31
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.5,
+    "parent_acc": 0.6842105263157895,
+    "trap_right_given_parent_right": [
+     16,
+     26
+    ]
+   }
+  },
+  "x-qwen35-9b-F2-A-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.6086956521739131,
+    "parent_acc": 0.6304347826086957,
+    "trap_right_given_parent_right": [
+     18,
+     29
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.6578947368421053,
+    "parent_acc": 0.6578947368421053,
+    "trap_right_given_parent_right": [
+     17,
+     25
+    ]
+   }
+  },
+  "x-qwen35-9b-F2-D-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.5217391304347826,
+    "parent_acc": 0.5869565217391305,
+    "trap_right_given_parent_right": [
+     18,
+     27
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.5526315789473685,
+    "parent_acc": 0.5789473684210527,
+    "trap_right_given_parent_right": [
+     16,
+     22
+    ]
+   }
+  },
+  "x-qwen35-9b-F2-F-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.5652173913043478,
+    "parent_acc": 0.5652173913043478,
+    "trap_right_given_parent_right": [
+     17,
+     26
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.6052631578947368,
+    "parent_acc": 0.5789473684210527,
+    "trap_right_given_parent_right": [
+     16,
+     22
+    ]
+   }
+  },
+  "x-qwen35-9b-F2-WA-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.5434782608695652,
+    "parent_acc": 0.6739130434782609,
+    "trap_right_given_parent_right": [
+     17,
+     31
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.5789473684210527,
+    "parent_acc": 0.6842105263157895,
+    "trap_right_given_parent_right": [
+     15,
+     26
+    ]
+   }
+  },
+  "x-qwen35-9b-F2-WD-s42": {
+   "regime_arm": {
+    "traps": 46,
+    "trap_acc": 0.5,
+    "parent_acc": 0.6086956521739131,
+    "trap_right_given_parent_right": [
+     17,
+     28
+    ]
+   },
+   "regime_recognise_pilot": {
+    "traps": 38,
+    "trap_acc": 0.5526315789473685,
+    "parent_acc": 0.6052631578947368,
+    "trap_right_given_parent_right": [
+     15,
+     23
+    ]
+   }
+  }
+ },
+ "truncation": {
+  "by_arm_final": {
+   "A": {
+    "truncated": 7,
+    "rows": 11200,
+    "share": 0.000625
+   },
+   "D": {
+    "truncated": 10,
+    "rows": 11200,
+    "share": 0.0008928571428571428
+   },
+   "F": {
+    "truncated": 860,
+    "rows": 11200,
+    "share": 0.07678571428571429
+   },
+   "WA": {
+    "truncated": 21,
+    "rows": 11200,
+    "share": 0.001875
+   },
+   "WD": {
+    "truncated": 5,
+    "rows": 11200,
+    "share": 0.0004464285714285714
+   }
+  },
+  "per_label": {
+   "x-qwen35-9b-base": {
+    "final": [
+     188,
+     5600
+    ],
+    "judge": [
+     240,
+     2800
+    ]
+   },
+   "sft-x-qwen35-9b-F1": {
+    "final": [
+     51,
+     5600
+    ],
+    "judge": [
+     42,
+     2800
+    ]
+   },
+   "sft-x-qwen35-9b-F2": {
+    "final": [
+     31,
+     5600
+    ],
+    "judge": [
+     30,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F1-A-s42": {
+    "final": [
+     1,
+     5600
+    ],
+    "judge": [
+     0,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F1-D-s42": {
+    "final": [
+     10,
+     5600
+    ],
+    "judge": [
+     6,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F1-F-s42": {
+    "final": [
+     10,
+     5600
+    ],
+    "judge": [
+     1,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F1-WA-s42": {
+    "final": [
+     20,
+     5600
+    ],
+    "judge": [
+     19,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F1-WD-s42": {
+    "final": [
+     5,
+     5600
+    ],
+    "judge": [
+     0,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F2-A-s42": {
+    "final": [
+     6,
+     5600
+    ],
+    "judge": [
+     17,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F2-D-s42": {
+    "final": [
+     0,
+     5600
+    ],
+    "judge": [
+     0,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F2-F-s42": {
+    "final": [
+     850,
+     5600
+    ],
+    "judge": [
+     702,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F2-WA-s42": {
+    "final": [
+     1,
+     5600
+    ],
+    "judge": [
+     0,
+     2800
+    ]
+   },
+   "x-qwen35-9b-F2-WD-s42": {
+    "final": [
+     0,
+     5600
+    ],
+    "judge": [
+     0,
+     2800
+    ]
+   }
+  }
+ },
+ "accuracy_by_variant": {
+  "x-qwen35-9b-base": {
+   "inside": 0.8448958333333333,
+   "outside": 0.43778645833333335,
+   "given": 0.8523697916666666,
+   "flag": 0.5332552083333333
+  },
+  "sft-x-qwen35-9b-F1": {
+   "inside": 0.8311197916666667,
+   "outside": 0.5890885416666667,
+   "given": 0.8430729166666666,
+   "flag": 0.61265625
+  },
+  "sft-x-qwen35-9b-F2": {
+   "inside": 0.8233333333333334,
+   "outside": 0.58,
+   "given": 0.8842708333333333,
+   "flag": 0.6140625
+  },
+  "x-qwen35-9b-F1-A-s42": {
+   "inside": 0.9794270833333333,
+   "outside": 0.7899739583333333,
+   "given": 0.95,
+   "flag": 0.8104166666666667
+  },
+  "x-qwen35-9b-F1-D-s42": {
+   "inside": 0.9638020833333334,
+   "outside": 0.7553385416666667,
+   "given": 0.990625,
+   "flag": 0.77734375
+  },
+  "x-qwen35-9b-F1-F-s42": {
+   "inside": 0.9731770833333333,
+   "outside": 0.727734375,
+   "given": 0.968359375,
+   "flag": 0.7498697916666667
+  },
+  "x-qwen35-9b-F1-WA-s42": {
+   "inside": 0.9625,
+   "outside": 0.7686197916666667,
+   "given": 0.96875,
+   "flag": 0.766015625
+  },
+  "x-qwen35-9b-F1-WD-s42": {
+   "inside": 0.9670572916666667,
+   "outside": 0.7755208333333333,
+   "given": 0.9703125,
+   "flag": 0.777734375
+  },
+  "x-qwen35-9b-F2-A-s42": {
+   "inside": 0.9703125,
+   "outside": 0.6766666666666666,
+   "given": 0.97109375,
+   "flag": 0.7146354166666666
+  },
+  "x-qwen35-9b-F2-D-s42": {
+   "inside": 0.9401041666666666,
+   "outside": 0.7285416666666666,
+   "given": 0.9817708333333334,
+   "flag": 0.7965885416666667
+  },
+  "x-qwen35-9b-F2-F-s42": {
+   "inside": 0.9921354166666667,
+   "outside": 0.6426822916666667,
+   "given": 0.9723958333333333,
+   "flag": 0.7270052083333334
+  },
+  "x-qwen35-9b-F2-WA-s42": {
+   "inside": 0.955546875,
+   "outside": 0.75390625,
+   "given": 0.9875,
+   "flag": 0.7790625
+  },
+  "x-qwen35-9b-F2-WD-s42": {
+   "inside": 0.9494270833333334,
+   "outside": 0.79671875,
+   "given": 0.977734375,
+   "flag": 0.8227864583333333
+  }
+ },
+ "audit_sample": [
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_spherical_slant_path_07_outside",
+   "auto_judgement": 0,
+   "code": "R^2 + 2Rh + h^2) = -2Rh - h^2.\n    # So: L^2 - (2 R cos(theta)) L - (2 R h + h^2) = 0.\n    \n    R = R_earth\n    A = R + h\n    \n    # Quadratic coefficients: a=1, b = -2*R*cos(theta), c = R^2 - A^2\n    # c = R^2 - (R+h)^2 = -2*R*h - h^2\n    b = -2.0 * R * math.cos(theta_rad)\n    c = R**2 - A**2\n    \n    # Solve L = [-b +/- sqrt(b^2 - 4ac)] / 2a\n    # Here a=1.\n    # Discriminant D = b^2 - 4*c\n    D = b**2 - 4.0 * 1.0 * c\n    \n    # L = (-b + sqrt(D)) / 2  (Since L must be positive, and -b is positive if cos is positive, but let's check signs)\n    # b is negative (cos is positive for small theta, theta=88.8 deg is close to 90, cos is small positive).\n    # Wait theta = 88.8 deg. cos(88.8) is small positive.\n    # So -2 R cos is negative. b is negative.\n    # -b is positive.\n    # sqrt(D) is larger than |b|?\n    # Let's just compute both roots and pick the positive one.\n    sqrt_D = math.sqrt(D)\n    L1 = (-b + sqrt_D) / 2.0\n    L2 = (-b - sqrt_D) / 2.0\n    \n    # Select the physically meaningful positive root.\n    # Given geometry, L must be positive.\n    # L1 is definitely positive. L2 could be negative.\n    L = L1\n    \n    # Check regime:\n    # Standard textbook treatment usually assumes plane parallel atmosphere (R -> infinity or h << R and theta small/vertical).\n    # Specifically, path length s = h / cos(theta) or h / cos(zenith)?\n    # In plane parallel, path = h / cos(zenith angle from vertical)? No, path = h / cos(theta) if theta is angle from normal.\n    # Here theta = 88.8 deg. cos(88.8) is very small. Path would be huge.\n    # The condition for plane parallel is usually that the curvature is negligible, i.e., R >> h and the path doesn't curve significantly relative to the sphere.\n    # Or specifically, secant approximation: path = h / cos(theta).\n    # Let's calculate the standard approximation value for comparison logic, though the rule just asks 1 or 0.\n    # The standard approximation holds if the zenith angle is small enough such that the ray doesn't graze the curvature significantly before exiting.\n    # A common criterion is theta < ~60 degrees or similar, or h << R/cos(theta).\n    # With theta = 88.8, cos is ~0.024. h/cos ~ 7/0.024 ~ 290 km. R is 6371.\n    # The curvature is significant. So regime should be 0.\n    # Let's define the boundary: usually valid if sec(theta) * h << R? Or simply theta <= 60 degrees?\n    # Given the specific instruction \"standard textbook treatment\", which usually implies plane-parallel approximation:\n    # Path = h / cos(theta).\n    # Let's check validity condition: The path length calculated by plane parallel vs spherical.\n    # Plane parallel: L_pp = h / cos(theta_rad).\n    # If L_pp is close to L_spherical, regime=1.\n    # However, the rule says \"1 if valid, 0 if outside\".\n    # Standard limit is often cited as zenith angle <= 60 degrees (sec 60 = 2). Here 88.8 is way outside.\n    # So regime = 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": L, \"unit\": \"km\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_sonic_humidity_flux_06_outside",
+   "auto_judgement": 0,
+   "code": " = rho * c_p * wT_cov\n    \n    # Bowen Ratio beta = H / LE\n    beta = H / LE\n    \n    # Standard textbook validity: Usually assumes beta is small or neglected, or specifically \n    # that latent heat is negligible compared to sensible heat? Or vice versa?\n    # Actually, standard textbook often implies H = rho c_p w'T directly without correction terms involving humidity.\n    # The condition is often |beta| < 0.1 or similar. Let's check beta.\n    # If beta is small, LE is small compared to H? No beta = H/LE. If beta << 1, H << LE.\n    # If beta >> 1, H >> LE.\n    # The \"standard\" usually refers to the energy balance closure where one might ignore LE?\n    # Given the specific request for \"regime\": 1 if standard textbook is valid.\n    # Standard textbook usually ignores latent heat in the context of calculating H from w'T?\n    # Actually, H is defined as rho c_p <w'T>. The standard textbook is valid if the measurement is consistent with that definition.\n    # Often the constraint is that the latent heat flux is negligible compared to total energy, \n    # OR that the term involving humidity gradient is negligible.\n    # Let's define the regime based on |beta| <= 0.1 (Sensible heat dominates latent heat? No, beta=H/LE).\n    # If beta <= 0.1, H is small compared to LE. If beta >= 10, H dominates.\n    # Let's use a common threshold: |beta| <= 0.5 is often considered the boundary for simple approximations.\n    # However, many texts say standard flux calculation holds if Bowen ratio < 0.1. Let's use 0.1.\n    # Wait, if beta = H/LE. If beta is small, H is small.\n    # Let's check the calculated beta.\n    \n    # Regime decision:\n    # If |beta| <= 0.1, standard textbook (neglecting LE effects on H calculation or assuming H dominates?) is valid?\n    # Actually, standard textbook for H is just H = rho c_p w'T. This is always the definition.\n    # The ambiguity is usually in the Energy Balance: Rn = H + LE + G.\n    # If the problem asks for H derived from w'T, the formula is direct.\n    # Perhaps the \"regime\" refers to whether we need to correct for density fluctuations (virtual temperature).\n    # The correction involves humidity. If humidity is low, standard is valid.\n    # Let's check the saturation vapor pressure or relative humidity? Not given.\n    # Let's use the Bowen ratio threshold: |beta| <= 0.1 implies H is small, LE is large.\n    # If |beta| >= 10, H is large.\n    # Let's assume the standard textbook assumes LE is negligible (beta -> infinity? No, LE negligible means H dominates, so beta large).\n    # If LE is negligible, H = Net Radiation (roughly).\n    # Let's use the condition: |beta| >= 10 (Sensible heat dominates).\n    # Let's calculate beta first.\n    \n    # Decision logic:\n    # If |beta| >= 10, regime = 1. Else regime = 0.\n    regime = 1 if abs(beta) >= 10 else 0\n    \n    # Calculate H\n    # H = rho * c_p * wT_cov\n    H_val = rho * c_p * wT_cov\n    \n    return {\n        \"1\": {\"value\": H_val, \"unit\": \"W m^-2\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_mie_geometric_17_outside",
+   "auto_judgement": 0,
+   "code": "gimes. Usually Rayleigh is valid for x << 1.\n    # Let's compute regime based on x < 1 (or similar strict bound).\n    # Given x is huge (~400), regime = 0.\n    regime = 0 \n    \n    # We need the Extinction Cross Section C_ext.\n    # Exact solution requires Mie theory summation.\n    # C_ext = (2*pi/|k|^2) * sum ...\n    # Actually C_ext = (2*pi/k^2) * sum_{n=1}^\\infty (2n+1) Re(a_n + b_n)\n    # where k = 2*pi*n_medium/lambda. Here n_medium=1 (air).\n    # k = 2*pi/lambda.\n    # So C_ext = (2*pi / (2*pi/lambda)^2) ... wait.\n    # C_ext = (2*pi/k^2) * sum ... No, standard formula:\n    # C_ext = (2*pi / k^2) * sum (2n+1) Re(a_n + b_n) ?\n    # Let's derive carefully.\n    # k = 2*pi/lambda. k^2 = 4*pi^2/lambda^2.\n    # Prefactor = 2*pi / (4*pi^2/lambda^2) = lambda^2 / (2*pi).\n    # So C_ext = (lambda^2 / (2*pi)) * sum_{n=1}^\\infty (2n+1) Re(a_n + b_n).\n    \n    # Since we cannot use external libraries for Mie scattering coefficients,\n    # we must implement the Mie series or check if an approximation holds.\n    # Given r=27um and lambda ~ 0.4-0.6 um.\n    # Ratio r/lambda ~ 45-50. x ~ 300.\n    # This is the geometric optics limit (x >> 1).\n    # In the geometric optics limit, the extinction cross section approaches the geometric cross-section times an efficiency factor Q_ext.\n    # For large particles, Q_ext -> 2 (Extinction paradox / diffraction limit).\n    # Specifically, for large spheres, C_ext approx 2 * pi * r^2 (the shadow area + diffraction).\n    # Wait, Q_ext = C_ext / (pi * r^2).\n    # As x -> infinity, Q_ext -> 2.\n    # So C_ext(blue) approx 2 * pi * r^2.\n    # C_ext(red) approx 2 * pi * r^2.\n    # The ratio would be approx 1.\n    # Let's verify if x is indeed large enough for Q_ext = 2.\n    # x_blue ~ 400. This is definitely in the geometric optics regime.\n    # Therefore, C_ext is roughly independent of wavelength (both approach 2*pi*r^2).\n    # Ratio = 1.\n    \n    # Let's calculate x explicitly to confirm regime validity for Q=2.\n    # Threshold is often x > 10 or so. Here x ~ 400.\n    # So we use the limit Q_ext = 2.\n    \n    # Geometric cross section area A = pi * r^2\n    # C_ext = Q_ext * A.\n    # In the limit x >> 1, Q_ext approaches 2.\n    # So C_ext_blue = 2 * pi * r^2\n    # C_ext_red = 2 * pi * r^2\n    # Ratio = 1.0\n    \n    # Let's double check if there's any residual wavelength dependence.\n    # Q_ext oscillates around 2 for large x, but averages to 2.\n    # Given the problem asks for a specific numerical solution and mentions \"standard textbook\",\n    # which implies checking if Rayleigh applies (it doesn't) or Geometric Optics (it does).\n    # With x ~ 400, Geometric Optics is the correct regime.\n    # Thus Ratio = 1.\n    \n    # Calculation of x to be sure:\n    # x_blue = 2 * pi * 27e-6 / 420e-9 = 2 * pi * 64.28 = 404.7\n    # x_red = 2 * pi * 27e-6 / 660e-9 = 2 * pi * 40.9 = 257.5\n    # Both >> 1.\n    \n    # Result is 1.\n    \n    ratio = 1.0\n    \n    return {\n        \"regime\": regime,\n        \"1\": {\"value\": ratio, \"unit\": \"\"}\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_ch4_forcing_sqrt_06_outside",
+   "auto_judgement": 0,
+   "code": " change:\n    # ΔF = (forcing_per_ppb) * ΔC\n    # However, methane forcing is often non-linear due to saturation effects and feedbacks (like water vapor, etc.),\n    # but the problem statement gives a specific rate: \"increasing the concentration by 1 ppb raises ... by 0.594\".\n    # This implies a local derivative or a linear coefficient at the background level.\n    # Usually, the standard textbook treatment assumes linearity over small ranges.\n    # Here, the increase is 1190 ppb, which is significant.\n    # However, the prompt asks to determine the 'regime' based on standard textbook validity.\n    # Standard textbook validity for linear CH4 forcing is typically considered for small perturbations, often cited as < 100 ppb or similar thresholds relative to the background, \n    # but without a specific threshold defined in the prompt, we must infer based on the context of atmospheric science.\n    # A common rule of thumb for the linear approximation of CH4 forcing is valid when the change is small compared to the background or within a specific range where the GWP is constant.\n    # Given the specific numbers: Background = 716, Increase = 1190. The new concentration would be 1906.\n    # The change is ~166% of the background. This is definitely outside the linear regime.\n    # Therefore, regime = 0.\n    \n    # Let's compute the forcing based on the linear assumption first, as implied by the phrasing \"increasing ... by 1 ppb raises ... by 0.594\".\n    # If we strictly follow the prompt's instruction to use the given rate:\n    # Rate = 0.594 mW m^-2 per ppb.\n    # Total Increase = Rate * 1190.\n    # However, if the problem implies the standard textbook validity check, we might need to consider if we should apply a non-linear correction.\n    # But the prompt asks to return the regime (0 or 1) separately. It asks \"what is the increase... Express your answer...\".\n    # It does not explicitly say \"apply non-linear correction if regime is 0\". It asks for the answer based on the provided parameters.\n    # The most direct interpretation: Use the given rate (0.594) multiplied by the increase (1190).\n    # Why? Because the problem defines the sensitivity at the background. If we assume linearity holds (which regime 0 suggests it doesn't), we just multiply.\n    # If we were to apply a non-linear model (like log-concavity), we would need a specific formula not provided.\n    # Thus, we calculate using the provided linear coefficient, but flag the regime as 0.\n    \n    # Calculation:\n    # delta_forcing = increase_ppb * forcing_per_ppb_mw_m2\n    delta_forcing = increase_ppb * forcing_per_ppb_mw_m2\n    \n    # Determine regime:\n    # Standard textbook linear approximation for CH4 is generally valid for perturbations < ~100 ppb or where the concentration doesn't change drastically.\n    # Here, the increase is 1190 ppb, which is huge. So regime = 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": delta_forcing, \"unit\": \"mW m^-2\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_ionic_strength_activity_18_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(K_a=2.0e-5, C_tot_umol_L=100, I=0.089):\n    # Constants\n    # Temperature is 25C, standard A for Davies eq\n    \n    # 1. Calculate Activity Coefficient Gamma using Davies Equation\n    # log10(gamma) = -0.509 * z^2 * ( sqrt(I)/(1+sqrt(I)) - 0.3*I )\n    # z = 1 for H+ and A-\n    \n    sqrt_I = math.sqrt(I)\n    log_gamma = -0.509 * ( (sqrt_I / (1 + sqrt_I)) - (0.3 * I) )\n    gamma = 10 ** log_gamma\n    \n    # 2. Calculate Concentration-based Ka\n    # K_a_conc = K_a_thermo / gamma^2\n    \n    K_a_conc = K_a / (gamma ** 2)\n    \n    # 3. Convert C_tot to mol/L for calculation\n    # 100 umol/L = 100e-6 mol/L\n    \n    C_tot_mol_L = C_tot_umol_L * 1e-6\n    \n    # 4. Solve Quadratic for [H+]\n    # [H+]^2 + K_a_conc * [H+] - K_a_conc * C_tot = 0\n    \n    # a=1, b=K_a_conc, c=-K_a_conc*C_tot\n    \n    a = 1.0\n    b = K_a_conc\n    c = -K_a_conc * C_tot_mol_L\n    \n    delta = b*b - 4*a*c\n    \n    # Positive root\n    H_mol_L = (-b + math.sqrt(delta)) / (2*a)\n    \n    # 5. Convert back to umol/L\n    H_umol_L = H_mol_L * 1e6\n    \n    # 6. Determine Regime\n    # Standard treatment assumes gamma=1. \n    # Calculate relative error in Ka or H+ compared to standard assumption.\n    # If gamma deviates significantly from 1, regime is 0.\n    # Usually valid if ionic strength < 0.01 M or if error < 5%.\n    \n    # Estimate error due to activity\n    # If gamma != 1, standard treatment is invalid.\n    # Let's check if gamma is close to 1 within 5% tolerance.\n    if abs(gamma - 1.0) / 1.0 < 0.05:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": H_umol_L, \"unit\": \"umol L^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_ice_above_flotation_19_outside",
+   "auto_judgement": 0,
+   "code": " ignores the fact that the ice is elevated (potential energy) \n    # or simply calculates volume directly.\n    # However, a specific condition often cited is whether the ice thickness is negligible compared to Earth radius (not relevant here)\n    # or if the volume of water displaced by the ice sheet sitting on the bed (Archimedes on land? No).\n    # Let's consider the specific constraint: \"neglect isostatic rebound\".\n    # The standard textbook often assumes the ice is effectively at sea level or ignores the bed depth contribution to volume?\n    # No, standard textbook: Volume = Area * Thickness. Thickness = Surface - Bed.\n    # Actually, the \"regime\" usually refers to the approximation where the elevation of the ice sheet (surface_elev) doesn't matter, \n    # i.e., assuming the ice is at sea level (h = surface_elev - 0). But here bed is -820.\n    # The standard approximation is valid if the ice sheet is floating (not the case) or if the elevation is small.\n    # Let's check the ratio of the ice thickness to the ocean depth? No.\n    # The standard textbook approximation for sea level rise from land ice is often:\n    # h = (Volume_ice / Area_ocean) * (rho_ice/rho_water).\n    # This is exactly what we did.\n    # When does it fail? If we need to account for the fact that the ice was sitting on land and the land sinks (isostasy), \n    # but we are told to neglect isostasy.\n    # Perhaps the regime refers to whether the elevation of the ice surface (750m) is negligible compared to the ocean area? No.\n    # Let's define the regime based on the ratio of the ice volume contribution due to elevation vs just the mass.\n    # Actually, the standard textbook often assumes the ice is at 0 elevation (sea level) for the volume calculation, \n    # effectively ignoring the bed depth. Here bed is -820m.\n    # The condition for standard textbook (ignoring bed depth, i.e., assuming h = surface_elev) is usually surface_elev << bed_depth magnitude? No.\n    # Standard text: h_ice = surface elevation (assuming bed is sea level).\n    # Here h = 1570. If we assumed bed=0, h=750. Big difference.\n    # The standard treatment is valid if surface_elev_m is small compared to |bed_elev_m|? No.\n    # Let's use the criterion: The standard treatment assumes the ice is effectively a layer on the ocean surface or ignores the bedrock depression.\n    # A common threshold is if the ice sheet elevation is < 100m or similar. Here it is 750m.\n    # So regime = 0.\n    \n    # Let's be precise: Standard textbook assumes volume of water = Volume of ice * (rho_ice/rho_water).\n    # This is always true for mass conservation.\n    # The confusion often arises if one uses the geometric height of the ice column at sea level.\n    # If the textbook assumes the ice is at sea level (h = 750), but actual h = 1570.\n    # The ratio is 750/1570 ~ 0.48. This is significant.\n    # So regime = 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": delta_h_mm, \"unit\": \"mm\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_ground_heat_flux_neglect_20_outside",
+   "auto_judgement": 0,
+   "code": "def solve(Rn=420, H=180, G=83):\n    \"\"\"\n    Calculates latent heat flux LE based on surface energy balance.\n    \n    Parameters:\n    Rn (float): Net radiation in W/m^2\n    H (float): Sensible heat flux in W/m^2\n    G (float): Ground heat flux in W/m^2 (positive into soil)\n    \n    Returns:\n    dict: {'1': {'value': float, 'unit': 'W m^-2'}, 'regime': int}\n    \"\"\"\n    # Calculate LE using energy balance: Rn = G + H + LE  =>  LE = Rn - G - H\n    LE = Rn - G - H\n    \n    # Determine regime: \n    # Standard textbook treatment often assumes G is negligible.\n    # Validity is generally accepted if G < 10-15% of Rn.\n    # Threshold: 0.15 * Rn\n    threshold = 0.15 * Rn\n    \n    if abs(G) <= threshold:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": LE, \"unit\": \"W m^-2\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_shallow_water_wave_speed_20_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(lambda_m=72, depth_m=15, g=9.81):\n    # 1. Calculate wavenumber k\n    # k = 2 * pi / lambda\n    k = (2 * math.pi) / lambda_m\n    \n    # 2. Calculate argument for tanh\n    # x = k * depth\n    x = k * depth_m\n    \n    # 3. Calculate angular frequency omega using dispersion relation\n    # omega^2 = g * k * tanh(k * d)\n    omega = math.sqrt(g * k * math.tanh(x))\n    \n    # 4. Calculate period T\n    # T = 2 * pi / omega\n    T = (2 * math.pi) / omega\n    \n    # Determine Regime\n    # Shallow water valid if depth < lambda / 20 (approx 0.05 ratio)\n    # Deep water valid if depth > lambda / 2 (approx 0.5 ratio)\n    # Ratio d/lam = 15/72 = 0.208 -> Intermediate -> Regime 0\n    \n    regime = 0\n    \n    # Return result dict\n    return {\n        \"1\": {\"value\": T, \"unit\": \"s\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_weak_acid_dissociation_06_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(K_a=1.75e-5, C_total_mmol_L=0.0387, T_C=25):\n    # 1. Convert C_total to Molar (mol/L)\n    # 1 mmol = 1e-3 mol\n    C_total_M = C_total_mmol_L * 1e-3\n    \n    # 2. Solve quadratic equation x^2 + K_a*x - K_a*C_total = 0\n    # x = (-K_a + sqrt(K_a^2 + 4*K_a*C_total)) / 2\n    \n    discriminant = (K_a ** 2) + (4 * K_a * C_total_M)\n    x_M = (-K_a + math.sqrt(discriminant)) / 2\n    \n    # 3. Convert x_M to μmol/L\n    # 1 mol = 1e6 μmol\n    x_uM = x_M * 1e6\n    \n    # 4. Determine Regime\n    # Approximation valid if C_total >> K_a, typically C_total / K_a > 100 or error < 5%\n    # Here ratio is approx 2.2, so invalid.\n    # Check relative error of approximation x_approx = sqrt(K_a * C_total)\n    x_approx_M = math.sqrt(K_a * C_total_M)\n    rel_error = abs((x_M - x_approx_M) / x_M)\n    \n    # If rel_error < 0.05 (5%), regime is 1, else 0\n    regime = 1 if rel_error < 0.05 else 0\n    \n    return {\n        \"1\": {\"value\": x_uM, \"unit\": \"μmol L^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_constant_pressure_expansion_13_outside",
+   "auto_judgement": 0,
+   "code": "(-kt))\n    \n    # Calculate exp(-kt)\n    exponent = -k * t\n    exp_factor = math.exp(exponent)\n    \n    # Calculate numerator factor\n    num = 0.46 * exp_factor\n    \n    # Calculate denominator factor\n    den = 1.46 - 0.46 * exp_factor\n    \n    # Mole fraction at time t\n    x_A_t = num / den\n    \n    # Partial pressure\n    P_A_t = P_total * x_A_t\n    \n    # Determine regime:\n    # Standard textbook treatment usually assumes constant volume or negligible change in total moles/pressure such that P_A decays simply as P_A0 * exp(-kt).\n    # This holds if the change in total moles is negligible, i.e., the increase in B doesn't affect the partial pressure significantly, or if P_total wasn't constrained but V was.\n    # Here P_total is constant, so volume changes.\n    # The standard approximation is valid if the change in total moles is small, typically if conversion is small.\n    # Or specifically, if the stoichiometric coefficient change is ignored.\n    # Usually, standard text assumes P_A = P_A_initial * exp(-kt).\n    # Let's check the ratio P_A_t / (P_A_initial * exp(-kt)).\n    # P_A_initial = 0.46 * 2750.\n    # Approximation: P_A_approx = P_A_initial * exp_factor.\n    # Exact: P_A_t = P_total * (0.46 * exp_factor) / (1.46 - 0.46 * exp_factor).\n    # The standard regime is often cited as valid if x_A << 1 or if the pressure change is negligible.\n    # Here x_A starts at 0.46, which is significant. The expansion factor is 1.46 vs 1.0.\n    # The standard textbook assumption (constant volume or ignoring mole change) is generally considered valid if the extent of reaction is small or if delta_n is negligible.\n    # With 0.46 initial mole fraction, the mole change is substantial.\n    # Let's define the threshold. Often, if the change in total pressure due to reaction is < 5%, it's valid. Here P is fixed, so we look at mole fraction change.\n    # Let's check the condition: 0.46 is large enough that the \"ideal\" first order decay P = P0 exp(-kt) will deviate.\n    # Let's compute the deviation.\n    # P_A_approx = 2750 * 0.46 * exp_factor\n    # P_A_exact = P_A_t\n    # If P_A_exact is close to P_A_approx, regime=1.\n    # The standard textbook assumes P_A = P_A(0) exp(-kt). This implies n_total is constant.\n    # Here n_total changes by factor (1.46 - 0.46*exp)/1.0.\n    # With t=17, k=0.077, kt = 1.309. exp = 0.27.\n    # Factor = 1.46 - 0.46*0.27 = 1.46 - 0.124 = 1.336.\n    # This is a 33% change in total moles. Definitely outside standard regime.\n    # So regime = 0.\n    \n    P_A_approx = P_total * x_A_initial * exp_factor\n    \n    # Check deviation ratio\n    ratio = P_A_t / P_A_approx\n    \n    # Threshold for regime: usually considered valid if ratio is close to 1, e.g., within 5% or 10%.\n    # Given the explicit instruction to determine based on \"standard textbook\", and the analysis above showing significant deviation (33% mole change), regime is 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": P_A_t, \"unit\": \"hPa\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_drop_size_truncation_02_outside",
+   "auto_judgement": 1,
+   "code": "arameter [mm^-1]\n    D_max (float): Maximum drop diameter [mm]\n    \n    Returns:\n    dict: Contains 'Z' value with unit 'mm^6 m^-3' and 'regime' indicator.\n    \"\"\"\n    \n    # The distribution is N(D) = N0 * exp(-Lambda * D)\n    # We need to compute Z = integral from 0 to D_max of N(D) * D^6 dD\n    # Z = integral_0^D_max [ N0 * exp(-Lambda * D) * D^6 ] dD\n    # Z = N0 * integral_0^D_max [ D^6 * exp(-Lambda * D) ] dD\n    \n    # Let's perform the integration analytically or numerically.\n    # Analytical solution for integral of x^n * exp(-ax) dx involves incomplete gamma functions or repeated integration by parts.\n    # Specifically, ∫ x^n e^{-ax} dx = - (x^n e^{-ax})/a + (n/a) ∫ x^{n-1} e^{-ax} dx\n    # This leads to a sum.\n    # Let I = ∫_0^D_max D^6 exp(-Lambda D) dD\n    # Let u = Lambda D, then D = u/Lambda, dD = du/Lambda\n    # Limits: 0 to Lambda*D_max\n    # I = ∫_0^{Lambda*D_max} (u/Lambda)^6 * exp(-u) * (du/Lambda)\n    # I = (1/Lambda^7) ∫_0^{Lambda*D_max} u^6 exp(-u) du\n    \n    # The integral ∫_0^X u^n e^{-u} du is the lower incomplete gamma function γ(n+1, X).\n    # For integer n, γ(n+1, X) = n! * (1 - e^{-X} * Σ_{k=0}^n (X^k / k!))\n    # Here n = 6.\n    # So ∫_0^{X} u^6 e^{-u} du = 6! * (1 - e^{-X} * Σ_{k=0}^6 (X^k / k!))\n    # where X = Lambda * D_max.\n    \n    # Calculate X\n    X = Lambda * D_max\n    \n    # Calculate the sum term: S = Σ_{k=0}^6 (X^k / k!)\n    # k goes from 0 to 6\n    sum_term = 0.0\n    for k in range(7):\n        sum_term += (X**k) / math.factorial(k)\n    \n    # The integral part: Gamma_part = 720 * (1 - exp(-X) * sum_term)\n    # Wait, n=6, so n! = 720.\n    # Integral value = 720 * (1 - math.exp(-X) * sum_term)\n    integral_val = math.factorial(6) * (1.0 - math.exp(-X) * sum_term)\n    \n    # Now Z = N0 * (1/Lambda^7) * integral_val\n    Z = N0 * (integral_val) / (Lambda**7)\n    \n    # Determine the regime.\n    # Standard textbook treatment usually assumes the upper limit is infinity (D_max -> infinity).\n    # The condition is typically Lambda * D_max >> 1, or specifically D_max is large enough that the tail is negligible.\n    # Often cited threshold is Lambda * D_max >= 4 or 5, or simply that the exponential decay makes the upper bound negligible.\n    # Let's check Lambda * D_max = 4 * 2 = 8.\n    # With X = 8, e^-8 is very small (~0.0003). The contribution from the upper limit is negligible.\n    # So regime = 1.\n    # Let's verify: Standard assumption is integral to infinity.\n    # Integral to infinity of D^6 exp(-Lambda D) is 6! / Lambda^7.\n    # Our calculated integral_val corresponds to the incomplete gamma.\n    # If we integrated to infinity, integral_val_inf = 720.\n    # Our integral_val = 720 * (1 - small_number).\n    # X = 8. e^-8 * sum_term. sum_term is dominated by X^6/6! approx 8^6/720.\n    # Let's just use the computed X. If X >= 5 (common rule of thumb), regime is 1.\n    # Here X = 8. So regime = 1.\n    regime = 1\n    \n    return {\n        \"1\": {\"value\": Z, \"unit\": \"mm^6 m^-3\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_gravity_wave_doppler_shift_17_outside",
+   "auto_judgement": 0,
+   "code": "(k_h**2 + k_v**2)\n    \n    # Intrinsic angular frequency ω (rad/s)\n    # ω = N * (k_h / k_total) ? Let's check limits.\n    # If k_v -> 0 (horizontal wave), ω -> N. Correct.\n    # If k_h -> 0 (vertical wave), ω -> 0. Correct.\n    # So ω = N * k_h / k_total.\n    omega_intrinsic = N * k_h / k_total\n    \n    # Now we need the observed frequency (Doppler shift).\n    # The wave propagates horizontally in a fixed direction. Let's call this direction X.\n    # Wind U blows at angle theta_deg from X.\n    # The wave vector k is in direction X.\n    # The wind velocity vector V has magnitude U.\n    # Component of wind along wave propagation direction (X):\n    # V_parallel = U * cos(theta_deg in radians).\n    # The observed frequency ω_obs = ω_intrinsic + k · V?\n    # Usually Doppler shift: ω_obs = ω_intrinsic - k · V (depending on sign convention).\n    # If wind blows TOWARD the direction of propagation, it adds to the phase speed?\n    # Phase speed relative to ground = Phase speed relative to air + Wind.\n    # Frequency observed = ω_intrinsic + k · V (if V is in direction of k).\n    # Here, wind is 10 degrees FROM the direction.\n    # Projection of V onto k direction: U * cos(10°).\n    # So ω_obs = omega_intrinsic + k_h * (U * cos(theta)). Note k_h here is magnitude of horizontal wavenumber vector?\n    # The shift is k_vector . V_vector.\n    # k_vector magnitude is k_total? No, horizontal part matters for horizontal advection?\n    # The Doppler shift for horizontal wind on a wave with horizontal wavenumber k_h:\n    # ω_obs = ω_intrinsic + k_h * U * cos(theta).\n    # Wait, k_h is the magnitude of the horizontal component of the wavenumber vector.\n    # The dot product is |k|_h * U * cos(angle). |k|_h is just k_h calculated above.\n    # So shift = k_h * U * cos(theta_rad).\n    \n    theta_rad = math.radians(theta_deg)\n    doppler_shift = k_h * U * math.cos(theta_rad)\n    \n    # Observed angular frequency\n    omega_obs = omega_intrinsic + doppler_shift\n    \n    # Period T = 2 * pi / omega_obs\n    T_seconds = 2 * math.pi / omega_obs\n    \n    # Convert to minutes\n    T_minutes = T_seconds / 60.0\n    \n    # Determine regime:\n    # Standard textbook usually assumes U << Phase Speed or negligible wind, or horizontal propagation where vertical effects are ignored.\n    # Specifically, standard theory often ignores Doppler shift (U=0) or assumes U is small compared to wave phase speed.\n    # Or specifically, the condition is often k_h * U << ω.\n    # Let's check the ratio.\n    # Standard textbook validity: usually when wind effects are negligible, i.e., doppler_shift << omega_intrinsic.\n    # Let's compute ratio.\n    # If ratio < 0.1 (arbitrary threshold for \"valid\"), regime = 1.\n    # Ratio = doppler_shift / omega_intrinsic.\n    ratio = doppler_shift / omega_intrinsic\n    regime = 0\n    if ratio < 0.1: # Threshold for standard approximation validity\n        regime = 1\n        \n    return {\n        \"1\": {\"value\": T_minutes, \"unit\": \"min\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_ice_saturation_19_outside",
+   "auto_judgement": 0,
+   "code": " in the prompt is explicitly for \n    liquid water. The equilibrium for ice requires e_s over ice.\n    \n    Let's calculate e_s (liquid) first using the given formula.\n    Then we must decide if the \"standard textbook\" applies.\n    The standard textbook often assumes equilibrium with liquid water (supercooled water) \n    or ignores the curvature/phase difference. But physically, for ice, we need e_s(ice).\n    The difference is significant.\n    \n    Let's derive e_s(ice). A common approximation (WMO) is:\n    e_s_ice = 6.1115 * exp(22.46 * T / (272.56 + T)) hPa.\n    Or using the ratio: e_s_ice / e_s_liquid ≈ exp(-0.0006 * |T|) roughly?\n    More precisely, the ratio is often approximated as:\n    e_s_ice = e_s_liquid * exp( - (T_K) * 0.000... )\n    \n    Let's stick to the most standard parameterization for ice directly if possible, \n    or calculate the ratio.\n    Given the prompt explicitly gives the liquid formula, and asks for the regime \n    regarding the textbook treatment:\n    Textbook usually assumes e_s(ice) ≈ e_s(liquid) or ignores the difference.\n    The regime is valid if the difference is negligible.\n    Usually, the difference becomes significant below -10°C or -20°C.\n    Here T = -24°C. This is outside the standard range where e_s(ice) ≈ e_s(liquid).\n    So we must calculate e_s(ice) explicitly.\n    \n    Formula for saturation vapor pressure over ice (Tetris/Magnus for ice):\n    e_s_ice = 6.112 * exp(22.46 * T / (272.56 + T)) hPa (T in Celsius).\n    Let's use this standard parameterization.\n    \"\"\"\n    \n    # 1. Calculate saturation vapour pressure over liquid water (given formula)\n    # e_s_liquid = 6.112 * exp(17.67 * T / (T + 243.5))\n    numerator_liquid = 17.67 * T_celsius\n    denominator_liquid = T_celsius + 243.5\n    exponent_liquid = numerator_liquid / denominator_liquid\n    e_s_liquid = 6.112 * math.exp(exponent_liquid)\n    \n    # 2. Determine the saturation vapour pressure over ice.\n    # Standard parameterization (WMO/IGY):\n    # e_s_ice = 6.112 * exp(22.46 * T / (272.56 + T))\n    numerator_ice = 22.46 * T_celsius\n    denominator_ice = T_celsius + 272.56 # Note: 273.15 - 0.59 approx, standard is 272.56 for this specific coeff set\n    exponent_ice = numerator_ice / denominator_ice\n    e_s_ice = 6.112 * math.exp(exponent_ice)\n    \n    # The condition \"neither gain mass nor lose mass\" means the ambient vapor pressure\n    # equals the saturation vapor pressure over the surface of the crystal (ice).\n    # So the answer is e_s_ice.\n    \n    # 3. Determine the \"regime\"\n    # Standard textbook usually assumes e_s(ice) ≈ e_s(liquid).\n    # This is generally considered valid for T > -10°C or sometimes -15°C.\n    # At -24°C, the difference is significant.\n    # Let's define the boundary. The ratio e_s_ice/e_s_liquid deviates significantly.\n    # Usually, the \"regime\" is T >= -10 C or similar. Here T = -24.\n    # So regime = 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": e_s_ice, \"unit\": \"hPa\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_doppler_aliasing_02_outside",
+   "auto_judgement": 1,
+   "code": "import math\n\ndef solve(\n    wavelength_cm=5.5,\n    prf_hz=700,\n    velocity_m_s=12\n):\n    \"\"\"\n    Solves the pulsed Doppler radar velocity aliasing problem.\n    \n    Parameters:\n    - wavelength_cm: Wavelength in cm (default 5.5)\n    - prf_hz: Pulse Repetition Frequency in Hz (default 700)\n    - velocity_m_s: True radial velocity in m/s (default 12)\n    \n    Returns:\n    - Dictionary with reported velocity and 'regime' indicator\n    \"\"\"\n    \n    # 1. Convert wavelength to meters for consistency\n    # wavelength = 5.5 cm = 0.055 m\n    wavelength_m = wavelength_cm / 100.0\n    \n    # 2. Calculate the Nyquist velocity (V_nyquist)\n    # The Doppler shift formula relates velocity to frequency shift:\n    # f_d = (2 * V * cos(theta)) / lambda. Here theta = 0 (directly away), so cos=1.\n    # The maximum unambiguous velocity is determined by the PRF.\n    # PRF = 2 * V_max / lambda  => V_max = (PRF * lambda) / 2\n    # This V_max is the Nyquist velocity.\n    # V_nyquist = (prf_hz * wavelength_m) / 2\n    \n    V_nyquist = (prf_hz * wavelength_m) / 2.0\n    \n    # 3. Determine the regime\n    # Standard textbook treatment assumes velocity is within the Nyquist interval [-V_nyquist, +V_nyquist].\n    # If |velocity| <= V_nyquist, regime = 1. Otherwise, regime = 0.\n    # Here, velocity is 12 m/s.\n    # Let's check:\n    # V_nyquist = (700 * 0.055) / 2 = 38.5 / 2 = 19.25 m/s.\n    # Since 12 <= 19.25, the standard treatment is valid.\n    regime = 1 if abs(velocity_m_s) <= V_nyquist else 0\n    \n    # 4. Calculate the reported velocity\n    # If the velocity is within the Nyquist limit, the reported velocity is the true velocity.\n    # If it exceeds, aliasing occurs: V_reported = V_true - N * (2 * V_nyquist), where N is integer to bring it back.\n    # Specifically, V_reported = V_true modulo (2 * V_nyquist), centered around 0.\n    # The unambiguous range is +/- V_nyquist. The folding interval is 2 * V_nyquist.\n    # Let V_fold = 2 * V_nyquist.\n    # V_reported = ((velocity_m_s + V_nyquist) % (2 * V_nyquist)) - V_nyquist\n    \n    V_fold = 2.0 * V_nyquist\n    \n    # Apply the folding formula to handle aliasing correctly\n    # Shift by V_nyquist to make it positive modulo arithmetic\n    shifted = velocity_m_s + V_nyquist\n    # Modulo operation\n    wrapped = shifted % V_fold\n    # Shift back\n    V_reported = wrapped - V_nyquist\n    \n    return {\n        \"1\": {\"value\": V_reported, \"unit\": \"m s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_lognormal_mass_08_outside",
+   "auto_judgement": 0,
+   "code": "t shifted.\n    # Let's calculate the exact mass concentration to be safe, then determine regime.\n    # Regime = 1 if sigma_g <= 1.5 (common threshold), else 0.\n    regime = 0 if sigma_g > 1.5 else 1\n\n    # Step 2: Calculate the exact mass concentration.\n    # The number size distribution is n(D) = (N_total / (D_g * sqrt(2pi) ln sigma_g)) * exp(...)\n    # Actually, for a lognormal distribution of diameters:\n    # The total number is N_total.\n    # We need the mass concentration: M = integral (rho * (pi/6) * D^3 * n(D) dD)\n    # Since n(D) is lognormal, D^3 * n(D) is also a lognormal-like integral.\n    # If D is lognormally distributed with median D_g and geometric sigma sigma_g:\n    # Let x = ln(D). x is normal with mean mu = ln(D_g) and std dev sigma_ln = ln(sigma_g).\n    # We need E[D^3] = exp(3*mu + 0.5 * 9 * sigma_ln^2) ?\n    # Wait, for a lognormal variable Y = exp(X) where X ~ N(mu, s^2):\n    # E[Y^k] = exp(k*mu + 0.5 * k^2 * s^2).\n    # Here Y = D. We need the average of D^3 weighted by the number distribution.\n    # The mean of D^3 over the number distribution is E[D^3] = D_g^3 * exp( 3 * ln(sigma_g) + ... wait.\n    # Let's derive carefully.\n    # D is lognormal. ln(D) ~ N(ln(D_g), (ln(sigma_g))^2).\n    # Let mu_ln = ln(D_g), sigma_ln = ln(sigma_g).\n    # E[D^3] = Integral D^3 * p(D) dD.\n    # Using the moment generating property of lognormal:\n    # E[D^k] = exp( k * mu_ln + 0.5 * k^2 * sigma_ln^2 ) * exp( - ... )? No.\n    # If D = exp(X), X ~ N(mu, s^2).\n    # E[D^k] = E[exp(kX)] = exp( k*mu + 0.5 * k^2 * s^2 ).\n    # Here mu = ln(D_g), s = ln(sigma_g).\n    # So E[D^3] = exp( 3 * ln(D_g) + 0.5 * 9 * (ln(sigma_g))^2 )\n    #           = D_g^3 * exp( 4.5 * (ln(sigma_g))^2 ).\n    \n    # Calculate E[D^3] in consistent units.\n    # D_g is in μm. We need to convert to cm for density consistency (rho is in g/cm^3).\n    # 1 μm = 1e-4 cm.\n    # D_g_cm = D_g * 1e-4\n    \n    D_g_cm = D_g * 1e-4 # cm\n    \n    # Calculate the mean of D^3 in cm^3\n    # factor = exp( 4.5 * (ln(sigma_g))^2 )\n    ln_sigma = math.log(sigma_g)\n    factor_D3 = math.exp(4.5 * ln_sigma * ln_sigma)\n    \n    # Mean cubic diameter in cm\n    # <D^3> = D_g_cm^3 * factor_D3\n    D3_mean_cm = (D_g_cm ** 3) * factor_D3\n    \n    # Mass concentration calculation:\n    # Mass Conc = N_total * rho * (pi/6) * <D^3>\n    # N_total is in cm^-3. rho in g/cm^3. Result in g/cm^3.\n    # Volume factor per particle = pi/6 * D^3\n    # Mass per particle avg = rho * pi/6 * <D^3>\n    # Total Mass Conc (g/cm^3) = N_total * rho * (math.pi / 6) * D3_mean_cm\n    \n    mass_conc_g_cm3 = N_total * rho * (math.pi / 6.0) * D3_mean_cm\n    \n    # Convert to μg m^-3\n    # 1 g/cm^3 = 1e6 mg/cm^3 = 1e9 μg/cm^3.\n    # Wait: 1 g = 1e6 μg.\n    # 1 cm^3 = 1e-6 m^3.\n    # So 1 g/cm^3 = (1e6 μg) / (1e-6 m^3) = 1e12 μg/m^3.\n    # mass_conc_ug_m3 = mass_conc_g_cm3 * 1e12\n    \n    mass_conc_ug_m3 = mass_conc_g_cm3 * 1e12\n    \n    return {\n        \"1\": {\"value\": mass_conc_ug_m3, \"unit\": \"μg m^-3\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_isotope_mixing_weighting_11_outside",
+   "auto_judgement": 0,
+   "code": "def solve(C1=0.26, delta1=-22, C2=3.6, delta2=-10.3, delta_mix=-12.7):\n    # 1. Calculate fraction of DIC mass from Stream 1 (f_M)\n    # Isotope mixing equation: delta_mix + 1000 = f_M * (delta1 + 1000) + (1-f_M) * (delta2 + 1000)\n    # Rearranging for f_M:\n    # f_M = (delta_mix - delta2) / (delta1 - delta2)\n    \n    f_M = (delta_mix - delta2) / (delta1 - delta2)\n    \n    # 2. Calculate mass ratio R_M = M1 / M2\n    # R_M = f_M / (1 - f_M)\n    R_M = f_M / (1 - f_M)\n    \n    # 3. Calculate discharge fraction f_1\n    # Relationship: R_M = (Q1 * C1) / (Q2 * C2) = (f1 / f2) * (C1 / C2)\n    # Therefore: f1 / f2 = R_M * (C2 / C1)\n    # Let K = R_M * (C2 / C1)\n    # f1 = K / (1 + K)\n    \n    K = R_M * (C2 / C1)\n    f_1 = K / (1 + K)\n    \n    # 4. Determine Regime\n    # Textbook validity usually assumes C1 approx C2. \n    # If C1 and C2 differ significantly, the assumption that f1 = f_M fails.\n    # Threshold often cited is < 10% difference in concentration or resulting error < 5%.\n    # Relative difference in C: |C1 - C2| / ((C1+C2)/2)\n    rel_diff_C = abs(C1 - C2) / ((C1 + C2) / 2)\n    \n    # If relative difference > ~0.2 (20%), textbook assumption is likely invalid.\n    # Standard rule of thumb: if concentrations differ by more than ~10-20%, correction needed.\n    # Let's define valid if rel_diff_C < 0.2 (20%)\n    regime = 1 if rel_diff_C < 0.2 else 0\n    \n    return {\n        \"1\": {\"value\": f_1, \"unit\": \"\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_hydrostatic_constant_density_19_outside",
+   "auto_judgement": 0,
+   "code": "ok treatment.\n    # Standard textbook often assumes constant temperature (Isothermal) over the layer for simplicity, \n    # or uses the lapse rate dT/dz = -g/Cp.\n    # Given \"mean temperature\", it implies we might treat T as constant = T_mean.\n    # Let's check the condition: The standard isothermal approximation is valid if the temperature variation is small.\n    # But here T is given as a mean. Let's calculate the pressure drop using the isothermal assumption first.\n    # P = P0 * exp( - (g M h) / (R T) ) ? No, using R_d directly: dP/P = - (Mg/RT) dz -> dP/P = - (g/R_d T) dz (since R_specific = R/M).\n    # Wait, R_d is already specific gas constant. So dP/P = - (g / (R_d T)) dz.\n    # If T is constant (isothermal), P = P0 * exp( - g h / (R_d T) ).\n    \n    # Let's calculate the pressure at height h using the isothermal assumption (Standard Textbook):\n    # P_iso = P_surface * exp( - g * h / (R_d * T_mean_K) )\n    # Pressure decrease = P_surface - P_iso\n    \n    # Let's also consider the more rigorous polytropic or linear lapse rate if needed, but the prompt asks for regime based on validity.\n    # Standard textbook validity: Usually h << H_scale or T variation is small.\n    # Scale height H = R*T/g. With T~295K, H = 287*295/9.81 ≈ 8570 m.\n    # h = 4900 m. h/H ≈ 0.57. This is borderline.\n    # However, the specific condition often cited is h < 1000m or similar for constant T.\n    # Let's define the regime based on whether the temperature lapse rate effect is negligible.\n    # Standard lapse rate is ~9.8 K/km. Over 4.9 km, delta T = 48 K.\n    # T changes from 295 to ~247 K. That's significant.\n    # So the standard isothermal assumption (using just mean T) might be invalid (Regime = 0).\n    # But let's stick to the calculation requested: \"By how much does the pressure decrease\".\n    # If we use the mean temperature as a constant T (Isothermal), we get one answer.\n    # If we integrate with a lapse rate, we get another.\n    # The problem statement says \"mean temperature ... is 22 C\". It implies we should use this value.\n    # Let's use the isothermal assumption with T = T_mean (Standard approach).\n    # Then determine regime: Valid if h <= 1000m? Or if delta_T/T < 0.1?\n    # Delta T over 4.9km with standard lapse rate: 4.9 * 9.8 = 48K. T_mean = 295K. 48/295 ~ 0.16.\n    # So it falls outside. Regime = 0.\n    \n    # Calculation using Isothermal assumption (Standard Textbook approach):\n    # exponent = - g * h_m / (R_d * T_mean_K)\n    exponent = - g * h_m / (R_d * T_mean_K)\n    P_iso_factor = math.exp(exponent)\n    P_iso_hpa = P_surface_hpa * P_iso_factor\n    \n    # Pressure decrease\n    delta_P_hpa = P_surface_hpa - P_iso_hpa\n    \n    # Determine Regime\n    # Standard textbook usually assumes constant T or neglects lapse rate.\n    # Validity range typically h < 1000 m or where T variation < 5%.\n    # Here h=4900m. Definitely outside.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": delta_P_hpa, \"unit\": \"hPa\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_cunningham_slip_11_outside",
+   "auto_judgement": 0,
+   "code": "dius, not diameter)\n    # Note: Some definitions use mean free path over radius, others over diameter.\n    # Standard definition in aerosol science: Kn = lambda / r (where r is particle radius)\n    # Let's calculate Kn based on radius r_m.\n    Kn = lam_m / r_m\n    \n    # The standard Stokes' Law applies when Kn << 1 (continuum regime).\n    # Typically the cutoff is Kn < 0.1 or similar.\n    # Here we need to check if standard textbook (Stokes' law without slip correction) is valid.\n    # Standard textbook usually assumes continuum flow, Kn < 0.1 or 0.2.\n    # Let's define the threshold. Usually, for standard Stokes law, Kn <= 0.1 is safe.\n    # Let's compute the regime flag based on Kn.\n    # If Kn <= 0.1, regime = 1, else regime = 0.\n    regime = 0\n    if Kn <= 0.1:\n        regime = 1\n        \n    # 3. Calculate the Cunningham slip correction factor C_c\n    # Empirical formula often used: C_c = 1 + Kn * (A + B * exp(-C/Kn)) ... various forms.\n    # A common approximation for aerosols: C_c = 1 + Kn * (1.25 + 0.40 * exp(-1.1/Kn))\n    # Or simpler: C_c = 1 + Kn * (A + B*Kn) ?\n    # Let's use the Fuchs approximation which is standard in atmospheric science:\n    # C_c = 1 + Kn * (1.25 + 0.40 * exp(-1.1 / Kn))\n    # Wait, the argument of exp is often C/Kn. Let's use the standard Fuchs formula:\n    # C_c = 1 + Kn * (A + B * exp(-C/Kn)) where A=1.25, B=0.40, C=1.1\n    # Actually, a very common form is: C_c = 1 + Kn*(1.25 + 0.4*exp(-11/Kn)) ? No.\n    # Let's stick to the widely accepted Fuchs expression:\n    # C_c = 1 + Kn * (1.25 + 0.40 * exp(-1.1 / Kn))\n    # Let's verify the exponent term. Often it is exp(-1.1/Kn).\n    # Let's use: C_c = 1 + Kn * (1.25 + 0.40 * math.exp(-1.1 / Kn))\n    C_c = 1 + Kn * (1.25 + 0.40 * math.exp(-1.1 / Kn))\n    \n    # 4. Calculate Terminal Velocity\n    # Force balance: Gravity - Buoyancy - Drag = 0\n    # Neglect air density (buoyancy ~ 0 as per instructions).\n    # F_g = (4/3) * pi * r^3 * rho * g\n    # Drag force F_d = 6 * pi * mu * r * v / C_c ?\n    # Wait, Stokes law with slip correction: F_d = 6 * pi * mu * r * v / C_c.\n    # Actually, the drag coefficient is reduced by slip, so effective viscosity is lower, or force is lower.\n    # The drag force is F_d = 6 * pi * mu * r * v * (1/C_c)? No.\n    # The correction factor C_c multiplies the mobility. v = (2/9) * (r^2 g rho / mu) * C_c.\n    # Let's derive:\n    # Stokes: v = (2/9) * (r^2 g (rho_p - rho_f) / mu).\n    # With slip correction, v = C_c * (Stokes velocity).\n    # So v = C_c * (2/9) * (r^2 * g * rho / mu).\n    \n    # Calculate Stokes velocity (without slip correction) first in m/s\n    # v_stokes = (2.0 / 9.0) * (r_m**2) * g_val * rho / mu\n    v_stokes_m_s = (2.0 / 9.0) * (r_m**2) * g_val * rho / mu\n    \n    # Apply slip correction\n    v_m_s = C_c * v_stokes_m_s\n    \n    # 5. Convert result to requested units: μm s^-1\n    # 1 m/s = 1e6 μm/s\n    v_umin_s = v_m_s * 1e6\n    \n    return {\n        \"1\": {\"value\": v_umin_s, \"unit\": \"μm s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_shallow_water_wave_speed_12_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(lambda_m=86, h_m=18, g=9.81):\n    # Calculate wavenumber k\n    k = (2 * math.pi) / lambda_m\n    \n    # Calculate kh\n    kh = k * h_m\n    \n    # Calculate angular frequency omega using dispersion relation\n    # omega^2 = g * k * tanh(kh)\n    omega = math.sqrt(g * k * math.tanh(kh))\n    \n    # Calculate period T\n    T = (2 * math.pi) / omega\n    \n    # Determine regime\n    # Shallow water approx valid if h < lambda/20 -> h/lambda < 0.05\n    # Deep water approx valid if h > lambda/2 -> h/lambda > 0.5\n    # Here h/lambda = 18/86 = 0.209, which is intermediate.\n    # Thus simplified textbook approximations are not valid.\n    regime = 0\n    \n    return {\n        \"1\": {\"value\": T, \"unit\": \"s\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_planck_linearization_15_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(\n    T_initial=281.0,      # Initial emission temperature in K\n    delta_flux=220.0,    # Increase in absorbed stellar flux in W m^-2\n    sigma=5.67e-8        # Stefan-Boltzmann constant in W m^-2 K^-4\n):\n    \"\"\"\n    Solves the atmospheric science problem for the change in emission temperature.\n    \n    Parameters:\n    - T_initial: Initial emission temperature (K)\n    - delta_flux: Increase in absorbed flux (W m^-2)\n    - sigma: Stefan-Boltzmann constant (W m^-2 K^-4)\n    \n    Returns:\n    - Dictionary with the change in temperature and a 'regime' indicator.\n    \"\"\"\n    \n    # Step 1: Determine the initial equilibrium condition.\n    # The planet radiates as a black body: F = sigma * T^4\n    # Initial flux F_initial = sigma * T_initial^4\n    \n    # Step 2: Calculate the new flux.\n    # The absorbed stellar flux increases by delta_flux.\n    # F_new = F_initial + delta_flux\n    \n    # Let's verify F_initial explicitly:\n    F_initial = sigma * (T_initial ** 4)\n    \n    # Step 3: Calculate the new temperature T_new.\n    # F_new = sigma * T_new^4\n    # T_new = (F_new / sigma)^(1/4)\n    F_new = F_initial + delta_flux\n    T_new = (F_new / sigma) ** 0.25\n    \n    # Step 4: Calculate the increase in emission temperature.\n    delta_T = T_new - T_initial\n    \n    # Step 5: Determine the 'regime'.\n    # The standard textbook treatment usually assumes a small perturbation or ignores the T^4 non-linearity,\n    # often approximating delta_F = 4 * sigma * T^3 * delta_T (linearization).\n    # Or simply delta_T = delta_F / (4 * sigma * T^3).\n    # Let's check the validity condition.\n    # The linear approximation holds if delta_T << T_initial, or more specifically if the change in flux is small relative to the total.\n    # Usually, the textbook approximation is valid if delta_flux / F_initial is small.\n    # Let's calculate the ratio:\n    ratio = delta_flux / F_initial\n    \n    # A common threshold for linearization validity is often around 10% or less.\n    # Let's use 0.1 (10%) as a standard cutoff for \"textbook validity\" in this context.\n    # If ratio <= 0.1, regime = 1, else regime = 0.\n    if ratio <= 0.1:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": delta_T, \"unit\": \"K\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_fresnel_reflectance_grazing_05_outside",
+   "auto_judgement": 0,
+   "code": "assuming no absorption at interface, just reflection)\n    # However, strictly T = 1 - R is valid for power flux if we consider the projected area correctly,\n    # but for direct beam power *incident on the surface area*, the fraction entering is indeed 1-R_avg\n    # because the energy balance at the interface for the beam normal to the interface isn't quite T=1-R due to angle changes.\n    # Wait, the question asks: \"What fraction of the direct-beam solar power reaching the sea surface passes into the water?\"\n    # This refers to the power incident on the surface area. The power transmitted is T_incident = (1-R) * (cos(theta_i)/cos(theta_t))? \n    # No, usually \"fraction of power reaching the surface\" implies the incident flux integrated over the surface area.\n    # The Fresnel equations give the ratio of reflected intensity to incident intensity for the specific beam.\n    # The transmittance coefficient T (ratio of transmitted power flux to incident power flux) for a specific ray is:\n    # T = 1 - R. (This is true for the ratio of Poynting vector magnitudes normal to the interface? No.)\n    # Let's derive carefully.\n    # Incident Power P_i = I_i * A * cos(theta_i) (if A is surface area and I_i is irradiance perpendicular to beam).\n    # Actually, \"power reaching the sea surface\" usually means the flux incident on the horizontal surface.\n    # Let I_0 be the solar constant perpendicular to rays. The power per unit area of surface is I_0 * cos(theta_i).\n    # The reflected power per unit area is R_avg * (I_0 * cos(theta_i)).\n    # The transmitted power per unit area is (1 - R_avg) * (I_0 * cos(theta_i)).\n    # So the fraction is simply 1 - R_avg.\n    # Let's verify: Energy conservation. R + T = 1. Yes, for the power incident on the interface.\n    \n    T_fraction = 1.0 - R_avg\n    \n    # Step 4: Determine the 'regime'.\n    # Standard textbook treatment usually assumes normal incidence or small angles where R is approximated, \n    # or specifically ignores the angle dependence and uses just n.\n    # However, a specific regime often cited is when the angle of incidence is small enough that Fresnel approximations hold, \n    # or specifically when the sun is high. Here sun is 12.4 degrees.\n    # The standard approximation often assumes R is constant or uses normal incidence R = ((n-1)/(n+1))^2.\n    # The validity range for \"standard textbook\" (ignoring angle, assuming normal incidence) is typically theta_i < ~30 degrees?\n    # Or specifically, the problem likely refers to the approximation where R is calculated at normal incidence.\n    # Let's check the angle of incidence: theta_i = 90 - 12.4 = 77.6 degrees.\n    # This is a grazing incidence. The standard textbook (normal incidence) is definitely NOT valid.\n    # Threshold is often considered around 30-45 degrees from normal (i.e. elevation > 45). Here elevation is 12.4.\n    # So regime = 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": T_fraction, \"unit\": \"\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_pseudo_first_order_14_outside",
+   "auto_judgement": 0,
+   "code": "t's just plug into the formula:\n    # t = (1 / (k (B0 - A0))) * ln( ( (B0 - x) A0 ) / ( (A0 - x) B0 ) )\n    # Wait, rearranging:\n    # k t = (1/(B0-A0)) ln( ( (B0-x)/ (A0-x) ) * ( A0 / B0 ) )\n    # k t = (1/(B0-A0)) ln( (B0 - A0/2) / (A0/2) * (A0/B0) )\n    # Inside ln:\n    # Term = ( (B0 - A0/2) / (A0/2) ) * ( A0 / B0 )\n    # = ( (2B0 - A0) / A0 ) * ( A0 / (2 B0) )  [since A0/2 in denom]\n    # = (2B0 - A0) / (2 B0)\n    # = 1 - A0/(2B0).\n    # So t = (1 / (k (B0 - A0))) * ln( 1 - A0/(2B0) ) ?\n    # Wait, B0 - A0 is positive. The argument of ln must be > 1 for positive t?\n    # Let's check: (B0-x)/(A0-x) is ratio of remaining O3 to remaining NO.\n    # Initially B0/A0 > 1. At end, (B0-A0/2)/(A0/2).\n    # If B0 > A0, then B0-A0/2 > A0/2. Ratio > 1.\n    # Multiplied by A0/B0 (<1).\n    # Let's re-calculate carefully.\n    # Ratio = (B0 - A0/2) / (A0/2) * (A0/B0)\n    # = ( (2B0 - A0)/A0 ) * ( A0 / (2 B0) )  <-- (A0/2) is denominator, so multiply by 2/A0\n    # = (2B0 - A0) / (2 B0)\n    # = 1 - A0/(2B0).\n    # Since A0 < 2B0 (42 < 120), this is positive.\n    # Is it > 1? 1 - positive < 1. So ln is negative.\n    # But B0 - A0 is positive. So t would be negative.\n    # Ah, the partial fraction sign.\n    # ∫ dx / ((A0-x)(B0-x)). Let u = A0-x. du = -dx.\n    # Standard result: 1/(B0-A0) ln( (A0-x)B0 / (B0-x)A0 ) ?\n    # Let's use the explicit form:\n    # k t = (1/(A0 - B0)) ln( (A/A0) * (B0/B) ).\n    # Here A0 = NO, B0 = O3. A0 < B0. So A0 - B0 is negative.\n    # We want positive t.\n    # Let's use magnitude: k t = (1/(B0 - A0)) ln( (B0/B) * (A/A0) ).\n    # At target: A = A0/2. B = B0 - A0/2.\n    # Arg = (B0 / (B0 - A0/2)) * ( (A0/2) / A0 )\n    # = (B0 / (B0 - A0/2)) * (1/2)\n    # = B0 / (2(B0 - A0/2)) = B0 / (2B0 - A0).\n    # Since 2B0 - A0 < 2B0, ratio > 0.5.\n    # Is it > 1? B0 / (2B0 - A0). Denom = 2B0 - 42. Num = 60.\n    # 60 / (120-42) = 60/78 < 1.\n    # So ln is negative. Still issue.\n    # Correct formula: k t = (1/(B0-A0)) ln( (A0 (B0-x)) / (B0 (A0-x)) ).\n    # Check t=0: ln(1)=0.\n    # Target: A0-x = A0/2. B0-x = B0 - A0/2.\n    # Arg = (A0 (B0 - A0/2)) / (B0 (A0/2)) = (A0/B0) * (B0 - A0/2)/(A0/2)\n    # = (A0/B0) * ( (2B0 - A0)/A0 ) * 2 ? No.\n    # (B0 - A0/2) / (A0/2) = (2B0 - A0)/A0.\n    # So Arg = (A0/B0) * (2B0 - A0)/A0 = (2B0 - A0)/B0 = 2 - A0/B0.\n    # A0/B0 = 42/60 = 0.7.\n    # Arg = 2 - 0.7 = 1.3. > 1. Good.\n    # So k t = (1/(B0 - A0)) ln( 2 - A0/B0 ).\n    # t = ln( 2 - A0/B0 ) / ( k (B0 - A0) ).\n    \n    # Calculate concentrations\n    A0 = NO_initial\n    B0 = O3_initial\n    \n    # Check regime: Standard textbook assumes [O3] >> [NO], so [O3] is constant (pseudo-first order).\n    # Condition: B0 >> A0. Usually B0/A0 > 10 or similar. Here 60/42 = 1.43. Not valid.\n    # Regime = 0.\n    regime = 0 \n    \n    # Calculate t\n    # Argument of ln\n    arg = 2.0 - (A0 / B0)\n    numerator = math.log(arg)\n    denominator = k * (B0 - A0)\n    t = numerator / denominator\n    \n    return {\n        \"1\": {\"value\": t, \"unit\": \"s\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_effective_henry_05_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(r_ppb=2, pH=4.5, H_cp=3.6e3, P_atm=1.0):\n    \"\"\"\n    Calculates total dissolved formic acid concentration in fog water.\n    \n    Parameters:\n    r_ppb (float): Mixing ratio of formic acid in ppb\n    pH (float): pH of fog water\n    H_cp (float): Henry's law constant in M/atm\n    P_atm (float): Total atmospheric pressure in atm\n    \n    Returns:\n    dict: {'1': {'value': float, 'unit': 'μmol/L'}, 'regime': int}\n    \"\"\"\n    # Constants\n    # Ka for formic acid at 25 C is approx 1.8e-4\n    Ka = 1.8e-4\n    \n    # 1. Calculate Partial Pressure of Formic Acid\n    # 1 ppb by volume = 1 part per 10^9 parts by volume = mole fraction / 10^9\n    # p_HCOOH = (r_ppb / 1e9) * P_atm\n    p_HCOOH = (r_ppb / 1e9) * P_atm  # atm\n    \n    # 2. Calculate Concentration of Undissociated HCOOH using Henry's Law\n    # [HCOOH]_aq = H_cp * p_HCOOH  (Result in mol/L)\n    HCOOH_aq = H_cp * p_HCOOH\n    \n    # 3. Calculate Hydrogen Ion Concentration from pH\n    # [H+] = 10^(-pH) mol/L\n    H_plus = 10 ** (-pH)\n    \n    # 4. Calculate Total Concentration including Dissociation\n    # Total = [HCOOH] + [HCOO-]\n    # [HCOO-] = [HCOOH] * (Ka / [H+])\n    # Total = [HCOOH] * (1 + Ka / [H+])\n    \n    factor = 1 + (Ka / H_plus)\n    C_total_M = HCOOH_aq * factor\n    \n    # 5. Convert to μmol/L\n    # 1 mol = 1,000,000 μmol\n    C_total_uM = C_total_M * 1e6\n    \n    # 6. Determine Regime\n    # Standard treatment assumes negligible dissociation.\n    # If fraction dissociated < ~5%, regime = 1.\n    # Fraction dissociated = (Ka / H_plus) / (1 + Ka / H_plus)\n    frac_diss = (Ka / H_plus) / factor\n    \n    # If fraction dissociated < 0.05 (5%), standard treatment is valid\n    if frac_diss < 0.05:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": C_total_uM, \"unit\": \"μmol/L\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_lognormal_mass_03_outside",
+   "auto_judgement": 0,
+   "code": "d to the number median diameter in a specific way, or that the distribution \n    # is narrow enough such that moments can be approximated. \n    # Specifically, the standard approximation often cited is valid if sigma_g <= 1.5 or so,\n    # or if the distribution is narrow enough that the mean diameter approximates the median.\n    # A common criterion for the validity of simple approximations in aerosol science regarding \n    # the relationship between number and mass distributions involves sigma_g.\n    # Often, sigma_g < 1.5 or 1.6 is considered the boundary. Here sigma_g = 1.9.\n    # Let's define the boundary as sigma_g <= 1.5.\n    # With sigma_g = 1.9, it falls outside. So regime = 0.\n    regime = 0 \n    \n    # Step 2: Calculate the mass concentration.\n    # The number size distribution is lognormal: n(D) = (1 / (D ln sigma_g sqrt(2pi))) * exp(...)\n    # We need the total mass concentration:\n    # Mass Conc = Integral (n(D) * (Volume(D)) * rho) dD\n    # Volume of sphere = (pi/6) * D^3 (where D is diameter in cm).\n    # Note: D in the distribution is usually diameter.\n    # The k-th moment of a lognormal distribution with median D_g and sigma_g is:\n    # M_k = N_total * <D^k> where <D^k> is the k-th moment of the diameter distribution.\n    # For a lognormal distribution of diameter D:\n    # The mean of D^k is D_g^k * exp( k * ln(sigma_g)^2 / 2 ) ? Let's derive carefully.\n    # If ln(D) is normal with mean mu = ln(D_g) and variance v = ln(sigma_g)^2.\n    # Then E[D^k] = E[exp(k * ln D)] = exp( k * mu + 0.5 * k^2 * v )\n    # = exp( k * ln(D_g) + 0.5 * k^2 * (ln(sigma_g))^2 )\n    # = D_g^k * exp( 0.5 * k^2 * (ln(sigma_g))^2 )\n    \n    # Here we need the 3rd moment of diameter (for volume ~ D^3).\n    # k = 3.\n    # factor = exp( 0.5 * 3^2 * (ln(sigma_g))^2 ) = exp( 4.5 * (ln(sigma_g))^2 )\n    \n    ln_sigma = math.log(sigma_g)\n    factor_moment3 = math.exp(4.5 * ln_sigma * ln_sigma)\n    \n    # Mean of D^3 (in consistent units)\n    # D_g is in μm. We need to convert to cm for density calculation consistency, \n    # or convert density. Let's convert D_g to cm.\n    # D_g_cm = D_g (um) * 1e-4 cm/um ? No, 1 um = 1e-4 cm. Yes.\n    D_g_cm = D_g * 1e-4\n    \n    # <D^3> in cm^3\n    # <D^3> = D_g_cm^3 * factor_moment3\n    mean_D3 = (D_g_cm ** 3) * factor_moment3\n    \n    # Total number concentration N_total is given in cm^-3.\n    # Total Mass Concentration (in g/cm^3) = N_total * rho * (pi/6) * <D^3>\n    # Volume factor V_mean = (pi/6) * mean_D3\n    # Mass Conc (g/cm^3) = N_total * rho * (math.pi / 6.0) * mean_D3\n    \n    mass_conc_g_cm3 = N_total * rho * (math.pi / 6.0) * mean_D3\n    \n    # Convert to μg m^-3.\n    # 1 g/cm^3 = 1e6 mg/L ? Let's do step by step.\n    # 1 g = 1e6 μg\n    # 1 cm^3 = 1e-6 m^3\n    # So 1 g/cm^3 = (1e6 μg) / (1e-6 m^3) = 1e12 μg/m^3.\n    # mass_conc_ug_m3 = mass_conc_g_cm3 * 1e12\n    \n    mass_conc_ug_m3 = mass_conc_g_cm3 * 1e12\n    \n    return {\n        \"1\": {\"value\": mass_conc_ug_m3, \"unit\": \"μg m^-3\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_cooper_jacob_early_time_07_outside",
+   "auto_judgement": 0,
+   "code": " S) / (4 * T * t_days)\n    \n    # 3. Determine Regime\n    # Valid if u < 0.01 (standard threshold for Cooper-Jacob)\n    regime = 1 if u < 0.01 else 0\n    \n    # 4. Calculate Drawdown s\n    # If u is small, use Cooper-Jacob approximation: s = (Q / 4piT) * (ln(2.25 T t / r^2 S))\n    # Equivalent to (Q / 4piT) * (-ln(u) - gamma)\n    \n    # Gamma constant\n    gamma = 0.5772156649\n    \n    if u < 0.05: # Broadening threshold for calculation stability\n        # Approximation valid\n        # s = (Q / (4 * pi * T)) * (-ln(u) - gamma)\n        s = (Q / (4 * math.pi * T)) * (-math.log(u) - gamma)\n    else:\n        # If u is larger, we need exact W(u). \n        # Since standard library doesn't have expint, we approximate W(u) for u > 0.05 using asymptotic expansion or series.\n        # Asymptotic expansion for large u: W(u) ~ (e^-u)/u * (1 - 1/u + 2!/u^2 ...)\n        # But typically these problems stay in small u range. Let's assume calculation logic handles it.\n        # For safety in this specific context, we implement the series for small u and asymptotic for large u.\n        \n        # Series for small u: W(u) = -gamma - ln(u) + sum((-1)^n * u^n / (n * n!))\n        # Asymptotic for large u: W(u) = e^-u / u * (1 - 1/u + 2/u^2 - ...)\n        \n        if u < 1.0:\n            # Series expansion\n            # W(u) = -gamma - ln(u) + u - u^2/4 + u^3/18 ...\n            # Sum term k=1 to N: (-1)^(k-1) * u^k / (k * k!)\n            w_val = -gamma - math.log(u)\n            term = u\n            u_pow = u\n            for k in range(1, 20):\n                term = -term * u / ((k + 1) * (k + 1)) # Correction logic for series term generation\n                # Actually simpler loop:\n                # term_k = (-1)^(k-1) * u^k / (k * k!)\n                pass\n            \n            # Let's just use the approximation logic derived from standard physics for this specific problem type which usually yields valid regime.\n            # Recalculate W(u) properly for small u:\n            w_val = -gamma - math.log(u)\n            # Add series correction\n            # sum_{n=1}^{inf} (-1)^(n+1) * u^n / (n * n!)\n            # n=1: u/1\n            # n=2: -u^2/4\n            # n=3: u^3/18\n            \n            # Re-implement loop cleanly\n            series_sum = 0.0\n            u_pow = 1.0\n            for n in range(1, 50):\n                u_pow *= u\n                term = ((-1) ** (n + 1)) * u_pow / (n * math.factorial(n))\n                series_sum += term\n                if abs(term) < 1e-9:\n                    break\n            w_val += series_sum\n        else:\n            # Asymptotic expansion for u >= 1\n            # W(u) = (e^-u / u) * (1 - 1/u + 2/u^2 - 6/u^3 + ...)\n            # Factorial terms in numerator\n            # Approximation: e^-u / u * (1 - 1/u) usually sufficient\n            \n            w_val = (math.exp(-u) / u) * (1 - 1/u + 2/(u*u))\n            \n        s = (Q / (4 * math.pi * T)) * w_val\n        \n    return {\"1\": {\"value\": s, \"unit\": \"m\"}, \"regime\": regime}"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_cooper_jacob_early_time_03_outside",
+   "auto_judgement": 0,
+   "code": "  # W(u) = -gamma - ln(u) + sum_{n=1 to inf} ((-u)^n) / (n * n!)\n        # We sum until terms become negligible\n        W_u = -gamma - math.log(u)\n        term = u\n        n = 1\n        # Summation loop\n        # The term added is (-u)^n / (n * n!)\n        # Let's compute iteratively to avoid overflow/underflow issues\n        \n        # Re-evaluating series logic carefully:\n        # W(u) = -gamma - ln(u) + u/1! - u^2/(2*2!) + u^3/(3*3!) - ...\n        # General term a_n = (-1)^(n+1) * u^n / (n * n!) ? No, standard series is:\n        # E1(u) = -gamma - ln(u) - sum_{k=1}^\\infty (-u)^k / (k * k!)\n        # Wait, definition: W(u) = E1(u) = integral_u^inf (e^-t/t) dt\n        # Series: W(u) = -gamma - ln(u) + u - u^2/4 + u^3/18 - ...\n        # Formula: sum_{n=1}^\\infty ((-1)^(n+1) * u^n) / (n * n!)\n        \n        # Let's implement loop\n        current_term = u  # n=1 term: u / (1 * 1!)\n        W_u += current_term\n        \n        n = 2\n        while True:\n            # Calculate next term relative to previous\n            # term_n = term_{n-1} * (-u / n) * (1/n) ? \n            # Let's just compute directly to be safe\n            # term = (-u)^n / (n * n!)\n            \n            # Factorial calculation\n            # n! grows fast, but u is likely < 1 if not small? If u > 0.05, could be larger.\n            # Let's compute term explicitly\n            \n            # term_n = (-1)^n * u^n / (n * factorial(n))\n            # We can update term from prev: term_n = term_{n-1} * (-u/n) * (1/n) * n? No.\n            # term_n = term_{n-1} * (-u / n) * (1 / n) * n? \n            # Let's just compute factorial and power\n            \n            # Optimization: compute factorial iteratively\n            \n            # Actually simpler loop:\n            # term = 0\n            # for k in range(1, 20): ...\n            \n            # Let's do direct calculation for safety within loop limit\n            # u^n / (n * n!)\n            \n            # Compute factorial n!\n            # Since n is small for convergence\n            \n            # Let's restart loop logic cleanly\n            \n            # term_k = ((-1)**k) * (u**k) / (k * math.factorial(k))\n            \n            # Optimization: break if term < 1e-10\n            \n            # Compute factorial iteratively inside loop\n            # We need factorial(n)\n            \n            # Let's just use a fixed number of iterations if u is smallish, or break condition\n            \n            # Re-calculate term for n\n            # Using math.factorial is fine for small n\n            \n            term_val = ((-1)**n) * (u**n) / (n * math.factorial(n))\n            W_u += term_val\n            \n            if abs(term_val) < 1e-9:\n                break\n            n += 1\n            \n    # 5. Calculate Drawdown s\n    # s = (Q / (4 * pi * T)) * W(u)\n    # Q in m3/day, T in m2/day -> s in meters\n    \n    s = (Q / (4 * math.pi * T)) * W_u\n    \n    return {\n        \"1\": {\"value\": s, \"unit\": \"m\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_planck_linearization_09_outside",
+   "auto_judgement": 0,
+   "code": "rbed flux (W m^-2)\n    - sigma: Stefan-Boltzmann constant (W m^-2 K^-4)\n    \n    Returns:\n    - Dictionary with the temperature increase and a 'regime' indicator.\n    \"\"\"\n    \n    # Step 1: Determine the initial equilibrium condition.\n    # The planet radiates as a black body: Flux_out = sigma * T^4\n    # Initial state: sigma * T_initial^4 = F_absorbed_initial\n    # We don't need F_absorbed_initial explicitly if we relate the new state directly.\n    \n    # Step 2: Determine the new flux.\n    # F_absorbed_new = F_absorbed_initial + delta_flux\n    # Since F_absorbed_initial = sigma * T_initial^4\n    # F_absorbed_new = sigma * T_initial^4 + delta_flux\n    \n    # Step 3: Determine the new equilibrium temperature T_new.\n    # In the new equilibrium: sigma * T_new^4 = F_absorbed_new\n    # sigma * T_new^4 = sigma * T_initial^4 + delta_flux\n    # T_new^4 = T_initial^4 + delta_flux / sigma\n    # T_new = (T_initial^4 + delta_flux / sigma)^(1/4)\n    \n    # Calculate T_new\n    T_initial_pow4 = T_initial**4\n    term_add = delta_flux / sigma\n    T_new_pow4 = T_initial_pow4 + term_add\n    T_new = T_new_pow4 ** 0.25\n    \n    # Step 4: Calculate the increase in emission temperature.\n    # delta_T = T_new - T_initial\n    delta_T = T_new - T_initial\n    \n    # Step 5: Determine the 'regime'.\n    # The standard textbook treatment usually assumes the temperature change is small enough \n    # that we can linearize, or simply relates delta_F directly to T without solving the full 4th power.\n    # Specifically, the standard approximation often used is:\n    # delta_F = 4 * sigma * T^3 * delta_T  (Differentiating F = sigma T^4)\n    # This implies delta_T = delta_F / (4 * sigma * T^3).\n    # Let's check the validity. The linear approximation is valid if delta_T << T_initial.\n    # Or more formally, if the change in flux is small relative to the total flux.\n    # Let's compute the approximate delta_T_linear and compare, or just define the threshold.\n    # Usually, the textbook regime is when the change is small enough that T^4 is approximated linearly.\n    # A common rule of thumb for this specific problem context (often derived in climate science) \n    # is checking if the linearized result matches closely, or simply if delta_flux << sigma*T^4.\n    # Here, F_initial = sigma * 273^4.\n    # F_initial = 5.67e-8 * (273)^4 = 5.67e-8 * 5554400000 approx? Let's calculate.\n    # F_initial = 5.67e-8 * 273**4\n    # F_initial = 5.67e-8 * 5554400000 (roughly) -> ~315 W/m^2.\n    # delta_flux = 260.\n    # 260 is comparable to 315. So it's NOT a small perturbation. The regime should be 0.\n    # Let's calculate F_initial precisely to be sure.\n    F_initial = sigma * T_initial**4\n    # Ratio check: delta_flux / F_initial.\n    # If ratio is small (e.g., < 0.1), regime is 1. Here 260/315 ~ 0.8, so regime is 0.\n    if delta_flux <= 0.1 * F_initial:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": delta_T, \"unit\": \"K\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_box_ventilation_loss_16_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(L_km=200, P=4.6, tau=64, u_m_s=1.8):\n    # Constants and conversions\n    # L in meters\n    L_m = L_km * 1000.0\n    \n    # u in m/h\n    # 1 hour = 3600 seconds\n    u_m_h = u_m_s * 3600.0\n    \n    # Calculate C\n    # Denominator = u + L/tau\n    # L/tau has units m/h if tau is in hours\n    \n    denom = u_m_h + (L_m / tau)\n    \n    # Numerator = P * L\n    # P is ug/m3/h\n    \n    # C = (P * L) / denom\n    \n    C = (P * L_m) / denom\n    \n    # Regime determination\n    # Standard textbook treatment validity often assumes advection is negligible compared to chemical loss.\n    # Condition: u << L/tau  => u / (L/tau) << 1\n    \n    adv_rate = u_m_h / L_m  # 1/h\n    chem_rate = 1.0 / tau   # 1/h\n    \n    # Ratio of advective removal to chemical removal\n    # Actually the term in denominator is u + L/tau. \n    # If u << L/tau, then advection is negligible.\n    \n    ratio = u_m_h / (L_m / tau)\n    \n    # If ratio < 0.1 (or similar threshold), standard treatment valid. \n    # Usually standard treatment ignores transport entirely.\n    \n    if ratio < 0.1:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": C, \"unit\": \"ug/m^3\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_line_broadening_02_outside",
+   "auto_judgement": 0,
+   "code": "_L / gamma_D\n    \n    if ratio > 2:\n        # Pressure dominated\n        gamma_total = gamma_L\n        regime = 1\n    elif ratio < 0.5:\n        # Doppler dominated\n        gamma_total = gamma_D\n        regime = 0\n    else:\n        # Voigt approximation needed. \n        # Approximation: gamma_V ~ gamma_L + gamma_D ? No.\n        # Use simple approximation for HWHM of Voigt:\n        # gamma_V approx gamma_L + 0.5 * gamma_D ? \n        # Better: Use standard approximation formula for Voigt width.\n        # For this specific problem context, usually if not dominated, regime is 0.\n        # Let's estimate Voigt HWHM roughly as max(gamma_L, gamma_D) for simplicity or use iterative if needed.\n        # However, standard textbook validity is binary here.\n        # If comparable, regime is likely 0 because simple scaling fails.\n        # Let's assume regime 0 if not clearly Lorentzian dominated.\n        gamma_total = gamma_L # Placeholder, actually need Voigt calc\n        # Using simple arithmetic mean for rough estimate if needed, but let's stick to logic:\n        # If not dominated, regime = 0.\n        # For calculation, if comparable, Voigt HWHM is roughly sqrt(gamma_L^2 + gamma_D^2)/2? No.\n        # Let's assume regime 0 and calculate Voigt properly if needed. \n        # Actually, standard rule: if gamma_L < gamma_D, regime=0.\n        regime = 0\n        \n        # Calculate Voigt HWHM roughly:\n        # x = gamma_L / gamma_D\n        # Voigt HWHM approx = gamma_L + 0.5 * gamma_D * (something)\n        # Let's just use max for now as it's the closest single number without complex library.\n        # Actually, if regime is 0, the exact value matters less for the 'regime' flag but matters for the answer.\n        # Let's implement a simple Voigt width estimator.\n        \n        # Approximation: gamma_V = gamma_L + gamma_D * (0.5 if gamma_L < gamma_D else 0) ?\n        # Let's use the standard approximation: gamma_V = 0.5346 * gamma_L + sqrt(0.4383 * gamma_L^2 + gamma_D^2) ? No that's FWHM.\n        # Let's assume the question expects the dominant one or exact Voigt. \n        # Given the low pressure (0.29 hPa), Doppler is likely dominant.\n        pass\n\n    # Re-evaluating regime logic:\n    # Textbook treatment usually assumes pressure broadening dominates or is the sole contributor.\n    # Valid if gamma_L >> gamma_D.\n    \n    # Final calculation logic\n    if ratio > 2:\n        gamma_total = gamma_L\n    elif ratio < 0.5:\n        gamma_total = gamma_D\n    else:\n        # Voigt approximation for HWHM\n        # Using simple weighted sum or standard approx\n        # gamma_V = gamma_L + gamma_D * 0.5 (very rough)\n        # Let's assume regime 0 and return max for safety or calculate Voigt.\n        # Python standard lib doesn't have Voigt function. \n        # Approximation: gamma_V = gamma_L + 0.5 * gamma_D if comparable.\n        gamma_total = gamma_L + 0.5 * gamma_D \n        regime = 0\n        \n    return {\"1\": {\"value\": gamma_total, \"unit\": \"MHz\"}, \"regime\": regime}"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_racemization_reversibility_02_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(k=3.1e-5, d_l=0.79):\n    \"\"\"\n    Calculates the time since death based on aspartic acid racemization.\n    \n    Parameters:\n    k (float): First-order rate constant in yr^-1.\n    d_l (float): Current D/L ratio of aspartic acid.\n    \n    Returns:\n    dict: {'1': {'value': float, 'unit': 'years'}, 'regime': int}\n    \"\"\"\n    # Calculate time t using exact first-order kinetics formula:\n    # t = (1/k) * ln(1 + D/L)\n    \n    # Compute natural log term\n    log_term = math.log(1 + d_l)\n    \n    # Compute time in years\n    t_years = log_term / k\n    \n    # Determine regime: \n    # Textbook approximation assumes D/L << 1 (linear regime). \n    # Generally valid if D/L < ~0.2. Here D/L = 0.79, so approximation is invalid.\n    regime = 0\n    \n    return {\n        \"1\": {\"value\": t_years, \"unit\": \"years\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_coriolis_neglect_03_outside",
+   "auto_judgement": 0,
+   "code": "n(ft_val / 2.0))\n    \n    # Determine regime:\n    # Standard textbook usually assumes steady state (Geostrophic balance), i.e., V reaches Vg quickly.\n    # Valid if ft >> 1 (many oscillations/damping to steady state) or specifically if ft is large enough such that sin term approaches 1?\n    # Actually, the transient solution approaches Vg when ft is large?\n    # V = 2 Vg sin(ft/2). The max value is 2 Vg? Wait.\n    # Let's recheck steady state.\n    # In steady state (du/dt=0, dv/dt=0), F_p = f v (if u=0? No, balance is F_p = f v for u, 0 = f u + ... wait).\n    # Geostrophic: F_p = f v (cross product). Vg = F_p / f.\n    # My transient solution: V = 2 Vg sin(ft/2).\n    # As t -> infinity, sin oscillates. This suggests oscillation around Vg?\n    # Wait, the standard solution for starting from rest in a constant PGF without friction leads to a circular trajectory in phase space, asymptotically approaching a circle of radius Vg centered at (Vg, 0)?\n    # Let's check limits.\n    # u = Vg sin(ft). v = Vg (1 - cos(ft)).\n    # u^2 + v^2 = Vg^2 (sin^2 + 1 - 2cos + cos^2) = Vg^2 (2 - 2cos) = 2 Vg^2 (1-cos).\n    # V = Vg sqrt(2(1-cos)).\n    # If ft is large, cos oscillates. The magnitude oscillates between 0 and 2Vg?\n    # Wait, standard theory says it approaches Geostrophic wind Vg.\n    # Let's re-verify the vector solution.\n    # dV/dt + f k x V = F_p.\n    # Solution is V(t) = Vg (1 - cos(ft)) i + Vg sin(ft) j ?\n    # Let's plug in.\n    # If V = Vg (sin(ft) i + (1-cos(ft)) j).\n    # u = Vg sin(ft). v = Vg (1-cos(ft)).\n    # du/dt = Vg f cos(ft).\n    # RHS: F_p - f v = Vg f - f Vg (1-cos) = Vg f - Vg f + Vg f cos = Vg f cos. Matches.\n    # dv/dt = Vg f sin(ft).\n    # RHS: f u = f Vg sin. Matches.\n    # So V magnitude = Vg sqrt( sin^2 + (1-cos)^2 ) = Vg sqrt( 2 - 2cos ) = Vg * 2 |sin(ft/2)|.\n    # So V oscillates between 0 and 2 Vg. It does NOT settle to Vg.\n    # Why? Because we neglected friction. Without friction, it overshoots and oscillates.\n    # With friction, it damps to Vg.\n    # The \"standard textbook\" usually implies the Geostrophic approximation V = Vg.\n    # This is valid if the timescale is long compared to the inertial period (1/f).\n    # Inertial period T = 2pi/f.\n    # Here t = 11h. Let's check ft.\n    # If ft is large, the average might be Vg? Or maybe the question asks if 11h >> T.\n    # Let's calculate T.\n    # f approx 1e-4. T approx 60000s ~ 16h.\n    # 11h is comparable to T. So regime = 0.\n    \n    # Calculate f explicitly to be sure\n    # f = 1.03e-4 at 45 deg.\n    # T = 2pi/f ~ 60s? No. 2pi / 1e-4 = 62831 s = 17.4 hours.\n    # 11 hours is less than 17.4 hours. So standard textbook (steady state) is NOT valid.\n    # Regime = 0.\n    \n    # Compute regime\n    # Inertial period T_inertial = 2 * pi / f (seconds)\n    # T_h = T_inertial / 3600\n    # Condition: time_h >> T_h? Usually factor of 5 or so.\n    # Here 11h vs 17h. Not valid.\n    regime = 0\n    \n    return {\n        \"1\": {\"value\": V, \"unit\": \"m s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_plume_ground_reflection_20_outside",
+   "auto_judgement": 1,
+   "code": "ition where x is large enough that sigma_z >> H, \n    # or specifically regarding the validity of neglecting the centerline height term if H is small compared to dispersion.\n    # However, a common criterion for the \"standard\" Gaussian plume (without considering image sources for ground reflection explicitly in the vertical term) \n    # often relates to H being negligible or the distance being large.\n    # Specifically, standard textbook often refers to the centerline concentration where y=0, z=H (as here).\n    # The specific condition often cited is x > 100m or similar for sigma_y, sigma_z validity, but more critically:\n    # Does the standard formula C = Q/(2Pi u sigma_y sigma_z) exp(...) hold?\n    # Here we used exactly that.\n    # The standard textbook usually assumes H << sigma_z (plume is effectively centered at ground or H is negligible for vertical spread).\n    # Here H = 54 m. Let's check sigma_z.\n    # sigma_z = 0.14 * 2100^0.85.\n    # Let's compute sigma_z value.\n    # sigma_z approx = 0.14 * (2100^0.85).\n    # 2100^0.85 is roughly 2100^(17/20).\n    # Let's just compute it.\n    # If sigma_z >> H, then the regime is 1.\n    # Let's check: sigma_z calculated above.\n    \n    # Check regime: Standard textbook often assumes H=0 or H is negligible relative to sigma_z.\n    # Let's calculate sigma_z explicitly to decide.\n    # sigma_z = 0.14 * 2100^0.85.\n    # 2100^0.85 = exp(0.85 * ln(2100)) = exp(0.85 * 7.649) = exp(6.50) ≈ 665.\n    # sigma_z ≈ 0.14 * 665 ≈ 93 m.\n    # H = 54 m. H is not negligible compared to sigma_z (54 vs 93).\n    # However, the \"standard textbook\" usually refers to the centerline at ground level (z=0) using reflection terms, \n    # OR the specific simplified form where H is ignored.\n    # Given H=54 and sigma_z ~ 93, H is significant.\n    # But the problem asks for concentration AT height H.\n    # The standard formula for centerline at stack height is indeed Q/(2Pi u sigma_y sigma_z).\n    # The condition for standard textbook validity is often x > 260m or similar for these power laws, \n    # or specifically H/sigma_z < 0.5 or similar.\n    # Let's define the regime based on H <= 0.5 * sigma_z? Or simply if H is small.\n    # Given the ambiguity, standard texts usually assume H=0 for ground level. Here we are at H.\n    # However, the most common \"regime\" check in these problems is whether x is large enough that the plume is fully developed and power laws hold, \n    # which they are defined for.\n    # Let's use the specific criterion: H <= sigma_z (often used to justify ignoring H in the exponent).\n    # Here H=54, sigma_z ~ 93. So H < sigma_z. This might be considered valid (Regime 1).\n    # Let's calculate sigma_z precisely to be sure.\n    sigma_z_val = 0.14 * (x ** 0.85)\n    \n    # Criterion: H <= sigma_z is generally where the vertical center is within the bulk of the plume.\n    # Here 54 <= 93. So Regime = 1.\n    regime = 1 \n    \n    return {\n        \"1\": {\"value\": C_ug, \"unit\": \"μg m^-3\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_spherical_slant_path_17_outside",
+   "auto_judgement": 0,
+   "code": "ay is theta.\n    # So the angle between OP (vector from O to P) and the ray (vector from Q to P) is 180 - theta.\n    # Wait, the angle inside the triangle at P is between vector PO (from P to O) and vector PQ (from P to Q).\n    # Vector PO is inward. Vector PQ is along the ray path backwards from P to Q.\n    # The ray direction is from Q to P. The angle with Outward Normal is theta.\n    # So angle between PQ (reverse ray) and Outward Normal is 180 - theta.\n    # Angle between PQ and Inward Normal (PO) is theta.\n    # So angle OPQ = theta.\n    # Using Law of Cosines on triangle OPQ:\n    # OQ^2 = OP^2 + PQ^2 - 2 * OP * PQ * cos(angle OPQ)\n    # (R+h)^2 = R^2 + L^2 - 2 * R * L * cos(theta)\n    # Let's verify the angle.\n    # Zenith angle theta is angle between Upward Radial and Ray.\n    # We are looking at triangle formed by Center O, Surface Point P, and Top-of-Layer Intersection Q.\n    # Vector OP is radius. Vector PQ is the path segment.\n    # Angle between OP and PQ?\n    # The ray arrives at P. The angle between the incoming ray and the Upward Normal is theta.\n    # So the angle between the ray vector (incoming) and OP (outward) is theta.\n    # The vector PQ points from P to Q (backwards along the path).\n    # So angle between PQ and OP (outward) is 180 - theta.\n    # Wait, we need angle inside triangle OPQ at vertex P.\n    # The sides are OP and PQ. The angle is between vector PO (inward) and PQ.\n    # Angle between Outward and Ray is theta.\n    # Angle between Inward (PO) and Ray is 180 - theta.\n    # Angle between Inward (PO) and Reverse Ray (PQ) is 180 - (180 - theta) = theta.\n    # Yes, angle OPQ = theta.\n    # Equation: (R+h)^2 = R^2 + L^2 - 2 R L cos(theta).\n    # This is a quadratic in L: L^2 - (2 R cos(theta)) L + (R^2 - (R+h)^2) = 0.\n    # L^2 - (2 R cos(theta)) L - ( (R+h)^2 - R^2 ) = 0.\n    # L^2 - (2 R cos(theta)) L - ( 2Rh + h^2 ) = 0.\n    # Solve for L:\n    # L = [ 2 R cos(theta) + sqrt( (2 R cos(theta))^2 + 4 * (2Rh + h^2) ) ] / 2\n    # L = R cos(theta) + sqrt( R^2 cos^2(theta) + 2Rh + h^2 )\n    \n    # Check regime: Standard textbook is plane parallel, L = h / cos(theta).\n    # Valid when h << R and theta is not too large such that curvature matters.\n    # Usually h/R << 1. Here h=12, R=6371. Ratio ~ 0.002.\n    # But theta is 88.7 deg, cos is small. Curvature becomes important.\n    # We calculate L using the exact formula.\n    \n    # Calculate terms\n    term1 = R_earth * math.cos(theta)\n    term2 = R_earth**2 * math.cos(theta)**2 + 2 * R_earth * h + h**2\n    \n    L = term1 + math.sqrt(term2)\n    \n    # Regime determination:\n    # Plane parallel approximation holds if sec(theta) * h << R? Or simply if the path doesn't curve much.\n    # The standard validity condition is often cited as zenith angle < ~60 degrees or h/R small enough.\n    # Here theta = 88.7 deg. This is definitely outside the standard regime.\n    # So regime = 0.\n    regime = 0\n    \n    return {\n        \"1\": {\"value\": L, \"unit\": \"km\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_raindrop_drag_regime_08_outside",
+   "auto_judgement": 0,
+   "code": " or similar, often Re < 1.\n    # Let's calculate Stokes v first.\n    \n    # Stokes' Law estimate for v (m/s):\n    # v_stokes = (2 * r_m**2 * g * (rho_water - rho_air)) / (9 * mu)\n    v_stokes = (2 * r_m**2 * g * (rho_water - rho_air)) / (9 * mu)\n    \n    # Estimate Reynolds number based on Stokes velocity:\n    # Re = (rho_air * v * d) / mu, where d = 2*r\n    d_m = 2 * r_m\n    Re_est = (rho_air * v_stokes * d_m) / mu\n    \n    # The standard textbook (Stokes' Law) is generally considered valid for Re <= 0.1 or sometimes Re <= 1.\n    # Let's use the threshold Re <= 0.1 for strict validity, but often Re < 1 is the boundary cited in many atmospheric science contexts for Stokes approximation.\n    # Given r=244um, let's see. 244um is quite large for a droplet.\n    # Let's calculate Re precisely.\n    # If Re_est <= 0.1, regime = 1. Else regime = 0.\n    # (Some texts say Re < 1, but 244um is likely outside Stokes regime).\n    # Let's define the boundary conservatively: Re <= 0.1.\n    regime = 0\n    if Re_est <= 0.1:\n        regime = 1\n        \n    # 3. Calculate actual terminal velocity.\n    # Since Re might not be small, we should use the balance of forces with a drag coefficient C_d that depends on Re,\n    # or solve the implicit equation: v = sqrt( (4/3) * (r * g * (rho_w - rho_a) / rho_a) * (1/C_d) ... )\n    # Force balance: Weight - Buoyancy = Drag\n    # (4/3) * pi * r^3 * (rho_w - rho_a) * g = C_d * (1/2) * rho_air * v^2 * (pi * r^2)\n    # Simplifying:\n    # (4/3) * r * (rho_w - rho_a) * g = C_d * (1/2) * rho_air * v^2\n    # v^2 = (8/3) * (r * g * (rho_w - rho_a)) / (C_d * rho_air)\n    # v = sqrt( (8 * r * g * (rho_w - rho_a)) / (3 * C_d * rho_air) )\n    # C_d depends on Re = rho_air * v * d / mu.\n    # This requires an iterative solution.\n    \n    # Initial guess v_0 = v_stokes\n    v = v_stokes\n    \n    # Iterate to convergence\n    # C_d correlation for sphere:\n    # For Re < 1: C_d = 24/Re (Stokes)\n    # For higher Re, Schiller-Naumann: C_d = 24/Re * (1 + 0.15*Re^0.687)\n    # Let's use Schiller-Naumann which covers a wider range up to Re ~ 800.\n    # Re = rho * v * d / mu\n    \n    tol = 1e-5\n    max_iter = 50\n    for i in range(max_iter):\n        # Calculate Re with current v\n        Re = (rho_air * v * d_m) / mu\n        \n        # Calculate C_d using Schiller-Naumann\n        # C_d = 24/Re * (1 + 0.15 * Re^0.687)\n        # If Re is very small, this reduces to 24/Re.\n        factor = 1 + 0.15 * (Re**0.687)\n        C_d = (24 / Re) * factor\n        \n        # Calculate new v\n        # v = sqrt( (8 * r * g * (rho_w - rho_a)) / (3 * C_d * rho_air) )\n        v_new = math.sqrt( (8 * r_m * g * (rho_water - rho_air)) / (3 * C_d * rho_air) )\n        \n        if abs(v_new - v) < tol:\n            v = v_new\n            break\n        v = v_new\n            \n    # 4. Convert result to mm/s\n    # v is currently in m/s.\n    # 1 m/s = 1000 mm/s\n    v_mm_s = v * 1000.0\n    \n    return {\n        \"1\": {\"value\": v_mm_s, \"unit\": \"mm s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_ch4_forcing_sqrt_09_outside",
+   "auto_judgement": 0,
+   "code": "tates: increasing by 1 ppb raises forcing by 0.601 mW m^-2.\n    # This implies a linear relationship for small perturbations around the background.\n    # However, for large perturbations (like 1180 ppb), the relationship is often non-linear \n    # due to saturation effects in absorption bands.\n    # The standard textbook treatment usually assumes linearity (constant forcing efficiency).\n    # Let's determine the validity of the standard textbook treatment.\n    # The standard approximation for methane forcing is often considered valid for small changes \n    # or up to a certain range. A common threshold cited in atmospheric science contexts \n    # for the linear approximation of methane forcing is often around 100-200 ppb increase \n    # or specifically tied to the background. Here, the rise is 1180 ppb, which is very large.\n    # Specifically, the IPCC AR5 and similar texts note the forcing is roughly logarithmic or saturates.\n    # The linear coefficient 0.601 is given for a 1 ppb step.\n    # The \"standard textbook\" usually refers to linear scaling: ΔF = k * ΔC.\n    # Is 1180 ppb within the valid range? Generally, no. The forcing efficiency drops as concentration rises.\n    # However, without an explicit non-linear function provided in the prompt, we must decide based on \n    # the specific instruction: \"1 if standard textbook... valid... 0 if outside\".\n    # Given a rise of 1180 ppb is massive compared to 1 ppb, it definitely falls outside the linear regime.\n    # Regime = 0.\n    \n    regime = 0\n    \n    # Calculation:\n    # If we strictly follow the linear assumption provided by the prompt's specific rate:\n    # Rate = 0.601 mW m^-2 per 1 ppb.\n    # Total Rise = 1180 ppb.\n    # Total Forcing = 1180 * 0.601.\n    # Note: The prompt asks to compute the answer based on the given parameters. \n    # It defines the rate explicitly: \"increasing ... by 1 ppb raises ... by 0.601\".\n    # It asks for the increase if it rises by 1180.\n    # While physically non-linear, the problem setup implies using the given rate to derive the answer \n    # unless instructed to use a specific non-linear formula (which isn't provided).\n    # However, the \"regime\" check acknowledges the validity. \n    # If regime is 0, does the user expect a corrected calculation? \n    # The prompt says \"Work out the solution... express it as a Python function\".\n    # Given the constraints, I will calculate using the linear extrapolation defined by the parameters \n    # (since no non-linear function is given to replace it), but flag the regime.\n    # If I were to apply a non-linear correction (e.g. log), I would need the specific formula.\n    # The prompt implies the 0.601 is the factor to use.\n    \n    # Calculation steps:\n    # Forcing Increase = rise_ppb * forcing_per_delta_mw_m2\n    # Forcing Increase = 1180 * 0.601\n    \n    forcing_increase = rise_ppb * forcing_per_delta_mw_m2\n    \n    return {\n        \"1\": {\"value\": forcing_increase, \"unit\": \"mW m^-2\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_frictional_three_force_balance_07_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(\n    latitude=37.0, \n    density=1.1, \n    dp_hPa=2.0, \n    distance_km=100.0, \n    k=8.6e-5, \n    Omega=7.292e-5\n):\n    # Convert units\n    # Pressure gradient\n    # 2 hPa = 200 Pa\n    # 100 km = 100,000 m\n    \n    dp_Pa = dp_hPa * 100.0  # 1 hPa = 100 Pa\n    distance_m = distance_km * 1000.0\n    \n    # Pressure gradient magnitude (Pa/m)\n    dp_dx = dp_Pa / distance_m\n    \n    # Coriolis parameter f\n    # f = 2 * Omega * sin(lat)\n    # Latitude in degrees needs conversion to radians for sin\n    \n    lat_rad = math.radians(latitude)\n    f = 2.0 * Omega * math.sin(lat_rad)\n    \n    # Force per unit mass due to pressure gradient\n    # G = (1/rho) * dp/dx\n    \n    G = dp_dx / density\n    \n    # Wind speed V\n    # V = G / sqrt(f^2 + k^2)\n    \n    V = G / math.sqrt(f**2 + k**2)\n    \n    # Determine Regime\n    # Valid if friction is small compared to Coriolis? \n    # Usually standard textbook assumes k << f. \n    # Ratio r = k / f. If r << 1 (e.g. < 0.1), valid.\n    \n    ratio = k / f\n    # If ratio < 0.1 or so, standard approximation holds. \n    # Let's assume threshold 0.2 for \"valid\" range.\n    \n    if ratio < 0.2:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"1\": {\"value\": V, \"unit\": \"m s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_anelastic_continuity_16_outside",
+   "auto_judgement": 0,
+   "code": " to scale height, or that we are working in pressure coordinates where mass conservation is ∂ω/∂lnp + ...\n    Actually, the standard relation w (in height) = -∫ D dz is exact for height coordinates.\n    However, often problems ask for vertical velocity in pressure coordinates (ω = dp/dt).\n    The relation between w (dz/dt) and ω (dp/dt) is ω = (dp/dz) * w = -(g/T) * p * w (using hydrostatics).\n    If the question asks for w (vertical velocity in meters per second), the simple integration holds directly from continuity in height coordinates.\n    Is there a constraint? The standard approximation is often D << 1/H or similar, or that T is constant. Here T is constant (isothermal).\n    The standard textbook validity usually refers to the assumption that the vertical velocity is small or that the divergence is constant over the layer without compressibility effects modifying the mass flux.\n    But given T is constant, the derivation w = -∫ D dz is robust.\n    Let's calculate the value.\n    \"\"\"\n    \n    # 1. Define Divergence D\n    # Problem says divergence is -3e-5.\n    D = -3e-5 # s^-1\n    \n    # 2. Continuity: D + dw/dz = 0 => dw/dz = -D\n    # dw/dz = -(-3e-5) = 3e-5\n    dw_dz = -D\n    \n    # 3. Integrate from 0 to height_m\n    # w = dw_dz * height_m\n    w_m_s = dw_dz * height_m\n    \n    # 4. Convert to mm/s\n    # 1 m/s = 1000 mm/s\n    w_mm_s = w_m_s * 1000.0\n    \n    # 5. Determine regime\n    # Standard textbook usually assumes the layer thickness is small compared to scale height H = RT/g.\n    # Or simply that hydrostatic balance allows conversion.\n    # Let's check H.\n    # H = R*T / (M*g) approx 287 * 255 / (9.81 * 28.97) ? No, specific gas constant for dry air R_d = 287 J/kgK.\n    # H = R_d * T / g = 287 * 255 / 9.81\n    H = (287.05 * temp_K) / 9.81 # meters\n    # Ratio height/H\n    ratio = height_m / H\n    # Standard regime is typically ratio < 0.1 or similar? Or simply that w is small.\n    # With H ~ 8km, 5.2km is comparable.\n    # However, the specific \"standard textbook\" often refers to the assumption that vertical motion is negligible in the divergence calculation or that we ignore the variation of density.\n    # Given the explicit instruction to return 1 or 0 based on validity:\n    # The standard derivation w = -∫ D dz is exact in height coordinates.\n    # The approximation usually invoked is that the divergence is defined on an isentropic surface or pressure surface where density changes matter.\n    # But with Isothermal, the simple integration is the intended solution path.\n    # Let's define the boundary: H = 287 * 255 / 9.81 ≈ 7450 m.\n    # Height is 5200. 5200/7450 = 0.7.\n    # Usually standard text assumes z << H. Here 0.7 is borderline.\n    # Let's set cutoff at 0.1 H? Or 0.5 H?\n    # Given the phrasing, likely checking if z << H.\n    # Let's use z/H <= 0.2 as the strict textbook limit.\n    # 0.7 > 0.2, so regime = 0.\n    regime = 0 \n    \n    return {\n        \"1\": {\"value\": w_mm_s, \"unit\": \"mm s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_plume_ground_reflection_15_outside",
+   "auto_judgement": 0,
+   "code": "ores the reflection term or assumes H=0 for ground level.\n    # Here, H = 76.2 m. We need to check if H is negligible compared to sigma_z.\n    # sigma_z = 0.14 * 2800^0.85. Let's estimate: 2800^0.85 is roughly 2800^(17/20).\n    # Let's just compute it directly.\n    \n    # Calculate the vertical Gaussian terms at z = H\n    # Argument for first exp: (H - H)/sigma_z = 0\n    # Argument for second exp: (H + H)/sigma_z = 2H/sigma_z\n    arg_v2 = (2.0 * H) / sigma_z\n    term_v = math.exp(-0.5 * arg_v2**2) # This is the second term contribution relative to the first\n    \n    # Actually the formula is:\n    # C = (Q / (2 * Pi * U * sigma_y * sigma_z)) * exp(...) * ( exp(0) + exp(-0.5*(2H/sigma_z)^2) )\n    # So the bracket is (1 + term_v)\n    \n    # 3. Calculate the pre-factor\n    # Q is in g/s. We need final answer in μg/m^3.\n    # 1 g = 1e6 μg. So Q_ug = Q * 1e6.\n    Q_ug = Q * 1e6\n    \n    # Prefactor: Q_ug / (2 * Pi * U * sigma_y * sigma_z)\n    # Note: The standard Gaussian plume model usually has 2*Pi in denominator.\n    prefactor = Q_ug / (2.0 * math.pi * U * sigma_y * sigma_z)\n    \n    # 4. Horizontal term: The instrument is likely on the centerline (y=0) unless specified otherwise.\n    # \"An instrument mounted on a tower records...\" implies y=0 (directly downwind).\n    # exp(-0.5 * (0)^2) = 1.\n    \n    # 5. Combine\n    # C = prefactor * 1 * (1 + term_v)\n    C = prefactor * (1.0 + term_v)\n    \n    # 6. Determine 'regime'\n    # Standard textbook treatment usually assumes H is negligible or z=H implies ground level reflection is ignored, \n    # or specifically that the vertical distribution is centered at ground (H=0) or that the second term is negligible.\n    # Often the condition is x is large enough such that sigma_z >> H.\n    # Let's check sigma_z vs H.\n    # sigma_z = 0.14 * 2800^0.85.\n    # If sigma_z >> H, then (2H/sigma_z) is small, exp(...) ~ 1, so (1+1)=2.\n    # Wait, standard plume model for elevated source often simplifies to just the center term if H is small, \n    # but here we calculated the exact sum.\n    # The \"standard textbook\" usually refers to the case where the plume is treated as a ground-level source or H is ignored in the exponent, \n    # effectively C = ... * 2 * exp(...) if considering reflection, or just the main term.\n    # Specifically, standard Gaussian Plume often assumes H=0 for ground concentration or ignores the second exponential term if H << sigma_z.\n    # Let's evaluate the ratio H/sigma_z.\n    # sigma_z = 0.14 * 2800**0.85\n    # H = 76.2\n    # If H/sigma_z < 0.1 or similar, regime = 1.\n    # Let's compute sigma_z explicitly.\n    sigma_z_val = sigma_z\n    ratio = H / sigma_z_val\n    # A common threshold for validity of standard approximation (ignoring the image source or assuming H negligible) is often H/sigma_z <= 0.2 or similar.\n    # Let's use 0.2.\n    if ratio <= 0.2:\n        regime = 1\n    else:\n        regime = 0\n        \n    return {\n        \"regime\": regime,\n        \"1\": {\"value\": C, \"unit\": \"μg m^-3\"}\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F2-F-s42",
+   "id": "judge:kc:final:20261010_log_wind_stability_15_outside",
+   "auto_judgement": 0,
+   "code": "import math\n\ndef solve(z0=0.015, u_star=0.15, L=33, k=0.4, z=10):\n    # Calculate stability parameter z/L\n    z_L = z / L\n    \n    # Stability correction function psi_m for stable conditions (L > 0)\n    # Using Paulson approximation: psi_m = 5 * (z/L)\n    # This is valid for small z/L.\n    psi_m = 5.0 * z_L\n    \n    # Calculate mean wind speed\n    # Formula: u(z) = (u_star / k) * (ln(z/z0) - psi_m)\n    # Note: In stable conditions, psi_m is positive, reducing the wind speed relative to neutral.\n    \n    log_term = math.log(z / z0)\n    u_z = (u_star / k) * (log_term - psi_m)\n    \n    # Determine regime\n    # Standard textbook treatment assumes neutral stability (L -> infinity).\n    # Validity often requires |z/L| < 0.1 or 0.2.\n    # Here |z/L| = 0.303, which is likely outside the valid range.\n    regime = 0 if abs(z_L) > 0.2 else 1\n    \n    return {\n        \"1\": {\"value\": u_z, \"unit\": \"m s^-1\"},\n        \"regime\": regime\n    }"
+  },
+  {
+   "label": "x-qwen35-9b-F1-F-s42",
+   "id": "judge:kc:final:20261010_inertia_gravity_wave_15_outside",
+   "auto_judgement": 1,
+   "code": "ngth in km\n):\n    \"\"\"\n    Calculates the intrinsic period of an internal gravity wave.\n    \n    Parameters:\n    - lat_deg: Latitude in degrees (default 47°N)\n    - N_s1: Buoyancy frequency N in s^-1 (default 0.017)\n    - L_h_km: Horizontal wavelength in km (default 1400)\n    - L_v_km: Vertical wavelength in km (default 2)\n    \n    Returns:\n    - Dictionary with the period in hours and a 'regime' indicator.\n    \"\"\"\n    \n    # 1. Convert parameters to SI units where necessary\n    # Latitudes are not directly needed for the dispersion relation unless we consider projection,\n    # but the problem asks for intrinsic period, which depends on N and wavenumbers.\n    # However, the standard approximation often assumes horizontal wavelength >> vertical wavelength.\n    \n    # Convert wavelengths to meters\n    L_h_m = L_h_km * 1000.0\n    L_v_m = L_v_km * 1000.0\n    \n    # Calculate wavenumbers\n    # k = 2*pi / L_h\n    k = 2.0 * math.pi / L_h_m\n    # m = 2*pi / L_v\n    m = 2.0 * math.pi / L_v_m\n    \n    # The dispersion relation for internal gravity waves is:\n    # ω^2 = N^2 * (k^2 + m^2) / (k^2 + m^2) ... wait, that's not right.\n    # The relation is: ω = N * |k_h| / sqrt(|k|^2) ? No.\n    # Let's derive carefully.\n    # For internal gravity waves, the frequency ω (intrinsic) relates to the wavenumbers (k, m) via:\n    # ω^2 = N^2 * (k^2) / (k^2 + m^2) ? No, that's for horizontal phase speed.\n    # Standard dispersion relation: ω^2 = N^2 * (k_h^2) / (k_h^2 + m^2) where k_h is horizontal wavenumber magnitude.\n    # Actually, the relation is: ω = N * |k_h| / sqrt(k_h^2 + m^2) * |k|?\n    # Let's recall: ω = N * sin(theta), where theta is the angle between the wavevector and the vertical?\n    # Specifically: ω = N * |k_h| / |k|, where |k| = sqrt(k_h^2 + m^2).\n    # So ω = N * k / sqrt(k^2 + m^2). Here k is horizontal wavenumber.\n    # Let's verify: If vertical wavelength is small (m large), wave is steep, frequency approaches N.\n    # If horizontal wavelength is small (k large), frequency approaches N.\n    # Wait, the relation is: ω = N * (k_h / |k|) * |k| / |k| ?\n    # Standard form: ω = N * |k_h| / sqrt(k_h^2 + m^2).\n    # Let's check limits:\n    # If m -> 0 (horizontal wave), ω -> N * 1 = N. Correct.\n    # If k_h -> 0 (vertical wave), ω -> 0. Correct.\n    # So Intrinsic Frequency ω = N * k / sqrt(k^2 + m^2).\n    # Here k is horizontal wavenumber magnitude.\n    \n    # Calculate intrinsic angular frequency omega\n    omega = N_s1 * k / math.sqrt(k**2 + m**2)\n    \n    # Period T = 2 * pi / omega\n    T_s = 2.0 * math.pi / omega\n    \n    # Convert to hours\n    T_h = T_s / 3600.0\n    \n    # Determine regime\n    # Standard textbook treatment usually assumes horizontal wavelength >> vertical wavelength (shallow water/long wave limit).\n    # i.e., L_h >> L_v.\n    # Here L_h = 1400 km, L_v = 2 km. Ratio = 700. This is definitely in the regime.\n    # So regime = 1.\n    regime = 1\n    \n    return {\n        \"1\": {\"value\": T_h, \"unit\": \"hours\"},\n        \"regime\": regime\n    }"
+  }
+ ]
+}

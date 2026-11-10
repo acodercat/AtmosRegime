@@ -1,0 +1,1176 @@
+[
+  {
+    "id": "trap_env_1_gen",
+    "book": "synthesized",
+    "parent_id": "env_1",
+    "control_id": "env_1",
+    "problem": "Nitrate is a common groundwater contaminant in rural areas. The water standard for nitrate is 10 mg/L. Consider a small lake which receives input from a river at rate Q_R = 0.1 m^3 s^-1 and from groundwater seepage at rate Q_G = 0.005 m^3 s^-1. The river inflow is free of nitrate, but the groundwater contains nitrate percolated from septic tanks around the lake. The mean nitrate concentration in the groundwater is 40 mg/L. The lake volume is 10^5 m^3. The lake is strongly anoxic, so nitrate is removed by denitrification following first-order kinetics with rate constant k = 1.0e-6 s^-1. Assuming the nitrate concentration has reached a steady state in the lake, what is the nitrate concentration in the lake outflow?",
+    "code": "def solve(Q_R=0.1, Q_G=0.005, C_R=0.0, C_G=40.0, V=100000.0, k=1e-06, standard=10.0):\n    L_per_m3 = 1000.0\n    input_mass_rate_mg_s = (Q_R * C_R + Q_G * C_G) * L_per_m3\n    Q_out_L_s = (Q_R + Q_G) * L_per_m3\n    first_order_loss_L_s = k * V * L_per_m3\n    C_out = input_mass_rate_mg_s / (Q_out_L_s + first_order_loss_L_s)\n    return {'1': {'value': C_out, 'unit': 'mg/L'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.975609756097561,
+        "unit": "mg/L"
+      }
+    ],
+    "category": "reactor_mass_balance",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the lake is made strongly anoxic, crossing from the conservative-tracer regime into a denitrifying regime where nitrate is removed with a first-order rate constant",
+    "shortcut_code": "def solve(Q_R=0.1, Q_G=0.005, C_R=0.0, C_G=40.0, V=100000.0, k=1e-06, standard=10.0):\n    L_per_m3 = 1000.0\n    input_mass_rate_mg_s = (Q_R * C_R + Q_G * C_G) * L_per_m3\n    Q_out_L_s = (Q_R + Q_G) * L_per_m3\n    C_out = input_mass_rate_mg_s / Q_out_L_s\n    return {'1': {'value': C_out, 'unit': 'mg/L'}}",
+    "shortcut_value": 1.9047619047619044,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1.9047619047619044
+    },
+    "separation": 0.9524,
+    "separation_max": 0.9524,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from env_1 in benchmark/cross_domain/environmental_chemistry.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "conservative tracer -> denitrifying lake: first-order removal enters the steady-state balance",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause makes the lake anoxic and supplies the first-order rate constant; flows, concentrations and volume are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text states the lake is strongly anoxic, that nitrate is removed by first-order denitrification, and gives k, so the steady-state balance including the loss term is uniquely determined",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still write the steady-state mass balance including the first-order sink term (Q_G·C_G = (Q_R+Q_G)·C + kVC) and solve for C.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/environmental_chemistry.json",
+    "parent_domain": "environmental_chemistry",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_env_36_gen",
+    "book": "synthesized",
+    "parent_id": "env_36",
+    "control_id": "env_36",
+    "problem": "A small community wishes to construct an activated sludge wastewater treatment plant to treat their wastewater. The wastewater from the community has an average flow rate of 0.0088 m^3/s (0.2 mgd) and an influent substrate concentration of 300 mg/L as COD. Tests on the wastewater indicate the likely concentration of settled sludge from the secondary clarifier will be 12,000 mg VSS/L. The reactor kinetic constants are μMAX = 0.4 hr^-1, K_S = 75 mg/L as COD, Y = 0.4 g VSS/g COD, and k_d = 0.004 hr^-1. The design engineer proposes a fully mixed aeration tank reactor with a total geometric volume of 25 cubic meters. Because of intense fine-bubble aeration, the average gas holdup in the reactor is expected to be 25% of the total tank volume. The design safety factor is to be 20. What is the hydraulic residence time of the wastewater in the reactor?",
+    "code": "def solve(Q=0.0088, S0=300.0, Xr=12000.0, mu_max=0.4, K_S=75.0, Y=0.4, k_d=0.004, V_total=25.0, gas_holdup=0.25, safety_factor=20.0):\n    V_liquid = V_total * (1.0 - gas_holdup)\n    tau_s = V_liquid / Q\n    tau_hr = tau_s / 3600.0\n    return {'1': {'value': tau_hr, 'unit': 'hr'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.5918560606060606,
+        "unit": "hr"
+      }
+    ],
+    "category": "water_treatment_design",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "The aeration tank is changed from the usual negligible-gas-holdup liquid regime to a bubbly two-phase regime with 25% gas holdup, so the hydraulic residence time of the wastewater must use the liquid volume rather than the total geometric tank volume.",
+    "shortcut_code": "def solve(Q=0.0088, S0=300.0, Xr=12000.0, mu_max=0.4, K_S=75.0, Y=0.4, k_d=0.004, V_total=25.0, gas_holdup=0.25, safety_factor=20.0):\n    tau_s = V_total / Q\n    tau_hr = tau_s / 3600.0\n    return {'1': {'value': tau_hr, 'unit': 'hr'}}",
+    "shortcut_value": 0.789141414141414,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.789141414141414
+    },
+    "separation": 0.3333,
+    "separation_max": 0.3333,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from env_36 in benchmark/cross_domain/environmental_chemistry.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "negligible-gas-holdup liquid -> bubbly two-phase aeration: holdup reduces the liquid residence time",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause introduces 25 % gas holdup; flow, substrate concentration and the design targets are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the holdup fraction is stated and the quantity asked depends on liquid residence time, so the correction is uniquely implied",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still realize that the hydraulic residence time uses the gas-free liquid volume, i.e. τ = (1 − 0.25)(25 m³)/Q rather than the total geometric volume.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/environmental_chemistry.json",
+    "parent_domain": "environmental_chemistry",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_hyd_2_gen",
+    "book": "synthesized",
+    "parent_id": "hyd_2",
+    "control_id": "hyd_2",
+    "problem": "An aquifer has three different formations. Formation A has a thickness of 30 ft and a hydraulic conductivity of 7.0 ft/day, but it lies above the water table and has 0 ft of saturated thickness. Formation B has a thickness of 15 ft and a conductivity of 78 ft/day. Formation C has a thickness of 22 ft and a conductivity of 17 ft/day. Assume that each individual formation is isotropic and homogeneous, and that formations B and C are saturated. What is the aquifer transmissivity?",
+    "code": "def solve(thick_A=30.0, K_A=7.0, sat_thick_A=0.0, thick_B=15.0, K_B=78.0, thick_C=22.0, K_C=17.0):\n    T_A = K_A * sat_thick_A\n    T_B = K_B * thick_B\n    T_C = K_C * thick_C\n    T = T_A + T_B + T_C\n    return {'1': {'value': T, 'unit': 'ft^2/day'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 1544.0,
+        "unit": "ft^2/day"
+      }
+    ],
+    "category": "aquifer_properties",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "Formation A is moved from saturated to unsaturated, so transmissivity must use only saturated thickness rather than total formation thickness.",
+    "shortcut_code": "def solve(thick_A=30.0, K_A=7.0, sat_thick_A=0.0, thick_B=15.0, K_B=78.0, thick_C=22.0, K_C=17.0):\n    T_A = K_A * thick_A\n    T_B = K_B * thick_B\n    T_C = K_C * thick_C\n    T = T_A + T_B + T_C\n    return {'1': {'value': T, 'unit': 'ft^2/day'}}",
+    "shortcut_value": 1754.0,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1754.0
+    },
+    "separation": 0.136,
+    "separation_max": 0.136,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from hyd_2 in benchmark/cross_domain/hydrology.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "formation moved above the water table: transmissivity uses saturated thickness only",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause makes formation A unsaturated with zero saturated thickness; the other two formations and their conductivities are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text says the formation lies above the water table and has 0 ft of saturated thickness, which fixes its contribution to transmissivity at zero",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: Formation A has a thickness of 30 ft and a hydraulic conductivity of 7.0 ft/day, but it lies above the water table and has 0 ft of saturated thickness.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/hydrology.json",
+    "parent_domain": "hydrology",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_hyd_33_gen",
+    "book": "synthesized",
+    "parent_id": "hyd_33",
+    "control_id": "hyd_33",
+    "problem": "A baffled stilling basin consists of a rectangular channel with a continuous vertical baffle of height H = 1.5 m spanning the width of the channel. The inflow depth and velocity are h1 = 1.0 m and V1 = 30 m/s, respectively, and the drag coefficient for the baffle is CD = 0.6. The problem is plane; treat it per unit width. For a baffle location near the start of the jump, with an approach velocity near V1, determine the drag force exerted by the flow on the baffle.",
+    "code": "def solve(H=1.5, h1=1.0, V1=30.0, CD=0.6):\n    rho = 1000.0\n    wetted_height = min(H, h1)\n    FD = CD * 0.5 * rho * V1 ** 2 * wetted_height\n    return {'1': {'value': FD, 'unit': 'N/m'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 270000.0,
+        "unit": "N/m"
+      }
+    ],
+    "category": "open_channel_flow",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the baffle height is increased above the approach flow depth, so the baffle is no longer fully submerged; only the wetted projected height contributes to the water drag",
+    "shortcut_code": "def solve(H=1.5, h1=1.0, V1=30.0, CD=0.6):\n    rho = 1000.0\n    FD = CD * 0.5 * rho * V1 ** 2 * H\n    return {'1': {'value': FD, 'unit': 'N/m'}}",
+    "shortcut_value": 405000.0,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 405000.0
+    },
+    "separation": 0.5,
+    "separation_max": 0.5,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from hyd_33 in benchmark/cross_domain/hydrology.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "baffle raised above the approach depth: only the wetted projected height carries drag",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one number changes, the baffle height 0.5 -> 1.5 m; inflow depth, velocity and the drag coefficient are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the baffle height now exceeds the stated inflow depth, so the submerged projected area is the flow depth rather than the baffle height; no hidden assumption",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must recognise that since the baffle (1.5 m) is taller than the approach flow depth (1.0 m) only the wetted portion is loaded, so the projected area per unit width is h1",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/hydrology.json",
+    "parent_domain": "hydrology",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_215_gen",
+    "book": "synthesized",
+    "parent_id": "soil_215",
+    "control_id": "soil_215",
+    "problem": "A saturated stressed soil element has total normal stress +150 kN/m² and shear stress -50 kN/m² on plane AD, and total normal stress +50 kN/m² and shear stress +50 kN/m² on the perpendicular plane AB. The pore-water pressure is +120 kN/m². Determine the major principal effective stress.",
+    "code": "def solve(sigma_AD=150.0, tau_AD=-50.0, sigma_AB=50.0, tau_AB=50.0, pore_pressure=120.0):\n    import math\n    sigma_x_eff = sigma_AD - pore_pressure\n    sigma_y_eff = sigma_AB - pore_pressure\n    tau_eff = abs(tau_AD)\n    center = (sigma_x_eff + sigma_y_eff) / 2.0\n    radius = math.sqrt(((sigma_x_eff - sigma_y_eff) / 2.0) ** 2 + tau_eff ** 2)\n    sigma_1_eff = center + radius\n    return {'1': {'value': sigma_1_eff, 'unit': 'kN/m^2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 50.710678118654755,
+        "unit": "kN/m^2"
+      }
+    ],
+    "category": "effective_stress",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the soil element is made saturated with a nonzero pore-water pressure, so the relevant stress for the soil skeleton is effective stress; pore pressure must be subtracted from normal stresses before finding principal effective stresses",
+    "shortcut_code": "def solve(sigma_AD=150.0, tau_AD=-50.0, sigma_AB=50.0, tau_AB=50.0, pore_pressure=120.0):\n    import math\n    sigma_x = sigma_AD\n    sigma_y = sigma_AB\n    tau = abs(tau_AD)\n    center = (sigma_x + sigma_y) / 2.0\n    radius = math.sqrt(((sigma_x - sigma_y) / 2.0) ** 2 + tau ** 2)\n    sigma_1 = center + radius\n    return {'1': {'value': sigma_1, 'unit': 'kN/m^2'}}",
+    "shortcut_value": 170.71067811865476,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 170.71067811865476
+    },
+    "separation": 2.3664,
+    "separation_max": 2.3664,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_215 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "total stress -> effective stress once a pore-water pressure is present",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause makes the element saturated with a stated pore-water pressure and relabels the given stresses as total; the stress values and planes are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the pore pressure is given and the quantity asked is the principal stress for the soil skeleton, so subtracting u is uniquely implied",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know Terzaghi's effective stress principle (σ' = σ − u, with shear stress unaffected) and apply it before computing the principal stress, since the trap only states",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_128_gen",
+    "book": "synthesized",
+    "parent_id": "soil_128",
+    "control_id": "soil_128",
+    "problem": "The saturated hydraulic conductivity of a sand at a void ratio of 0.8 is 0.047 cm/sec. Estimate its hydraulic conductivity at a void ratio of 0.5 when the sand is 60% saturated. Use the relationship for saturated conductivity k1/k2 = [e1^3/(1+e1)]/[e2^3/(1+e2)]. For unsaturated flow, take k = kr ksat with relative permeability kr = S^3, where S is the degree of saturation and residual saturation is negligible.",
+    "code": "def solve(k1=0.047, e1=0.8, e2=0.5, S=0.6):\n    f1 = e1 ** 3 / (1 + e1)\n    f2 = e2 ** 3 / (1 + e2)\n    ksat2 = k1 * f2 / f1\n    kr = S ** 3\n    k_unsat = kr * ksat2\n    return {'1': {'value': k_unsat, 'unit': 'cm/sec'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.0029742187499999986,
+        "unit": "cm/sec"
+      }
+    ],
+    "category": "permeability_seepage",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the target sand is changed from saturated flow to unsaturated flow at degree of saturation S = 0.60, so the saturated void-ratio conductivity relation alone is no longer the right physics",
+    "shortcut_code": "def solve(k1=0.047, e1=0.8, e2=0.5, S=0.6):\n    f1 = e1 ** 3 / (1 + e1)\n    f2 = e2 ** 3 / (1 + e2)\n    k2 = k1 * f2 / f1\n    return {'1': {'value': k2, 'unit': 'cm/sec'}}",
+    "shortcut_value": 0.013769531249999996,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.013769531249999996
+    },
+    "separation": 3.6296,
+    "separation_max": 3.6296,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_128 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "saturated -> unsaturated flow: relative permeability multiplies the void-ratio estimate",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause makes the target condition 60 % saturated and supplies the relative-permeability law; the void-ratio relation and both void ratios are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text gives kr = S^3 explicitly and says residual saturation is negligible, so the two-step calculation is fully determined",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: For unsaturated flow, take k = kr ksat with relative permeability kr = S^3, where S is the degree of saturation and residual saturation is negligible.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_129_gen",
+    "book": "synthesized",
+    "parent_id": "soil_129",
+    "control_id": "soil_129",
+    "problem": "Estimate the effective hydraulic conductivity of an unsaturated sand. Estimate the saturated hydraulic conductivity using k_s = (1.99 × 10^4) [100 / Σ(fi/(Dli^0.404 Dsi^0.595))]^2 (1/SF1)^2 [e^3/(1+e)], where e is the void ratio, SF1 = 7, fi is the fraction of particles between two consecutive sieves in percent, and Dli and Dsi are the larger and smaller sieve openings in cm for that fraction. The void ratio of the sand is 0.6. The effective saturation is Se = 0.30, and for this unsaturated sand the relative hydraulic conductivity is kr = Se^3, so the effective hydraulic conductivity is k = kr k_s. Sieve data: No. 30 opening = 0.06 cm, percent passing = 100; No. 40 opening = 0.0425 cm, percent passing = 96; No. 60 opening = 0.02 cm, percent passing = 84; No. 100 opening = 0.015 cm, percent passing = 50; No. 200 opening = 0.0075 cm, percent passing = 0. Fractions of particles between consecutive sieves are: between Nos. 30 and 40 = 4%; between Nos. 40 and 60 = 12%; between Nos. 60 and 100 = 34%; between Nos. 100 and 200 = 50%. Report a single number: the effective hydraulic conductivity k, in cm/s.",
+    "code": "def solve(e=0.6, Se=0.3, SF1=7, C=19900.0, D_no30=0.06, D_no40=0.0425, D_no60=0.02, D_no100=0.015, D_no200=0.0075, f_30_40=4.0, f_40_60=12.0, f_60_100=34.0, f_100_200=50.0, exp_l=0.404, exp_s=0.595):\n    fractions = [(f_30_40, D_no30, D_no40), (f_40_60, D_no40, D_no60), (f_60_100, D_no60, D_no100), (f_100_200, D_no100, D_no200)]\n    summation = 0.0\n    for fi, Dli, Dsi in fractions:\n        summation += fi / (Dli ** exp_l * Dsi ** exp_s)\n    bracket = 100.0 / summation\n    k_s = C * bracket ** 2 * (1.0 / SF1) ** 2 * (e ** 3 / (1.0 + e))\n    k_rel = Se ** 3\n    k = k_rel * k_s\n    return {'1': {'value': k, 'unit': 'cm/s'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.00025999019148326743,
+        "unit": "cm/s"
+      }
+    ],
+    "category": "permeability_seepage",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the sand is made unsaturated with effective saturation Se = 0.30, so the grain-size formula gives only the saturated hydraulic conductivity and must be reduced by the stated relative hydraulic conductivity",
+    "shortcut_code": "def solve(e=0.6, Se=0.3, SF1=7, C=19900.0, D_no30=0.06, D_no40=0.0425, D_no60=0.02, D_no100=0.015, D_no200=0.0075, f_30_40=4.0, f_40_60=12.0, f_60_100=34.0, f_100_200=50.0, exp_l=0.404, exp_s=0.595):\n    fractions = [(f_30_40, D_no30, D_no40), (f_40_60, D_no40, D_no60), (f_60_100, D_no60, D_no100), (f_100_200, D_no100, D_no200)]\n    summation = 0.0\n    for fi, Dli, Dsi in fractions:\n        summation += fi / (Dli ** exp_l * Dsi ** exp_s)\n    bracket = 100.0 / summation\n    k = C * bracket ** 2 * (1.0 / SF1) ** 2 * (e ** 3 / (1.0 + e))\n    return {'1': {'value': k, 'unit': 'cm/s'}}",
+    "shortcut_value": 0.00962926635123213,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.00962926635123213
+    },
+    "separation": 36.037,
+    "separation_max": 36.037,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_129 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "grain-size correlation gives only the SATURATED conductivity; unsaturated needs the relative term",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "stated that the answer is a single number, the effective conductivity"
+      ],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "one clause makes the sand unsaturated at Se = 0.30 and supplies kr = Se^3; the sieve data, void ratio and the Chapuis-type correlation are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text states that the correlation yields k_s and that k = kr k_s with kr = Se^3, so the answer is uniquely determined AMENDED under the units/format-amendment rule after criterion 10: gpt55-reasoning returned [0.00962926635123213, 0.00025999019148326743] - the saturated conductivity followed by the key, exactly - because the text walks through k_s before k and never says the answer is one number. deepseek-v4-pro-reasoning and opus48 both returned the key alone, so the record was already witness_confirmed; it is amended anyway so the same defect gets the same treatment in every record (eighth instance of this generation defect).",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: The effective saturation is Se = 0.30, and for this unsaturated sand the relative hydraulic conductivity is kr = Se^3, so the effective hydraulic conductivity is k = kr k_s.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_266_gen",
+    "book": "synthesized",
+    "parent_id": "soil_266",
+    "control_id": "soil_266",
+    "problem": "Previous triaxial test results on a normally consolidated clay have shown that the parameter Af is about 0.81 and φ′ is about 28°. If a consolidated-drained test is conducted with the same soil with σ3 = 70 kN/m², what will be the approximate deviator stress [(Δσd)f] at failure?",
+    "code": "def solve(Af=0.81, phi_deg=28.0, sigma3=70.0):\n    import math\n    phi = math.radians(phi_deg)\n    sin_phi = math.sin(phi)\n    delta_sigma_d = 2.0 * sigma3 * sin_phi / (1.0 - sin_phi)\n    return {'1': {'value': delta_sigma_d, 'unit': 'kN/m^2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 123.88783367610355,
+        "unit": "kN/m^2"
+      }
+    ],
+    "category": "shear_strength",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the test condition is changed from consolidated-undrained to consolidated-drained, so excess pore pressure does not develop and the Af pore-pressure relation is no longer applicable",
+    "shortcut_code": "def solve(Af=0.81, phi_deg=28.0, sigma3=70.0):\n    import math\n    phi = math.radians(phi_deg)\n    sin_phi = math.sin(phi)\n    numerator = 2.0 * sigma3 * sin_phi\n    denominator = 1.0 - sin_phi * (1.0 - 2.0 * Af)\n    delta_sigma_d = numerator / denominator\n    return {'1': {'value': delta_sigma_d, 'unit': 'kN/m^2'}}",
+    "shortcut_value": 50.90808259233078,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 50.90808259233078
+    },
+    "separation": 0.5891,
+    "separation_max": 0.5891,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_266 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "consolidated-undrained -> consolidated-drained: no excess pore pressure, so the A_f relation does not apply",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause changes the test type; A_f, phi' and the confining pressure are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the test type is stated and a drained test has zero excess pore pressure at failure by definition",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must recognise that in a drained test no excess pore pressure develops (so Af is irrelevant) and apply the effective-stress failure relation σ1 = σ3 tan²(45° + φ′/2) to ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_247_gen",
+    "book": "synthesized",
+    "parent_id": "soil_247",
+    "control_id": "soil_247",
+    "problem": "The following values were determined from an average e-log σ′ plot for a laboratory consolidation test. Loading branch: e = 0.80 at σ′ = 200 kN/m² and e = 0.70 at σ′ = 400 kN/m². Unloading branch: e = 0.570 at σ′ = 200 kN/m² and e = 0.555 at σ′ = 400 kN/m². For this specimen, the preconsolidation stress is σp′ = 300 kN/m², and the recompression/reloading slope below σp′ is the same as the unloading-branch slope. Calculate the virgin compression index Cc for the loading branch and the ratio Cs/Cc, where C = (e1 − e2)/log(σ2′/σ1′).",
+    "code": "def solve(e1_load=0.8, sigma1_load=200.0, e2_load=0.7, sigma2_load=400.0, e1_unload=0.57, sigma1_unload=200.0, e2_unload=0.555, sigma2_unload=400.0, sigma_p=300.0):\n    import math\n    s1_load_kpa = sigma1_load * 1.0\n    s2_load_kpa = sigma2_load * 1.0\n    s1_unload_kpa = sigma1_unload * 1.0\n    s2_unload_kpa = sigma2_unload * 1.0\n    sp_kpa = sigma_p * 1.0\n    Cs = (e1_unload - e2_unload) / math.log10(s2_unload_kpa / s1_unload_kpa)\n    total_de = e1_load - e2_load\n    recompression_de = Cs * math.log10(sp_kpa / s1_load_kpa)\n    Cc = (total_de - recompression_de) / math.log10(s2_load_kpa / sp_kpa)\n    ratio = Cs / Cc\n    return {'1': {'value': Cc, 'unit': 'dimensionless'}, '2': {'value': ratio, 'unit': 'dimensionless'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.7301623576936548,
+        "unit": "dimensionless"
+      },
+      {
+        "sub": "2",
+        "value": 0.06824361855725274,
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "consolidation_settlement",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "A preconsolidation stress of 300 kN/m² is introduced between the two loading-branch stresses, so the loading interval crosses from recompression into virgin compression; the single secant slope over 200–400 kN/m² is no longer the virgin compression index Cc.",
+    "shortcut_code": "def solve(e1_load=0.8, sigma1_load=200.0, e2_load=0.7, sigma2_load=400.0, e1_unload=0.57, sigma1_unload=200.0, e2_unload=0.555, sigma2_unload=400.0, sigma_p=300.0):\n    import math\n    s1_load_kpa = sigma1_load * 1.0\n    s2_load_kpa = sigma2_load * 1.0\n    s1_unload_kpa = sigma1_unload * 1.0\n    s2_unload_kpa = sigma2_unload * 1.0\n    Cc = (e1_load - e2_load) / math.log10(s2_load_kpa / s1_load_kpa)\n    Cs = (e1_unload - e2_unload) / math.log10(s2_unload_kpa / s1_unload_kpa)\n    ratio = Cs / Cc\n    return {'1': {'value': Cc, 'unit': 'dimensionless'}, '2': {'value': ratio, 'unit': 'dimensionless'}}",
+    "shortcut_value": 0.33219280948873653,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.33219280948873653,
+      "2": 0.14999999999999888
+    },
+    "separation": 0.545,
+    "separation_max": 1.198,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_247 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "loading interval crosses the preconsolidation stress: recompression then virgin compression",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "SHORTCUT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause introduces a preconsolidation stress between the two loading-branch stresses; both branches and their void ratios are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the preconsolidation stress is stated and lies inside the interval, so the two-segment path is uniquely determined",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still realise the 200→400 loading interval must be split at σp′ = 300 kN/m² and carry out the two-segment bookkeeping (using the stated recompression slope to get e",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_10_gen",
+    "book": "synthesized",
+    "parent_id": "soil_10",
+    "control_id": "soil_10",
+    "problem": "A soil specimen is 80% saturated and has a dry unit weight of 103 lb/ft^3. Its moisture content is 23%. Determine the void ratio, e.",
+    "code": "def solve(gamma_dry=103.0, moisture_content=0.23, degree_saturation=0.8):\n    gamma_water = 62.4\n    Gs = gamma_dry / (gamma_water - gamma_dry * moisture_content / degree_saturation)\n    e = moisture_content * Gs / degree_saturation\n    return {'1': {'value': e, 'unit': 'dimensionless'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.9031643156690813,
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "phase_relations",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the specimen is changed from saturated (S = 1) to 80% saturated, so the saturation relation e = w Gs no longer applies; the correct relation is S e = w Gs",
+    "shortcut_code": "def solve(gamma_dry=103.0, moisture_content=0.23, degree_saturation=0.8):\n    gamma_water = 62.4\n    Gs = gamma_dry / (gamma_water - gamma_dry * moisture_content)\n    e = moisture_content * Gs\n    return {'1': {'value': e, 'unit': 'dimensionless'}}",
+    "shortcut_value": 0.6119865667786103,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.6119865667786103
+    },
+    "separation": 0.3224,
+    "separation_max": 0.3224,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_10 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "saturation dropped below 1: e = w Gs becomes S e = w Gs",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause changes the specimen from saturated to 80 % saturated; dry unit weight and moisture content are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the degree of saturation is stated, and the saturation relation it invalidates is the parent's own; the corrected relation follows uniquely FLAGGED on review 2026-09-10: the stated combination (dry unit weight 103 lb/ft^3, moisture content 23 %, degree of saturation 80 %) implies a specific gravity of soil solids Gs = 3.14, against the usual 2.60-2.80; the parent's saturated version implies a normal 2.66. The problem is internally consistent and the requested void ratio is well defined, and Gs above 3 does occur in iron-rich soils, so this is the extreme-but-possible class the protocol keeps with a flag rather than the impossible-premise class it rejects. Recorded so a reader is not surprised by the implied specimen.",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "flag": "contrived",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know that the parent's saturated relation e = wG_s no longer holds and must instead apply the general relation S·e = w·G_s (with G_s obtained from the dry unit weig",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true,
+    "flag": "contrived"
+  },
+  {
+    "id": "trap_soil_132_gen",
+    "book": "synthesized",
+    "parent_id": "soil_132",
+    "control_id": "soil_132",
+    "problem": "For a normally consolidated clay soil, saturated-test values are given as follows: void ratio e = 1.1, saturated hydraulic conductivity k_sat = 0.302 × 10^-7 cm/sec; void ratio e = 0.9, saturated hydraulic conductivity k_sat = 0.12 × 10^-7 cm/sec. Estimate the hydraulic conductivity of the clay at a void ratio of 0.75 when the degree of saturation is S_r = 0.60. Use k_sat = C[e^n/(1+e)] for the saturated conductivity, where C and n are constants determined experimentally from the given data. For the partially saturated condition, use k = k_sat S_r^3.",
+    "code": "def solve(e1=1.1, k1=3.02e-08, e2=0.9, k2=1.2e-08, e_target=0.75, Sr=0.6):\n    import math\n    y1 = math.log(k1 * (1.0 + e1))\n    y2 = math.log(k2 * (1.0 + e2))\n    x1 = math.log(e1)\n    x2 = math.log(e2)\n    n = (y1 - y2) / (x1 - x2)\n    lnC = y1 - n * x1\n    C = math.exp(lnC)\n    k_sat_target = C * e_target ** n / (1.0 + e_target)\n    k_target = k_sat_target * Sr ** 3\n    return {'1': {'value': k_target, 'unit': 'cm/sec'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 1.1109250085445376e-09,
+        "unit": "cm/sec"
+      }
+    ],
+    "category": "permeability_seepage",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the target condition is changed from the saturated regime implicit in the k-e correlation to a partially saturated condition, so the saturated hydraulic-conductivity correlation must be reduced by a relative-permeability factor",
+    "shortcut_code": "def solve(e1=1.1, k1=3.02e-08, e2=0.9, k2=1.2e-08, e_target=0.75, Sr=0.6):\n    import math\n    y1 = math.log(k1 * (1.0 + e1))\n    y2 = math.log(k2 * (1.0 + e2))\n    x1 = math.log(e1)\n    x2 = math.log(e2)\n    n = (y1 - y2) / (x1 - x2)\n    lnC = y1 - n * x1\n    C = math.exp(lnC)\n    k_target = C * e_target ** n / (1.0 + e_target)\n    return {'1': {'value': k_target, 'unit': 'cm/sec'}}",
+    "shortcut_value": 5.1431713358543415e-09,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 5.1431713358543415e-09
+    },
+    "separation": 3.6296,
+    "separation_max": 3.6296,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_132 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "k-e correlation is a saturated relation; partial saturation needs the S_r^3 factor",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause makes the target condition 60 % saturated and supplies k = k_sat S_r^3; both calibration points and the target void ratio are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "both the saturated model and the partial-saturation factor are stated, and the two calibration points determine C and n uniquely",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: For the partially saturated condition, use k = k_sat S_r^3.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_156_gen",
+    "book": "synthesized",
+    "parent_id": "soil_156",
+    "control_id": "soil_156",
+    "problem": "Seepage takes place around a retaining wall through a stratified sand deposit. The hydraulic conductivity of the sand is 1.5 × 10^-3 cm/s in the horizontal direction and 1.5 × 10^-5 cm/s in the vertical direction. The retaining wall is 50 m long. For the transformed flow net, the number of flow channels is N_f = 3 and the number of potential drops is N_d = 10. The total head loss from right to left is H = 5.0 m. Determine the quantity of seepage across the entire wall per day.",
+    "code": "def solve(kh_cm_s=0.0015, kv_cm_s=1.5e-05, wall_length_m=50.0, N_f=3, N_d=10, H_m=5.0):\n    import math\n    kh_m_s = kh_cm_s * 0.01\n    kv_m_s = kv_cm_s * 0.01\n    k_eff_m_s = math.sqrt(kh_m_s * kv_m_s)\n    q_per_length_m3_s = k_eff_m_s * H_m * (N_f / N_d)\n    q_total_m3_s = q_per_length_m3_s * wall_length_m\n    seconds_per_day = 24 * 3600\n    q_total_m3_day = q_total_m3_s * seconds_per_day\n    return {'1': {'value': q_total_m3_day, 'unit': 'm^3/day'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 9.719999999999999,
+        "unit": "m^3/day"
+      }
+    ],
+    "category": "permeability_seepage",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the soil is changed from isotropic sand with a single hydraulic conductivity to a strongly anisotropic stratified sand, so the isotropic flow-net formula using k directly is no longer valid; the transformed-section flow net requires the effective conductivity sqrt(k_h k_v)",
+    "shortcut_code": "def solve(kh_cm_s=0.0015, kv_cm_s=1.5e-05, wall_length_m=50.0, N_f=3, N_d=10, H_m=5.0):\n    k_m_s = kh_cm_s * 0.01\n    q_per_length_m3_s = k_m_s * H_m * (N_f / N_d)\n    q_total_m3_s = q_per_length_m3_s * wall_length_m\n    seconds_per_day = 24 * 3600\n    q_total_m3_day = q_total_m3_s * seconds_per_day\n    return {'1': {'value': q_total_m3_day, 'unit': 'm^3/day'}}",
+    "shortcut_value": 97.20000000000002,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 97.20000000000002
+    },
+    "separation": 9.0,
+    "separation_max": 9.0,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_156 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "isotropic flow net -> anisotropic stratified deposit: the equivalent conductivity is the geometric mean",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause splits the single conductivity into horizontal and vertical values; wall length, flow channels and potential drops are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text gives both conductivities and names the deposit stratified, which is the standard transformed-section case; k_eq = sqrt(k_h k_v)",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know on their own that for anisotropic soil the flow-net discharge equation requires the equivalent conductivity k' = √(k_h·k_v) rather than a single stated k.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_229_gen",
+    "book": "synthesized",
+    "parent_id": "soil_229",
+    "control_id": "soil_229",
+    "problem": "A soil profile consists of 6 m of dry sand over 13 m of saturated sand. The dry unit weight of the sand is 16.5 kN/m^3, the saturated unit weight of the sand is 19.25 kN/m^3, and the unit weight of water is 9.81 kN/m^3. The groundwater table is at the top of the saturated sand. Point B is at the bottom of the saturated sand, 19 m below the ground surface. Calculate the total vertical stress, pore water pressure, and effective vertical stress at point B.",
+    "code": "def solve(dry_thickness=6.0, sat_thickness=13.0, gamma_dry=16.5, gamma_sat=19.25, gamma_w=9.81):\n    total_stress = gamma_dry * dry_thickness + gamma_sat * sat_thickness\n    depth_below_water_table = sat_thickness\n    pore_pressure = gamma_w * depth_below_water_table\n    effective_stress = total_stress - pore_pressure\n    return {'1': {'value': total_stress, 'unit': 'kN/m^2'}, '2': {'value': pore_pressure, 'unit': 'kN/m^2'}, '3': {'value': effective_stress, 'unit': 'kN/m^2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 349.25,
+        "unit": "kN/m^2"
+      },
+      {
+        "sub": "2",
+        "value": 127.53,
+        "unit": "kN/m^2"
+      },
+      {
+        "sub": "3",
+        "value": 221.72,
+        "unit": "kN/m^2"
+      }
+    ],
+    "category": "effective_stress",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "Point B is moved from the groundwater table to below the groundwater table, so pore water pressure is no longer zero and the saturated layer above B contributes to total vertical stress.",
+    "shortcut_code": "def solve(dry_thickness=6.0, sat_thickness=13.0, gamma_dry=16.5, gamma_sat=19.25, gamma_w=9.81):\n    total_stress = gamma_dry * dry_thickness\n    pore_pressure = gamma_w * 0.0\n    effective_stress = total_stress - pore_pressure\n    return {'1': {'value': total_stress, 'unit': 'kN/m^2'}, '2': {'value': pore_pressure, 'unit': 'kN/m^2'}, '3': {'value': effective_stress, 'unit': 'kN/m^2'}}",
+    "shortcut_value": 99.0,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 99.0,
+      "2": 0.0,
+      "3": 99.0
+    },
+    "separation": 0.7165,
+    "separation_max": 1.0,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_229 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "point moved below the water table: pore pressure is no longer zero",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause moves point B below the groundwater table; layer thicknesses and unit weights are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the new position is stated and the unit weight of water is given, so both total and effective stress follow uniquely",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves apply the buoyancy/effective-stress relations below the water table — that pore pressure is u = γ_w × (13 m of head) rather than zero, and that σ' = σ − ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_248_gen",
+    "book": "synthesized",
+    "parent_id": "soil_248",
+    "control_id": "soil_248",
+    "problem": "For a laboratory consolidation test, use the average e-log σ′ branch. The compression index for virgin loading is Cc = 0.33, and the swelling/recompression index for unloading is Cs = 0.05. The void ratio is e1 = 0.80 at σ1′ = 200 kN/m². Calculate the void ratio after unloading to σ3′ = 20 kN/m².",
+    "code": "def solve(Cc=0.33, Cs=0.05, e1=0.8, sigma1_kN_m2=200.0, sigma3_kN_m2=20.0):\n    import math\n    sigma1_Pa = sigma1_kN_m2 * 1000.0\n    sigma3_Pa = sigma3_kN_m2 * 1000.0\n    e3 = e1 - Cs * math.log10(sigma3_Pa / sigma1_Pa)\n    return {'1': {'value': e3, 'unit': 'dimensionless'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.8500000000000001,
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "consolidation_settlement",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the final effective stress is changed from 1000 kN/m² to 20 kN/m², so the sample is unloaded rather than virgin-loaded; the compression-index loading branch no longer applies and the swelling/recompression index must be used",
+    "shortcut_code": "def solve(Cc=0.33, Cs=0.05, e1=0.8, sigma1_kN_m2=200.0, sigma3_kN_m2=20.0):\n    import math\n    sigma1_Pa = sigma1_kN_m2 * 1000.0\n    sigma3_Pa = sigma3_kN_m2 * 1000.0\n    e3 = e1 - Cc * math.log10(sigma3_Pa / sigma1_Pa)\n    return {'1': {'value': e3, 'unit': 'dimensionless'}}",
+    "shortcut_value": 1.1300000000000001,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1.1300000000000001
+    },
+    "separation": 0.3294,
+    "separation_max": 0.3294,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_248 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "final stress below the initial: the swelling index applies, not the compression index",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "the final effective stress changes from 1000 to 20 kN/m^2 and the swelling index is supplied; the initial state and Cc are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text gives both Cc and Cs and the final stress is below the initial one, so the unloading branch is the only consistent reading",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still apply the same log-form equation with Cs in place of Cc and recognise that unloading increases the void ratio (e3 = e1 + Cs·log(σ1′/σ3′)).",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_253_gen",
+    "book": "synthesized",
+    "parent_id": "soil_253",
+    "control_id": "soil_253",
+    "problem": "Refer to a normally consolidated clay layer with initial void ratio e = 0.8 before unloading. The average effective stress at the middle of the clay layer is σo′ = 76.08 kN/m², the final effective stress after excavation is 7.608 kN/m², the compression index is Cc = 0.178, and the swelling/recompression index is Cs = 0.030. Calculate the void ratio at the end of the stress change.",
+    "code": "def solve(e_initial=0.8, sigma_o_kN_per_m2=76.08, sigma_final_kN_per_m2=7.608, Cc=0.178, Cs=0.03):\n    import math\n    sigma_o = sigma_o_kN_per_m2 * 1000.0\n    sigma_final = sigma_final_kN_per_m2 * 1000.0\n    e_final = e_initial - Cs * math.log10(sigma_final / sigma_o)\n    return {'1': {'value': e_final, 'unit': 'dimensionless'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.8300000000000001,
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "consolidation_settlement",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the final effective stress is reduced below the initial effective stress, crossing from virgin loading consolidation into the unloading/recompression regime where the swelling/recompression index, not Cc, controls the void-ratio change",
+    "shortcut_code": "def solve(e_initial=0.8, sigma_o_kN_per_m2=76.08, sigma_final_kN_per_m2=7.608, Cc=0.178, Cs=0.03):\n    import math\n    sigma_o = sigma_o_kN_per_m2 * 1000.0\n    sigma_final = sigma_final_kN_per_m2 * 1000.0\n    e_final = e_initial - Cc * math.log10(sigma_final / sigma_o)\n    return {'1': {'value': e_final, 'unit': 'dimensionless'}}",
+    "shortcut_value": 0.978,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.978
+    },
+    "separation": 0.1783,
+    "separation_max": 0.1783,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_253 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "excavation unloads the layer: recompression index, not compression index",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "the final effective stress is now below the initial one (excavation rather than surcharge) and Cs is supplied; the layer and its initial state are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the text states the excavation, both indices and both stresses, so the unloading path is uniquely determined",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still know that for unloading the void-ratio change follows Δe = Cs·log(σo′/σf′) (swelling branch) rather than the Cc virgin-compression relation, since only the co",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_272_gen",
+    "book": "synthesized",
+    "parent_id": "soil_272",
+    "control_id": "soil_272",
+    "problem": "A consolidated-undrained triaxial test was conducted on a normally consolidated clay with σ3 = 140 kN/m^2 and deviator stress at failure (Δσd)f = 104 kN/m^2. The pore water pressure at failure is uf = 70 kN/m^2. For this test, the total major principal stress at failure is σ1 = 244 kN/m^2 and the total minor principal stress at failure is σ3 = 140 kN/m^2. Determine the effective normal stress on the plane of maximum shear stress.",
+    "code": "def solve(sigma3_total=140.0, delta_sigma_d=104.0, sigma1_total=244.0, u_f=70.0):\n    sigma1_eff = sigma1_total - u_f\n    sigma3_eff = sigma3_total - u_f\n    sigma_n_eff = (sigma1_eff + sigma3_eff) / 2.0\n    return {'1': {'value': sigma_n_eff, 'unit': 'kN/m^2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 122.0,
+        "unit": "kN/m^2"
+      }
+    ],
+    "category": "shear_strength",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the test condition is changed from consolidated-drained to consolidated-undrained with a nonzero pore water pressure at failure, so effective stresses no longer equal total stresses",
+    "shortcut_code": "def solve(sigma3_total=140.0, delta_sigma_d=104.0, sigma1_total=244.0, u_f=70.0):\n    sigma_n_eff = (sigma1_total + sigma3_total) / 2.0\n    return {'1': {'value': sigma_n_eff, 'unit': 'kN/m^2'}}",
+    "shortcut_value": 192.0,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 192.0
+    },
+    "separation": 0.5738,
+    "separation_max": 0.5738,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_272 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "consolidated-drained -> consolidated-undrained: effective stresses no longer equal total stresses",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause changes the test type and supplies the pore pressure at failure; both stresses are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the pore pressure at failure is given, so the effective stresses follow uniquely",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know Terzaghi's effective stress principle (σ' = σ − u) to convert the given total stresses into effective stresses before locating the plane of maximum shear stres",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_269_gen",
+    "book": "synthesized",
+    "parent_id": "soil_269",
+    "control_id": "soil_269",
+    "problem": "A consolidated-drained triaxial test was conducted on an overconsolidated clay having an effective cohesion intercept c' = 20 kN/m^2. The results are: chamber-confining pressure σ3 = 140 kN/m^2 and deviator stress at failure (Δσd)f = 104 kN/m^2. Determine the angle of friction, φ'.",
+    "code": "def solve(sigma3=140.0, delta_sigma_d_f=104.0, c_eff=20.0):\n    import math\n    sigma3_kpa = sigma3\n    q_f_kpa = delta_sigma_d_f\n    c_kpa = c_eff\n\n    def predicted_q(phi):\n        s = math.sin(phi)\n        return (2.0 * sigma3_kpa * s + 2.0 * c_kpa * math.cos(phi)) / (1.0 - s)\n    lo = 0.0\n    hi = math.radians(89.999999)\n    for _ in range(100):\n        mid = 0.5 * (lo + hi)\n        if predicted_q(mid) < q_f_kpa:\n            lo = mid\n        else:\n            hi = mid\n    phi_rad = 0.5 * (lo + hi)\n    phi_deg = math.degrees(phi_rad)\n    return {'1': {'value': phi_deg, 'unit': 'degrees'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 9.680264781028272,
+        "unit": "degrees"
+      }
+    ],
+    "category": "shear_strength",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the clay is changed from normally consolidated, for which the base method assumes c' = 0, to overconsolidated with a stated nonzero effective cohesion intercept c' = 20 kN/m^2",
+    "shortcut_code": "def solve(sigma3=140.0, delta_sigma_d_f=104.0, c_eff=20.0):\n    import math\n    sigma1 = sigma3 + delta_sigma_d_f\n    sin_phi = (sigma1 - sigma3) / (sigma1 + sigma3)\n    phi_rad = math.asin(sin_phi)\n    phi_deg = math.degrees(phi_rad)\n    return {'1': {'value': phi_deg, 'unit': 'degrees'}}",
+    "shortcut_value": 15.713861048008214,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 15.713861048008214
+    },
+    "separation": 0.6233,
+    "separation_max": 0.6233,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_269 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "normally consolidated -> overconsolidated with a stated cohesion intercept",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause makes the clay overconsolidated with c' = 20 kN/m^2; the confining pressure and deviator stress are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the cohesion intercept is stated explicitly, so the failure criterion including c' is uniquely implied",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves recall that with a nonzero cohesion intercept the c'=0 relation sin φ' = (σ1'−σ3')/(σ1'+σ3') no longer holds and must instead apply the full Mohr–Coulomb",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  },
+  {
+    "id": "trap_soil_273_gen",
+    "book": "synthesized",
+    "parent_id": "soil_273",
+    "control_id": "soil_273",
+    "problem": "The equation of the effective stress failure envelope for normally consolidated clayey soil is τf = σ' tan 28°. An undrained triaxial compression test with pore-pressure measurement was conducted with the same soil at a total chamber-confining pressure of 100 kN/m^2. At failure, the pore-water pressure was 60 kN/m^2. Calculate the deviator stress at failure.",
+    "code": "def solve(sigma3_total=100.0, phi_deg=28.0, u_failure=60.0):\n    import math\n    sigma3_eff = sigma3_total - u_failure\n    phi_rad = math.radians(phi_deg)\n    Kp = math.tan(math.radians(45.0 + phi_deg / 2.0)) ** 2\n    sigma1_eff = sigma3_eff * Kp\n    deviator_stress = sigma1_eff - sigma3_eff\n    return {'1': {'value': deviator_stress, 'unit': 'kN/m^2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 70.79304781491636,
+        "unit": "kN/m^2"
+      }
+    ],
+    "category": "shear_strength",
+    "topic": "regime_boundary",
+    "difficulty": "",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the test is changed from drained to undrained with a measured pore-water pressure at failure, so the chamber pressure is no longer equal to the effective minor principal stress",
+    "shortcut_code": "def solve(sigma3_total=100.0, phi_deg=28.0, u_failure=60.0):\n    import math\n    Kp = math.tan(math.radians(45.0 + phi_deg / 2.0)) ** 2\n    sigma1 = sigma3_total * Kp\n    deviator_stress = sigma1 - sigma3_total\n    return {'1': {'value': deviator_stress, 'unit': 'kN/m^2'}}",
+    "shortcut_value": 176.98261953729093,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 176.98261953729093
+    },
+    "separation": 1.5,
+    "separation_max": 1.5,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "gpt55-generated, Claude-adjudicated under trap_expansion_protocol.md Phase 8A; derived from soil_273 in benchmark/cross_domain/soil.json (=control). NOT part of benchmark/traps.json: its parent has no experiments/core_code baseline, which criterion 1 requires for that file.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09-phase8",
+    "mechanism": "drained -> undrained with measured pore pressure: the chamber pressure is not the effective minor principal stress",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT",
+        "opus48": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": [],
+      "witness_pair": [
+        "gpt55-reasoning",
+        "deepseek-v4-pro-reasoning"
+      ],
+      "third_witness": "opus48 (recorded, not counted toward fairness_basis)"
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "one clause changes the test type and supplies the pore pressure; the failure envelope and the chamber pressure are the parent's",
+      "c7": "shortcut_code is the parent's own method; where it does not reproduce the parent's stored number the trigger also moved a numeric given, the case documented 2026-09-07",
+      "c8": "the envelope is in effective stress and the pore pressure is measured and given, so the effective confining stress is determined",
+      "c9": "regime_boundary: one input crosses a validity threshold of the parent's canonical relation, so that relation is no longer the right physics",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves know Terzaghi's effective stress principle (σ' = σ − u, so the effective confining pressure is 100 − 60 = 40 kN/m²) and apply the effective-stress envelo",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "parent_source": "benchmark/cross_domain/soil.json",
+    "parent_domain": "soil",
+    "parent_web_available": true
+  }
+]

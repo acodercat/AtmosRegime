@@ -1,0 +1,48 @@
+{
+ "x-qwen3-8b-F2-F-s43:40": {
+  "run": "x-qwen3-8b-F2-F-s43",
+  "step": 40,
+  "values": {
+   "val-aux/atmoscoder/train_probe/n_subs/mean@1": 0.97265625,
+   "val-aux/atmoscoder/train_probe/n_passed/mean@1": 0.49609375,
+   "val-aux/atmoscoder/train_probe/outcome/passed/mean@1": 0.49609375,
+   "val-aux/atmoscoder/train_probe/outcome/wrong_answer/mean@1": 0.4765625,
+   "val-aux/atmoscoder/train_probe/outcome/no_code/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/outcome/exec_error/mean@1": 0.02734375,
+   "val-aux/atmoscoder/train_probe/outcome/empty_result/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/answer/mean@1": 0.49609375,
+   "val-aux/atmoscoder/train_probe/judge/labelled/mean@1": 1.0,
+   "val-aux/atmoscoder/train_probe/judge/missing/mean@1": 0.03125,
+   "val-aux/atmoscoder/train_probe/judge/correct/mean@1": 0.71875,
+   "val-aux/atmoscoder/train_probe/cf/twinned/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/cf/mapped/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/cf/right/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/score/mean@1": 0.540625,
+   "val-core/atmoscoder/train_probe/reward/mean@1": 0.540625
+  },
+  "rows_changed": 59
+ },
+ "x-qwen3-8b-F1-A-s43:40": {
+  "run": "x-qwen3-8b-F1-A-s43",
+  "step": 40,
+  "values": {
+   "val-aux/atmoscoder/train_probe/n_subs/mean@1": 0.84375,
+   "val-aux/atmoscoder/train_probe/n_passed/mean@1": 0.5625,
+   "val-aux/atmoscoder/train_probe/outcome/passed/mean@1": 0.5625,
+   "val-aux/atmoscoder/train_probe/outcome/wrong_answer/mean@1": 0.28125,
+   "val-aux/atmoscoder/train_probe/outcome/no_code/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/outcome/exec_error/mean@1": 0.15625,
+   "val-aux/atmoscoder/train_probe/outcome/empty_result/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/answer/mean@1": 0.5625,
+   "val-aux/atmoscoder/train_probe/judge/labelled/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/judge/missing/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/judge/correct/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/cf/twinned/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/cf/mapped/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/cf/right/mean@1": 0.0,
+   "val-aux/atmoscoder/train_probe/score/mean@1": 0.5625,
+   "val-core/atmoscoder/train_probe/reward/mean@1": 0.5625
+  },
+  "rows_changed": 8
+ }
+}

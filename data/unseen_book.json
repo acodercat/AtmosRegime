@@ -1,0 +1,654 @@
+[
+  {
+    "id": "lv_13.13.2",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "The trace gas SO2 dissociates when it dissolves in cloud water to form a weak acid, very much as CO2 does. Refer back to Chapter 2 as needed and calculate the following quantities under the assumption that no other non-aqueous substances are present. For this problem, the Henry’s law coefficient H_SO2 = 1.2 × 10^-2 mol L^-1 atm^-1, the first dissociation constant K_1S = 1.7 × 10^-2 mol L^-1, the second dissociation constant K_2S = 6.6 × 10^-8 mol L^-1, and the water dissociation constant is K_w = 1 × 10^-14 mol^2 L^-2. Use approximations when appropriate. (a) Calculate the solution pH when the gas-phase mole fraction y_SO2 = 1 ppb. (b) Calculate the total concentration of dissolved S(IV). (c) Calculate the partitioning of the various S(IV) species in solution; that is, what fraction by moles of the total dissolved gas is in the various forms: undissociated molecules (SO2·H2O), bisulfite ions (HSO3^-), and sulfite ions (SO3^2-). Express your answer in pH units for pH, mol L^-1 for concentration, and dimensionless mole fractions for species partitioning.",
+    "code": "def solve(H_SO2=1.2e-2, K_1S=1.7e-2, K_2S=6.6e-8, K_w=1e-14, y_SO2=1e-9, P_total=1.0):\n    # Physical setup:\n    # SO2(g) <-> SO2.H2O with [SO2.H2O] = H_SO2 * p_SO2\n    # SO2.H2O <-> H+ + HSO3-   K_1S\n    # HSO3- <-> H+ + SO3^2-    K_2S\n    #\n    # Partial pressure of SO2 (atm): mole fraction * total pressure\n    p_SO2 = y_SO2 * P_total  # atm\n\n    # Dissolved undissociated SO2.H2O\n    SO2aq = H_SO2 * p_SO2  # mol/L\n\n    # Charge balance (ignoring other ions):\n    # [H+] = [OH-] + [HSO3-] + 2[SO3^2-]\n    # [HSO3-] = K_1S * SO2aq / [H+]\n    # [SO3^2-] = K_2S * [HSO3-] / [H+] = K_1S*K_2S*SO2aq/[H+]^2\n    # [OH-] = K_w/[H+]\n    #\n    # Solve numerically for [H+]\n    def charge_imbalance(H):\n        HSO3 = K_1S * SO2aq / H\n        SO3 = K_2S * HSO3 / H\n        OH = K_w / H\n        return H - (OH + HSO3 + 2.0 * SO3)\n\n    # Bisection\n    lo, hi = 1e-14, 1.0\n    for _ in range(200):\n        mid = (lo * hi) ** 0.5\n        if charge_imbalance(mid) > 0:\n            hi = mid\n        else:\n            lo = mid\n    H = (lo * hi) ** 0.5\n\n    import math\n    pH = -math.log10(H)\n\n    # S(IV) species\n    HSO3 = K_1S * SO2aq / H\n    SO3 = K_2S * HSO3 / H\n    S_IV_total = SO2aq + HSO3 + SO3\n\n    # fractions\n    f_SO2aq = SO2aq / S_IV_total\n    f_HSO3 = HSO3 / S_IV_total\n    f_SO3 = SO3 / S_IV_total\n\n    return {\n        \"1\": {\"value\": pH, \"unit\": \"pH\"},\n        \"2\": {\"value\": S_IV_total, \"unit\": \"mol L^-1\"},\n        \"3\": {\"value\": f_SO2aq, \"unit\": \"dimensionless\"},\n        \"4\": {\"value\": f_HSO3, \"unit\": \"dimensionless\"},\n        \"5\": {\"value\": f_SO3, \"unit\": \"dimensionless\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "6.287402262908436",
+        "unit": "pH"
+      },
+      {
+        "sub": "2",
+        "value": "4.459881217679011e-07",
+        "unit": "mol L^-1"
+      },
+      {
+        "sub": "3",
+        "value": "2.690654619327503e-05",
+        "unit": "dimensionless"
+      },
+      {
+        "sub": "4",
+        "value": "0.8865620524907531",
+        "unit": "dimensionless"
+      },
+      {
+        "sub": "5",
+        "value": "0.11341104096305353",
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "atmospheric_chemistry",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "13",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        6.287402262908436,
+        4.459881217679011e-07,
+        2.690654619327503e-05,
+        0.8865620524907531,
+        0.11341104096305353
+      ],
+      "witnesses": [
+        [
+          6.287402262908436,
+          4.459881217679012e-07,
+          2.6906546193275026e-05,
+          0.8865620524907531,
+          0.11341104096305357
+        ],
+        [
+          6.287402262908436,
+          4.459881217679011e-07,
+          2.690654619327503e-05,
+          0.8865620524907531,
+          0.11341104096305356
+        ]
+      ],
+      "agree": 2
+    },
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_3.3.8",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "Ammonia (NH₃) is the principal basic gas in the atmosphere. It dissolves in liquid H₂O according to the equilibrium $$NH_3(g) \\longleftrightarrow NH_3(aq),$$ which is governed by a Henry's law coefficient $H_{NH_3} = 62$ M atm⁻¹ at 298 K. The dissolved ammonia then reacts with water, $$NH_3(aq) + H_2O \\longleftrightarrow NH_4^+ + OH^-,$$ with equilibrium constant $K_{1N} = 1.7 \\times 10^{-5}$ M. (a) Calculate $[NH_4^+]$ in the solution if the partial pressure of ammonia in the gas phase is 1 ppb. (b) Calculate the total dissolved ammonia $[NH_3^T]$ in solution at equilibrium. (c) Calculate the overall (effective) Henry's law coefficient relating total dissolved ammonia to the gas-phase partial pressure. Express concentrations in M, gas-phase partial pressure in atm or ppb as specified, and Henry's law coefficients in M atm⁻¹.",
+    "code": "def solve(H_NH3=62.0, K1N=1.7e-5, p_NH3_ppb=1.0):\n    # Physical/standard values\n    Kw = 1.0e-14  # water ionization constant, M^2\n    P_total_atm = 1.0  # standard total pressure\n\n    # Convert partial pressure from ppb to atm\n    p_NH3_atm = p_NH3_ppb * 1e-9 * P_total_atm\n\n    # NH3(aq) concentration from Henry's law\n    NH3_aq = H_NH3 * p_NH3_atm  # M\n\n    # Equilibrium: NH3(aq)+H2O <-> NH4+ + OH-\n    # K1N = [NH4+][OH-]/[NH3(aq)]\n    # Assume charge balance dominated by NH4+ and OH- (pure water absorption):\n    # [NH4+] ~ [OH-], so [NH4+]^2 = K1N * [NH3_aq]\n    # But more rigorously with water: [OH-] = Kw/[H+], and [NH4+]=[OH-] approx\n    NH4 = (K1N * NH3_aq) ** 0.5  # M\n\n    # (b) total dissolved ammonia\n    NH3_T = NH3_aq + NH4  # M\n\n    # (c) overall (effective) Henry's law coefficient\n    # H_eff = [NH3_T] / p_NH3\n    # [NH3_T] = [NH3_aq] + [NH4+] = H_NH3*p + sqrt(K1N*H_NH3*p)\n    # H_eff = H_NH3 + sqrt(K1N*H_NH3/p)\n    H_eff = NH3_T / p_NH3_atm  # M atm^-1\n\n    return {\n        \"1\": {\"value\": NH4, \"unit\": \"M\"},\n        \"2\": {\"value\": NH3_T, \"unit\": \"M\"},\n        \"3\": {\"value\": H_eff, \"unit\": \"M atm^-1\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "1.0266450214168478e-06",
+        "unit": "M"
+      },
+      {
+        "sub": "2",
+        "value": "1.0886450214168478e-06",
+        "unit": "M"
+      },
+      {
+        "sub": "3",
+        "value": "1088.6450214168476",
+        "unit": "M atm^-1"
+      }
+    ],
+    "category": "atmospheric_chemistry",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "medium",
+    "chapter": "3",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        1.0266450214168478e-06,
+        1.0886450214168478e-06,
+        1088.6450214168476
+      ],
+      "witnesses": [
+        [
+          1.0266450214168478e-06,
+          1.0886450214168478e-06,
+          1088.6450214168476
+        ],
+        [
+          1.0218091724790917e-06,
+          1.0838091724790917e-06,
+          1083.8091724790916
+        ]
+      ],
+      "agree": 2
+    },
+    "review_note": "ungradable prose sub-question trimmed (defect scan DEFECT_QUALITATIVE); code and sub_answers unchanged",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_2.8",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "A black horizontal disk is exposed to direct solar radiation (zenith angle 30°), diffusely reflected radiation from an infinite horizontal surface with an albedo of 0.3, and longwave radiation emitted by the horizontal surface as a blackbody of 300 K. Compute the equilibrium temperature of the disk when the solar irradiance is 1370 W m⁻². Express your answer in K.",
+    "code": "def solve(zenith_angle_deg=30.0, albedo=0.3, surface_temp=300.0, solar_irradiance=1370.0):\n    import math\n\n    sigma = 5.670374419e-8  # Stefan-Boltzmann constant, W m^-2 K^-4\n\n    theta = math.radians(zenith_angle_deg)\n\n    # Direct solar flux onto horizontal disk (top side)\n    direct = solar_irradiance * math.cos(theta)\n\n    # Diffusely reflected shortwave from the surface (comes from below, hits bottom)\n    # The surface reflects a fraction (albedo) of the incoming direct solar flux\n    # (incident on horizontal surface = S * cos(theta))\n    reflected = albedo * solar_irradiance * math.cos(theta)\n\n    # Longwave radiation emitted by surface as blackbody (from below, hits bottom)\n    longwave = sigma * surface_temp**4\n\n    # The disk (black, both sides emit). It absorbs on top: direct sun.\n    # On bottom: reflected shortwave + longwave from surface.\n    # It emits from both top and bottom surfaces: total emission = 2 * sigma * T^4\n    absorbed = direct + reflected + longwave\n\n    # Energy balance: absorbed = emitted from both sides\n    T = (absorbed / (2.0 * sigma)) ** 0.25\n\n    return {\"1\": {\"value\": T, \"unit\": \"K\"}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "364.4927187339108",
+        "unit": "K"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "2",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        364.4927187339108
+      ],
+      "witnesses": [
+        [
+          364.4927187339108
+        ],
+        [
+          364.4927187339108
+        ]
+      ],
+      "agree": 2
+    },
+    "review_note": "assumes the thin disk radiates from both faces (2*sigma*T^4); a one-sided reading gives 433 K. All inputs are stated, both witnesses agreed on this convention.",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_4.4.3",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "Calculate the change in thickness of thin ice covering a fresh water lake during (a) a 12-h night and (b) a 12-h day, if the latitude is \\(60^\\circ\\), the atmospheric transmissivity is 0.7 for solar radiation, long-wave radiation from the atmosphere is \\(200~\\mathrm{W~m^{-2}}\\), and the ice temperature remains constant at \\(0^\\circ\\mathrm{C}\\). Hint: Because the ice is very thin, assume that the energy received at the interface will immediately be felt throughout the ice layer. Express your answer in m.",
+    "code": "def solve(latitude_deg=60.0, transmissivity=0.7, longwave_down=200.0,\n          ice_temp_C=0.0, night_hours=12.0, day_hours=12.0):\n    import math\n\n    # Physical constants\n    sigma = 5.670374419e-8      # Stefan-Boltzmann, W m^-2 K^-4\n    S0 = 1367.0                 # solar constant, W m^-2\n    rho_ice = 917.0             # kg m^-3\n    Lf = 3.34e5                 # latent heat of fusion, J kg^-1\n    emissivity = 1.0            # ice/water blackbody\n\n    T_ice = ice_temp_C + 273.15\n\n    # Outgoing longwave from ice surface (blackbody at 0 C)\n    LW_out = emissivity * sigma * T_ice**4\n\n    # Net longwave (down - up); positive means gain by ice\n    LW_net = longwave_down - LW_out\n\n    # ---- (a) Night: no solar radiation ----\n    Q_night = LW_net   # W m^-2, net energy flux into ice\n    t_night = night_hours * 3600.0\n\n    # Energy per unit area over the night\n    E_night = Q_night * t_night   # J m^-2\n\n    # If negative -> freezing (thickness increases); if positive -> melting\n    # Mass change per area = E / Lf ; thickness = mass/(rho)\n    # Positive Q into ice -> melts ice (thickness decrease)\n    dh_night = -E_night / (Lf * rho_ice)\n\n    # ---- (b) Day: include average solar radiation over 12-h day ----\n    # Daily-averaged solar over the daylight period at latitude phi.\n    # Use average of cos(zenith) over the daylight portion of the day.\n    phi = math.radians(latitude_deg)\n    # Assume equinox-like: declination = 0 for simplicity of \"12-h day\"\n    delta = 0.0\n\n    # Hour angle at sunrise/sunset\n    cos_H0 = -math.tan(phi) * math.tan(delta)\n    cos_H0 = max(-1.0, min(1.0, cos_H0))\n    H0 = math.acos(cos_H0)\n\n    # Average of cos(zenith) over daylight hours:\n    # cosZ = sin(phi)sin(delta) + cos(phi)cos(delta)cos(H)\n    # integrate over H from -H0 to H0, divide by (2*H0)\n    if H0 > 0:\n        avg_cosZ = (math.sin(phi)*math.sin(delta)*(2*H0) +\n                    math.cos(phi)*math.cos(delta)*2*math.sin(H0)) / (2*H0)\n    else:\n        avg_cosZ = 0.0\n\n    # Average incoming solar at surface during daylight\n    solar_avg = transmissivity * S0 * avg_cosZ  # W m^-2\n\n    Q_day = solar_avg + LW_net\n    t_day = day_hours * 3600.0\n    E_day = Q_day * t_day\n\n    dh_day = -E_day / (Lf * rho_ice)\n\n    return {\n        \"1\": {\"value\": dh_night, \"unit\": \"m\"},\n        \"2\": {\"value\": dh_day, \"unit\": \"m\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "0.01631334252997198",
+        "unit": "m"
+      },
+      {
+        "sub": "2",
+        "value": "-0.026648670869150504",
+        "unit": "m"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "4",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        0.01631334252997198,
+        -0.026648670869150504
+      ],
+      "witnesses": [
+        [
+          0.016337800314874487,
+          -0.026499773463472705
+        ],
+        [
+          0.016313284276993627,
+          -0.026648729122128862
+        ]
+      ],
+      "agree": 2
+    },
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_2.2",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "The following exercise is intended to help you \"visualize\" molecular scales. Assume the atmosphere behaves as an ideal gas in hydrostatic balance, and treat air molecules as hard spheres for the kinetic-theory parts.\n\n(a) Compute the total number of molecules in an atmospheric column that has a surface pressure of 1013 hPa. Express your answer in cm⁻².\n\n(b) Assume the scale height is 8 km. Calculate the average molecular concentration. Express your answer in cm⁻³.\n\n(c) Assume the effective diameter of an air molecule is 0.5 nm. Compute the volume of this molecule. Express your answer in cm³.\n\n(d) From parts (b) and (c), calculate the ratio of the volume of space occupied by an average molecule to the actual volume of that particle. Express your answer as a dimensionless ratio.\n\n(e) From kinetic theory, compute the molecular mean free path using the information from (b) and (c). Express your answer in cm (or m).",
+    "code": "import math\n\ndef solve(surface_pressure_hPa=1013.0, scale_height_km=8.0, diameter_nm=0.5):\n    # Physical constants\n    g = 9.81            # m/s^2\n    N_A = 6.02214076e23 # 1/mol\n    M_air = 28.97e-3    # kg/mol (molar mass of dry air)\n\n    # (a) Total molecules in column per cm^2\n    P = surface_pressure_hPa * 100.0  # Pa = N/m^2\n    # Column mass per unit area = P/g  (kg/m^2)\n    mass_per_area = P / g            # kg/m^2\n    # molecules per m^2\n    molec_per_m2 = mass_per_area / M_air * N_A\n    # convert to per cm^2: 1 m^2 = 1e4 cm^2\n    molec_per_cm2 = molec_per_m2 / 1e4\n\n    # (b) Average molecular concentration\n    H_cm = scale_height_km * 1000.0 * 100.0  # cm\n    conc_cm3 = molec_per_cm2 / H_cm\n\n    # (c) Volume of one molecule (sphere)\n    d_cm = diameter_nm * 1e-9 * 100.0  # cm\n    r_cm = d_cm / 2.0\n    vol_molecule_cm3 = (4.0/3.0) * math.pi * r_cm**3\n\n    # (d) Ratio of space per molecule to particle volume\n    vol_space_per_molecule = 1.0 / conc_cm3  # cm^3 available per molecule\n    ratio = vol_space_per_molecule / vol_molecule_cm3\n\n    # (e) Mean free path\n    lam_cm = 1.0 / (math.sqrt(2.0) * math.pi * d_cm**2 * conc_cm3)\n\n    return {\n        \"1\": {\"value\": molec_per_cm2, \"unit\": \"cm^-2\"},\n        \"2\": {\"value\": conc_cm3, \"unit\": \"cm^-3\"},\n        \"3\": {\"value\": vol_molecule_cm3, \"unit\": \"cm^3\"},\n        \"4\": {\"value\": ratio, \"unit\": \"dimensionless\"},\n        \"5\": {\"value\": lam_cm, \"unit\": \"cm\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "2.1465590752710193e+25",
+        "unit": "cm^-2"
+      },
+      {
+        "sub": "2",
+        "value": "2.6831988440887742e+19",
+        "unit": "cm^-3"
+      },
+      {
+        "sub": "3",
+        "value": "6.544984694978737e-23",
+        "unit": "cm^3"
+      },
+      {
+        "sub": "4",
+        "value": "569.4275908951771",
+        "unit": "dimensionless"
+      },
+      {
+        "sub": "5",
+        "value": "3.355384257639159e-06",
+        "unit": "cm"
+      }
+    ],
+    "category": "atmospheric_thermodynamics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "2",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        2.1465590752710193e+25,
+        2.6831988440887742e+19,
+        6.544984694978737e-23,
+        569.4275908951771,
+        3.355384257639159e-06
+      ],
+      "witnesses": [
+        [
+          2.147685264896483e+25,
+          2.6846065811206038e+19,
+          6.544984694978735e-23,
+          569.1289980539448,
+          3.353624782448748e-06
+        ],
+        [
+          2.147292350436561e+25,
+          2.6841154380457013e+19,
+          6.544984694978735e-23,
+          569.2331380481337,
+          3.3542384332494457e-06
+        ]
+      ],
+      "agree": 2
+    },
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_3.3.3",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "We all know that the equilibrium vapor pressure over liquid water is greater than that over ice at any given temperature less than 0°C. Take as given that the equilibrium vapor pressures over water and over ice are equal at 0°C. Calculate the ratio of the equilibrium vapor pressure over liquid water to that over ice at a temperature of -10°C. Express the vapor-pressure ratio as dimensionless.",
+    "code": "def solve(T_celsius=-10.0, T0_celsius=0.0):\n    import math\n\n    # Physical constants\n    R = 8.314462618           # J/(mol K), universal gas constant\n    Mw = 18.01528e-3          # kg/mol, molar mass of water\n\n    # Latent heats (J/kg) near 0 C\n    L_vap = 2.501e6           # latent heat of vaporization (liquid -> vapor)\n    L_sub = 2.834e6           # latent heat of sublimation (ice -> vapor)\n\n    # Molar latent heats (J/mol)\n    Lv = L_vap * Mw\n    Ls = L_sub * Mw\n\n    # Temperatures in Kelvin\n    T0 = T0_celsius + 273.15\n    T = T_celsius + 273.15\n\n    # Integrated Clausius-Clapeyron from T0 to T, with es(T0)=ew(T0)\n    # ln(e(T)/e(T0)) = -(L/R) * (1/T - 1/T0)\n    ln_ew_ratio = -(Lv / R) * (1.0 / T - 1.0 / T0)   # over water\n    ln_es_ratio = -(Ls / R) * (1.0 / T - 1.0 / T0)   # over ice\n\n    ew = math.exp(ln_ew_ratio)   # ew(T)/e(T0)\n    es = math.exp(ln_es_ratio)   # es(T)/e(T0)\n\n    ratio = ew / es              # ew(T) / es(T)\n\n    return {\n        \"1\": {\"value\": ratio, \"unit\": \"dimensionless\"}\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "1.1055907825131075",
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "atmospheric_thermodynamics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "medium",
+    "chapter": "3",
+    "source_status": "PASS_K1",
+    "consensus": {
+      "author": [
+        1.1055907825131075
+      ],
+      "witnesses": [
+        [
+          1.105755656257931
+        ],
+        null
+      ],
+      "agree": 1
+    },
+    "review_note": "mostly a proof; the graded part is the vapour-pressure ratio at -10 C | ungradable prose sub-question trimmed (defect scan DEFECT_QUALITATIVE); code and sub_answers unchanged",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_5.5.10",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "Consider an atmosphere with no aerosol particles. Assume air is being lifted to cloud base. Let T0 = 19°C, p0 = 1000 hPa, and r0 = 8 g kg^-1. What would be the cloud base pressure in this case? Express your answer in hPa.",
+    "code": "def solve(T0_C=19.0, p0_hPa=1000.0, r0_g_kg=8.0):\n    import math\n\n    # Physical constants\n    Rd = 287.0          # J/(kg K), dry air gas constant\n    Rv = 461.5          # J/(kg K), water vapor gas constant\n    cp = 1004.0         # J/(kg K), specific heat of dry air at const p\n    g = 9.81            # m/s^2\n    eps = Rd / Rv       # ~0.622\n    L = 2.5e6           # J/kg latent heat of vaporization\n    e0 = 611.2          # Pa, saturation vapor pressure at T=273.15 K (Clausius-Clapeyron ref)\n    T_ref = 273.15      # K\n\n    # Convert inputs\n    T0 = T0_C + 273.15          # K\n    p0 = p0_hPa * 100.0         # Pa\n    r0 = r0_g_kg / 1000.0       # kg/kg (mixing ratio)\n\n    # Vapor pressure from mixing ratio: r = eps*e/(p-e)  => e = r*p/(eps+r)\n    def vapor_pressure(p, r):\n        return r * p / (eps + r)\n\n    # Saturation vapor pressure (Clausius-Clapeyron)\n    def esat(T):\n        return e0 * math.exp(L / Rv * (1.0 / T_ref - 1.0 / T))\n\n    # Below cloud base, an unsaturated air parcel lifted adiabatically follows\n    # the DRY adiabat while its mixing ratio r0 is conserved.\n    # Cloud base (LCL) is where the parcel first becomes saturated:\n    #   e(p) = esat(T(p))\n    # where along a dry adiabat with potential temperature conserved:\n    #   T = T0 * (p/p0)^(Rd/cp)\n    # and the actual vapor pressure e = r0*p/(eps+r0) scales with p.\n    #\n    # We iterate/scan pressure downward from p0 until saturation is reached.\n\n    kappa = Rd / cp\n\n    def saturation_deficit(p):\n        T = T0 * (p / p0) ** kappa\n        e = vapor_pressure(p, r0)\n        return e - esat(T)  # zero at cloud base; negative below\n\n    # Bisection between cloud base pressure (< p0) and p0\n    p_low = 100.0   # Pa upper limit of ascent (very high)\n    p_high = p0     # Pa surface\n\n    # At surface, air is unsaturated => saturation_deficit < 0\n    # As we rise, T drops, esat drops faster => deficit increases toward 0\n    f_high = saturation_deficit(p_high)\n    f_low = saturation_deficit(p_low)\n\n    # Ensure bracket\n    if f_low * f_high > 0:\n        # scan to find bracket\n        p_scan = p0\n        step = 100.0\n        prev_p = p0\n        prev_f = f_high\n        found = False\n        while p_scan > p_low:\n            p_scan -= step\n            f = saturation_deficit(p_scan)\n            if prev_f * f <= 0:\n                p_low, p_high = p_scan, prev_p\n                found = True\n                break\n            prev_p, prev_f = p_scan, f\n        if not found:\n            p_low = p_scan\n\n    a, b = p_low, p_high\n    fa = saturation_deficit(a)\n    fb = saturation_deficit(b)\n    for _ in range(200):\n        m = 0.5 * (a + b)\n        fm = saturation_deficit(m)\n        if fa * fm <= 0:\n            b, fb = m, fm\n        else:\n            a, fa = m, fm\n    p_cb = 0.5 * (a + b)  # Pa\n\n    T_cb = T0 * (p_cb / p0) ** kappa  # K\n\n    return {\n        \"1\": {\"value\": p_cb / 100.0, \"unit\": \"hPa\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "880.7630110492822",
+        "unit": "hPa"
+      }
+    ],
+    "category": "atmospheric_thermodynamics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "5",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        880.7630110492822
+      ],
+      "witnesses": [
+        [
+          881.2618304076558
+        ],
+        [
+          881.13
+        ]
+      ],
+      "agree": 2
+    },
+    "review_note": "prose-heavy statement, but the closing numeric question is fully specified | ungradable prose sub-question trimmed (defect scan DEFECT_QUALITATIVE); code and sub_answers unchanged",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_5.5.7",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "An atmospheric layer below cloud base is moistened by rain falling from a cloud. Assume that the initial temperature of the layer, before the rain started falling into the layer, was 20°C and the wet-bulb temperature was 10°C. If the mixing ratio at 900 hPa increases by 3 g kg^-1 during this rain event, what will be the temperature when the rain ceases? What are the initial and final relative humidities? Express your answer in °C or K for temperature and % for relative humidity.",
+    "code": "def solve(T_initial_C=20.0, Tw_C=10.0, delta_w_gkg=3.0, P_hPa=900.0):\n    # Physical constants\n    cp = 1005.0        # J/(kg K), specific heat of dry air at constant pressure\n    Lv = 2.5e6         # J/kg, latent heat of vaporization\n    eps = 0.622        # ratio of molar masses (water/dry air)\n\n    # Convert temperatures\n    T_initial = T_initial_C + 273.15\n    Tw = Tw_C + 273.15\n\n    # Saturation vapor pressure (hPa) via Bolton's formula, T in Celsius\n    def esat(T_C):\n        return 6.112 * math_exp(17.67 * T_C / (T_C + 243.5))\n\n    import math\n    math_exp = math.exp\n\n    def esat(T_C):\n        return 6.112 * math.exp(17.67 * T_C / (T_C + 243.5))\n\n    # Mixing ratio (kg/kg) from vapor pressure and total pressure\n    def mixing_ratio(e_hPa, P_hPa):\n        return eps * e_hPa / (P_hPa - e_hPa)\n\n    # --- Initial state ---\n    # Wet-bulb relation: cp*(T - Tw) = Lv*(ws(Tw) - w)\n    # where ws(Tw) is saturation mixing ratio at wet-bulb temperature.\n    es_Tw = esat(Tw_C)\n    ws_Tw = mixing_ratio(es_Tw, P_hPa)   # kg/kg\n\n    # Solve for initial mixing ratio w_initial\n    w_initial = ws_Tw - (cp / Lv) * (T_initial - Tw)   # kg/kg\n\n    # Initial relative humidity\n    es_Tinit = esat(T_initial_C)\n    ws_Tinit = mixing_ratio(es_Tinit, P_hPa)\n    RH_initial = 100.0 * w_initial / ws_Tinit\n\n    # --- Final state ---\n    # Evaporation of rain cools the layer while increasing moisture.\n    # Process is wet-bulb (constant wet-bulb temperature / equivalent):\n    # cp*dT = -Lv*dw  => cp*(T_final - T_initial) = -Lv*(w_final - w_initial)\n    delta_w = delta_w_gkg / 1000.0        # kg/kg\n    w_final = w_initial + delta_w\n\n    T_final = T_initial - (Lv / cp) * delta_w   # K\n    T_final_C = T_final - 273.15\n\n    # Final relative humidity\n    es_Tfinal = esat(T_final_C)\n    ws_Tfinal = mixing_ratio(es_Tfinal, P_hPa)\n    RH_final = 100.0 * w_final / ws_Tfinal\n\n    return {\n        \"1\": {\"value\": T_final_C, \"unit\": \"°C\"},\n        \"2\": {\"value\": RH_initial, \"unit\": \"%\"},\n        \"3\": {\"value\": RH_final, \"unit\": \"%\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "12.537313432835845",
+        "unit": "°C"
+      },
+      {
+        "sub": "2",
+        "value": "27.611239882384737",
+        "unit": "%"
+      },
+      {
+        "sub": "3",
+        "value": "74.30356989208303",
+        "unit": "%"
+      }
+    ],
+    "category": "atmospheric_thermodynamics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "5",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        12.537313432835845,
+        27.611239882384737,
+        74.30356989208303
+      ],
+      "witnesses": [
+        [
+          12.533094301814211,
+          28.105779639004915,
+          74.5812760178777
+        ],
+        [
+          12.65,
+          27.71,
+          73.39
+        ]
+      ],
+      "agree": 2
+    },
+    "review_note": "generated code carries a dead duplicate esat() definition (overridden before use); harmless but untidy",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_6.6.6",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "In early winter, when the Great Lakes are not yet frozen over, the temperature of the open-water surface can be significantly higher than that of the air above it during a cold-air outbreak. When the warmer moist air just above the lake mixes with the colder overlying air, a mixing cloud is formed over the lake some short distance away from the shore. (a) Assume a lake surface temperature of 4 °C, and that the air temperature just above the surface reaches a relative humidity of 95% before it mixes with the air above. Determine the minimum required relative humidity of the cold air for at least some condensation to take place when the temperature of the air is -10 °C. (b) Find the temperature of the cold air below which condensate forms regardless of the relative humidity of that air. Express the relative humidity in % and the temperature in °C.",
+    "code": "def solve(lake_surface_temp_C=4.0, warm_air_RH=0.95, cold_air_temp_C=-10.0):\n    import math\n\n    # Physical constants\n    T0 = 273.15          # K, reference temperature\n    es0 = 611.2          # Pa, saturation vapor pressure at 0 C\n    Lv = 2.5e6           # J/kg, latent heat of vaporization\n    Rv = 461.5           # J/(kg K), gas constant for water vapor\n\n    def esat(T_C):\n        \"\"\"Saturation vapor pressure (Pa) via Clausius-Clapeyron, T in Celsius.\"\"\"\n        T = T_C + T0\n        return es0 * math.exp(Lv / Rv * (1.0 / T0 - 1.0 / T))\n\n    # --- Part (b) ---\n    # Warm air just above lake: at lake surface temperature, RH = warm_air_RH\n    e_warm = warm_air_RH * esat(lake_surface_temp_C)\n    T_warm = lake_surface_temp_C\n\n    # Cold air at cold_air_temp_C with unknown RH -> vapor pressure e_cold = RH_cold * esat(cold_air_temp_C)\n    e_cold_sat = esat(cold_air_temp_C)\n    T_cold = cold_air_temp_C\n\n    # Mixing line: when warm and cold parcels mix, mixture temperature and vapor\n    # pressure lie on the straight line joining the two endpoints in (T, e) space.\n    # Condensation occurs if any point on the mixing line lies above the\n    # saturation curve. The marginal (minimum RH) case: the mixing line is\n    # tangent to the saturation curve.\n    #\n    # For a mixing fraction f (0=cold, 1=warm):\n    #   T(f) = T_cold + f*(T_warm - T_cold)\n    #   e(f) = e_cold + f*(e_warm - e_cold)\n    # Condensation if e(f) > esat(T(f)) for some f in (0,1).\n    #\n    # Minimum RH_cold: largest e_cold such that the line just touches saturation.\n    # Because esat is convex, the mixing line (a chord) can exceed the curve in\n    # the middle. We find the minimum e_cold for which max over f of\n    # [e(f) - esat(T(f))] = 0 (tangency).\n\n    def max_supersaturation(e_cold):\n        best = -1e30\n        n = 2000\n        for i in range(1, n):\n            f = i / n\n            T = T_cold + f * (T_warm - T_cold)\n            e = e_cold + f * (e_warm - e_cold)\n            diff = e - esat(T)\n            if diff > best:\n                best = diff\n        return best\n\n    # Bisection on e_cold to find where max_supersaturation == 0\n    lo, hi = 0.0, e_cold_sat\n    # At e_cold=0 line low -> may still exceed in middle? check\n    for _ in range(100):\n        mid = 0.5 * (lo + hi)\n        if max_supersaturation(mid) > 0.0:\n            # condensation happens; can lower e_cold\n            hi = mid\n        else:\n            lo = mid\n    e_cold_min = 0.5 * (lo + hi)\n    RH_cold_min = e_cold_min / e_cold_sat\n\n    # If even at e_cold=0 condensation occurs, RH_min = 0\n    if max_supersaturation(0.0) > 0.0:\n        RH_cold_min = 0.0\n\n    # --- Part (c) ---\n    # Find the cold-air temperature below which condensation occurs regardless\n    # of the cold air's RH, i.e. even at RH_cold = 0 (e_cold = 0) the mixing\n    # line (from warm point to the dry cold point) crosses the saturation curve.\n    # Find the threshold T_cold where max_supersaturation with e_cold=0 == 0.\n\n    def max_supersat_dry(Tc):\n        best = -1e30\n        n = 2000\n        for i in range(1, n):\n            f = i / n\n            T = Tc + f * (T_warm - Tc)\n            e = 0.0 + f * (e_warm - 0.0)\n            diff = e - esat(T)\n            if diff > best:\n                best = diff\n        return best\n\n    # Search for temperature: warmer than this -> need some RH; colder -> always condenses.\n    # At very cold Tc, dry air line still connects to warm moist point -> more likely to cross.\n    # Bisection between a cold and warm bound.\n    loT, hiT = -60.0, T_warm - 0.01\n    # At loT (very cold) expect condensation (>0), at hiT (near warm) expect no condensation (<0)\n    for _ in range(100):\n        midT = 0.5 * (loT + hiT)\n        if max_supersat_dry(midT) > 0.0:\n            # condensation occurs even dry -> threshold is warmer\n            loT = midT\n        else:\n            hiT = midT\n    T_cold_threshold = 0.5 * (loT + hiT)\n\n    return {\n        \"1\": {\"value\": RH_cold_min * 100.0, \"unit\": \"%\"},\n        \"2\": {\"value\": T_cold_threshold, \"unit\": \"°C\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "69.31706067001241",
+        "unit": "%"
+      },
+      {
+        "sub": "2",
+        "value": "-14.86623360779818",
+        "unit": "°C"
+      }
+    ],
+    "category": "atmospheric_thermodynamics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "6",
+    "source_status": "PASS_K1",
+    "consensus": {
+      "author": [
+        69.31706067001241,
+        -14.86623360779818
+      ],
+      "witnesses": [
+        null,
+        [
+          69.82540501892703,
+          -14.898193188759972
+        ]
+      ],
+      "agree": 1
+    },
+    "review_note": "parts (a),(b) ask for plots; only the two numeric sub-answers are gradable | ungradable prose sub-question trimmed (defect scan DEFECT_QUALITATIVE); code and sub_answers unchanged",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_2.6",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "Suppose the Earth has an albedo of 0.4. What will be Earth's effective temperature if the solar irradiance is 1370 W m⁻²? If the albedo could be increased to 0.6, what would be the new equilibrium temperature? Express your answers in K.",
+    "code": "def solve(albedo1=0.4, solar_irradiance=1370.0, albedo2=0.6):\n    sigma = 5.670374419e-8  # Stefan-Boltzmann constant, W m^-2 K^-4\n\n    # Effective temperature: (1-a)*S/4 = sigma*T^4\n    T1 = ((1 - albedo1) * solar_irradiance / (4 * sigma)) ** 0.25\n    T2 = ((1 - albedo2) * solar_irradiance / (4 * sigma)) ** 0.25\n\n    return {\n        \"1\": {\"value\": T1, \"unit\": \"K\"},\n        \"2\": {\"value\": T2, \"unit\": \"K\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "245.3578867239256",
+        "unit": "K"
+      },
+      {
+        "sub": "2",
+        "value": "221.70587804521654",
+        "unit": "K"
+      }
+    ],
+    "category": "climate_dynamics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "medium",
+    "chapter": "2",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        245.3578867239256,
+        221.70587804521654
+      ],
+      "witnesses": [
+        [
+          245.3578867239256,
+          221.70587804521654
+        ],
+        [
+          245.3578867239256,
+          221.70587804521654
+        ]
+      ],
+      "agree": 2
+    },
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_11.11.2",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "The warm-rain process in a cloud involves collisions between liquid water drops that may or may not coalesce to form a larger drop. As larger drops fall through a cloud of smaller drops, the small-drop population is gradually reduced in number density, while the larger drops grow in size. Consider a simple, idealized cloud composed initially of two monodisperse drop populations: the small-drop population, containing drops of radius 10 micrometers and fallspeed 1 cm s^{-1}, has a number density n_1 = 10^9 m^{-3}, whereas the large-drop population, with drop radius 500 micrometers and fallspeed 5 m s^{-1}, has a number density n_2 = 1000 m^{-3}. Assume the collision efficiency to be 0.9 and the coalescence efficiency to be 0.7. Further assume that the large drops never collide with other large drops. Calculate the exponential time constant for depletion of the small drop population under the assumption that the initial magnitude of the collection kernel is constant throughout the process. What is the final size of the large drops after all the small drops have been collected? Express the exponential time constant in seconds and the final large-drop radius in micrometers.",
+    "code": "def solve(r1=10e-6, v1=0.01, n1=1e9, r2=500e-6, v2=5.0, n2=1000.0,\n          E_collision=0.9, E_coalescence=0.7):\n    import math\n\n    # Geometric cross-section for collision (large drop sweeps out area based on sum of radii)\n    # Collection kernel K = E_col * E_coal * pi * (r1+r2)^2 * |v2 - v1|\n    E = E_collision * E_coalescence\n    dv = abs(v2 - v1)\n    K = E * math.pi * (r1 + r2)**2 * dv  # m^3 s^-1\n\n    # Small-drop population depletion:\n    # dn1/dt = -K * n2 * n1  (large drops collecting small ones)\n    # Since n2 assumed constant (kernel constant), exponential decay:\n    # n1(t) = n1_0 * exp(-t/tau), tau = 1/(K * n2)\n    tau = 1.0 / (K * n2)  # seconds\n\n    # Final large-drop size: all small drops collected by large drops.\n    # Number of small drops per large drop = n1 / n2\n    num_small_per_large = n1 / n2\n\n    # Volume conservation\n    vol_small = (4.0/3.0) * math.pi * r1**3\n    vol_large_initial = (4.0/3.0) * math.pi * r2**3\n    vol_large_final = vol_large_initial + num_small_per_large * vol_small\n\n    r_final = (3.0 * vol_large_final / (4.0 * math.pi))**(1.0/3.0)  # m\n    r_final_um = r_final * 1e6\n\n    return {\n        \"1\": {\"value\": tau, \"unit\": \"s\"},\n        \"2\": {\"value\": r_final_um, \"unit\": \"micrometers\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "389.28590560075816",
+        "unit": "s"
+      },
+      {
+        "sub": "2",
+        "value": "1040.0419115259526",
+        "unit": "micrometers"
+      }
+    ],
+    "category": "cloud_physics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "11",
+    "source_status": "PASS_K1",
+    "consensus": {
+      "author": [
+        389.28590560075816,
+        1040.0419115259526
+      ],
+      "witnesses": [
+        [
+          389.28590560075816,
+          1040.0419115259524
+        ],
+        null
+      ],
+      "agree": 1
+    },
+    "review_note": "ungradable prose sub-question trimmed (defect scan DEFECT_QUALITATIVE); code and sub_answers unchanged",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  },
+  {
+    "id": "lv_8.8.1",
+    "book": "Physics and Chemistry of Clouds",
+    "problem": "Ignoring curvature and solution effects, consider the growth of a droplet by vapor deposition under a constant supersaturation. If a cloud sustains a supersaturation of s = 0.01 at a temperature of 4 °C and pressure of 1000 hPa, calculate the time it takes a droplet to grow from 10 μm to 1000 μm. Express your answer in seconds and days.",
+    "code": "def solve(s=0.01, T_C=4.0, p_hPa=1000.0, r0_um=10.0, r1_um=1000.0):\n    import math\n\n    # Physical constants\n    Rv = 461.5          # J/(kg K), gas constant for water vapor\n    L = 2.5e6           # J/kg, latent heat of vaporization\n    K = 2.4e-2          # J/(m s K), thermal conductivity of air\n    D = 2.21e-5         # m^2/s, diffusion coefficient of water vapor in air (~0C)\n    rho_L = 1000.0      # kg/m^3, density of liquid water\n    es0 = 611.0         # Pa, saturation vapor pressure at 273.15 K\n    T0 = 273.15         # K\n\n    # Temperature\n    T = T_C + T0        # K\n\n    # Saturation vapor pressure via Clausius-Clapeyron\n    es = es0 * math.exp(L / Rv * (1.0 / T0 - 1.0 / T))  # Pa\n\n    # Growth parameter G = 1 / (Fk + Fd)\n    Fk = (L / (Rv * T) - 1.0) * (L * rho_L) / (K * T)   # thermodynamic term\n    Fd = rho_L * Rv * T / (D * es)                       # vapor diffusion term\n    G = 1.0 / (Fk + Fd)   # m^2/s\n\n    # r_d dr_d/dt = G*s  =>  integrate: (r1^2 - r0^2)/2 = G*s*t\n    r0 = r0_um * 1e-6\n    r1 = r1_um * 1e-6\n\n    t_sec = (r1**2 - r0**2) / (2.0 * G * s)\n    t_days = t_sec / 86400.0\n\n    return {\n        \"1\": {\"value\": t_sec, \"unit\": \"s\"},\n        \"2\": {\"value\": t_days, \"unit\": \"days\"},\n    }",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": "704177.1487630536",
+        "unit": "s"
+      },
+      {
+        "sub": "2",
+        "value": "8.150198481053861",
+        "unit": "days"
+      }
+    ],
+    "category": "cloud_physics",
+    "topic": "",
+    "knowledge_points": [],
+    "verified": true,
+    "difficulty": "high",
+    "chapter": "8",
+    "source_status": "PASS_K2",
+    "consensus": {
+      "author": [
+        704177.1487630536,
+        8.150198481053861
+      ],
+      "witnesses": [
+        [
+          702277.3062781467,
+          8.128209563404475
+        ],
+        [
+          695406.0941775978,
+          8.048681645574048
+        ]
+      ],
+      "agree": 2
+    },
+    "review_note": "ungradable prose sub-question trimmed (defect scan DEFECT_QUALITATIVE); code and sub_answers unchanged",
+    "recertified_on_final_text": {
+      "witnesses": {
+        "gpt55-reasoning": true,
+        "deepseek-v4-pro-reasoning": true
+      },
+      "all_agree": true,
+      "report": "pipeline/reports/core_v2_recertify.json"
+    },
+    "probe_role": "unseen_book"
+  }
+]

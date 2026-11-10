@@ -1,0 +1,182 @@
+[d-v2-qwen35-9b-off]
+model_id = "d-v2-qwen35-9b"
+base_url = "http://127.0.0.1:8090/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+# D v2: amended after v1 observations; D_EXECUTION_V2_20261010.
+[d-v2-qwen35-9b-on]
+model_id = "d-v2-qwen35-9b"
+base_url = "http://127.0.0.1:8090/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+# D-5 textbook replication (docs/PREREG_MAIN.md revisions D-5, D-5a): each configuration's D serving and
+# sampling settings (results/d5/serving.json), run by the D v2 runner through explore/d5_serve.sh; only the port differs.
+[d5-qwen3-8b-off]
+model_id = "d-v2-qwen3-8b"
+base_url = "http://127.0.0.1:8301/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-qwen3-8b-on]
+model_id = "d-v2-qwen3-8b"
+base_url = "http://127.0.0.1:8302/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-qwen35-9b-off]
+model_id = "d-v2-qwen35-9b"
+base_url = "http://127.0.0.1:8303/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-qwen35-9b-on]
+model_id = "d-v2-qwen35-9b"
+base_url = "http://127.0.0.1:8304/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-qwen35-27b-off]
+model_id = "d-v2-qwen35-27b"
+base_url = "http://127.0.0.1:8305/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-qwen35-27b-on]
+model_id = "d-v2-qwen35-27b"
+base_url = "http://127.0.0.1:8306/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-gemma4-e4b-off]
+model_id = "d-v2-gemma4-e4b"
+base_url = "http://127.0.0.1:8307/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-gemma4-e4b-on]
+model_id = "d-v2-gemma4-e4b"
+base_url = "http://127.0.0.1:8308/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-gemma4-31b-off]
+model_id = "d-v2-gemma4-31b"
+base_url = "http://127.0.0.1:8309/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-gemma4-31b-on]
+model_id = "d-v2-gemma4-31b"
+base_url = "http://127.0.0.1:8310/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-granite42-8b-off]
+model_id = "d-v2-granite42-8b"
+base_url = "http://127.0.0.1:8311/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-granite42-8b-on]
+model_id = "d-v2-granite42-8b"
+base_url = "http://127.0.0.1:8312/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-granite42-30b-off]
+model_id = "d-v2-granite42-30b"
+base_url = "http://127.0.0.1:8313/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d5-granite42-30b-on]
+model_id = "d-v2-granite42-30b"
+base_url = "http://127.0.0.1:8314/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[d5-ministral3-8b-off]
+model_id = "d-v2-ministral3-8b"
+base_url = "http://127.0.0.1:8315/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0 }
+
+[d5-ministral3-14b-off]
+model_id = "d-v2-ministral3-14b"
+base_url = "http://127.0.0.1:8316/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0 }

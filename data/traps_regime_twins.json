@@ -1,0 +1,1829 @@
+[
+  {
+    "id": "trap_3.4_regime",
+    "book": "synthesized",
+    "parent_id": "3.4",
+    "control_id": "3.4",
+    "problem": "A high-altitude Earth satellite in an equatorial orbit at an altitude of 35,786 km above a spherical Earth of radius 6,371 km carries below it two isolated spherical radiation sensors of negligible heat capacity. One is painted white and may be assumed to be perfectly reflecting at all wavelengths at which there is significant solar energy (λ < 4 μm) and perfectly absorbing at longer wavelengths. The other is painted black and is perfectly absorbing at all wavelengths. Assume that there is no input of direct or scattered energy from the spacecraft. At midnight over a thick cloud sheet covering the visible Earth and at a temperature of 280 K, calculate the equilibrium temperature of the spheres. Express your answer in K.",
+    "code": "def solve(T_cloud=280.0, earth_radius_km=6371.0, altitude_km=35786.0):\n    import math\n    R = earth_radius_km * 1000.0\n    h = altitude_km * 1000.0\n    d = R + h\n    sin_theta = R / d\n    cos_theta = math.sqrt(1.0 - sin_theta ** 2)\n    omega_earth = 2.0 * math.pi * (1.0 - cos_theta)\n    absorbed_fraction = omega_earth / (4.0 * math.pi)\n    T_sphere = T_cloud * absorbed_fraction ** 0.25\n    return {'1': {'value': T_sphere, 'unit': 'K'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 77.07921648670057,
+        "unit": "K"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "high",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the satellite is moved from low altitude to geostationary altitude, so the cloud no longer fills a hemisphere of the sensor's sky; the infinite-plane view-factor 1/2 used in the base solution is no longer valid",
+    "shortcut_code": "def solve(T_cloud=280.0, earth_radius_km=6371.0, altitude_km=35786.0):\n    T_sphere = T_cloud / 2.0 ** 0.25\n    return {'1': {'value': T_sphere, 'unit': 'K'}}",
+    "shortcut_value": 235.45099627104008,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 235.45099627104008
+    },
+    "separation": 2.0547,
+    "separation_max": 2.0547,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent 3.4; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "finite solid angle replaces the infinite-plane view factor",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "OTHER",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: altitude 35,786 km (geostationary); parts (ii),(iii) trimmed (unaffected subs, dn_15.19 precedent)",
+      "c7": "shortcut is the parent's infinite-plane view factor 1/2",
+      "c8": "absorbed fraction Omega/(4 pi) with sin(theta) = R/(R+h) -> 77 K (vector check: sphere intercepts L Omega pi r^2, emits 4 pi r^2 sigma T^4); unique",
+      "c9": "plane-parallel validity crossed by altitude: regime (brief example)",
+      "flag": "parent also has a geometry accept (finite disk) -> one-per-parent rule at assembly",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves realise that at geostationary altitude the Earth no longer fills a hemisphere and derive the dilution/view-factor relation (e.g. sin²θ = R²/(R+h)², givin",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_3.4_gen"
+  },
+  {
+    "id": "trap_5.7_regime",
+    "book": "synthesized",
+    "parent_id": "5.7",
+    "control_id": "5.7",
+    "problem": "Consider shallow-water Rossby waves of equivalent depth H = 30 km that vary with x and y in a uniform zonal flow U. At 60°N, show that stationary waves can exist only if the zonal (x) wavelength is greater than a certain value, L say. Calculate L for (a) U = 50 m s⁻¹ and (b) U = 150 m s⁻¹. Compare this with the length of a latitude circle. Take Earth's radius to be a = 6371 km.\n\nExpress your answers: (a) in km, (b) in km, (latitude circle) in km.",
+    "code": "def solve(lat_deg=60.0, U_a=50.0, U_b=150.0, H_km=30.0, a_km=6371.0):\n    import math\n    Omega = 7.292115e-05\n    g = 9.80665\n    lat_rad = math.radians(lat_deg)\n    a = a_km * 1000.0\n    H = H_km * 1000.0\n    beta = 2.0 * Omega * math.cos(lat_rad) / a\n    f = 2.0 * Omega * math.sin(lat_rad)\n    Ld = math.sqrt(g * H) / abs(f)\n\n    def critical_wavelength_km(U):\n        q = beta / U - 1.0 / (Ld * Ld)\n        if q <= 0.0:\n            raise ValueError('No stationary shallow-water Rossby wave exists for this U and H.')\n        return 2.0 * math.pi / math.sqrt(q) / 1000.0\n    L_a_km = critical_wavelength_km(U_a)\n    L_b_km = critical_wavelength_km(U_b)\n    lat_circle_km = 2.0 * math.pi * a * math.cos(lat_rad) / 1000.0\n    return {'1': {'value': L_a_km, 'unit': 'km'}, '2': {'value': L_b_km, 'unit': 'km'}, '3': {'value': lat_circle_km, 'unit': 'km'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 15032.89813263624,
+        "unit": "km"
+      },
+      {
+        "sub": "2",
+        "value": 42282.55827038148,
+        "unit": "km"
+      },
+      {
+        "sub": "3",
+        "value": 20015.086796020576,
+        "unit": "km"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "The waves are changed from the nondivergent barotropic limit to shallow-water Rossby waves with a finite equivalent depth H = 30 km, making the Rossby deformation radius finite and comparable to the planetary wavelengths.",
+    "shortcut_code": "def solve(lat_deg=60.0, U_a=50.0, U_b=150.0, H_km=30.0, a_km=6371.0):\n    import math\n    Omega = 7.292115e-05\n    lat_rad = math.radians(lat_deg)\n    a = a_km * 1000.0\n    beta = 2.0 * Omega * math.cos(lat_rad) / a\n    L_a_km = 2.0 * math.pi * math.sqrt(U_a / beta) / 1000.0\n    L_b_km = 2.0 * math.pi * math.sqrt(U_b / beta) / 1000.0\n    lat_circle_km = 2.0 * math.pi * a * math.cos(lat_rad) / 1000.0\n    return {'1': {'value': L_a_km, 'unit': 'km'}, '2': {'value': L_b_km, 'unit': 'km'}, '3': {'value': lat_circle_km, 'unit': 'km'}}",
+    "shortcut_value": 13132.333962226205,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 13132.333962226205,
+      "2": 22745.86964453809,
+      "3": 20015.086796020576
+    },
+    "separation": 0.1264,
+    "separation_max": 0.4621,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent 5.7; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "finite Rossby deformation radius (divergent shallow-water regime)",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "trim ' and comment' (as the geometry twin)"
+      ]
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "single trigger: finite equivalent depth H = 30 km (non-divergent -> divergent shallow-water waves)",
+      "c7": "shortcut is the parent's beta/(k^2+l^2) barotropic formula",
+      "c8": "k^2 <= beta/U - 1/Ld^2 -> L = 2 pi/sqrt(beta/U - 1/Ld^2); sub 3 unchanged; unique",
+      "c9": "deformation-radius term becomes non-negligible: regime",
+      "flag": "contrived (H = 30 km chosen so that U = 150 m/s still admits a stationary wave); parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know that finite equivalent depth introduces a divergence (Rossby-deformation) term, so the stationary condition becomes k² + l² + f²/(gH) = β/U rather than k² + l²",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_5.7_gen"
+  },
+  {
+    "id": "trap_7.6_regime",
+    "book": "synthesized",
+    "parent_id": "7.6",
+    "control_id": "7.6",
+    "problem": "The water vapor dimer absorbs radiation in the 8-12 μm atmospheric window. The resulting optical depth for an elemental path length ds is dδ = k ρ ds, where ρ is the mass density of air and k = 1.0e-11 P_H2O^2 m^2 per kg of air is an absorption coefficient for the water vapor dimer; P_H2O is the water vapor pressure in Pascals.\n\nAssuming a scale height of 4 km for the water vapor mixing ratio, a surface air density ρ0 of 1.2 kg m^-3, and p0 = 1.0e3 Pa for the water vapor pressure in surface air, calculate the total optical depth from absorption by the water vapor dimer for radiation traveling from the surface to space along a ray initially horizontal at the surface. Treat Earth as a sphere of radius 6.371e6 m. How efficient is the dimer at absorbing radiation in the 8-12 μm window along this path?\n\nExpress your answer in %.\n\nTake the air-density scale height as H_a = 7.4 km. Report only the absorption efficiency, in %.",
+    "code": "def solve(lambda_min_um=8.0, lambda_max_um=12.0, H_w_km=4.0, H_a_km=7.4, rho_0=1.2, P_H2O_0=1000.0, R_earth=6371000.0, coeff=1e-11):\n    import math\n    H_w = H_w_km * 1000.0\n    H_a = H_a_km * 1000.0\n    decay_rate = 2.0 / H_w + 3.0 / H_a\n    y_max = math.sqrt(40.0 / decay_rate)\n    n = 20000\n    if n % 2:\n        n += 1\n    h = y_max / n\n\n    def f(y):\n        z = y * y\n        ds_dy = 2.0 * (R_earth + z) / math.sqrt(2.0 * R_earth + z)\n        return math.exp(-decay_rate * z) * ds_dy\n    total = f(0.0) + f(y_max)\n    for i in range(1, n):\n        total += (4.0 if i % 2 else 2.0) * f(i * h)\n    path_integral = total * h / 3.0\n    tau = coeff * P_H2O_0 ** 2 * rho_0 * path_integral\n    efficiency_percent = (1.0 - math.exp(-tau)) * 100.0\n    return {'1': {'value': efficiency_percent, 'unit': '%'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 71.68241342723718,
+        "unit": "%"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "high",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the radiation path is changed from a vertical atmospheric column to a ray initially horizontal at the surface, so the vertical-column integral is no longer the correct geometry; Earth curvature sets a finite near-horizon path length through the absorbing layer",
+    "shortcut_code": "def solve(lambda_min_um=8.0, lambda_max_um=12.0, H_w_km=4.0, H_a_km=7.4, rho_0=1.2, P_H2O_0=1000.0, R_earth=6371000.0, coeff=1e-11):\n    import math\n    H_w = H_w_km * 1000.0\n    H_a = H_a_km * 1000.0\n    decay_rate = 2.0 / H_w + 3.0 / H_a\n    effective_H = 1.0 / decay_rate\n    tau = coeff * P_H2O_0 ** 2 * rho_0 * effective_H\n    efficiency_percent = (1.0 - math.exp(-tau)) * 100.0\n    return {'1': {'value': efficiency_percent, 'unit': '%'}}",
+    "shortcut_value": 1.3166287391873976,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1.3166287391873976
+    },
+    "separation": 0.9816,
+    "separation_max": 0.9816,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent 7.6; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "near-horizon spherical path replaces the plane-parallel column",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "trim '1. Explain why k varies as the square of the water vapor pressure. 2.' (same amendment as the geometry twin)",
+        "answer-format statement ('Report only the absorption efficiency, in %.') — both witnesses returned [tau = 1.26, efficiency = 71.68 %]: key reproduced as the 2nd of two values (sub-count mismatch); witnesses re-run (units-amendment rule)"
+      ]
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "single trigger: ray initially horizontal at the surface on a spherical Earth",
+      "c7": "shortcut is the parent's vertical column (tau 0.013)",
+      "c8": "tangent-ray path ~105 km (sqrt(pi R H_eff/2), matches the numerical integral) -> tau 1.26 -> 71.7 %; unique",
+      "c9": "plane-parallel -> spherical near-horizon path (brief example)",
+      "flag": "refraction not mentioned (standard neglect); parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves derive the grazing/limb geometry replacement for the vertical-column integral — i.e., that along a horizontal ray s relates to altitude as z ≈ s²/2R, giv",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_7.6_gen"
+  },
+  {
+    "id": "trap_air_202_regime",
+    "book": "synthesized",
+    "parent_id": "air_202",
+    "control_id": "air_202",
+    "problem": "Find the steady, frictionless balanced wind components (U, V) at a location where air density rho = 1.2 kg m^-3 and Coriolis parameter f_c = 1.1 x 10^-4 s^-1. The location is 800 km south of the center of a circular low-pressure system, and the flow follows the circular isobars. Pressure decreases by 2 kPa for each 800 km of distance north toward the low center (Delta P = -2 kPa, Delta y = 800 km, Delta P / Delta x = 0). Express your answer in m s^{-1}.",
+    "code": "def solve(rho=1.2, f_c=0.00011, delta_P=-2000.0, delta_y=800000.0, radius=800000.0, dP_dx=0.0):\n    import math\n    dP_dy = delta_P / delta_y\n    dp_dr = -dP_dy\n    A = dp_dr / rho\n    V_tan = (-f_c * radius + math.sqrt((f_c * radius) ** 2 + 4.0 * radius * A)) / 2.0\n    U = V_tan\n    V = 0.0\n    return {'1': {'value': U, 'unit': 'm s^{-1}'}, '2': {'value': V, 'unit': 'm s^{-1}'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 16.02221810851934,
+        "unit": "m s^{-1}"
+      },
+      {
+        "sub": "2",
+        "value": 0.0,
+        "unit": "m s^{-1}"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "The flow is specified to follow circular isobars around a low-pressure center with radius of curvature 800 km, so the curvature term in the horizontal momentum balance is no longer negligible; the straight-isobar geostrophic formula is only the shortcut.",
+    "shortcut_code": "def solve(rho=1.2, f_c=0.00011, delta_P=-2000.0, delta_y=800000.0, radius=800000.0, dP_dx=0.0):\n    dP_dy = delta_P / delta_y\n    dP_dx = dP_dx\n    U_g = -1.0 / (rho * f_c) * dP_dy\n    V_g = 1.0 / (rho * f_c) * dP_dx\n    return {'1': {'value': U_g, 'unit': 'm s^{-1}'}, '2': {'value': V_g, 'unit': 'm s^{-1}'}}",
+    "shortcut_value": 18.939393939393938,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 18.939393939393938,
+      "2": 0.0
+    },
+    "separation": 0.1821,
+    "separation_max": 0.1821,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol) ; zero-valued subs carry no relative gap and are skipped (corrected 2026-09-10: separation_max had been stored as inf)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent air_202; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "curvature (gradient-wind) correction to geostrophic balance",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: circular isobars around a low, point 800 km south of the centre",
+      "c7": "shortcut is the parent's straight-isobar geostrophic wind (18.9, 0)",
+      "c8": "gradient wind V^2/R + fV = (1/rho) dp/dr -> (16.0, 0); regular cyclonic root; unique",
+      "c9": "geostrophic -> gradient-wind regime (curvature term non-negligible, V/(fR) ~ 0.2)",
+      "flag": "parent also has a geometry accept -> one-per-parent; sub 2 is 0 in both",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves recognise that curved flow requires the gradient-wind balance (adding the centrifugal term V²/R with R = 800 km, and solving the resulting quadratic for ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_air_202_gen",
+    "separation_zero_subs": [
+      "2"
+    ]
+  },
+  {
+    "id": "trap_air_239_regime",
+    "book": "synthesized",
+    "parent_id": "air_239",
+    "control_id": "air_239",
+    "problem": "A polar airmass with initial potential temperature θ_ML = -20°C and depth z_i = 5000 m moves southward over a surface of θ_sfc = 0°C. Find the initial rate of temperature change with distance (ΔΘ_ML/Δx). Assume no mountains. The surface heat exchange is parameterized with a bulk-transfer coefficient for heat C_H ≈ 0.01, and the air density in this deep mixed layer varies with height as ρ(z) = ρ_0 exp(-z/H), with scale height H = 8.0 km. Use a vertically integrated mixed-layer heat budget. Express your answer in °C km⁻¹.",
+    "code": "def solve(theta_ml=-20.0, z_i=5000.0, theta_sfc=0.0, C_H=0.01, H=8.0):\n    import math\n    z_i_km = z_i / 1000.0\n    effective_depth_km = H * (1.0 - math.exp(-z_i_km / H))\n    rate = C_H * (theta_sfc - theta_ml) / effective_depth_km\n    return {'1': {'value': rate, 'unit': '°C km^{-1}'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.053793684307999294,
+        "unit": "°C km^{-1}"
+      }
+    ],
+    "category": "boundary_layer",
+    "topic": "regime_boundary",
+    "difficulty": "low",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the mixed-layer depth is increased from 500 m to 5000 m, making it comparable to the atmospheric density scale height, so the shallow constant-density bulk formula should no longer divide by the geometric depth z_i",
+    "shortcut_code": "def solve(theta_ml=-20.0, z_i=5000.0, theta_sfc=0.0, C_H=0.01, H=8.0):\n    z_i_km = z_i / 1000.0\n    rate = C_H * (theta_sfc - theta_ml) / z_i_km\n    return {'1': {'value': rate, 'unit': '°C km^{-1}'}}",
+    "shortcut_value": 0.04,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.04
+    },
+    "separation": 0.2564,
+    "separation_max": 0.2564,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent air_239; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "density-weighted (mass) depth replaces geometric depth",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: z_i 500 m -> 5000 m; density profile and 'vertically integrated heat budget' stated",
+      "c7": "shortcut is the parent's division by the geometric depth (0.040)",
+      "c8": "mass depth H(1 - exp(-z_i/H)) = 3.72 km -> 0.0538 C/km; explicit; unique",
+      "c9": "shallow constant-density layer -> depth comparable to the scale height: regime",
+      "flag": "contrived depth (5 km polar mixed layer) but possible in cold-air outbreaks",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: The surface heat exchange is parameterized with a bulk-transfer coefficient for heat C_H ≈ 0.01, and the air density in this deep mixed layer varies with height as ρ(z) = ρ_0 exp(-",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_air_239_gen"
+  },
+  {
+    "id": "trap_air_296_regime",
+    "book": "synthesized",
+    "parent_id": "air_296",
+    "control_id": "air_296",
+    "problem": "For tropical cyclone-force winds of V = 80 m s^-1, over a continental shelf portion of ocean of depth H = 50 m, find the volume transport rate and equilibrium surge slope. Assume air density rho_air = 1.225 kg m^-3, water density rho_water = 1025 kg m^-3, Coriolis parameter f_c = 0.00005 s^-1, and drag coefficient C_D = 0.01 up to a high-wind stress-saturation speed V_sat = 50 m s^-1. For V > V_sat, assume sea-spray saturation limits the wind stress to tau = rho_air C_D V_sat^2. Express your answers in m^2 s^-1 and dimensionless.",
+    "code": "def solve(V=80.0, H=50.0, C_D=0.01, rho_air=1.225, rho_water=1025.0, f_c=5e-05, V_sat=50.0):\n    g = 9.8\n    V_eff = min(V, V_sat)\n    stress_accel = rho_air / rho_water * C_D * V_eff ** 2\n    volume_transport_rate = stress_accel / f_c\n    surge_slope = stress_accel / (g * H)\n    return {'1': {'value': volume_transport_rate, 'unit': 'm^2 s^-1'}, '2': {'value': surge_slope, 'unit': 'dimensionless'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 597.5609756097562,
+        "unit": "m^2 s^-1"
+      },
+      {
+        "sub": "2",
+        "value": 6.097560975609757e-05,
+        "unit": "dimensionless"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "The wind speed is raised above a stated high-wind stress-saturation threshold; above V_sat = 50 m s^-1, the quadratic wind-stress scaling used by the base method is no longer valid.",
+    "shortcut_code": "def solve(V=80.0, H=50.0, C_D=0.01, rho_air=1.225, rho_water=1025.0, f_c=5e-05, V_sat=50.0):\n    g = 9.8\n    volume_transport_rate = rho_air / rho_water * (C_D * V ** 2) / f_c\n    surge_slope = rho_air / rho_water * (C_D * V ** 2) / (g * H)\n    return {'1': {'value': volume_transport_rate, 'unit': 'm^2 s^-1'}, '2': {'value': surge_slope, 'unit': 'dimensionless'}}",
+    "shortcut_value": 1529.7560975609758,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1529.7560975609758,
+      "2": 0.00015609756097560978
+    },
+    "separation": 1.56,
+    "separation_max": 1.56,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent air_296; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "wind-stress saturation caps the quadratic drag law",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: V 40 -> 80 m/s across the stated stress-saturation speed V_sat = 50 m/s; rho_air supplied",
+      "c7": "shortcut is the parent's quadratic stress with the full V (x2.56)",
+      "c8": "tau capped at rho_air C_D V_sat^2 -> both subs from the parent's method; explicit; unique",
+      "c9": "quadratic drag law leaves its validity range (high-wind saturation): regime",
+      "flag": "the saturation model is stated in the text (read-the-question trap, cf. air_110)",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still know the standard Ekman transport and equilibrium surge-slope relations (M = tau/(rho_water f_c), slope = tau/(rho_water g H)) to convert the given saturated ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_air_296_gen"
+  },
+  {
+    "id": "trap_air_88_regime",
+    "book": "synthesized",
+    "parent_id": "air_88",
+    "control_id": "air_88",
+    "problem": "Estimate the value of the solar irradiance reaching the orbit of the Earth, given a sun surface temperature of 5770 K, sun radius of 6.96 x 10^5 km, and orbital radius of the Earth from the sun of 1.495 x 10^8 km. Assume the sun radiates as a blackbody and that its total power output spreads outward geometrically through space. However, the Sun-Earth line of sight passes through an absorbing dust cloud with optical depth 1.0 at solar wavelengths; the cloud does not scatter radiation into the beam and its own thermal emission at solar wavelengths is negligible.\n\nExpress your answer in W·m^-2.",
+    "code": "def solve(T_sun=5770.0, R_sun_km=696000.0, R_orbit_km=149500000.0, tau=1.0):\n    import math\n    sigma_SB = 5.67e-08\n    R_sun = R_sun_km * 1000.0\n    R_orbit = R_orbit_km * 1000.0\n    E_sun_surface = sigma_SB * T_sun ** 4\n    E_unattenuated = E_sun_surface * (R_sun / R_orbit) ** 2\n    E_earth = E_unattenuated * math.exp(-tau)\n    return {'1': {'value': E_earth, 'unit': 'W·m^-2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 501.1040623706672,
+        "unit": "W·m^-2"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the Sun-Earth path is changed from effectively transparent space to an absorbing medium with optical depth 1.0, so geometric inverse-square dilution alone is no longer sufficient; Beer-Lambert attenuation must also be applied",
+    "shortcut_code": "def solve(T_sun=5770.0, R_sun_km=696000.0, R_orbit_km=149500000.0, tau=1.0):\n    sigma_SB = 5.67e-08\n    R_sun = R_sun_km * 1000.0\n    R_orbit = R_orbit_km * 1000.0\n    E_sun_surface = sigma_SB * T_sun ** 4\n    E_earth = E_sun_surface * (R_sun / R_orbit) ** 2\n    return {'1': {'value': E_earth, 'unit': 'W·m^-2'}}",
+    "shortcut_value": 1362.1420669091926,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1362.1420669091926
+    },
+    "separation": 1.7183,
+    "separation_max": 1.7183,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent air_88; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "Beer-Lambert attenuation on top of geometric dilution",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: an absorbing medium of optical depth 1.0 on the Sun-Earth path (no scattering into the beam, negligible emission, stated)",
+      "c7": "shortcut is the parent's inverse-square dilution (1362 W/m^2)",
+      "c8": "x exp(-1) -> 501 W/m^2; explicit; unique",
+      "c9": "transparent-space assumption (tau ~ 0) leaves its validity range: regime",
+      "flag": "hypothetical (no such interplanetary cloud) but coherent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must supply the Beer–Lambert attenuation relation themselves, i.e. that pure absorption with optical depth τ reduces the geometrically diluted irradiance by a factor e^(",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_air_88_gen"
+  },
+  {
+    "id": "trap_dn_10.51_regime",
+    "book": "synthesized",
+    "parent_id": "dn_10.51",
+    "control_id": "dn_10.51",
+    "problem": "Pulverized-coal furnaces grind their coal so that 80+ percent is smaller than 200 microns in diameter. These particles are completely burned in the approximately 2 s that they spend in the combustion zone of the furnace. In this operating condition, oxidation is external-diffusion-limited rather than surface-reaction-limited, so the square of the particle diameter decreases linearly to zero during burnout. Estimate their time-averaged surface burning rate over the actual particle surface during burnout. A typical coal has a density of 1.2 g/cm^3.",
+    "code": "def solve(diameter_microns=200.0, burn_time_s=2.0, density_g_cm3=1.2):\n    import math\n    diameter_cm = diameter_microns * 0.0001\n    radius_cm = diameter_cm / 2.0\n    mass_g = 4.0 / 3.0 * math.pi * density_g_cm3 * radius_cm ** 3\n    area_time_cm2_s = 4.0 * math.pi * radius_cm ** 2 * burn_time_s / 2.0\n    burning_rate = mass_g / area_time_cm2_s\n    return {'1': {'value': burning_rate, 'unit': 'g/cm^2/s'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.004,
+        "unit": "g/cm^2/s"
+      }
+    ],
+    "category": "atmospheric_aerosols",
+    "topic": "regime_boundary",
+    "difficulty": "high",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the combustion regime is changed from surface-reaction-controlled burning, where particle radius regresses linearly, to external-diffusion-limited burning, where D^2 decreases linearly with time",
+    "shortcut_code": "def solve(diameter_microns=200.0, burn_time_s=2.0, density_g_cm3=1.2):\n    diameter_cm = diameter_microns * 0.0001\n    radius_cm = diameter_cm / 2.0\n    dr_dt = radius_cm / burn_time_s\n    burning_rate = density_g_cm3 * dr_dt\n    return {'1': {'value': burning_rate, 'unit': 'g/cm^2/s'}}",
+    "shortcut_value": 0.006,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.006
+    },
+    "separation": 0.5,
+    "separation_max": 0.5,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent dn_10.51; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "d^2-law burnout replaces linear surface regression",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "SHORTCUT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "trim 'Compare it to the values in Example 10.19.' (same as the geometry twin)"
+      ]
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "single trigger: external-diffusion-limited (d^2-law) burnout, with the requested time-averaged rate defined in the text",
+      "c7": "shortcut is the parent's linear-regression rho r0/t (0.006)",
+      "c8": "mass / integrated area = (2/3) rho r0/t = 0.004 g/cm^2/s; explicit; unique",
+      "c9": "surface-reaction -> diffusion-limited combustion regime",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: In this operating condition, oxidation is external-diffusion-limited rather than surface-reaction-limited, so the square of the particle diameter decreases linearly to zero during ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_dn_10.51_gen"
+  },
+  {
+    "id": "trap_dn_4.4_regime",
+    "book": "synthesized",
+    "parent_id": "dn_4.4",
+    "control_id": "dn_4.4",
+    "problem": "We have tested a plant's emissions of particulates and found the following data: Sample number, Stack gas velocity, ft/s, Particle concentration, g/m^3: 1, 50, 0.50; 2, 60, 0.30; 3, 40, 0.70. The stack is vertical with upward gas flow. The particles are coarse enough to settle downward through the gas at a terminal speed of 30 ft/s; the listed velocities are gas velocities, and the listed concentrations are in-stack particle mass per gas volume. Each sample represents the average over a 20-min period. What was the average particle concentration of the discharge over the whole 60 min of this test, defined as total particle mass leaving the stack divided by total gas volume leaving the stack?",
+    "code": "def solve(v1_ft_s=50.0, c1_g_m3=0.5, v2_ft_s=60.0, c2_g_m3=0.3, v3_ft_s=40.0, c3_g_m3=0.7, settling_ft_s=30.0, duration_min=20.0):\n    ft_to_m = 0.3048\n    min_to_s = 60.0\n    v1 = v1_ft_s * ft_to_m\n    v2 = v2_ft_s * ft_to_m\n    v3 = v3_ft_s * ft_to_m\n    ws = settling_ft_s * ft_to_m\n    dt = duration_min * min_to_s\n    vp1 = v1 - ws\n    vp2 = v2 - ws\n    vp3 = v3 - ws\n    area_m2 = 1.0\n    total_particle_mass_g = area_m2 * dt * (c1_g_m3 * vp1 + c2_g_m3 * vp2 + c3_g_m3 * vp3)\n    total_gas_volume_m3 = area_m2 * dt * (v1 + v2 + v3)\n    avg_conc = total_particle_mass_g / total_gas_volume_m3\n    return {'1': {'value': avg_conc, 'unit': 'g/m^3'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.1733333333333333,
+        "unit": "g/m^3"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the particles are no longer fine tracer particles that move with the gas; they are coarse particles with a 30 ft/s downward settling speed relative to the gas, so particle mass flux is not proportional to the gas velocity alone",
+    "shortcut_code": "def solve(v1_ft_s=50.0, c1_g_m3=0.5, v2_ft_s=60.0, c2_g_m3=0.3, v3_ft_s=40.0, c3_g_m3=0.7, settling_ft_s=30.0, duration_min=20.0):\n    ft_to_m = 0.3048\n    v1 = v1_ft_s * ft_to_m\n    v2 = v2_ft_s * ft_to_m\n    v3 = v3_ft_s * ft_to_m\n    numerator = v1 * c1_g_m3 + v2 * c2_g_m3 + v3 * c3_g_m3\n    denominator = v1 + v2 + v3\n    avg_conc = numerator / denominator\n    return {'1': {'value': avg_conc, 'unit': 'g/m^3'}}",
+    "shortcut_value": 0.47333333333333333,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.47333333333333333
+    },
+    "separation": 1.7308,
+    "separation_max": 1.7308,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent dn_4.4; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "particle slip velocity relative to the gas in a flux-weighted mean",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: coarse particles settling at 30 ft/s relative to the gas; discharge concentration defined in the text",
+      "c7": "shortcut is the parent's gas-velocity-weighted mean (0.473)",
+      "c8": "particle flux c (v_g - w_s) over gas flux v_g -> 0.173 g/m^3; explicit; unique",
+      "c9": "tracer-particle assumption (particles move with the gas) leaves its validity range: regime",
+      "flag": "contrived (30 ft/s settling ~ mm particles) but coherent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves realize that the particle transport velocity is the gas velocity minus the 30 ft/s settling speed (so sample 3's particles never leave and each sample's ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_dn_4.4_gen"
+  },
+  {
+    "id": "trap_dn_6.2_regime",
+    "book": "synthesized",
+    "parent_id": "dn_6.2",
+    "control_id": "dn_6.2",
+    "problem": "Estimate the concentration of a reactive gas at the downwind edge of a city. The city may be considered to consist of three parallel strips, located perpendicular to the wind. For all of the strips the wind velocity u equals 3 m/s. The gas is removed within the mixed layer by first-order chemistry with an e-folding lifetime of 30 min. The properties of each of the strips are described in the following table:\n\nName of strip | Length, km | Emission rate, q, g/(s km^2) | Mixing height, H, m\nUpwind suburbs | 5 | 100 | 400\nDowntown | 2 | 500 | 500\nDownwind suburbs | 5 | 100 | 400\n\nAssume that the fixed-box model applies to each of the strips, including the first-order chemical loss. The background concentration b in the air entering the upwind suburbs is 1 mg/m^3.",
+    "code": "def solve(u=3.0, L1_km=5.0, q1=100.0, H1=400.0, L2_km=2.0, q2=500.0, H2=500.0, L3_km=5.0, q3=100.0, H3=400.0, b=1.0, tau_min=30.0):\n    tau_s = tau_min * 60.0\n    k = 1.0 / tau_s\n\n    def strip_out(c_in, q_g_s_km2, L_km, H_m):\n        L_m = L_km * 1000.0\n        q_mg_s_m2 = q_g_s_km2 * 1000.0 / 1000.0 ** 2\n        source_mg_s_per_m_width = q_mg_s_m2 * L_m\n        advective_volume_flux_m2_s = u * H_m\n        first_order_loss_volume_flux_m2_s = k * H_m * L_m\n        c_out = (advective_volume_flux_m2_s * c_in + source_mg_s_per_m_width) / (advective_volume_flux_m2_s + first_order_loss_volume_flux_m2_s)\n        return c_out\n    c1 = strip_out(b, q1, L1_km, H1)\n    c2 = strip_out(c1, q2, L2_km, H2)\n    c3 = strip_out(c2, q3, L3_km, H3)\n    return {'1': {'value': c3, 'unit': 'mg/m^3'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.7476536262593954,
+        "unit": "mg/m^3"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the pollutant is changed from effectively conservative carbon monoxide to a reactive gas with a 30 min first-order lifetime, so chemical loss is no longer negligible over the city transit time and the no-loss fixed-box increment formula is outside its valid regime",
+    "shortcut_code": "def solve(u=3.0, L1_km=5.0, q1=100.0, H1=400.0, L2_km=2.0, q2=500.0, H2=500.0, L3_km=5.0, q3=100.0, H3=400.0, b=1.0, tau_min=30.0):\n\n    def strip_delta(q_g_s_km2, L_km, H_m):\n        return q_g_s_km2 * L_km / (u * H_m)\n    c = b\n    c += strip_delta(q1, L1_km, H1)\n    c += strip_delta(q2, L2_km, H2)\n    c += strip_delta(q3, L3_km, H3)\n    return {'1': {'value': c, 'unit': 'mg/m^3'}}",
+    "shortcut_value": 2.5,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 2.5
+    },
+    "separation": 2.3438,
+    "separation_max": 2.3438,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent dn_6.2; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "first-order chemical loss in a steady box balance",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: conservative CO -> reactive gas with a 30 min first-order lifetime; loss to be included in the box model (stated)",
+      "c7": "shortcut is the parent's conservative strip increments (2.5 mg/m^3)",
+      "c8": "per strip c_out = (uH c_in + qL)/(uH + kHL) -> 0.75 mg/m^3; explicit; unique",
+      "c9": "Damkohler number across the city ~1: no-loss box leaves its validity range (regime)",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: The gas is removed within the mixed layer by first-order chemistry with an e-folding lifetime of 30 min.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_dn_6.2_gen"
+  },
+  {
+    "id": "trap_dn_6.33_regime",
+    "book": "synthesized",
+    "parent_id": "dn_6.33",
+    "control_id": "dn_6.33",
+    "problem": "Although Gaussian plume models are widely called difusion models in the meteorological literature, the speed of dispersion of the pollutants is much faster than ever occurs by molecular diffusion. To show that this is so, observe that the smallest value of either of the sigmas on Figs. 6.7 and 6.8 is 2.2 m for sigma_z at 0.1 km. Compute the value of K_z corresponding to this value, with the assumption that u = 1 m/s. At this site the vertical turbulent velocity autocorrelation is exponential with Lagrangian integral time scale T_L = 1000 s, so use Taylor's dispersion relation sigma_z^2 = 2 K_z [t - T_L(1 - exp(-t/T_L))], where K_z is the long-time eddy diffusivity and t = x/u. Compare this to the typical gas-gas molecular diffusivities of about 0.1 cm^2/s. Report only K_z, in cm^2/s.",
+    "code": "def solve(sigma_z_m=2.2, x_km=0.1, u=1.0, T_L_s=1000.0):\n    import math\n    x_m = x_km * 1000.0\n    t_s = x_m / u\n    bracket_s = t_s - T_L_s * (1.0 - math.exp(-t_s / T_L_s))\n    K_z_m2s = sigma_z_m ** 2 / (2.0 * bracket_s)\n    K_z_cm2s = K_z_m2s * 10000.0\n    return {'1': {'value': K_z_cm2s, 'unit': 'cm^2/s'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 5002.668741900422,
+        "unit": "cm^2/s"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the Lagrangian integral time scale is specified as 1000 s, longer than the 100 s travel time, so the plume is in Taylor's short-time/pre-Fickian dispersion regime rather than the long-time constant-diffusivity regime",
+    "shortcut_code": "def solve(sigma_z_m=2.2, x_km=0.1, u=1.0, T_L_s=1000.0):\n    x_m = x_km * 1000.0\n    t_s = x_m / u\n    K_z_m2s = sigma_z_m ** 2 / (2.0 * t_s)\n    K_z_cm2s = K_z_m2s * 10000.0\n    return {'1': {'value': K_z_cm2s, 'unit': 'cm^2/s'}}",
+    "shortcut_value": 242.00000000000003,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 242.00000000000003
+    },
+    "separation": 0.9516,
+    "separation_max": 0.9516,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent dn_6.33; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "Taylor short-time (pre-Fickian) dispersion",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "append 'Report only K_z, in cm^2/s.' — the geometry twin's witnesses both returned [K in m^2/s, ratio to 0.1 cm^2/s] (same physics, wrong sub count/unit), so the answer format was not fixed by the text"
+      ]
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "single trigger: Lagrangian time scale T_L = 1000 s (> travel time 100 s); Taylor's relation stated",
+      "c7": "shortcut is the parent's Fickian sigma^2 = 2Kt (242 cm^2/s)",
+      "c8": "K = sigma^2/(2[t - T_L(1 - e^(-t/T_L))]) = 5000 cm^2/s; explicit; unique",
+      "c9": "long-time Fickian limit (t >> T_L) leaves its validity range: regime",
+      "flag": "parent also has a geometry accept -> one-per-parent; parent-inherited discursive prose kept",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: At this site the vertical turbulent velocity autocorrelation is exponential with Lagrangian integral time scale T_L = 1000 s, so use Taylor's dispersion relation sigma_z^2 = 2 K_z ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_dn_6.33_gen"
+  },
+  {
+    "id": "trap_dn_8.30_regime",
+    "book": "synthesized",
+    "parent_id": "dn_8.30",
+    "control_id": "dn_8.30",
+    "problem": "A gas stream contains a group of particles whose size distribution is given by the rectangular distribution,\n\n dPhi/dD = C1 for particle diameters from 0 to Dmax\n\n dPhi/dD = 0 for particle diameters greater than Dmax.\n\nHere Phi is the cumulative fraction by mass of particles with diameter less than D, and Dmax is the diameter of the largest particle. C1 is equal to 1/Dmax. We pass this gas stream through a particle collector in which the collection efficiency is proportional to the particle diameter squared until it reaches its maximum value of 1.0. The collection efficiency reaches 1.0 for a particle diameter of Dmax/2 and remains 1.0 for larger particles. What is the overall collection efficiency of this collector? Express your answer in %.",
+    "code": "def solve(D_sat_over_Dmax=0.5, eta_max=1.0):\n    x_sat = D_sat_over_Dmax\n    if x_sat >= 1.0:\n        overall_fraction = eta_max / (3.0 * x_sat ** 2)\n    else:\n        below_sat = eta_max * x_sat / 3.0\n        above_sat = eta_max * (1.0 - x_sat)\n        overall_fraction = below_sat + above_sat\n    overall_percent = overall_fraction * 100.0\n    return {'1': {'value': overall_percent, 'unit': '%'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 66.66666666666666,
+        "unit": "%"
+      }
+    ],
+    "category": "atmospheric_aerosols",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the diameter at which the D^2 collection-efficiency law reaches unity is moved from Dmax to Dmax/2, so half of the mass distribution lies beyond the valid proportional-law regime and the efficiency must be capped at 1",
+    "shortcut_code": "def solve(D_sat_over_Dmax=0.5, eta_max=1.0):\n    x_sat = D_sat_over_Dmax\n    overall_fraction = eta_max / (3.0 * x_sat ** 2)\n    overall_percent = overall_fraction * 100.0\n    return {'1': {'value': overall_percent, 'unit': '%'}}",
+    "shortcut_value": 133.33333333333331,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 133.33333333333331
+    },
+    "separation": 1.0,
+    "separation_max": 1.0,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent dn_8.30; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "piecewise efficiency law once saturation falls inside the size distribution",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "answer-format statement ('Express your answer in %.') — both witnesses returned 0.6667 (the key as a fraction); witnesses re-run (units-amendment rule)"
+      ]
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "single trigger: efficiency saturates at Dmax/2 instead of Dmax (stated)",
+      "c7": "shortcut is the parent's uncapped D^2 average (133 %)",
+      "c8": "capped integral -> 66.7 %; explicit; unique",
+      "c9": "saturation boundary enters the distribution: regime (cf. dn_8.32)",
+      "flag": "parent also has a geometry accept (series collectors) -> one-per-parent; mechanism repeated (dn_8.32)",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: We pass this gas stream through a particle collector in which the collection efficiency is proportional to the particle diameter squared until it reaches its maximum value of 1.0. ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_dn_8.30_gen"
+  },
+  {
+    "id": "trap_holton_13_regime",
+    "book": "synthesized",
+    "parent_id": "holton_13",
+    "control_id": "holton_13",
+    "problem": "An air column at 60°N with ζ = 0 initially stretches from sea level to a fixed tropopause at 10 km height above sea level. If the air column moves until it is over a mountain barrier 2.5 km high at 45°N, what is its relative vorticity as it passes the mountain top, assuming that column potential vorticity is conserved following the flow for a barotropic isothermal compressible atmosphere with density varying as ρ(z) = ρ0 exp(-z/Hs), where the scale height is Hs = 7.0 km? For this compressible layer, use column mass per unit horizontal area between the lower boundary and the tropopause in the PV denominator.",
+    "code": "def solve(lat_initial=60.0, lat_final=45.0, tropopause_height_km=10.0, mountain_height_km=2.5, scale_height_km=7.0, zeta_initial=0.0):\n    import math\n    Omega = 7.292e-05\n    f_initial = 2.0 * Omega * math.sin(math.radians(lat_initial))\n    f_final = 2.0 * Omega * math.sin(math.radians(lat_final))\n    z_top = tropopause_height_km * 1000.0\n    z_initial_bottom = 0.0\n    z_final_bottom = mountain_height_km * 1000.0\n    Hs = scale_height_km * 1000.0\n    mass_initial_factor = Hs * (math.exp(-z_initial_bottom / Hs) - math.exp(-z_top / Hs))\n    mass_final_factor = Hs * (math.exp(-z_final_bottom / Hs) - math.exp(-z_top / Hs))\n    absolute_vorticity_initial = zeta_initial + f_initial\n    absolute_vorticity_final = absolute_vorticity_initial * mass_final_factor / mass_initial_factor\n    relative_vorticity_final = absolute_vorticity_final - f_final\n    return {'1': {'value': relative_vorticity_final, 'unit': 's^-1'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": -2.6710536430443e-05,
+        "unit": "s^-1"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the layer is changed from a homogeneous incompressible fluid to an isothermal compressible atmosphere with a 7.0 km scale height, so the PV denominator is column mass rather than geometric depth",
+    "shortcut_code": "def solve(lat_initial=60.0, lat_final=45.0, tropopause_height_km=10.0, mountain_height_km=2.5, scale_height_km=7.0, zeta_initial=0.0):\n    import math\n    Omega = 7.292e-05\n    f_initial = 2.0 * Omega * math.sin(math.radians(lat_initial))\n    f_final = 2.0 * Omega * math.sin(math.radians(lat_final))\n    H_initial = tropopause_height_km * 1000.0\n    H_final = (tropopause_height_km - mountain_height_km) * 1000.0\n    absolute_vorticity_initial = zeta_initial + f_initial\n    absolute_vorticity_final = absolute_vorticity_initial * H_final / H_initial\n    relative_vorticity_final = absolute_vorticity_final - f_final\n    return {'1': {'value': relative_vorticity_final, 'unit': 's^-1'}}",
+    "shortcut_value": -8.398594302304183e-06,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": -8.398594302304183e-06
+    },
+    "separation": 0.6856,
+    "separation_max": 0.6856,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent holton_13; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "column mass replaces geometric depth in the PV denominator",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: homogeneous layer -> isothermal compressible atmosphere (Hs = 7 km) with the column-mass PV denominator stated",
+      "c7": "shortcut is the parent's geometric-depth PV (H_final/H_initial)",
+      "c8": "mass factors Hs[e^(-zb/Hs) - e^(-zt/Hs)] -> zeta = -2.6e-5 s^-1 vs -1.6e-5; explicit; unique given the stated definition",
+      "c9": "layer depth comparable to the scale height: homogeneous-fluid PV leaves its validity range (regime)",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: For this compressible layer, use column mass per unit horizontal area between the lower boundary and the tropopause in the PV denominator.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_holton_13_gen"
+  },
+  {
+    "id": "trap_holton_56_regime",
+    "book": "synthesized",
+    "parent_id": "holton_56",
+    "control_id": "holton_56",
+    "problem": "Starting from the linearized quasigeostrophic potential-vorticity equation and the β-plane approximation, derive the Rossby wave speed for the first baroclinic mode of a stably stratified ocean of mean depth H. Assume a motionless basic state and small perturbations that depend zonally as a wave with wavenumber k. For this first baroclinic mode, use the given first baroclinic Rossby deformation radius rather than the full-depth external deformation radius.\n\nShow that a zonally propagating wave solution exists by determining its phase speed.\n\nIf the ocean is 4 km deep, the first baroclinic Rossby deformation radius is 30 km, what is the Rossby wave speed at latitude 45° for a wave of 10,000 km zonal wavelength?",
+    "code": "def solve(H=4000.0, deformation_radius_km=30.0, latitude_deg=45.0, wavelength_km=10000.0):\n    import math\n    Omega = 7.292e-05\n    a = 6371000.0\n    wavelength = wavelength_km * 1000.0\n    k = 2.0 * math.pi / wavelength\n    Rd = deformation_radius_km * 1000.0\n    phi = math.radians(latitude_deg)\n    beta = 2.0 * Omega * math.cos(phi) / a\n    c = -beta / (k ** 2 + 1.0 / Rd ** 2)\n    return {'1': {'value': c, 'unit': 'm/s'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": -0.014562712720651756,
+        "unit": "m/s"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "high",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the ocean is changed from a homogeneous barotropic layer to a stably stratified ocean and the first baroclinic mode is requested, so the external deformation radius sqrt(gH)/f0 used by the base formula is no longer the right length scale",
+    "shortcut_code": "def solve(H=4000.0, deformation_radius_km=30.0, latitude_deg=45.0, wavelength_km=10000.0):\n    import math\n    g = 9.81\n    Omega = 7.292e-05\n    a = 6371000.0\n    wavelength = wavelength_km * 1000.0\n    k = 2.0 * math.pi / wavelength\n    phi = math.radians(latitude_deg)\n    f0 = 2.0 * Omega * math.sin(phi)\n    beta = 2.0 * Omega * math.cos(phi) / a\n    c = -beta / (k ** 2 + f0 ** 2 / (g * H))\n    return {'1': {'value': c, 'unit': 'm/s'}}",
+    "shortcut_value": -24.31142396913152,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": -24.31142396913152
+    },
+    "separation": 1668.4296,
+    "separation_max": 1668.4296,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent holton_56; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "baroclinic deformation radius replaces the external one in the Rossby dispersion relation",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: homogeneous barotropic ocean -> first baroclinic mode with Rd = 30 km stated",
+      "c7": "shortcut is the parent's external-deformation-radius formula (-24 m/s)",
+      "c8": "c = -beta/(k^2 + 1/Rd^2) = -0.0146 m/s; explicit; unique",
+      "c9": "barotropic -> baroclinic mode: regime",
+      "flag": "parent also has a geometry accept -> one-per-parent; parent-inherited derivation prose kept",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still carry out the QG dispersion derivation, i.e. write c = -β/(k² + λ⁻²) and insert the supplied 30 km deformation radius in place of the barotropic √(gH)/f.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_holton_56_gen"
+  },
+  {
+    "id": "trap_jacobson_4.6_regime",
+    "book": "synthesized",
+    "parent_id": "jacobson_4.6",
+    "control_id": "jacobson_4.6",
+    "problem": "Assume a grid cell has dimension Δx = 500 km and Δy = 400 km, centered at φ = 30° N latitude. Assume potential virtual temperature and air pressure at the west, east, south, and north boundaries are θ_{v,1} = 302 K and p_{a,1} = 520 hPa, θ_{v,2} = 304 K and p_{a,2} = 530 hPa, θ_{v,3} = 302 K and p_{a,3} = 500 hPa, and θ_{v,4} = 304 K and p_{a,4} = 540 hPa, respectively. At the cell center, the isobars have cyclonic curvature about a low-pressure center with radius of curvature R = 300 km. Estimate the balanced horizontal wind speed.",
+    "code": "def solve(dx_km=500.0, dy_km=400.0, phi_deg=30.0, thv1=302.0, pa1=520.0, thv2=304.0, pa2=530.0, thv3=302.0, pa3=500.0, thv4=304.0, pa4=540.0, R_km=300.0):\n    import math\n    Rd = 287.0\n    cp = 1004.67\n    p0 = 1000.0\n    kappa = Rd / cp\n    Omega = 7.292e-05\n    dx = dx_km * 1000.0\n    dy = dy_km * 1000.0\n    R = R_km * 1000.0\n    phi = math.radians(phi_deg)\n    f = 2.0 * Omega * math.sin(phi)\n    thv_bar = 0.25 * (thv1 + thv2 + thv3 + thv4)\n    P1 = (pa1 / p0) ** kappa\n    P2 = (pa2 / p0) ** kappa\n    P3 = (pa3 / p0) ** kappa\n    P4 = (pa4 / p0) ** kappa\n    dP_dx = (P2 - P1) / dx\n    dP_dy = (P4 - P3) / dy\n    G = cp * thv_bar * math.sqrt(dP_dx ** 2 + dP_dy ** 2)\n    V = 0.5 * (-f * R + math.sqrt((f * R) ** 2 + 4.0 * R * G))\n    return {'1': {'value': V, 'unit': 'm/s'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 55.12493044842028,
+        "unit": "m/s"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "high",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the isobar radius of curvature is reduced from effectively infinite/locally straight to 300 km with cyclonic curvature, so the centrifugal term is no longer negligible and gradient-wind balance replaces geostrophic balance",
+    "shortcut_code": "def solve(dx_km=500.0, dy_km=400.0, phi_deg=30.0, thv1=302.0, pa1=520.0, thv2=304.0, pa2=530.0, thv3=302.0, pa3=500.0, thv4=304.0, pa4=540.0, R_km=300.0):\n    import math\n    Rd = 287.0\n    cp = 1004.67\n    p0 = 1000.0\n    kappa = Rd / cp\n    Omega = 7.292e-05\n    dx = dx_km * 1000.0\n    dy = dy_km * 1000.0\n    phi = math.radians(phi_deg)\n    f = 2.0 * Omega * math.sin(phi)\n    thv_bar = 0.25 * (thv1 + thv2 + thv3 + thv4)\n    P1 = (pa1 / p0) ** kappa\n    P2 = (pa2 / p0) ** kappa\n    P3 = (pa3 / p0) ** kappa\n    P4 = (pa4 / p0) ** kappa\n    dP_dx = (P2 - P1) / dx\n    dP_dy = (P4 - P3) / dy\n    ug = -(cp / f) * thv_bar * dP_dy\n    vg = cp / f * thv_bar * dP_dx\n    Vg = math.sqrt(ug ** 2 + vg ** 2)\n    return {'1': {'value': Vg, 'unit': 'm/s'}}",
+    "shortcut_value": 194.03322981499429,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 194.03322981499429
+    },
+    "separation": 2.5199,
+    "separation_max": 2.5199,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent jacobson_4.6; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "curvature (gradient-wind) correction to geostrophic balance",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: cyclonic isobar curvature R = 300 km at the cell centre (stated)",
+      "c7": "shortcut is the parent's geostrophic speed from the same pressure field (194 m/s)",
+      "c8": "V^2/R + fV = G with G from the Exner-gradient force -> 55 m/s (regular root); unique",
+      "c9": "geostrophic -> gradient-wind regime (curvature term dominant)",
+      "flag": "mechanism repeated (air_202, air_261); the parent's pressure field is already extreme",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must recognize that geostrophic balance no longer holds for curved flow and supply the gradient-wind balance relation themselves (e.g., V²/R + fV = -(1/ρ)∂p/∂n, solved a",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_jacobson_4.6_gen"
+  },
+  {
+    "id": "trap_p_10_regime",
+    "book": "synthesized",
+    "parent_id": "p_10",
+    "control_id": "p_10",
+    "problem": "A ground-level release of 2000 g of fluorescent particles is made during Class C stability conditions with a wind speed of 5 m sec⁻¹. The fluorescent signal on the particles decays by first-order kinetics with a half-life of 10 min during transport, and the samplers report dosage in grams of remaining fluorescent material. The crosswind-integrated ground-level dosage along the 8-km arc is determined from the samplers along this arc to be 8.2 × 10⁻¹ g sec m⁻². Assuming a continuous Gaussian-plume dispersion model with reflection at the ground and this first-order signal decay, what is the effective vertical dispersion parameter, σ_z, for this run?",
+    "code": "def solve(Q_T_g=2000.0, wind_speed_m_s=5.0, D_CWI_g_s_m2=0.82, downwind_distance_km=8.0, half_life_min=10.0):\n    import math\n    Q_T_g = float(Q_T_g)\n    u_m_s = float(wind_speed_m_s)\n    D = float(D_CWI_g_s_m2)\n    x_m = float(downwind_distance_km) * 1000.0\n    half_life_s = float(half_life_min) * 60.0\n    travel_time_s = x_m / u_m_s\n    decay_factor = math.exp(-math.log(2.0) * travel_time_s / half_life_s)\n    sigma_z_m = 2.0 * Q_T_g * decay_factor / (math.sqrt(2.0 * math.pi) * D * u_m_s)\n    return {'1': {'value': sigma_z_m, 'unit': 'm'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 61.297045947661935,
+        "unit": "m"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the tracer is changed from conserved fluorescent particles to a first-order decaying fluorescent signal with a 10 min half-life, comparable to the 8 km / 5 m s^-1 transport time; the conserved-tracer Gaussian dosage formula is no longer valid without the decay factor",
+    "shortcut_code": "def solve(Q_T_g=2000.0, wind_speed_m_s=5.0, D_CWI_g_s_m2=0.82, downwind_distance_km=8.0, half_life_min=10.0):\n    import math\n    Q_T_g = float(Q_T_g)\n    u_m_s = float(wind_speed_m_s)\n    D = float(D_CWI_g_s_m2)\n    sigma_z_m = 2.0 * Q_T_g / (math.sqrt(2.0 * math.pi) * D * u_m_s)\n    return {'1': {'value': sigma_z_m, 'unit': 'm'}}",
+    "shortcut_value": 389.2119808794465,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 389.2119808794465
+    },
+    "separation": 5.3496,
+    "separation_max": 5.3496,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_10; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "first-order decay during transport in a dosage inversion",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: fluorescent signal decays with a 10 min half-life during transport (stated, with the dosage in remaining material)",
+      "c7": "shortcut is the parent's conserved-tracer relation (389 m)",
+      "c8": "sigma_z = 2 Q e^(-k x/u)/(sqrt(2 pi) D u) = 61 m; explicit; unique",
+      "c9": "conserved tracer -> decaying tracer with transport time ~ lifetime: regime",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_10_gen"
+  },
+  {
+    "id": "trap_p_101_regime",
+    "book": "synthesized",
+    "parent_id": "p_101",
+    "control_id": "p_101",
+    "problem": "The area of a large cumulonimbus anvil is observed to increase by 200% over a 10-min period. Assuming that this area change is representative of a constant average horizontal divergence (nabla · V) within the 300 to 100-hPa layer, and that the vertical velocity omega at 100 hPa is zero, calculate the vertical velocity w at the 300-hPa level. Assume a scale height H = 7 km. Express your answer in m s^-1.",
+    "code": "def solve(frac_increase=2.0, time_min=10.0, p1_hPa=100.0, p2_hPa=300.0, omega_p1=0.0, H_km=7.0):\n    import math\n    dt = time_min * 60.0\n    area_ratio = 1.0 + frac_increase\n    div_V = math.log(area_ratio) / dt\n    p1 = p1_hPa * 100.0\n    p2 = p2_hPa * 100.0\n    omega_p2 = omega_p1 - div_V * (p2 - p1)\n    H = H_km * 1000.0\n    w = -(H / p2) * omega_p2\n    return {'1': {'value': w, 'unit': 'm s^-1'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 8.54476224519641,
+        "unit": "m s^-1"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the anvil area increase is changed from a small 20% change to a finite 200% change, so the linearized estimate (Delta A/A)/Delta t is no longer a valid approximation to the time-mean divergence; the area-growth equation must be integrated, giving mean divergence ln(A2/A1)/Delta t",
+    "shortcut_code": "def solve(frac_increase=2.0, time_min=10.0, p1_hPa=100.0, p2_hPa=300.0, omega_p1=0.0, H_km=7.0):\n    dt = time_min * 60.0\n    div_V = frac_increase / dt\n    p1 = p1_hPa * 100.0\n    p2 = p2_hPa * 100.0\n    omega_p2 = omega_p1 - div_V * (p2 - p1)\n    H = H_km * 1000.0\n    w = -(H / p2) * omega_p2\n    return {'1': {'value': w, 'unit': 'm s^-1'}}",
+    "shortcut_value": 15.555555555555557,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 15.555555555555557
+    },
+    "separation": 0.8205,
+    "separation_max": 0.8205,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_101; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "exponential (finite-change) growth replaces the linearised rate",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: area increase 20 % -> 200 % over 10 min with 'constant average divergence' stated",
+      "c7": "shortcut is the parent's linearised (Delta A/A)/Delta t (15.6 m/s)",
+      "c8": "A = A0 exp(D t) -> D = ln 3/600 s -> w = 8.5 m/s; explicit; unique",
+      "c9": "linearisation (small change) leaves its validity range: regime",
+      "flag": "contrived (anvil area tripling in 10 min) but coherent; parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must recognise that a 200% area change is not small, so (1/A)dA/dt must be obtained by integrating the constant-divergence growth exponentially, i.e. ∇·V = ln(A_f/A_i)/Δ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_101_gen"
+  },
+  {
+    "id": "trap_p_104_regime",
+    "book": "synthesized",
+    "parent_id": "p_104",
+    "control_id": "p_104",
+    "problem": "Air at cloud base in a cyclonically rotating supercell-like updraft on a rapidly rotating planet is observed to be in solid body rotation out to a radius of 2 km with a period of 15 minutes. The local Coriolis parameter is 1.0e-2 s^-1. Estimate the amplitude of the radial pressure gradient required for steady horizontal radial force balance. The density of the air at cloud base is 1 kg m^-3. Express your answer in hPa km^-1.",
+    "code": "def solve(r_km=2.0, period_min=15.0, rho=1.0, f=0.01):\n    import math\n    r_m = r_km * 1000.0\n    period_s = period_min * 60.0\n    omega = 2.0 * math.pi / period_s\n    v = omega * r_m\n    dp_dr_Pa_m = rho * (v ** 2 / r_m + f * v)\n    dp_dr_hPa_km = dp_dr_Pa_m * 10.0\n    return {'1': {'value': dp_dr_hPa_km, 'unit': 'hPa km^-1'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 2.371039144912931,
+        "unit": "hPa km^-1"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the local Coriolis parameter is made large enough that the cyclostrophic approximation is no longer valid; the full steady radial momentum balance must include the Coriolis term",
+    "shortcut_code": "def solve(r_km=2.0, period_min=15.0, rho=1.0, f=0.01):\n    import math\n    r_m = r_km * 1000.0\n    period_s = period_min * 60.0\n    omega = 2.0 * math.pi / period_s\n    dp_dr_Pa_m = rho * omega ** 2 * r_m\n    dp_dr_hPa_km = dp_dr_Pa_m * 10.0\n    return {'1': {'value': dp_dr_hPa_km, 'unit': 'hPa km^-1'}}",
+    "shortcut_value": 0.9747757433174675,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.9747757433174675
+    },
+    "separation": 0.5889,
+    "separation_max": 0.5889,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_104; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "Coriolis term restored in the radial balance at low Rossby number",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT_WEAK",
+      "c6": "single trigger: Coriolis parameter 1e-2 s^-1 (rapidly rotating planet, stated); cyclonic rotation stated",
+      "c7": "shortcut is the parent's cyclostrophic rho omega^2 r (0.97 hPa/km)",
+      "c8": "dp/dr = rho (v^2/r + f v) = 2.37 hPa/km; explicit; unique",
+      "c9": "cyclostrophic (high Rossby number) -> full gradient balance: regime",
+      "flag": "hypothetical planet (f 100x Earth's); parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know that at Rossby number ~O(1) cyclostrophic balance is insufficient and must themselves write the gradient-wind (three-way) balance ∂p/∂r = ρ(V²/r + fV), includi",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_104_gen"
+  },
+  {
+    "id": "trap_p_11_regime",
+    "book": "synthesized",
+    "parent_id": "p_11",
+    "control_id": "p_11",
+    "problem": "At a point directly downwind from a ground-level source, the 3- to 15-minute concentration is estimated to be 3.4 × 10^-3 g m^-3. The source emits for only 30 min and then shuts off; take the 2-hour averaging interval to begin when the plume first reaches this point, so that the remaining time after the 30-minute release contributes zero concentration from this source. What would you estimate the 2-hour concentration to be at this point, assuming no change in stability or wind velocity while the source is emitting? Use the time-scaling equation chi_s = chi_k (t_k/t_s)^p while the source is emitting. Calculate the range of the 2-hour concentration by evaluating the lower-bound case with t_k = 3 min, p = 0.2 and the upper-bound case with t_k = 15 min, p = 0.17. Express your answer in g m^-3.",
+    "code": "def solve(chi_k=0.0034, t_k_lower_min=3.0, t_k_upper_min=15.0, averaging_time_min=120.0, source_duration_min=30.0, p_lower=0.2, p_upper=0.17):\n    min_to_s = 60.0\n    t_k_lower_s = t_k_lower_min * min_to_s\n    t_k_upper_s = t_k_upper_min * min_to_s\n    averaging_time_s = averaging_time_min * min_to_s\n    source_duration_s = source_duration_min * min_to_s\n    chi_d_lower = chi_k * (t_k_lower_s / source_duration_s) ** p_lower\n    chi_d_upper = chi_k * (t_k_upper_s / source_duration_s) ** p_upper\n    dilution_factor = source_duration_s / averaging_time_s\n    chi_2h_lower = chi_d_lower * dilution_factor\n    chi_2h_upper = chi_d_upper * dilution_factor\n    return {'1': {'value': chi_2h_lower, 'unit': 'g m^-3'}, '2': {'value': chi_2h_upper, 'unit': 'g m^-3'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.0005363137428081642,
+        "unit": "g m^-3"
+      },
+      {
+        "sub": "2",
+        "value": 0.0007555162789915846,
+        "unit": "g m^-3"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "low",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the source is changed from effectively continuous to a 30-minute release, so the continuous-plume averaging-time power law is not valid all the way to a 120-minute average; after the release contribution ends, the remaining averaging time must be treated as zero concentration from this source",
+    "shortcut_code": "def solve(chi_k=0.0034, t_k_lower_min=3.0, t_k_upper_min=15.0, averaging_time_min=120.0, source_duration_min=30.0, p_lower=0.2, p_upper=0.17):\n    min_to_s = 60.0\n    t_k_lower_s = t_k_lower_min * min_to_s\n    t_k_upper_s = t_k_upper_min * min_to_s\n    averaging_time_s = averaging_time_min * min_to_s\n    chi_2h_lower = chi_k * (t_k_lower_s / averaging_time_s) ** p_lower\n    chi_2h_upper = chi_k * (t_k_upper_s / averaging_time_s) ** p_upper\n    return {'1': {'value': chi_2h_lower, 'unit': 'g m^-3'}, '2': {'value': chi_2h_upper, 'unit': 'g m^-3'}}",
+    "shortcut_value": 0.0016257992496430628,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.0016257992496430628,
+      "2": 0.002387556288754595
+    },
+    "separation": 2.0314,
+    "separation_max": 2.1602,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_11; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "finite release duration inside the averaging window",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: 30-min release with the 2-h averaging window defined in the text",
+      "c7": "shortcut is the parent's power law applied to 120 min",
+      "c8": "scale to 30 min, then dilute by 30/120 -> (4.6e-4, 8.0e-4) g/m^3; explicit; unique",
+      "c9": "continuous-source averaging law leaves its validity range once t_avg exceeds the release duration: regime",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_11_gen"
+  },
+  {
+    "id": "trap_p_112_regime",
+    "book": "synthesized",
+    "parent_id": "p_112",
+    "control_id": "p_112",
+    "problem": "Outside the eyewall of an intense tropical cyclone at 30°N in the Northern Hemisphere, at a radius of 150 km, the azimuthal wind speed is 60 m s^-1. Assuming the flow is in steady axisymmetric radial force balance, estimate the outward radial pressure gradient (∂p/∂r). Assume an air density of 1.1 kg m^-3. Express your answer in Pa m^-1.",
+    "code": "def solve(r_km=150.0, v=60.0, rho=1.1, latitude_deg=30.0):\n    import math\n    r = r_km * 1000.0\n    omega = 7.2921159e-05\n    phi = math.radians(latitude_deg)\n    f = 2.0 * omega * math.sin(phi)\n    dp_dr = rho * (v ** 2 / r + f * v)\n    return {'1': {'value': dp_dr, 'unit': 'Pa m^-1'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.031212796494000005,
+        "unit": "Pa m^-1"
+      }
+    ],
+    "category": "atmospheric_dynamics",
+    "topic": "regime_boundary",
+    "difficulty": "low",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the radius is increased from 10 km to 150 km, making the Coriolis term a non-negligible part of the radial force balance rather than allowing the cyclostrophic approximation",
+    "shortcut_code": "def solve(r_km=150.0, v=60.0, rho=1.1, latitude_deg=30.0):\n    r = r_km * 1000.0\n    dp_dr = rho * (v ** 2 / r)\n    return {'1': {'value': dp_dr, 'unit': 'Pa m^-1'}}",
+    "shortcut_value": 0.026400000000000003,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.026400000000000003
+    },
+    "separation": 0.1542,
+    "separation_max": 0.1542,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_112; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "Coriolis term restored in the radial balance at low Rossby number",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: radius 10 -> 150 km (with latitude and 'steady axisymmetric radial force balance' stated)",
+      "c7": "shortcut is the parent's cyclostrophic rho v^2/r (0.0264 Pa/m)",
+      "c8": "rho(v^2/r + f v) = 0.0312 Pa/m; explicit; unique",
+      "c9": "cyclostrophic -> gradient balance (Coriolis term no longer negligible): regime",
+      "flag": "mechanism repeated (p_104); parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know that at 150 km the Rossby number is not large so the gradient-wind balance applies, i.e. supply the Coriolis term (∂p/∂r = ρ(v²/r + fv) with f = 2Ω sin 30°) th",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_112_gen"
+  },
+  {
+    "id": "trap_p_12_regime",
+    "book": "synthesized",
+    "parent_id": "p_12",
+    "control_id": "p_12",
+    "problem": "A stack 15 meters high emits 3 g sec⁻¹ of a particular air pollutant that undergoes first-order atmospheric loss with a half-life of 5 minutes. The surrounding terrain is relatively flat except for a rounded hill about 3 km to the northeast whose crest extends 15 meters above the stack top. What is the highest 3- to 15-minute concentration of this pollutant that can be expected on the facing slope of the hill on a clear night when the wind is blowing directly from the stack toward the hill at 4 m sec⁻¹? Assume Gaussian plume dispersion with the plume centerline impacting the hill directly, so that the receptor lies on the plume axis and the hill effectively acts as a ground-level source, but include the pollutant's first-order loss during transport from the stack to the hill. For these Class E stability conditions at 3 km, σ_y = 140 m and σ_z = 43 m.\n\nExpress your answer in g m^-3.",
+    "code": "def solve(Q_g_s=3.0, stack_height_m=15.0, x_km=3.0, crest_above_stack_m=15.0, avg_low_min=3.0, avg_high_min=15.0, u_m_s=4.0, sigma_y_m=140.0, sigma_z_m=43.0, half_life_min=5.0):\n    import math\n    x_m = x_km * 1000.0\n    half_life_s = half_life_min * 60.0\n    travel_time_s = x_m / u_m_s\n    decay_constant_s_inv = math.log(2.0) / half_life_s\n    decay_factor = math.exp(-decay_constant_s_inv * travel_time_s)\n    chi = Q_g_s * decay_factor / (math.pi * sigma_y_m * sigma_z_m * u_m_s)\n    return {'1': {'value': chi, 'unit': 'g m^-3'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 7.01035337539275e-06,
+        "unit": "g m^-3"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the pollutant is given a 5-minute first-order atmospheric half-life, which is short compared with the 12.5-minute advective travel time to the hill; the conservative Gaussian plume formula must be modified by an exponential decay factor",
+    "shortcut_code": "def solve(Q_g_s=3.0, stack_height_m=15.0, x_km=3.0, crest_above_stack_m=15.0, avg_low_min=3.0, avg_high_min=15.0, u_m_s=4.0, sigma_y_m=140.0, sigma_z_m=43.0, half_life_min=5.0):\n    import math\n    chi = Q_g_s / (math.pi * sigma_y_m * sigma_z_m * u_m_s)\n    return {'1': {'value': chi, 'unit': 'g m^-3'}}",
+    "shortcut_value": 3.9656547282033725e-05,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 3.9656547282033725e-05
+    },
+    "separation": 4.6569,
+    "separation_max": 4.6569,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_12; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "first-order decay during transport",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: 5-min first-order half-life (2.5 half-lives over the 750 s transit)",
+      "c7": "shortcut is the parent's conservative centreline value",
+      "c8": "x exp(-ln2 t/t_half) = 0.177; explicit; unique",
+      "c9": "conserved -> decaying pollutant with transit time >> lifetime: regime",
+      "flag": "mechanism repeated (p_10); parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: ",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_12_gen"
+  },
+  {
+    "id": "trap_p_123_regime",
+    "book": "synthesized",
+    "parent_id": "p_123",
+    "control_id": "p_123",
+    "problem": "As a cold, continental air mass passes over the Gulf Stream on a winter day, the temperature of the air in the atmospheric boundary layer rises by 10 K over a distance of 300 km. Within this interval the average boundary layer depth is 1 km and the wind speed is 15 m s^-1. Condensation is taking place within the boundary layer, releasing latent heat at a vertically integrated average rate of 250 W m^-2 over this interval, and the radiative fluxes are negligible. Calculate the sensible heat flux from the sea surface. Assume the volumetric heat capacity of air is rho c_p = 1231 J m^-3 K^-1. Express your answer in [W m^-2].",
+    "code": "def solve(delta_T=10.0, delta_x_km=300.0, H_km=1.0, u=15.0, rho_cp=1231.0, latent_heating_flux=250.0) -> dict:\n    delta_x = delta_x_km * 1000.0\n    H = H_km * 1000.0\n    delta_t = delta_x / u\n    storage_rate = rho_cp * H * delta_T / delta_t\n    surface_sensible_flux = storage_rate - latent_heating_flux\n    return {'1': {'value': surface_sensible_flux, 'unit': 'W m^-2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 365.5,
+        "unit": "W m^-2"
+      }
+    ],
+    "category": "boundary_layer",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "The boundary layer is moved from the dry/no-condensation regime into a moist condensing regime; latent heat release within the layer contributes to the observed temperature rise, so the dry heat-storage formula no longer equals the surface sensible heat flux.",
+    "shortcut_code": "def solve(delta_T=10.0, delta_x_km=300.0, H_km=1.0, u=15.0, rho_cp=1231.0, latent_heating_flux=250.0) -> dict:\n    delta_x = delta_x_km * 1000.0\n    H = H_km * 1000.0\n    delta_t = delta_x / u\n    Q = rho_cp * H * delta_T\n    F_H = Q / delta_t\n    return {'1': {'value': F_H, 'unit': 'W m^-2'}}",
+    "shortcut_value": 615.5,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 615.5
+    },
+    "separation": 0.684,
+    "separation_max": 0.684,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_123; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "latent-heat source term in the boundary-layer heat budget",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: condensation releasing a stated 250 W/m^2 inside the layer (no-condensation -> condensing)",
+      "c7": "shortcut is the parent's storage = surface sensible flux (615.5)",
+      "c8": "surface flux = storage - latent heating = 365.5 W/m^2; explicit; unique",
+      "c9": "dry -> condensing boundary layer (brief example)",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must still set up the boundary-layer heat budget so that the given latent heating (250 W m^-2) is subtracted from the total advective heating to isolate the sensible hea",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_123_gen"
+  },
+  {
+    "id": "trap_p_38_regime",
+    "book": "synthesized",
+    "parent_id": "p_38",
+    "control_id": "p_38",
+    "problem": "Calculate the equivalent blackbody temperature T_E of the solar photosphere, based on the following information. The flux density of solar radiation reaching the Earth, F_s, is 1368 W m^-2. Between the solar photosphere and the Earth, the wavelength-integrated optical depth along the radial path is tau = 1.00, so the radiation is attenuated by a factor exp(-tau) in addition to geometrical spreading. The Earth-sun distance d is 1.50 × 10^11 m and the radius of the solar photosphere R_s is 7.00 × 10^8 m. Treat the photosphere as a blackbody radiator. Express your answer in K.",
+    "code": "def solve(F_s=1368.0, d=150000000000.0, R_s=700000000.0, tau=1.0):\n    import math\n    sigma = 5.67e-08\n    F_photosphere = F_s * math.exp(tau) * (d / R_s) ** 2\n    T_E = (F_photosphere / sigma) ** 0.25\n    return {'1': {'value': T_E, 'unit': 'K'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 7407.914984726213,
+        "unit": "K"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the path from the photosphere to Earth is changed from effectively transparent to optically thick enough to matter, with wavelength-integrated optical depth tau = 1.00; the observed solar flux is attenuated and is no longer just the inverse-square diluted photospheric luminosity",
+    "shortcut_code": "def solve(F_s=1368.0, d=150000000000.0, R_s=700000000.0, tau=1.0):\n    sigma = 5.67e-08\n    F_photosphere = F_s * (d / R_s) ** 2\n    T_E = (F_photosphere / sigma) ** 0.25\n    return {'1': {'value': T_E, 'unit': 'K'}}",
+    "shortcut_value": 5769.289991031169,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 5769.289991031169
+    },
+    "separation": 0.2212,
+    "separation_max": 0.2212,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_38; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "Beer-Lambert attenuation on top of geometric dilution",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: wavelength-integrated optical depth 1.00 on the photosphere-Earth path (stated)",
+      "c7": "shortcut is the parent's transparent inverse-square inference (5769 K)",
+      "c8": "F_photosphere = F_s e^tau (d/R_s)^2 -> T_E x e^(tau/4) = 7408 K; explicit; unique",
+      "c9": "transparent-space assumption leaves its validity range: regime (cf. air_88)",
+      "flag": "hypothetical medium (as air_88); parent also has a geometry accept -> one-per-parent; mechanism repeated",
+      "measures_regime_judgement": false,
+      "regime_judgement_reason": "the trap states the replacement, so the solver reads it off the page: Between the solar photosphere and the Earth, the wavelength-integrated optical depth along the radial path is tau = 1.00, so the radiation is attenuated by a factor exp(-tau) in ad",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_38_gen"
+  },
+  {
+    "id": "trap_p_40_regime",
+    "book": "synthesized",
+    "parent_id": "p_40",
+    "control_id": "p_40",
+    "problem": "A small blackbody satellite is orbiting the Earth at a distance d = 6.80 × 10^6 m from Earth's center. The Earth has radius R_E = 6.37 × 10^6 m and radiates uniformly as a blackbody with equivalent temperature T_earth = 255 K. Suppose that the satellite suddenly passes into the Earth's shadow. At what rate will it initially cool? The satellite has a mass m = 10^3 kg and a specific heat c = 10^3 J (kg K)^-1; it is spherical with a radius r = 1 m, and its temperature is uniform over its surface. It radiates and absorbs as a perfect blackbody from its entire surface. The equivalent blackbody temperature of the satellite before entering the shadow is T_s = 279 K. Express the cooling rate as a positive number in K s^-1.",
+    "code": "def solve(m=1000.0, c=1000.0, r=1.0, T_s=279.0, d=6800000.0, R_E=6370000.0, T_earth=255.0):\n    import math\n    sigma = 5.67e-08\n    P_emit = 4.0 * math.pi * r ** 2 * sigma * T_s ** 4\n    alpha = math.asin(R_E / d)\n    Omega_earth = 2.0 * math.pi * (1.0 - math.cos(alpha))\n    P_abs_earth = math.pi * r ** 2 * (sigma * T_earth ** 4 / math.pi) * Omega_earth\n    cooling_rate = (P_emit - P_abs_earth) / (m * c)\n    return {'1': {'value': cooling_rate, 'unit': 'K s^-1'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.0033380922818191613,
+        "unit": "K s^-1"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the satellite is moved close enough to Earth that terrestrial thermal radiation is no longer negligible after it enters Earth's shadow",
+    "shortcut_code": "def solve(m=1000.0, c=1000.0, r=1.0, T_s=279.0, d=6800000.0, R_E=6370000.0, T_earth=255.0):\n    import math\n    sigma = 5.67e-08\n    cooling_rate = 4.0 * math.pi * r ** 2 * sigma * T_s ** 4 / (m * c)\n    return {'1': {'value': cooling_rate, 'unit': 'K s^-1'}}",
+    "shortcut_value": 0.004317275228257676,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.004317275228257676
+    },
+    "separation": 0.2933,
+    "separation_max": 0.2933,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_40; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "absorbed terrestrial radiation from a finite solid angle",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "OTHER"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": true,
+      "amendments": [
+        "answer-format statement ('Express the cooling rate as a positive number in K s^-1.') — deepseek returned the key with a dT/dt sign; gpt55 used the flat-disk (R/d)^2 view factor; witnesses re-run (units-amendment rule)"
+      ]
+    },
+    "review": {
+      "verdict": "ACCEPT_WITH_AMENDMENTS",
+      "c6": "single trigger: satellite at d = 6.80e6 m from Earth's centre with Earth's blackbody emission stated",
+      "c7": "shortcut is the parent's emission-only cooling (4.3e-3 K/s)",
+      "c8": "net = emission - pi r^2 (sigma T_E^4/pi) Omega_earth -> 3.3e-3 K/s; explicit; unique (solid-angle formula checked as in 3.4)",
+      "c9": "Earth radiation negligible -> non-negligible: regime",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves realize the parent's \"negligible Earth flux\" assumption fails and derive the absorbed Earth radiation term using the geometric view factor (solid-angle f",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_40_gen"
+  },
+  {
+    "id": "trap_p_55_regime",
+    "book": "synthesized",
+    "parent_id": "p_55",
+    "control_id": "p_55",
+    "problem": "Consider monochromatic radiation with wavelength λ and zenith angle 89.9° at Earth's surface passing through a uniform-density spherical shell of gas extending from Earth's surface to altitude 10 km. Take Earth's radius to be 6371 km. The gas has an absorption coefficient k_λ of 0.01 m² kg⁻¹. The vertical column mass of the gas shell is 1 kg m⁻². What fraction of the beam is absorbed in passing through the shell? What vertical column mass of gas would the shell have to contain in order to absorb half the incident radiation? Express your answers as a dimensionless fraction and in kg m⁻², respectively.",
+    "code": "def solve(k_lambda=0.01, vertical_column_mass=1.0, A2=0.5, zenith_deg=89.9, earth_radius_km=6371.0, layer_thickness_km=10.0):\n    import math\n    R = earth_radius_km * 1000.0\n    H = layer_thickness_km * 1000.0\n    z = math.radians(zenith_deg)\n    mu = math.cos(z)\n    s = -R * mu + math.sqrt((R * mu) ** 2 + (R + H) ** 2 - R ** 2)\n    air_mass_factor = s / H\n    slant_column_mass = vertical_column_mass * air_mass_factor\n    T1 = math.exp(-k_lambda * slant_column_mass)\n    fraction_absorbed = 1.0 - T1\n    T2 = 1.0 - A2\n    required_vertical_column_mass = -math.log(T2) / (k_lambda * air_mass_factor)\n    return {'1': {'value': fraction_absorbed, 'unit': 'dimensionless'}, '2': {'value': required_vertical_column_mass, 'unit': 'kg m^-2'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.2925957669040765,
+        "unit": "dimensionless"
+      },
+      {
+        "sub": "2",
+        "value": 2.002429977781135,
+        "unit": "kg m^-2"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the zenith angle is changed from 0° to 89.9°, so the vertical-column Beer-Lambert shortcut no longer applies; the near-horizon slant column must be computed with spherical-shell geometry",
+    "shortcut_code": "def solve(k_lambda=0.01, vertical_column_mass=1.0, A2=0.5, zenith_deg=89.9, earth_radius_km=6371.0, layer_thickness_km=10.0):\n    import math\n    T1 = math.exp(-k_lambda * vertical_column_mass)\n    fraction_absorbed = 1.0 - T1\n    T2 = 1.0 - A2\n    required_vertical_column_mass = -math.log(T2) / k_lambda\n    return {'1': {'value': fraction_absorbed, 'unit': 'dimensionless'}, '2': {'value': required_vertical_column_mass, 'unit': 'kg m^-2'}}",
+    "shortcut_value": 0.009950166250831893,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.009950166250831893,
+      "2": 69.31471805599453
+    },
+    "separation": 0.966,
+    "separation_max": 33.6153,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_55; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "near-horizon spherical path replaces the plane-parallel column",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: zenith 0 -> 89.9 deg through a uniform spherical shell (R_E and shell thickness stated)",
+      "c7": "shortcut is the parent's vertical-column Beer-Lambert (0.00995, 69.3)",
+      "c8": "spherical-shell slant path s = -R mu + sqrt(R^2 mu^2 + 2RH + H^2) -> air mass 34.6 -> (0.293, 2.00); explicit; unique",
+      "c9": "plane-parallel -> spherical near-horizon path (brief example, cf. 7.6 regime)",
+      "flag": "parent also has a geometry accept (60 deg slant) -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must know that at 89.9° the plane-parallel slant-path relation m = sec(θ) breaks down and must derive the spherical-geometry chord length through the 10 km shell (Chapma",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_55_gen"
+  },
+  {
+    "id": "trap_p_56_regime",
+    "book": "synthesized",
+    "parent_id": "p_56",
+    "control_id": "p_56",
+    "problem": "Consider a hypothetical planetary atmosphere comprised entirely of a gas with an absorption coefficient k_lambda of 0.01 m² kg⁻¹. The atmospheric pressure at the surface of the planet is 1000 hPa, the temperature decreases linearly with height at a constant lapse rate of 9.8 K km⁻¹ from a surface temperature of 300 K, the surface scale height H is 10 km, and the gravitational acceleration g is 10 m s⁻². Estimate the height and pressure of the level of unit normal optical depth, where the normal optical depth measured downward from the top of the atmosphere equals 1. Express your answers in km and hPa, respectively.",
+    "code": "def solve(k_lambda=0.01, p0_hPa=1000.0, Gamma_K_per_km=9.8, T0_K=300.0, H_km=10.0, g=10.0, tau=1.0):\n    import math\n    p0_Pa = p0_hPa * 100.0\n    p_Pa = tau * g / k_lambda\n    p_hPa = p_Pa / 100.0\n    pressure_ratio = p_Pa / p0_Pa\n    exponent_inverse = Gamma_K_per_km * H_km / T0_K\n    z_km = T0_K / Gamma_K_per_km * (1.0 - pressure_ratio ** exponent_inverse)\n    return {'1': {'value': z_km, 'unit': 'km'}, '2': {'value': p_hPa, 'unit': 'hPa'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 23.81141604503323,
+        "unit": "km"
+      },
+      {
+        "sub": "2",
+        "value": 10.0,
+        "unit": "hPa"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the atmosphere is changed from isothermal to a finite constant lapse-rate atmosphere, so the constant-scale-height exponential pressure-height relation used in the base solver is no longer valid",
+    "shortcut_code": "def solve(k_lambda=0.01, p0_hPa=1000.0, Gamma_K_per_km=9.8, T0_K=300.0, H_km=10.0, g=10.0, tau=1.0):\n    import math\n    p0_Pa = p0_hPa * 100.0\n    p_Pa = tau * g / k_lambda\n    p_hPa = p_Pa / 100.0\n    z_km = -H_km * math.log(p_Pa / p0_Pa)\n    return {'1': {'value': z_km, 'unit': 'km'}, '2': {'value': p_hPa, 'unit': 'hPa'}}",
+    "shortcut_value": 46.05170185988091,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 46.05170185988091,
+      "2": 10.0
+    },
+    "separation": 0.934,
+    "separation_max": 0.934,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_56; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "hydrostatic integral with a linear temperature profile instead of isothermal",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: isothermal -> constant lapse rate 9.8 K/km from 300 K (surface scale height stated)",
+      "c7": "shortcut is the parent's exponential z = -H ln(p/p0) (46 km)",
+      "c8": "p/p0 = (T/T0)^(T0/(Gamma H0)) -> z = 23.8 km; sub 2 (10 hPa) unchanged; explicit; unique",
+      "c9": "isothermal exponential leaves its validity range: regime (cf. air_405)",
+      "flag": "parent also has a geometry accept -> one-per-parent; mechanism repeated",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must recognize that the exponential (isothermal) pressure/density profile no longer applies and derive the polytropic hydrostatic relation p = p_s(1 − Γz/T_s)^{g/RΓ} (wi",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_56_gen"
+  },
+  {
+    "id": "trap_p_6_regime",
+    "book": "synthesized",
+    "parent_id": "p_6",
+    "control_id": "p_6",
+    "problem": "Sulfur dioxide is emitted from a petroleum refinery at Q = 80 g s⁻¹ from an effective height of H = 60 m. The surface wind speed is u = 6 m s⁻¹. Assume the pollutant disperses as a continuous point-source plume following a Gaussian distribution in both the crosswind and vertical directions, with complete reflection at the ground. The pollutant is confined below a capping inversion at mixing height h = 62 m, which also acts as a perfectly reflecting boundary. At a downwind distance of x = 500 m, the dispersion parameters are σ_y = 36 m and σ_z = 18.5 m. What is the ground-level concentration at this downwind distance, but at a crosswind distance of y = 50 meters from the plume centerline?\n\nExpress your answer in g m^-3.",
+    "code": "def solve(Q=80.0, H=60.0, u=6.0, x=500.0, sigma_y=36.0, sigma_z=18.5, y=50.0, h=62.0):\n    import math\n    Q_si = Q\n    H_si = H\n    u_si = u\n    sy = sigma_y\n    sz = sigma_z\n    y_si = y\n    h_si = h\n    z = 0.0\n    crosswind = math.exp(-0.5 * (y_si / sy) ** 2)\n    vertical_sum = 0.0\n    for n in range(-50, 51):\n        vertical_sum += math.exp(-0.5 * ((z - H_si + 2.0 * n * h_si) / sz) ** 2)\n        vertical_sum += math.exp(-0.5 * ((z + H_si + 2.0 * n * h_si) / sz) ** 2)\n    chi = Q_si / (2.0 * math.pi * sy * sz * u_si) * crosswind * vertical_sum\n    return {'1': {'value': chi, 'unit': 'g/m^3'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 1.8746810036881355e-05,
+        "unit": "g/m^3"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "A shallow reflecting mixing-layer lid at h = 62 m is introduced, only 2 m above the effective plume height H = 60 m. The ground-only reflected Gaussian plume is no longer the correct vertical physics; multiple reflections between the ground and the capping inversion must be included.",
+    "shortcut_code": "def solve(Q=80.0, H=60.0, u=6.0, x=500.0, sigma_y=36.0, sigma_z=18.5, y=50.0, h=62.0):\n    import math\n    Q_si = Q\n    H_si = H\n    u_si = u\n    sy = sigma_y\n    sz = sigma_z\n    y_si = y\n    chi = Q_si / (math.pi * sy * sz * u_si) * math.exp(-0.5 * (y_si / sy) ** 2) * math.exp(-0.5 * (H_si / sz) ** 2)\n    return {'1': {'value': chi, 'unit': 'g/m^3'}}",
+    "shortcut_value": 1.2628278527042532e-05,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 1.2628278527042532e-05
+    },
+    "separation": 0.3264,
+    "separation_max": 0.3264,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_6; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "multiple reflections between ground and a capping lid",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: perfectly reflecting capping inversion at h = 62 m, 2 m above the plume centreline",
+      "c7": "shortcut is the parent's ground-only reflection",
+      "c8": "image-source sum between two reflecting planes -> x1.48; explicit; unique (standard bounded-layer Gaussian)",
+      "c9": "unbounded -> bounded mixing layer (h ~ H): regime",
+      "flag": "parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves replace the single-ground-reflection Gaussian formula with the multiple-reflection (image-source series) expression for a plume trapped between the groun",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_6_gen"
+  },
+  {
+    "id": "trap_p_72_regime",
+    "book": "synthesized",
+    "parent_id": "p_72",
+    "control_id": "p_72",
+    "problem": "Assuming that tropospheric O3 over the continents is confined to a layer extending from the surface up to a height of 5 km, that the average deposition velocity of O3 onto the ground is 0.40 cm s^-1, and that after all sources are switched off the vertical redistribution of O3 is only by turbulent diffusion with constant eddy diffusivity K_z = 0.10 m^2 s^-1, with no flux through the 5 km top of the layer, what is the long-time e-folding residence time for removal of O3 by deposition on the ground? Express your answer in days.",
+    "code": "def solve(H_km=5.0, v_d_cm_s=0.4, K_z_m2_s=0.1):\n    import math\n    H_m = H_km * 1000.0\n    v_d_m_s = v_d_cm_s / 100.0\n    K = K_z_m2_s\n    Bi = v_d_m_s * H_m / K\n    lo = 0.0\n    hi = math.pi / 2.0 - 1e-14\n    for _ in range(100):\n        mid = 0.5 * (lo + hi)\n        f_mid = mid * math.tan(mid) - Bi\n        if f_mid > 0.0:\n            hi = mid\n        else:\n            lo = mid\n    beta = 0.5 * (lo + hi)\n    tau_s = H_m ** 2 / (K * beta ** 2)\n    tau_days = tau_s / (24.0 * 3600.0)\n    return {'1': {'value': tau_days, 'unit': 'days'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 1184.4549511507375,
+        "unit": "days"
+      }
+    ],
+    "category": "air_quality",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "vertical eddy diffusivity is specified to be very small, K_z = 0.10 m^2 s^-1, so v_d H / K_z >> 1 and removal is diffusion-limited rather than well-mixed deposition-limited",
+    "shortcut_code": "def solve(H_km=5.0, v_d_cm_s=0.4, K_z_m2_s=0.1):\n    H_m = H_km * 1000.0\n    v_d_m_s = v_d_cm_s / 100.0\n    t_seconds = H_m / v_d_m_s\n    t_days = t_seconds / (24.0 * 3600.0)\n    return {'1': {'value': t_days, 'unit': 'days'}}",
+    "shortcut_value": 14.467592592592593,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 14.467592592592593
+    },
+    "separation": 0.9878,
+    "separation_max": 0.9878,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent p_72; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "diffusion-limited deposition (Biot-number regime)",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: vertical redistribution only by weak eddy diffusion (K_z = 0.10 m^2/s, no flux at the top), long-time e-folding time requested",
+      "c7": "shortcut is the parent's well-mixed H/v_d (14.5 days)",
+      "c8": "slowest diffusion eigenmode: beta tan beta = v_d H/K = 200 -> tau = H^2/(K beta^2) = 1184 days; explicit; unique",
+      "c9": "well-mixed (K >> v_d H) -> diffusion-limited removal: regime",
+      "flag": "contrived K_z (0.1 m^2/s over 5 km) but stated; parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves set up the 1-D eddy-diffusion equation with a deposition-velocity flux boundary condition at the ground and zero flux at 5 km, and derive the slowest-dec",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_p_72_gen"
+  },
+  {
+    "id": "trap_snp_15_regime",
+    "book": "synthesized",
+    "parent_id": "snp_15",
+    "control_id": "snp_15",
+    "problem": "What is the first-order rate coefficient of N₂O₅ reacting heterogeneously by\n\nN₂O₅ + H₂O(s) → 2 HNO₃\n\nat 298 K in a population of particles, all of which have 20 μm diameter, of overall number concentration 1000 cm⁻³? The reaction efficiency γ can be taken as 0.1, and the gas-phase molecular diffusivity of N₂O₅ in air is 0.10 cm² s⁻¹.",
+    "code": "def solve(diameter_um=20.0, number_conc_cm3=1000.0, gamma=0.1, T=298.0, diffusivity_cm2_s=0.1):\n    import math\n    R = 8.314462618\n    M_N2O5 = 0.10801\n    c_bar = math.sqrt(8.0 * R * T / (math.pi * M_N2O5))\n    r_m = diameter_um * 1e-06 / 2.0\n    N_m3 = number_conc_cm3 * 1000000.0\n    D_m2_s = diffusivity_cm2_s * 0.0001\n    beta_diff = 4.0 * math.pi * r_m * D_m2_s\n    beta_surf = gamma * c_bar * math.pi * r_m ** 2\n    beta = 1.0 / (1.0 / beta_diff + 1.0 / beta_surf)\n    k = beta * N_m3\n    return {'1': {'value': k, 'unit': 's^-1'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 1.0781961371240218,
+        "unit": "s^-1"
+      }
+    ],
+    "category": "atmospheric_chemistry",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "The particle diameter is increased from 0.2 μm to 20 μm, so gas-phase diffusion to the particle surface is no longer fast compared with surface uptake; the simple kinetic surface-area formula becomes a diffusion-neglecting shortcut.",
+    "shortcut_code": "def solve(diameter_um=20.0, number_conc_cm3=1000.0, gamma=0.1, T=298.0, diffusivity_cm2_s=0.1):\n    import math\n    R = 8.314462618\n    NA = 6.02214076e+23\n    M_N2O5 = 0.10801\n    c_bar = math.sqrt(8.0 * R * T / (math.pi * M_N2O5))\n    r_m = diameter_um * 1e-06 / 2.0\n    area_per_particle = 4.0 * math.pi * r_m ** 2\n    N_m3 = number_conc_cm3 * 1000000.0\n    A = area_per_particle * N_m3\n    k = gamma * c_bar * A / 4.0\n    return {'1': {'value': k, 'unit': 's^-1'}}",
+    "shortcut_value": 7.592996004878731,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 7.592996004878731
+    },
+    "separation": 6.0423,
+    "separation_max": 6.0423,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent snp_15; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "gas-phase diffusion resistance to large particles",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: particle diameter 0.2 -> 20 um with the gas diffusivity stated",
+      "c7": "shortcut is the parent's kinetic surface-area uptake gamma c A/4 (7.6 s^-1)",
+      "c8": "series resistances 1/(1/(4 pi r D) + 1/(gamma c pi r^2)) -> 1.08 s^-1; explicit; unique in the continuum limit (Kn << 1)",
+      "c9": "kinetic (free-molecular) -> diffusion-limited uptake regime (brief-adjacent: Stokes -> slip in reverse)",
+      "flag": "heavy loading (1000 cm^-3 of 20 um drops ~ fog) but coherent; parent also has a geometry accept -> one-per-parent",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must themselves recognise that for 20 μm particles the free-molecular (kinetic) uptake expression fails and supply the diffusion-limited/transition-regime relation (e.g.",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_snp_15_gen"
+  },
+  {
+    "id": "trap_snp_8_regime",
+    "book": "synthesized",
+    "parent_id": "snp_8",
+    "control_id": "snp_8",
+    "problem": "At λ = 300 nm, the total transmittance of the atmosphere at a solar zenith angle of 89.9° is ∼0.026, which is a result of absorption of solar radiation by O3. At λ = 300 nm, the absorption cross section of O3 is σ_O3 ≅ 3.2 × 10^-19 cm^2. Assume the O3 is uniformly distributed in a spherical shell from 20 km to 30 km altitude around an Earth of radius 6371 km, and ignore refraction and scattering. What vertical column abundance of O3, expressed in Dobson units, produces this transmittance?",
+    "code": "def solve(transmittance=0.026, sza_deg=89.9, sigma_O3=3.2e-19, earth_radius_km=6371.0, z_lower_km=20.0, z_upper_km=30.0):\n    import math\n    theta = math.radians(sza_deg)\n    R = earth_radius_km\n    r1 = R + z_lower_km\n    r2 = R + z_upper_km\n    b = R * math.sin(theta)\n    s1_km = -R * math.cos(theta) + math.sqrt(r1 ** 2 - b ** 2)\n    s2_km = -R * math.cos(theta) + math.sqrt(r2 ** 2 - b ** 2)\n    slant_path_cm = (s2_km - s1_km) * 100000.0\n    vertical_thickness_cm = (z_upper_km - z_lower_km) * 100000.0\n    spherical_airmass = slant_path_cm / vertical_thickness_cm\n    tau = -math.log(transmittance)\n    N_vertical = tau / (sigma_O3 * spherical_airmass)\n    DU = 2.687e+16\n    column_DU = N_vertical / DU\n    return {'1': {'value': column_DU, 'unit': 'DU'}}",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 37.31042729576858,
+        "unit": "DU"
+      }
+    ],
+    "category": "atmospheric_radiation",
+    "topic": "regime_boundary",
+    "difficulty": "medium",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the solar zenith angle is moved from 45° to 89.9°, near the horizon, where the plane-parallel secant airmass approximation breaks down and the finite spherical geometry of the ozone layer must be used",
+    "shortcut_code": "def solve(transmittance=0.026, sza_deg=89.9, sigma_O3=3.2e-19, earth_radius_km=6371.0, z_lower_km=20.0, z_upper_km=30.0):\n    import math\n    airmass = 1.0 / math.cos(math.radians(sza_deg))\n    tau = -math.log(transmittance)\n    N_slant = tau / sigma_O3\n    N_vertical = N_slant / airmass\n    DU = 2.687e+16\n    column_DU = N_vertical / DU\n    return {'1': {'value': column_DU, 'unit': 'DU'}}",
+    "shortcut_value": 0.7408183995216747,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.7408183995216747
+    },
+    "separation": 0.9801,
+    "separation_max": 0.9801,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "Certified regime_boundary proposal for parent snp_8; set aside at assembly (one trap per parent, geometry kept) and exported as a separate probe, protocol amendment 2026-09-09. Not part of benchmark/traps.json.",
+    "provenance": "generate_traps+human_adjudicated",
+    "expansion": "2026-09",
+    "mechanism": "near-horizon spherical path replaces the plane-parallel column",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "verdict": "ACCEPT",
+      "c6": "single trigger: solar zenith angle 45 -> 89.9 deg with the ozone shell (20-30 km) and Earth radius stated; refraction/scattering excluded",
+      "c7": "shortcut is the parent's plane-parallel secant airmass (573 -> 0.74 DU)",
+      "c8": "straight-ray path through the spherical shell -> airmass 11.4 -> 37.3 DU; explicit; unique",
+      "c9": "plane-parallel -> spherical near-horizon path (brief example)",
+      "flag": "parent also has a geometry accept -> one-per-parent; mechanism repeated (7.6, p_55)",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the solver must recognise the parent's method has failed and produce the replacement: The solver must recognize that the plane-parallel sec(89.9°) air-mass factor breaks down and derive the spherical-geometry slant path (chord length through the 20–30 km shell for a",
+      "regime_judgement_provenance": "sources/extracted/trap_regime_judgement_audit.py 2026-09-11, then adjudicated: the raw boolean over-flags, so a claim of 'supplies' is overturned where the record's own `what_solver_must_still_know` says the replacement must be produced, and the ambiguous 'routine computation' phrasings were read by hand."
+    },
+    "twin_of": "trap_snp_8_gen"
+  },
+  {
+    "id": "trap_ry_7.7_regime",
+    "book": "synthesized",
+    "parent_id": "ry_7.7",
+    "control_id": "ry_7.7",
+    "problem": "In a developing cumulus cloud the droplet spectrum has a Gaussian shape, centered at a mean radius of 4 μm with a standard deviation of 0.6 μm. Given that the cloud water content is 0.2 g/m^3, consider a parcel of this cloudy air that is exactly saturated and at rest until it is caught in an updraft of 8 m/s. Estimate the supersaturation in the parcel 1 s after it is caught. Assume a temperature of 0 °C and a pressure of 80 kPa. Express your answer as a percentage.",
+    "code": "import math\n\ndef solve(mean_radius_um=4.0, sigma_um=0.6, cloud_water_content_g_per_m3=0.2,\n          updraft_m_per_s=8.0, elapsed_s=1.0, temperature_C=0.0, pressure_kPa=80.0):\n    rho_l = 1000.0\n    g = 9.81\n    c_p = 1004.0\n    R_d = 287.0\n    R_v = 461.0\n    epsilon = 0.622\n    L_v = 2.50e6\n    D_v0 = 2.11e-5\n    p0 = 101325.0\n    T0 = 273.15\n    k_air = 0.0243\n\n    r_bar = mean_radius_um*1e-6\n    sigma = sigma_um*1e-6\n    lwc = cloud_water_content_g_per_m3*1e-3\n    w = updraft_m_per_s\n    T = temperature_C + 273.15\n    p = pressure_kPa*1e3\n\n    e_s = 611.2*math.exp(17.67*temperature_C/(temperature_C + 243.5))\n    q_vs = epsilon*e_s/(p - e_s)\n    Q1 = g*(L_v/(c_p*R_v*T*T) - 1.0/(R_d*T))\n    Q2 = 1.0/q_vs + L_v*L_v/(c_p*R_v*T*T)\n    D_v = D_v0*(T/T0)**1.94*(p0/p)\n    F_k = (L_v/(R_v*T) - 1.0)*L_v*rho_l/(k_air*T)\n    F_d = rho_l*R_v*T/(D_v*e_s)\n\n    r3_mean = r_bar**3 + 3.0*r_bar*sigma**2\n    n_per_m3 = lwc/((4.0/3.0)*math.pi*rho_l*r3_mean)\n    nu0 = n_per_m3/(p/(R_d*T))\n\n    # ds/dt = Q1 w - s/tau. The quasi-steady value Q1 w tau is only reached after several tau;\n    # a parcel that was exactly saturated when the updraft began is still relaxing towards it.\n    tau = (F_k + F_d)/(4.0*math.pi*rho_l*Q2*nu0*r_bar)\n    s = Q1*w*tau*(1.0 - math.exp(-elapsed_s/tau))\n    return {\"1\": {\"value\": 100.0*s, \"unit\": \"%\"}}\n",
+    "sub_answers": [
+      {
+        "sub": "1",
+        "value": 0.30781690522948607,
+        "unit": "%"
+      }
+    ],
+    "category": "cloud_physics",
+    "topic": "regime_boundary",
+    "difficulty": "high",
+    "verified": true,
+    "trap_type": "regime_boundary",
+    "shortcut": "the parcel was exactly saturated when the updraft began and only 1 s has passed, which is comparable to the phase-relaxation time of this droplet population (about 1.1 s); the supersaturation is still rising towards its quasi-steady value, so the parent's quasi-steady formula, applied unchanged, overstates it",
+    "shortcut_code": "import math\n\ndef solve(mean_radius_um=4.0, sigma_um=0.6, cloud_water_content_g_per_m3=0.2,\n          updraft_m_per_s=8.0, temperature_C=0.0, pressure_kPa=80.0):\n    # the parent's method: the quasi-steady supersaturation, applied as if already reached\n    rho_l = 1000.0\n    g = 9.81\n    c_p = 1004.0\n    R_d = 287.0\n    R_v = 461.0\n    epsilon = 0.622\n    L_v = 2.50e6\n    D_v0 = 2.11e-5\n    p0 = 101325.0\n    T0 = 273.15\n    k_air = 0.0243\n\n    r_bar = mean_radius_um*1e-6\n    sigma = sigma_um*1e-6\n    lwc = cloud_water_content_g_per_m3*1e-3\n    w = updraft_m_per_s\n    T = temperature_C + 273.15\n    p = pressure_kPa*1e3\n\n    e_s = 611.2*math.exp(17.67*temperature_C/(temperature_C + 243.5))\n    q_vs = epsilon*e_s/(p - e_s)\n    Q1 = g*(L_v/(c_p*R_v*T*T) - 1.0/(R_d*T))\n    Q2 = 1.0/q_vs + L_v*L_v/(c_p*R_v*T*T)\n    D_v = D_v0*(T/T0)**1.94*(p0/p)\n    F_k = (L_v/(R_v*T) - 1.0)*L_v*rho_l/(k_air*T)\n    F_d = rho_l*R_v*T/(D_v*e_s)\n    G = 100.0*Q1*(F_k + F_d)/(4.0*math.pi*rho_l*Q2)\n\n    r3_mean = r_bar**3 + 3.0*r_bar*sigma**2\n    n_per_m3 = lwc/((4.0/3.0)*math.pi*rho_l*r3_mean)\n    nu0 = n_per_m3/(p/(R_d*T))\n    return {\"1\": {\"value\": G*w/(nu0*r_bar), \"unit\": \"%\"}}\n",
+    "shortcut_value": 0.5165765439235248,
+    "shortcut_sub": "1",
+    "shortcut_values": {
+      "1": 0.5165765439235248
+    },
+    "separation": 0.6782,
+    "separation_max": 0.6782,
+    "separation_definition": "separation = first-sub relative gap (legacy); separation_max = max over subs (protocol)",
+    "is_control": false,
+    "trap_certified": false,
+    "note": "hand-built regime twin under trap_expansion_protocol.md Phase 11 (targeted top-up); parent ry_7.7 (=control) keeps its geometry_detail trap trap_ry_7.7_gen in traps.json.",
+    "provenance": "hand_built+human_adjudicated",
+    "expansion": "2026-09-phase11",
+    "mechanism": "quasi-steady supersaturation -> transient approach within one phase-relaxation time",
+    "certification": {
+      "witnesses": {
+        "gpt55-reasoning": "CORRECT",
+        "deepseek-v4-pro-reasoning": "CORRECT"
+      },
+      "fairness_basis": "witness_confirmed",
+      "amended": false,
+      "amendments": []
+    },
+    "review": {
+      "c6": "one trigger: the parcel's history. The parent asks for the supersaturation in an updraft; the twin says the parcel is exactly saturated and at rest until the updraft catches it, and asks for the value 1 s after it is caught. The droplet spectrum, water content, updraft, temperature and pressure are the parent's, unchanged, and the parent's LaTeX is normalised to plain text, which changes no value. The wording was tightened on 2026-09-14: the first version ended '... until it was caught in an updraft of 8 m/s, 1 s after the updraft began', where the time phrase can attach to 'caught' as easily as to 'estimate' - and the time is the whole trigger.",
+      "c7": "shortcut is the parent's own method: the quasi-steady supersaturation G*w/(nu0*r_bar), which reproduces the parent's certified solver output exactly (0.51658 %, before that solver's own rounding to 0.52)",
+      "c8": "an abrupt updraft onset is an idealisation, but the approach to quasi-steady supersaturation it poses is the textbook one, and the relaxation time it needs follows from givens already in the text - about 700 droplets per cm^3 and tau = 1.10 s, the usual order for continental cumulus - so the answer is unique. It is also not reducible to a subset of the givens: for t << tau the answer tends to Q1*w*t, which needs no droplet information at all, but at t = 1 s that thermodynamics-only answer is 52 % off, so the spectrum is load-bearing. Sensitivity sweep, 2026-09-14: every defensible constant or convention checked - D0 0.221 cm^2/s, D temperature exponent 1.75, k_air 0.024, F_k without its -1 term, R_v 461.5, c_p 1005, Tetens e_s - moves the correct answer at most 1 %, while the shortcut stays 57-72 % away; the transient damps errors in tau, so the trap is more robust than its parent. One asymmetry, recorded rather than fixed: treating the spectrum as monodisperse (ignoring sigma) moves the trap answer -2.6 %, inside tolerance, but the parent -6.9 %, outside it. It only lowers the Trap Gap, and it cannot be removed: at no elapsed time is sigma load-bearing at 5 % while the separation stays above 10 %",
+      "c9": "the quasi-steady formula holds only for t >> tau, the phase-relaxation time; at t = 1 s = 0.91 tau the supersaturation has reached 60 % of its quasi-steady value and the relation that applies is the transient solution of ds/dt = Q1*w - s/tau",
+      "measures_regime_judgement": true,
+      "regime_judgement_reason": "the text states the parcel's initial state and the elapsed time and nothing else; it gives no relaxation time, no exponential and no budget equation, so the solver must notice that the quasi-steady value has not been reached and derive tau from the spectrum",
+      "verdict": "ACCEPT",
+      "regime_judgement_provenance": "sources/extracted/trap_magnitude_audit.py and trap_regime_judgement_audit.py on the final text, --model opus5-reviewer, 2026-09-14, then read by hand; outputs in pipeline/reports/trap_magnitude_phase11_final.json and trap_regime_judgement_phase11_final.json.",
+      "independent_review": "opus5-reviewer 2026-09-14, on the tightened text: c6 PASS, c8 PASS, c9 PASS, ACCEPT. c8 quotes '1 s after it is caught' as fixing the evaluation time; c9 names the threshold independently - the elapsed time is no longer large compared with the phase-relaxation time. The review of the earlier text (also ACCEPT) is kept in the report under independent_review_superseded.",
+      "magnitude_defect": false,
+      "magnitude_note": "PLAUSIBLE. sources/extracted/trap_magnitude_audit.py and trap_regime_judgement_audit.py on the final text, --model opus5-reviewer, 2026-09-14, then read by hand; outputs in pipeline/reports/trap_magnitude_phase11_final.json and trap_regime_judgement_phase11_final.json."
+    },
+    "twin_of": "trap_ry_7.7_gen"
+  }
+]

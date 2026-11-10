@@ -1,0 +1,206 @@
+{
+  "run": "families_context_v2",
+  "scope": "Completed configurations only; reports generated and verified with each original frozen source. Template contrasts use all 72 templates, weighted across 32 clusters.",
+  "configurations": [
+    {
+      "configuration": "qwen3.5-9b.think-off",
+      "status": "complete",
+      "D1": "threshold_not_met",
+      "source_report": {
+        "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/qwen35_9b.json",
+        "sha256": "fe5705a320911b62d44c5c583349200da8c43a63597c7ad337409da07bdc6270"
+      },
+      "templates_all": {
+        "cluster_count": 32,
+        "contrasts": {
+          "flag_minus_outside": {
+            "ci95": [
+              0.037760416666666664,
+              0.11302083333333333
+            ],
+            "mean": 0.07356770833333333,
+            "units": 32
+          },
+          "given_minus_outside": {
+            "ci95": [
+              0.288125,
+              0.512578125
+            ],
+            "mean": 0.3991927083333333,
+            "units": 32
+          },
+          "inside_minus_outside": {
+            "ci95": [
+              0.2878645833333333,
+              0.5361197916666667
+            ],
+            "mean": 0.4105989583333333,
+            "units": 32
+          }
+        }
+      },
+      "usable_template_clusters": 27,
+      "textbook_regime_minus_geometry": {
+        "ci95": [
+          -0.09892787524366471,
+          0.283625730994152
+        ],
+        "mean": 0.09137426900584796,
+        "units": [
+          38,
+          72
+        ]
+      }
+    },
+    {
+      "configuration": "gemma4-e4b.think-off",
+      "status": "complete",
+      "D1": "threshold_not_met",
+      "source_report": {
+        "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/gemma_e4b.json",
+        "sha256": "3e65cbd19f9ff7b49b3389805a3c9dcd9030c6275c99926af913a64071d1f2bd"
+      },
+      "templates_all": {
+        "cluster_count": 32,
+        "contrasts": {
+          "flag_minus_outside": {
+            "ci95": [
+              -0.006458333333333333,
+              0.034921875000000005
+            ],
+            "mean": 0.013177083333333332,
+            "units": 32
+          },
+          "given_minus_outside": {
+            "ci95": [
+              0.3916145833333333,
+              0.6108072916666667
+            ],
+            "mean": 0.501640625,
+            "units": 32
+          },
+          "inside_minus_outside": {
+            "ci95": [
+              0.4730729166666667,
+              0.697265625
+            ],
+            "mean": 0.5874739583333334,
+            "units": 32
+          }
+        }
+      },
+      "usable_template_clusters": 22,
+      "textbook_regime_minus_geometry": {
+        "ci95": [
+          -0.003898635477582846,
+          0.341374269005848
+        ],
+        "mean": 0.16983430799220273,
+        "units": [
+          38,
+          72
+        ]
+      }
+    },
+    {
+      "configuration": "gemma4-e4b.think-on",
+      "status": "complete",
+      "D1": "threshold_not_met",
+      "source_report": {
+        "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/gemma_e4b.json",
+        "sha256": "3e65cbd19f9ff7b49b3389805a3c9dcd9030c6275c99926af913a64071d1f2bd"
+      },
+      "templates_all": {
+        "cluster_count": 32,
+        "contrasts": {
+          "flag_minus_outside": {
+            "ci95": [
+              0.009374999999999998,
+              0.05052083333333333
+            ],
+            "mean": 0.029635416666666664,
+            "units": 32
+          },
+          "given_minus_outside": {
+            "ci95": [
+              0.45703125,
+              0.6677083333333333
+            ],
+            "mean": 0.56171875,
+            "units": 32
+          },
+          "inside_minus_outside": {
+            "ci95": [
+              0.44703125,
+              0.67359375
+            ],
+            "mean": 0.56125,
+            "units": 32
+          }
+        }
+      },
+      "usable_template_clusters": 24,
+      "textbook_regime_minus_geometry": {
+        "ci95": [
+          -0.1276803118908382,
+          0.2519493177387915
+        ],
+        "mean": 0.06067251461988303,
+        "units": [
+          38,
+          72
+        ]
+      }
+    },
+    {
+      "configuration": "qwen3-8b.think-off",
+      "status": "complete",
+      "D1": "not_eligible",
+      "source_report": {
+        "path": "/path/to/workdir/experiments/d_execution/completed_review_20261011/qwen3_8b.json",
+        "sha256": "f535677776979d7c777218042c9b8e8dac9db6e8d483139a6ee7a6e825fea5d1"
+      },
+      "templates_all": {
+        "cluster_count": 32,
+        "contrasts": {
+          "flag_minus_outside": {
+            "ci95": [
+              -0.026171874999999994,
+              0.03528645833333335
+            ],
+            "mean": 0.0063802083333333376,
+            "units": 32
+          },
+          "given_minus_outside": {
+            "ci95": [
+              0.2713802083333333,
+              0.49807291666666664
+            ],
+            "mean": 0.382578125,
+            "units": 32
+          },
+          "inside_minus_outside": {
+            "ci95": [
+              0.22942708333333334,
+              0.449921875
+            ],
+            "mean": 0.33765625,
+            "units": 32
+          }
+        }
+      },
+      "usable_template_clusters": 10,
+      "textbook_regime_minus_geometry": {
+        "ci95": [
+          -0.01583820662768031,
+          0.27923976608187134
+        ],
+        "mean": 0.1286549707602339,
+        "units": [
+          38,
+          72
+        ]
+      }
+    }
+  ]
+}

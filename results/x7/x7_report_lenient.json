@@ -1,0 +1,95 @@
+{
+ "qwen3-8b": {
+  "rows": 425,
+  "errors": 0,
+  "said_no_rate": 0.01647058823529412,
+  "c_accuracy": 0.10352941176470588,
+  "t_accuracy": 0.10352941176470588,
+  "T_minus_C_said_no": {
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "units": 2
+  },
+  "T_minus_C_K_high": {
+   "mean": null,
+   "ci95": null,
+   "units": 0
+  },
+  "T_minus_C_K_low": {
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "units": 2
+  },
+  "reading": "numbers only"
+ },
+ "qwen35-9b": {
+  "rows": 425,
+  "errors": 0,
+  "said_no_rate": 0.1811764705882353,
+  "c_accuracy": 0.49411764705882355,
+  "t_accuracy": 0.5035294117647059,
+  "T_minus_C_said_no": {
+   "mean": -0.05959876543209877,
+   "ci95": [
+    -0.2685185185185185,
+    0.14722222222222223
+   ],
+   "units": 18
+  },
+  "T_minus_C_K_high": {
+   "mean": -0.08518518518518518,
+   "ci95": [
+    -0.4555555555555555,
+    0.22592592592592592
+   ],
+   "units": 9
+  },
+  "T_minus_C_K_low": {
+   "mean": 0.07727272727272727,
+   "ci95": [
+    -0.09545454545454546,
+    0.29545454545454547
+   ],
+   "units": 11
+  },
+  "reading": "judgement does not unlock the knowledge"
+ },
+ "deepseek": {
+  "rows": 425,
+  "errors": 0,
+  "said_no_rate": 0.13411764705882354,
+  "c_accuracy": 0.6847058823529412,
+  "t_accuracy": 0.691764705882353,
+  "T_minus_C_said_no": {
+   "mean": 0.0246031746031746,
+   "ci95": [
+    -0.01904761904761905,
+    0.08412698412698412
+   ],
+   "units": 21
+  },
+  "T_minus_C_K_high": {
+   "mean": 0.005263157894736841,
+   "ci95": [
+    -0.028947368421052635,
+    0.042105263157894736
+   ],
+   "units": 19
+  },
+  "T_minus_C_K_low": {
+   "mean": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "units": 5
+  },
+  "reading": "judgement does not unlock the knowledge"
+ }
+}

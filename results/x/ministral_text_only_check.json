@@ -1,0 +1,164 @@
+{
+  "n": 16,
+  "max_new_tokens": 64,
+  "max_abs_logit_diff": 0.0,
+  "min_argmax_agreement": 1.0,
+  "greedy_identical": 14,
+  "src": "/path/to/local/models/Ministral-3-8B-Instruct-2512-BF16",
+  "dst": "/path/to/local/models/Ministral-3-8B-Instruct-2512-BF16-text",
+  "dst_manifest": {
+    "source": "/path/to/local/models/Ministral-3-8B-Instruct-2512-BF16",
+    "source_config_sha256": "3953b565385881fe1e80980fa8f797ffef5dbcc170851b5f90d60ddcb1905f58",
+    "kept_tensors": 309,
+    "dropped_tensors": 222,
+    "dropped_prefixes": [
+      "multi_modal_projector.linear_1",
+      "multi_modal_projector.linear_2",
+      "multi_modal_projector.norm",
+      "multi_modal_projector.patch_merger",
+      "vision_tower.ln_pre",
+      "vision_tower.patch_conv",
+      "vision_tower.transformer"
+    ],
+    "copied_files_sha256": {
+      "tokenizer.json": "d5f6046775b112f0e2d456ee9dba450684ab964fe5c4e231599bdc6773028135",
+      "tokenizer_config.json": "f59f7294e4f26383d0ea93840fe21cf197784be0842a8301a0343e8c34ed0d6d",
+      "special_tokens_map.json": "0a5c981e8c5c6f8886ee007a6d4543a0be6b221cb9ca32a8709384a4c6fc8cbb",
+      "chat_template.jinja": "74eeb55fd3341286ec3fd44e902b7120721acc81cd394e96b431f85e93a1ea56",
+      "generation_config.json": "e0923390059f84a9180b00e5501778acc45ea9856cd7f2fd68208b360927c677",
+      "tekken.json": "600bb27946565481ecf51ba8aee252e49b9a68507866080ac9c30185bb312843",
+      "SYSTEM_PROMPT.txt": "66e0fda8c8ab269ccd010dca6196931d475a22c3f2eebe5b6b3a2ec33a354d0e"
+    },
+    "tokenizer_config_change": "processor_class removed"
+  },
+  "rows": [
+    {
+      "id": "kc:final:20261010_doppler_aliasing_07_outside",
+      "prompt_tokens": 696,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_cooper_jacob_early_time_08_inside",
+      "prompt_tokens": 695,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": false
+    },
+    {
+      "id": "kc:final:20261010_saturated_lapse_06_outside",
+      "prompt_tokens": 782,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_ice_saturation_06_given",
+      "prompt_tokens": 764,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_constant_pressure_expansion_05_flag",
+      "prompt_tokens": 744,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_frictional_three_force_balance_08_outside",
+      "prompt_tokens": 688,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_frictional_three_force_balance_04_flag",
+      "prompt_tokens": 722,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_isotope_mixing_weighting_04_outside",
+      "prompt_tokens": 745,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_raindrop_drag_regime_01_outside",
+      "prompt_tokens": 708,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_lognormal_mass_10_given",
+      "prompt_tokens": 744,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_lognormal_mass_01_flag",
+      "prompt_tokens": 713,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": false
+    },
+    {
+      "id": "kc:final:20261010_spherical_slant_path_19_flag",
+      "prompt_tokens": 718,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_line_broadening_05_given",
+      "prompt_tokens": 852,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_gravity_wave_doppler_shift_16_flag",
+      "prompt_tokens": 748,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_deposition_brownian_06_given",
+      "prompt_tokens": 864,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    },
+    {
+      "id": "kc:final:20261010_effective_henry_19_inside",
+      "prompt_tokens": 722,
+      "max_abs_logit_diff": 0.0,
+      "argmax_agreement": 1.0,
+      "greedy_tokens": 64,
+      "greedy_identical": true
+    }
+  ]
+}

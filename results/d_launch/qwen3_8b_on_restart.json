@@ -1,0 +1,23 @@
+{
+ "name": "qwen3_8b_on_restart",
+ "host": "host-B",
+ "config_prefix": "qwen3-8b",
+ "model_path": "/path/to/shared/Qwen3-8B",
+ "upstream_repo": "Qwen/Qwen3-8B",
+ "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+ "served_name": "d-v2-qwen3-8b",
+ "port": 8198,
+ "gpus": "1",
+ "tensor_parallel": 1,
+ "data_parallel": 1,
+ "max_num_seqs": 32,
+ "max_num_batched_tokens": 16384,
+ "workers": 32,
+ "modes": [
+  "on"
+ ],
+ "reasoning_parser": "qwen3",
+ "language_model_only": false,
+ "extra_vllm_args": [],
+ "wall_seconds": 345600
+}

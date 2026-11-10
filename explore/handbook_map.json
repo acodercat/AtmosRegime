@@ -1,0 +1,511 @@
+{
+ "note": "Analysis only, never shown to a model. One entry per physical mechanism in explore/handbook.md (titles verbatim). 'templates' = template names in atmoscoder_rl.templates (original 30 + extended 23); 'traps' = test-side regime:recognise traps (family(t) == 'regime:recognise', parent not in split 'train'). An entry with no template or trap would be a pure distractor; there are none.",
+ "n_entries": 60,
+ "coverage": {
+  "templates": {
+   "mapped": 53,
+   "total": 53,
+   "original_30": 30,
+   "extended": 23
+  },
+  "test_regime_recognise_traps": {
+   "mapped": 40,
+   "total": 40,
+   "sound": 38,
+   "magnitude_defect": [
+    "trap_13.5_gen",
+    "trap_jacob_13.1_gen"
+   ]
+  }
+ },
+ "unmapped": {
+  "templates": [],
+  "traps": []
+ },
+ "mapping_notes": {
+  "trap_3.8_gen": "mapped to the vertical-path entry; the key takes the layer's pressure difference as p*dz/H, which the entry states as the thin-layer/characteristic-pressure form. The trap's physics is the least clear of the 40; review.",
+  "trap_holton_28_gen": "inertial-circle motion of two objects on a rotating plane; covered by the inertial-oscillation entry (circle radius V/f), not by a dedicated formula for the miss distance.",
+  "trap_5.9_gen": "damped inertial oscillation after friction changes; the entry states that the oscillation is about the NEW steady state, amplitude = difference of the two steady winds.",
+  "trap_ry_14.2_p11": "glaciation with the vapour relaxing past ice saturation (sign reversal); covered by the latent-heating entry.",
+  "trap_13.5_gen / trap_jacob_13.1_gen": "flagged magnitude_defect upstream (not 'sound'); mapped anyway because they are in the regime:recognise test set.",
+  "nonsteady_burden / mixed_layer_response": "merged: the same first-order relaxation toward an equilibrium value.",
+  "cstr_vs_pfr / trap_ca_5.3_gen": "merged: removal efficiency depends on the mixing state (well-mixed vs plug flow; turbulent vs laminar collector).",
+  "plume_ground_reflection / plume_mixing_lid": "merged: image sources at the ground and at the lid."
+ },
+ "entries": [
+  {
+   "title": "Geostrophic wind V_g = (1/(ρf)) ∂p/∂n = (g/f) ∂Z/∂n",
+   "templates": [
+    "gradient_wind_curvature"
+   ],
+   "traps": [
+    "trap_p_96_gen"
+   ]
+  },
+  {
+   "title": "Frictionless horizontal force balance (geostrophic wind, no drag)",
+   "templates": [
+    "frictional_three_force_balance"
+   ],
+   "traps": [
+    "trap_holton_39_gen"
+   ]
+  },
+  {
+   "title": "Motion under a constant pressure-gradient force with rotation neglected, v = a t",
+   "templates": [
+    "coriolis_neglect"
+   ],
+   "traps": [
+    "trap_holton_28_gen",
+    "trap_5.9_gen"
+   ]
+  },
+  {
+   "title": "Internal gravity-wave frequency ω = N k/m (hydrostatic, non-rotating)",
+   "templates": [
+    "inertia_gravity_wave"
+   ],
+   "traps": [
+    "trap_5.3_gen"
+   ]
+  },
+  {
+   "title": "Non-divergent Rossby-wave phase speed c − ū = −β/k²",
+   "templates": [
+    "rossby_deformation"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Kinematic vertical velocity with constant density, w(z) = −(∇·V_h) z",
+   "templates": [
+    "anelastic_continuity"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Relative vorticity of a solid-body vortex on a tangent plane, ζ = 2V/R",
+   "templates": [],
+   "traps": [
+    "trap_air_226_gen"
+   ]
+  },
+  {
+   "title": "Vorticity amplification by stretching applied to relative vorticity, dζ/dt = −ζ ∇·V",
+   "templates": [],
+   "traps": [
+    "trap_p_108_gen"
+   ]
+  },
+  {
+   "title": "Ekman-layer depth and spin-down time with molecular viscosity ν",
+   "templates": [],
+   "traps": [
+    "trap_holton_5_gen"
+   ]
+  },
+  {
+   "title": "Height change of an object moving along a constant-pressure surface, dz/dt = V·∇z",
+   "templates": [],
+   "traps": [
+    "trap_holton_38_gen"
+   ]
+  },
+  {
+   "title": "Hydrostatic pressure drop with constant density, Δp = ρ₀ g Δz",
+   "templates": [
+    "hydrostatic_constant_density"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Constant-lapse-rate (tropospheric) barometric formula",
+   "templates": [
+    "isa_above_tropopause"
+   ],
+   "traps": [
+    "trap_air_68_gen"
+   ]
+  },
+  {
+   "title": "Potential-temperature lapse rate dθ/dz ≈ dT/dz + Γ_d",
+   "templates": [],
+   "traps": [
+    "trap_air_332_gen"
+   ]
+  },
+  {
+   "title": "Dry adiabatic lapse rate Γ_d = g/c_p",
+   "templates": [
+    "saturated_lapse"
+   ],
+   "traps": [
+    "trap_holton_50_gen"
+   ]
+  },
+  {
+   "title": "Saturation vapour pressure over a plane liquid-water surface",
+   "templates": [
+    "ice_saturation"
+   ],
+   "traps": [
+    "trap_1.1_gen",
+    "trap_2.10_gen",
+    "trap_ry_5.1_p11"
+   ]
+  },
+  {
+   "title": "Saturation vapour pressure (or saturation concentration) taken as constant or linear in temperature",
+   "templates": [
+    "clausius_clapeyron_extrapolation",
+    "semivolatile_partitioning_temperature"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Parcel buoyancy from the virtual-temperature excess, B = g(T_v − T_ve)/T_ve",
+   "templates": [
+    "condensate_loading"
+   ],
+   "traps": [
+    "trap_air_301_gen"
+   ]
+  },
+  {
+   "title": "Evaporative cooling with all the available water evaporating, ΔT = L_v M/c_p",
+   "templates": [
+    "evaporative_cooling_limit"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Latent heating from condensation alone, ΔT = L_v m_v/c_p",
+   "templates": [
+    "freezing_latent_heat"
+   ],
+   "traps": [
+    "trap_ry_14.2_p11"
+   ]
+  },
+  {
+   "title": "Equilibrium vapour pressure over a drop equal to the flat-surface e_s",
+   "templates": [
+    "kelvin_curvature"
+   ],
+   "traps": [
+    "trap_1.2_gen"
+   ]
+  },
+  {
+   "title": "Stokes terminal velocity v = 2 ρ_w g r²/(9μ) (= k₁ r², k₁ ≈ 1.19 × 10⁶ cm⁻¹ s⁻¹)",
+   "templates": [
+    "raindrop_drag_regime"
+   ],
+   "traps": [
+    "trap_ry_12.2_gen"
+   ]
+  },
+  {
+   "title": "Diffusional growth or evaporation of a stationary drop, r dr/dt = (S − 1)/(F_k + F_d)",
+   "templates": [
+    "drop_ventilation"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Rayleigh scattering, cross section ∝ λ⁻⁴",
+   "templates": [
+    "mie_geometric"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Pressure-broadened (Lorentz) half-width α_L = α_L0 (p/p₀)(T₀/T)^n",
+   "templates": [
+    "line_broadening"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Absorption along a path evaluated at a single pressure (homogeneous path)",
+   "templates": [],
+   "traps": [
+    "trap_3.8_gen"
+   ]
+  },
+  {
+   "title": "Optically thin layer: emissivity = absorptivity ≈ τ (brightness temperature ≈ τT)",
+   "templates": [
+    "optically_thin_emission"
+   ],
+   "traps": [
+    "trap_jacob_8.2_gen"
+   ]
+  },
+  {
+   "title": "Skin temperature of a top layer, T = (OLR/(2σ))^(1/4)",
+   "templates": [],
+   "traps": [
+    "trap_7.5_gen"
+   ]
+  },
+  {
+   "title": "Layer greenhouse models with an atmosphere transparent to sunlight",
+   "templates": [],
+   "traps": [
+    "trap_7.4_gen"
+   ]
+  },
+  {
+   "title": "Linearised black-body response ΔT = ΔF/(4σT³)",
+   "templates": [
+    "planck_linearization"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Beam (Beer's-law) transmittance e^(−τ/μ) applied to a flux",
+   "templates": [
+    "diffuse_transmission"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Surface absorption under a reflecting layer counted on a single pass, T S (1 − α)",
+   "templates": [
+    "surface_multiple_reflection"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Plane-parallel slant path H sec θ (air mass m = 1/cos θ)",
+   "templates": [
+    "spherical_slant_path",
+    "sun_photometer_airmass"
+   ],
+   "traps": [
+    "trap_7.1_gen"
+   ]
+  },
+  {
+   "title": "Solid angle of a sphere Ω = πR²/d²",
+   "templates": [
+    "solid_angle"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Transmissivity, reflectivity and absorptivity from measured radiation, a = 1 − r − t",
+   "templates": [],
+   "traps": [
+    "trap_air_91_gen"
+   ]
+  },
+  {
+   "title": "Radiative forcing linear in concentration, ΔF = (dF/dC)₀ ΔC",
+   "templates": [
+    "co2_forcing_log",
+    "ch4_forcing_sqrt"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Equilibrium or steady-state value: ΔT = F/λ, C = S τ",
+   "templates": [
+    "mixed_layer_response",
+    "nonsteady_burden"
+   ],
+   "traps": [
+    "trap_11.1_gen",
+    "trap_jacob_13.4_p11"
+   ]
+  },
+  {
+   "title": "Pseudo-first-order kinetics with the excess reactant held constant",
+   "templates": [
+    "pseudo_first_order"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Lifetime against a single sink, τ = 1/(k[X])",
+   "templates": [],
+   "traps": [
+    "trap_fp_13.2_gen",
+    "trap_dn_15.19_gen"
+   ]
+  },
+  {
+   "title": "Mixing ratio ↔ concentration at standard conditions (24.45 L/mol; 2.46 × 10¹⁹ molecules cm⁻³)",
+   "templates": [
+    "ppm_conversion_pressure"
+   ],
+   "traps": [
+    "trap_fp_6.1_gen"
+   ]
+  },
+  {
+   "title": "Henry's law [X(aq)] = H p with the gas-phase partial pressure unchanged",
+   "templates": [
+    "henry_depletion"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Physical Henry's law for a gas that dissociates in water",
+   "templates": [
+    "effective_henry"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Weak-acid approximation [H⁺] = √(K_a C); strong acids counted as fully dissociated",
+   "templates": [
+    "weak_acid_dissociation"
+   ],
+   "traps": [
+    "trap_13.5_gen",
+    "trap_jacob_13.1_gen"
+   ]
+  },
+  {
+   "title": "Equilibrium constants applied to concentrations",
+   "templates": [
+    "ionic_strength_activity"
+   ],
+   "traps": [
+    "trap_6.6_gen"
+   ]
+  },
+  {
+   "title": "Standard reaction Gibbs energy ΔG° as the spontaneity criterion",
+   "templates": [],
+   "traps": [
+    "trap_6.2_gen"
+   ]
+  },
+  {
+   "title": "Product formed set by one reactant or by rate × time (\"the other reactant is in excess\")",
+   "templates": [
+    "limiting_reagent"
+   ],
+   "traps": [
+    "trap_6.1.4_gen"
+   ]
+  },
+  {
+   "title": "Leighton photostationary state [O₃] = j[NO₂]/(k₁[NO])",
+   "templates": [
+    "photostationary_peroxy"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Stokes drag without slip correction",
+   "templates": [
+    "cunningham_slip"
+   ],
+   "traps": [
+    "trap_air170_cunningham"
+   ]
+  },
+  {
+   "title": "Mass of a population taken as N particles of the median diameter",
+   "templates": [
+    "lognormal_mass"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Deposition velocity equal to the gravitational settling speed",
+   "templates": [
+    "deposition_brownian"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Neutral logarithmic wind profile u = (u*/κ) ln(z/z₀)",
+   "templates": [
+    "log_wind_stability"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Logarithmic profile referenced to the ground over a tall canopy",
+   "templates": [
+    "displacement_height_canopy"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Surface energy balance R_n = H + LE",
+   "templates": [
+    "ground_heat_flux_neglect"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Near-field lateral plume spread σ_y = σ_v t",
+   "templates": [
+    "taylor_dispersion"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Gaussian plume without boundaries",
+   "templates": [
+    "plume_ground_reflection",
+    "plume_mixing_lid"
+   ],
+   "traps": [
+    "trap_turner_2_p11"
+   ]
+  },
+  {
+   "title": "Infinite line source C = √(2/π) q/(u σ_z)",
+   "templates": [
+    "finite_line_source"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Exponential removal laws: plug-flow reactor C/C₀ = e^(−kτ); Deutsch–Anderson collector η = 1 − exp(−wA/Q)",
+   "templates": [
+    "cstr_vs_pfr"
+   ],
+   "traps": [
+    "trap_dn_10.39_gen",
+    "trap_ca_5.3_gen"
+   ]
+  },
+  {
+   "title": "Haldane relation with oxyhaemoglobin taken as the total haemoglobin",
+   "templates": [],
+   "traps": [
+    "trap_dn_15.2_gen"
+   ]
+  },
+  {
+   "title": "Flat-Earth radar beam height h = r sin θ",
+   "templates": [
+    "radar_beam_height"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Doppler radar radial velocity equal to the true radial velocity",
+   "templates": [
+    "doppler_aliasing"
+   ],
+   "traps": []
+  },
+  {
+   "title": "Cooper–Jacob straight-line drawdown s = (Q/4πT)(−0.5772 − ln u), u = r² S/(4 T t)",
+   "templates": [
+    "cooper_jacob_early_time"
+   ],
+   "traps": []
+  }
+ ]
+}

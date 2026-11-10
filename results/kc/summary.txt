@@ -1,0 +1,24 @@
+AtmosCoder T offline inputs (T-1:2026-10-08)
+
+PASS: 70 templates, 32 clusters, 16 clusters per training fold.
+PASS: no cross-fold training leakage or repeated canonical prompts/parameter pairs.
+PASS: single-trigger wording, insertion-only given, flag wording, keys and shortcuts.
+
+Template inputs only: the 1,140 standard training rows are added by the later trainer export.
+pairs.json is an audit ledger; gate.json is the gate's only model input.
+Final model evaluation must wait until all training checkpoints are frozen.
+
+F1: 29 train templates; 41 held-out templates
+  train clusters: ground_heat_flux_neglect, freezing_point_depth, condensate_loading, isotope_mixing_weighting, angular_weighting, log_wind_profile, box_model, surface_multiple_reflection, rotating_balance, aqueous_equilibria, line_broadening, saturated_lapse, cooper_jacob_early_time, weir_approach_velocity, flux_through_growing_layer, surface_gravity_wave
+F2: 41 train templates; 29 held-out templates
+  train clusters: size_distribution_moment, latent_heating, diffusional_growth, radiative_linearisation, rotation, sonic_humidity_flux, photostationary_peroxy, density_with_height, doppler_aliasing, fresnel_reflectance_grazing, capillary_rise_gravity, reactant_in_excess, spherical_geometry, dispersion, size_vs_length_scale, ice_above_flotation
+
+train_F1.json: 1740 rows; sha256 e56af6c0cad7502ae5c0745a789404f1eb49f25c7748e4a0a363ab3783c5997e
+train_F2.json: 2460 rows; sha256 e5c42ed350e7294f9a97700aa0545f818a208096593a9af879c32d72f00dc500
+gate.json: 2800 rows; sha256 3ff104433c51a791f7609ea976f3cf39aa7e46a752debe42d65ce94d1ec6b40d
+final.json: 5600 rows; sha256 f37e1c6af1a77b0ab93f4a1c2e4d0902985b3b69e971e19c6899f02a7d2c6e89
+train: 33 rejected draws (within-batch or reserved prompt collisions)
+gate: 138 rejected draws (within-batch or reserved prompt collisions)
+final: 274 rejected draws (within-batch or reserved prompt collisions)
+
+manifest.json sha256 561656bd49519cbb4d567a596733798bdf75f53ac8147cc32353c5786b0475f2

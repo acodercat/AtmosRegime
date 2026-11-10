@@ -1,0 +1,138 @@
+{
+ "model": "/path/to/local/models/Ministral-3-8B-Instruct-2512-BF16-text",
+ "attn": "flash_attention_2",
+ "n": 8,
+ "temperature": 1.0,
+ "response_tokens": [
+  558,
+  538,
+  2048,
+  1083,
+  855,
+  451,
+  2048,
+  1817
+ ],
+ "vllm_vs_hf_single": {
+  "tokens": 9398,
+  "nll_a": 1.2649171866631084,
+  "nll_b": 1.2646363400378275,
+  "ppl_a": 3.542799332925604,
+  "ppl_b": 3.541804489394668,
+  "mean_abs_logprob_diff": 0.010930682411571892,
+  "max_abs_logprob_diff": 0.30244922637939453,
+  "mean_signed_diff_b_minus_a": 0.00028084662528075953,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.007989273454253043
+   },
+   "256-1024": {
+    "tokens": 4450,
+    "mean_abs": 0.011978464702035351
+   },
+   "1024-end": {
+    "tokens": 2900,
+    "mean_abs": 0.011400121843305206
+   }
+  }
+ },
+ "vllm_vs_hf_packed": {
+  "tokens": 9398,
+  "nll_a": 1.2649171866631084,
+  "nll_b": 2.5132410389183764,
+  "ppl_a": 3.542799332925604,
+  "ppl_b": 12.344875515144274,
+  "mean_abs_logprob_diff": 1.375797516683047,
+  "max_abs_logprob_diff": 14.760556377470493,
+  "mean_signed_diff_b_minus_a": -1.248323852255268,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.2213908463266427
+   },
+   "256-1024": {
+    "tokens": 4450,
+    "mean_abs": 1.5855936131750896
+   },
+   "1024-end": {
+    "tokens": 2900,
+    "mean_abs": 1.1629120792693661
+   }
+  }
+ },
+ "hf_single_vs_packed": {
+  "tokens": 9398,
+  "nll_a": 1.2646363400378275,
+  "nll_b": 2.5132410389183764,
+  "ppl_a": 3.541804489394668,
+  "ppl_b": 12.344875515144274,
+  "mean_abs_logprob_diff": 1.3753060420726329,
+  "max_abs_logprob_diff": 14.758839260786772,
+  "mean_signed_diff_b_minus_a": -1.2486046988805488,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.2207125753654327
+   },
+   "256-1024": {
+    "tokens": 4450,
+    "mean_abs": 1.5848077600849237
+   },
+   "1024-end": {
+    "tokens": 2900,
+    "mean_abs": 1.1630042402318235
+   }
+  }
+ },
+ "ref": "eager/float32",
+ "ref_vs_vllm": {
+  "tokens": 9398,
+  "nll_a": 1.2647328498909127,
+  "nll_b": 1.2649171866631084,
+  "ppl_a": 3.5421463249205787,
+  "ppl_b": 3.542799332925604,
+  "mean_abs_logprob_diff": 0.009826315622166445,
+  "max_abs_logprob_diff": 0.27367305755615234,
+  "mean_signed_diff_b_minus_a": -0.00018433677219565204,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.007729752897449038
+   },
+   "256-1024": {
+    "tokens": 4450,
+    "mean_abs": 0.010586578480440622
+   },
+   "1024-end": {
+    "tokens": 2900,
+    "mean_abs": 0.010140312429373745
+   }
+  }
+ },
+ "ref_vs_hf_single": {
+  "tokens": 9398,
+  "nll_a": 1.2647328498909127,
+  "nll_b": 1.2646363400378275,
+  "ppl_a": 3.5421463249205787,
+  "ppl_b": 3.541804489394668,
+  "mean_abs_logprob_diff": 0.010067192458175882,
+  "max_abs_logprob_diff": 0.21649694442749023,
+  "mean_signed_diff_b_minus_a": 9.65098530851075e-05,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.007853280729268719
+   },
+   "256-1024": {
+    "tokens": 4450,
+    "mean_abs": 0.010921365927138396
+   },
+   "1024-end": {
+    "tokens": 2900,
+    "mean_abs": 0.010319957728492667
+   }
+  }
+ },
+ "first_response": "```python\nimport math\n\ndef solve(W=None, L=None, H=None, u=None, b=None, q=None):\n    # Convert given dimensions to meters\n    W = W if W is not None else 7 * 1000  # default: 7 km -> 7000 m\n    L = L if L is not None else 13 * 1000 # default: 13 km -> 13000 m\n    H = H if H is not None else 1.5 * 1000 # default: 1.5 km -> 1500 m\n\n    # Convert wind speed to m/s (already given as 4 m/s)\n    u = u if u is not None else 4  # default: 4 m/s\n\n    # Background concentration b = 10 \u03bcg/m\u00b3 (already in desired units)\n\n    # Emission rate q = 4.5 x 10^-6 g/(s*m\u00b2) \u2192 convert to \u03bcg/(s*m\u00b3) for box model\n   "
+}

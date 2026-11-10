@@ -1,0 +1,375 @@
+{
+ "clusters": {
+  "angular_weighting": [
+   "actinic_flux_horizontal",
+   "diffuse_transmission"
+  ],
+  "aqueous_equilibria": [
+   "effective_henry",
+   "henry_depletion",
+   "ionic_strength_activity",
+   "weak_acid_dissociation"
+  ],
+  "box_model": [
+   "box_ventilation_loss",
+   "cstr_vs_pfr",
+   "mixed_layer_response",
+   "nonsteady_burden",
+   "racemization_reversibility"
+  ],
+  "capillary_rise_gravity": [
+   "capillary_rise_gravity"
+  ],
+  "condensate_loading": [
+   "condensate_loading"
+  ],
+  "cooper_jacob_early_time": [
+   "cooper_jacob_early_time"
+  ],
+  "density_with_height": [
+   "anelastic_continuity",
+   "hydrostatic_constant_density",
+   "isa_above_tropopause",
+   "ppm_conversion_pressure"
+  ],
+  "diffusional_growth": [
+   "drop_ventilation",
+   "ice_capacitance_shape"
+  ],
+  "dispersion": [
+   "plume_ground_reflection",
+   "plume_mixing_lid",
+   "taylor_dispersion"
+  ],
+  "doppler_aliasing": [
+   "doppler_aliasing"
+  ],
+  "flux_through_growing_layer": [
+   "sea_ice_insulation",
+   "unconfined_dupuit"
+  ],
+  "freezing_point_depth": [
+   "freezing_point_depth"
+  ],
+  "fresnel_reflectance_grazing": [
+   "fresnel_reflectance_grazing"
+  ],
+  "ground_heat_flux_neglect": [
+   "ground_heat_flux_neglect"
+  ],
+  "ice_above_flotation": [
+   "ice_above_flotation"
+  ],
+  "isotope_mixing_weighting": [
+   "isotope_mixing_weighting"
+  ],
+  "latent_heating": [
+   "freezing_latent_heat",
+   "snowpack_cold_content"
+  ],
+  "line_broadening": [
+   "line_broadening"
+  ],
+  "log_wind_profile": [
+   "displacement_height_canopy",
+   "log_wind_stability"
+  ],
+  "photostationary_peroxy": [
+   "photostationary_peroxy"
+  ],
+  "radiative_linearisation": [
+   "ch4_forcing_sqrt",
+   "clausius_clapeyron_extrapolation",
+   "co2_forcing_log",
+   "optically_thin_emission",
+   "planck_linearization",
+   "semivolatile_partitioning_temperature"
+  ],
+  "reactant_in_excess": [
+   "constant_pressure_expansion",
+   "limiting_reagent",
+   "pseudo_first_order"
+  ],
+  "rotating_balance": [
+   "frictional_three_force_balance",
+   "gradient_wind_curvature",
+   "rossby_deformation"
+  ],
+  "rotation": [
+   "coriolis_neglect",
+   "gravity_wave_doppler_shift",
+   "inertia_gravity_wave"
+  ],
+  "saturated_lapse": [
+   "saturated_lapse"
+  ],
+  "size_distribution_moment": [
+   "drop_size_truncation",
+   "lognormal_mass"
+  ],
+  "size_vs_length_scale": [
+   "cunningham_slip",
+   "deposition_brownian",
+   "ice_saturation",
+   "kelvin_curvature",
+   "mie_geometric",
+   "raindrop_drag_regime"
+  ],
+  "sonic_humidity_flux": [
+   "sonic_humidity_flux"
+  ],
+  "spherical_geometry": [
+   "radar_beam_height",
+   "solid_angle",
+   "spherical_slant_path",
+   "sun_photometer_airmass"
+  ],
+  "surface_gravity_wave": [
+   "bay_tidal_resonance",
+   "shallow_water_wave_speed"
+  ],
+  "surface_multiple_reflection": [
+   "surface_multiple_reflection"
+  ],
+  "weir_approach_velocity": [
+   "weir_approach_velocity"
+  ]
+ },
+ "excluded_templates": [
+  "evaporative_cooling_limit",
+  "finite_line_source"
+ ],
+ "folds": {
+  "F1": {
+   "held_out_clusters": [
+    "size_distribution_moment",
+    "latent_heating",
+    "diffusional_growth",
+    "radiative_linearisation",
+    "rotation",
+    "sonic_humidity_flux",
+    "photostationary_peroxy",
+    "density_with_height",
+    "doppler_aliasing",
+    "fresnel_reflectance_grazing",
+    "capillary_rise_gravity",
+    "reactant_in_excess",
+    "spherical_geometry",
+    "dispersion",
+    "size_vs_length_scale",
+    "ice_above_flotation"
+   ],
+   "held_out_templates": [
+    "anelastic_continuity",
+    "capillary_rise_gravity",
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "constant_pressure_expansion",
+    "coriolis_neglect",
+    "cunningham_slip",
+    "deposition_brownian",
+    "doppler_aliasing",
+    "drop_size_truncation",
+    "drop_ventilation",
+    "freezing_latent_heat",
+    "fresnel_reflectance_grazing",
+    "gravity_wave_doppler_shift",
+    "hydrostatic_constant_density",
+    "ice_above_flotation",
+    "ice_capacitance_shape",
+    "ice_saturation",
+    "inertia_gravity_wave",
+    "isa_above_tropopause",
+    "kelvin_curvature",
+    "limiting_reagent",
+    "lognormal_mass",
+    "mie_geometric",
+    "optically_thin_emission",
+    "photostationary_peroxy",
+    "planck_linearization",
+    "plume_ground_reflection",
+    "plume_mixing_lid",
+    "ppm_conversion_pressure",
+    "pseudo_first_order",
+    "radar_beam_height",
+    "raindrop_drag_regime",
+    "semivolatile_partitioning_temperature",
+    "snowpack_cold_content",
+    "solid_angle",
+    "sonic_humidity_flux",
+    "spherical_slant_path",
+    "sun_photometer_airmass",
+    "taylor_dispersion"
+   ],
+   "trained_clusters": [
+    "ground_heat_flux_neglect",
+    "freezing_point_depth",
+    "condensate_loading",
+    "isotope_mixing_weighting",
+    "angular_weighting",
+    "log_wind_profile",
+    "box_model",
+    "surface_multiple_reflection",
+    "rotating_balance",
+    "aqueous_equilibria",
+    "line_broadening",
+    "saturated_lapse",
+    "cooper_jacob_early_time",
+    "weir_approach_velocity",
+    "flux_through_growing_layer",
+    "surface_gravity_wave"
+   ],
+   "trained_templates": [
+    "actinic_flux_horizontal",
+    "bay_tidal_resonance",
+    "box_ventilation_loss",
+    "condensate_loading",
+    "cooper_jacob_early_time",
+    "cstr_vs_pfr",
+    "diffuse_transmission",
+    "displacement_height_canopy",
+    "effective_henry",
+    "freezing_point_depth",
+    "frictional_three_force_balance",
+    "gradient_wind_curvature",
+    "ground_heat_flux_neglect",
+    "henry_depletion",
+    "ionic_strength_activity",
+    "isotope_mixing_weighting",
+    "line_broadening",
+    "log_wind_stability",
+    "mixed_layer_response",
+    "nonsteady_burden",
+    "racemization_reversibility",
+    "rossby_deformation",
+    "saturated_lapse",
+    "sea_ice_insulation",
+    "shallow_water_wave_speed",
+    "surface_multiple_reflection",
+    "unconfined_dupuit",
+    "weak_acid_dissociation",
+    "weir_approach_velocity"
+   ]
+  },
+  "F2": {
+   "held_out_clusters": [
+    "ground_heat_flux_neglect",
+    "freezing_point_depth",
+    "condensate_loading",
+    "isotope_mixing_weighting",
+    "angular_weighting",
+    "log_wind_profile",
+    "box_model",
+    "surface_multiple_reflection",
+    "rotating_balance",
+    "aqueous_equilibria",
+    "line_broadening",
+    "saturated_lapse",
+    "cooper_jacob_early_time",
+    "weir_approach_velocity",
+    "flux_through_growing_layer",
+    "surface_gravity_wave"
+   ],
+   "held_out_templates": [
+    "actinic_flux_horizontal",
+    "bay_tidal_resonance",
+    "box_ventilation_loss",
+    "condensate_loading",
+    "cooper_jacob_early_time",
+    "cstr_vs_pfr",
+    "diffuse_transmission",
+    "displacement_height_canopy",
+    "effective_henry",
+    "freezing_point_depth",
+    "frictional_three_force_balance",
+    "gradient_wind_curvature",
+    "ground_heat_flux_neglect",
+    "henry_depletion",
+    "ionic_strength_activity",
+    "isotope_mixing_weighting",
+    "line_broadening",
+    "log_wind_stability",
+    "mixed_layer_response",
+    "nonsteady_burden",
+    "racemization_reversibility",
+    "rossby_deformation",
+    "saturated_lapse",
+    "sea_ice_insulation",
+    "shallow_water_wave_speed",
+    "surface_multiple_reflection",
+    "unconfined_dupuit",
+    "weak_acid_dissociation",
+    "weir_approach_velocity"
+   ],
+   "trained_clusters": [
+    "size_distribution_moment",
+    "latent_heating",
+    "diffusional_growth",
+    "radiative_linearisation",
+    "rotation",
+    "sonic_humidity_flux",
+    "photostationary_peroxy",
+    "density_with_height",
+    "doppler_aliasing",
+    "fresnel_reflectance_grazing",
+    "capillary_rise_gravity",
+    "reactant_in_excess",
+    "spherical_geometry",
+    "dispersion",
+    "size_vs_length_scale",
+    "ice_above_flotation"
+   ],
+   "trained_templates": [
+    "anelastic_continuity",
+    "capillary_rise_gravity",
+    "ch4_forcing_sqrt",
+    "clausius_clapeyron_extrapolation",
+    "co2_forcing_log",
+    "constant_pressure_expansion",
+    "coriolis_neglect",
+    "cunningham_slip",
+    "deposition_brownian",
+    "doppler_aliasing",
+    "drop_size_truncation",
+    "drop_ventilation",
+    "freezing_latent_heat",
+    "fresnel_reflectance_grazing",
+    "gravity_wave_doppler_shift",
+    "hydrostatic_constant_density",
+    "ice_above_flotation",
+    "ice_capacitance_shape",
+    "ice_saturation",
+    "inertia_gravity_wave",
+    "isa_above_tropopause",
+    "kelvin_curvature",
+    "limiting_reagent",
+    "lognormal_mass",
+    "mie_geometric",
+    "optically_thin_emission",
+    "photostationary_peroxy",
+    "planck_linearization",
+    "plume_ground_reflection",
+    "plume_mixing_lid",
+    "ppm_conversion_pressure",
+    "pseudo_first_order",
+    "radar_beam_height",
+    "raindrop_drag_regime",
+    "semivolatile_partitioning_temperature",
+    "snowpack_cold_content",
+    "solid_angle",
+    "sonic_humidity_flux",
+    "spherical_slant_path",
+    "sun_photometer_airmass",
+    "taylor_dispersion"
+   ]
+  }
+ },
+ "protocol": "T-1:2026-10-08",
+ "reworded_templates": [
+  "clausius_clapeyron_extrapolation",
+  "drop_ventilation",
+  "line_broadening"
+ ],
+ "seed": "kc-folds:20261008"
+}

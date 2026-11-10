@@ -1,0 +1,138 @@
+{
+ "model": "/path/to/local/dose/merged/sft-dose-ministral3-8b-F2-s43/global_step_65",
+ "attn": "flash_attention_2",
+ "n": 8,
+ "temperature": 1.0,
+ "response_tokens": [
+  203,
+  1201,
+  1921,
+  316,
+  2048,
+  340,
+  2048,
+  2048
+ ],
+ "vllm_vs_hf_single": {
+  "tokens": 10125,
+  "nll_a": 2.008620671395444,
+  "nll_b": 2.00908366375814,
+  "ppl_a": 7.453030076611536,
+  "ppl_b": 7.456481571562194,
+  "mean_abs_logprob_diff": 0.011119145763035502,
+  "max_abs_logprob_diff": 0.2077174186706543,
+  "mean_signed_diff_b_minus_a": -0.0004629923626957468,
+  "by_position": {
+   "0-256": {
+    "tokens": 1995,
+    "mean_abs": 0.008623209859260919
+   },
+   "256-1024": {
+    "tokens": 3984,
+    "mean_abs": 0.012261256604048469
+   },
+   "1024-end": {
+    "tokens": 4146,
+    "mean_abs": 0.011222672665455818
+   }
+  }
+ },
+ "vllm_vs_hf_packed": {
+  "tokens": 10125,
+  "nll_a": 2.008620671395444,
+  "nll_b": 3.3095041064211226,
+  "ppl_a": 7.453030076611536,
+  "ppl_b": 27.371548730612584,
+  "mean_abs_logprob_diff": 1.483540099484823,
+  "max_abs_logprob_diff": 13.876765877008438,
+  "mean_signed_diff_b_minus_a": -1.300883435025679,
+  "by_position": {
+   "0-256": {
+    "tokens": 1995,
+    "mean_abs": 1.649348798952994
+   },
+   "256-1024": {
+    "tokens": 3984,
+    "mean_abs": 1.552325211276209
+   },
+   "1024-end": {
+    "tokens": 4146,
+    "mean_abs": 1.3376577452118166
+   }
+  }
+ },
+ "hf_single_vs_packed": {
+  "tokens": 10125,
+  "nll_a": 2.00908366375814,
+  "nll_b": 3.3095041064211226,
+  "ppl_a": 7.456481571562194,
+  "ppl_b": 27.371548730612584,
+  "mean_abs_logprob_diff": 1.4832817760930124,
+  "max_abs_logprob_diff": 13.876679122447968,
+  "mean_signed_diff_b_minus_a": -1.3004204426629833,
+  "by_position": {
+   "0-256": {
+    "tokens": 1995,
+    "mean_abs": 1.6484490403663485
+   },
+   "256-1024": {
+    "tokens": 3984,
+    "mean_abs": 1.552061321489725
+   },
+   "1024-end": {
+    "tokens": 4146,
+    "mean_abs": 1.3377134207901158
+   }
+  }
+ },
+ "ref": "eager/float32",
+ "ref_vs_vllm": {
+  "tokens": 10125,
+  "nll_a": 2.0089840305959408,
+  "nll_b": 2.008620671395444,
+  "ppl_a": 7.455738695732488,
+  "ppl_b": 7.453030076611536,
+  "mean_abs_logprob_diff": 0.010380256220492025,
+  "max_abs_logprob_diff": 0.12590467929840088,
+  "mean_signed_diff_b_minus_a": 0.00036335920049653696,
+  "by_position": {
+   "0-256": {
+    "tokens": 1995,
+    "mean_abs": 0.008163453919269729
+   },
+   "256-1024": {
+    "tokens": 3984,
+    "mean_abs": 0.01136954968125916
+   },
+   "1024-end": {
+    "tokens": 4146,
+    "mean_abs": 0.010496313973324204
+   }
+  }
+ },
+ "ref_vs_hf_single": {
+  "tokens": 10125,
+  "nll_a": 2.0089840305959408,
+  "nll_b": 2.00908366375814,
+  "ppl_a": 7.455738695732488,
+  "ppl_b": 7.456481571562194,
+  "mean_abs_logprob_diff": 0.010803775889603627,
+  "max_abs_logprob_diff": 0.1286313533782959,
+  "mean_signed_diff_b_minus_a": -9.963316219920985e-05,
+  "by_position": {
+   "0-256": {
+    "tokens": 1995,
+    "mean_abs": 0.008413021649056803
+   },
+   "256-1024": {
+    "tokens": 3984,
+    "mean_abs": 0.01184480558399299
+   },
+   "1024-end": {
+    "tokens": 4146,
+    "mean_abs": 0.010953822297573643
+   }
+  }
+ },
+ "first_response": "```python\nimport math\n\ndef solve(W=7000, L=13000, H=1500, u=4, b=10, q=4.5e-6):\n    # Compute volume and floor area of the box\n    V = W * L * H\n    A = W * L\n\n    # Calculate the residence time (V / Q), where Q = u * A (ventilation rate)\n    Q = u * A\n    tau = V / Q\n\n    # Compute SO2 concentration in the box using steady-state mass balance:\n    # Q*(b - c) = q*A\n    q_A = q * A\n    ratio = q_A / Q\n    c = b * (1 - ratio)\n\n    return {\n        \"1\": {\"value\": c * 1e6, \"unit\": \"\u03bcg/m\u00b3\"}  # single quantity in \u03bcg/m\u00b3\n    }\n```</s>"
+}

@@ -1,0 +1,23 @@
+{
+ "name": "qwen35_9b_on_dp4",
+ "host": "host-B",
+ "config_prefix": "qwen3.5-9b",
+ "model_path": "/path/to/shared/Qwen3.5-9B",
+ "upstream_repo": "Qwen/Qwen3.5-9B",
+ "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+ "served_name": "d-v2-qwen35-9b",
+ "port": 8190,
+ "gpus": "2,3,4,5",
+ "tensor_parallel": 1,
+ "data_parallel": 4,
+ "max_num_seqs": 32,
+ "max_num_batched_tokens": 16384,
+ "workers": 64,
+ "modes": [
+  "on"
+ ],
+ "reasoning_parser": "qwen3",
+ "language_model_only": true,
+ "extra_vllm_args": [],
+ "wall_seconds": 345600
+}

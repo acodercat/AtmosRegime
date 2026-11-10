@@ -1,0 +1,331 @@
+# Model registry: one section per model config, used by every model call in this repository
+# (`atmoscoder_rl.evaluation.client`; e.g. `evaluation.runner --model <section>`).
+#
+# No secrets in this file. A hosted model names the environment variable holding its key
+# (`api_key_env`); a local vLLM server takes the placeholder key "EMPTY". The allowed fields
+# and their meaning are documented in atmoscoder_rl/evaluation/client.py.
+#
+# The four local entries reproduce the ones stage 1 (explore/REPORT.md) ran with on host-A,
+# recovered 2026-09-26; `explore/e1_run.sh` serves the weights as "local" on port 8077.
+
+[local-e1-off]            # E1 and later, thinking off
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"      # vLLM >= 0.24 names the reasoning field `reasoning`
+extra_body = { chat_template_kwargs = { enable_thinking = false } }
+
+[local-e1-on]             # E1 and later, thinking on (40k context: 28672 generation + prompt headroom)
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 0.6
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { chat_template_kwargs = { enable_thinking = true } }
+
+[local-e1-on-32k]         # thinking models with a 32k context (Phi-4-reasoning): 8192 of prompt headroom
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 0.6
+max_tokens = 24576
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { chat_template_kwargs = { enable_thinking = true } }
+
+[local-e4-off]            # E4 (sampling consistency): local-e1-off at a sampling temperature
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 0.7
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { chat_template_kwargs = { enable_thinking = false } }
+
+[local-e3-off]            # E3 knowledge probe (explore/e3_probe.py), thinking off: a verdict, not a solution
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 2048
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { chat_template_kwargs = { enable_thinking = false } }
+
+[local-e3-on]             # E3 knowledge probe, thinking on
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 0.6
+max_tokens = 16384
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { chat_template_kwargs = { enable_thinking = true } }
+
+[local-raft]              # RAFT sampling / admission probe (sample_raft.py): the RL rollout settings
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 1.0
+max_tokens = 3072         # the RL response cap
+timeout = 900.0
+extra_body = { top_p = 1.0, chat_template_kwargs = { enable_thinking = false } }
+
+[local-raft-plain]        # local-raft without chat_template_kwargs: Mistral-tokenizer vLLM servers reject it (Ministral 3; it has no thinking switch)
+model_id = "local"
+base_url = "http://127.0.0.1:8077/v1"
+api_key = "EMPTY"
+temperature = 1.0
+max_tokens = 3072
+timeout = 900.0
+extra_body = { top_p = 1.0 }
+
+[judge]                   # the wrong-answer judge (explore/judge_regime.py): deepseek-v4-flash-reasoning at T = 0
+model_id = "deepseek-v4-flash-260425"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_A_API_KEY"
+temperature = 0.0
+max_tokens = 12000
+timeout = 600.0
+extra_body = { thinking = { type = "enabled" }, reasoning_effort = "high" }
+retry_status = [404]      # the gateway returns intermittent 404s
+
+[judge-oneapi]            # X1b thinking-trace judge (explore/x1_trace_judge.py): the gateway that is reachable from the
+model_id = "deepseek-v4-flash"   # training boxes, thinking off, T = 0 (the `judge` entry's key is not available there; D-4 note 2026-10-12)
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_C_API_KEY"
+temperature = 0.0
+max_tokens = 4096
+timeout = 600.0
+extra_body = { thinking = { type = "disabled" } }
+
+[judge-oneapi-think]      # PREREG_X X-8: the K2 judge with thinking on (oneapi gateway, T = 0)
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_C_API_KEY"
+temperature = 0.0
+max_tokens = 16384
+timeout = 900.0
+extra_body = { reasoning_effort = "high" }
+thinking_echo_field = "reasoning_content"
+
+[deepseek-v4-flash]       # the template-screening calibration model (docs/PREREG_TEMPLATE_SCREENING.md), thinking off
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_C_API_KEY"
+temperature = 0.3
+max_tokens = 16384
+timeout = 600.0
+extra_body = { thinking = { type = "disabled" } }
+
+[deepseek-v4-flash-think]  # E0e: the oneapi gateway with thinking on (the reasoning entry's key is not available here)
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_C_API_KEY"
+temperature = 0.3
+max_tokens = 32768
+timeout = 900.0
+extra_body = { reasoning_effort = "high" }   # the gateway ignores thinking = {type = enabled}; this switches thinking on (checked 2026-10-01)
+thinking_echo_field = "reasoning_content"
+
+[deepseek-v4-flash-reasoning]   # hosted API baseline
+model_id = "deepseek-v4-flash-260425"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_A_API_KEY"
+temperature = 0.3
+max_tokens = 16384
+timeout = 600.0
+extra_body = { thinking = { type = "enabled" }, reasoning_effort = "high" }   # DeepSeek-V4 supports only high/max
+thinking_echo_field = "reasoning_content"
+
+# D confirmation: PREREG_MAIN + D_EXECUTION_20261009; frozen before formal calls.
+[d-qwen35-9b-off]
+model_id = "d-qwen35-9b"
+base_url = "http://127.0.0.1:8089/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+# D confirmation: PREREG_MAIN + D_EXECUTION_20261009; frozen before formal calls.
+[d-qwen35-9b-on]
+model_id = "d-qwen35-9b"
+base_url = "http://127.0.0.1:8089/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+# D-2 frontier group (docs/PREREG_MAIN.md revision D-2 section 3): templates only, D output caps (off 8192 / on 28672).
+[frontier-deepseek-v4-flash-off]
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_C_API_KEY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 900.0
+extra_body = { thinking = { type = "disabled" } }
+
+[frontier-deepseek-v4-flash-on]
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_C_API_KEY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+extra_body = { reasoning_effort = "high" }
+thinking_echo_field = "reasoning_content"
+
+# D-3 detection probe (docs/PREREG_MAIN.md revision D-3): the D serving and sampling settings of each configuration,
+# served by explore/d3_serve.sh on 114; only the port differs.
+[d3-qwen3-8b-off]
+model_id = "d-v2-qwen3-8b"
+base_url = "http://127.0.0.1:8221/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[d3-qwen35-9b-off]
+model_id = "d-qwen35-9b"
+base_url = "http://127.0.0.1:8222/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+# PREREG_X §5 (docs/PREREG_X.md): every start and endpoint of one family under one serving setting, served by
+# explore/x_eval.sh as "x-eval"; the slot only picks the port, so two evaluations can share a machine.
+# Sampling as the D-3 entries (thinking off, T 0.3, 8,192 tokens).
+[x-eval-0]
+model_id = "x-eval"
+base_url = "http://127.0.0.1:8270/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[x-eval-1]
+model_id = "x-eval"
+base_url = "http://127.0.0.1:8271/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+[x-eval-2]
+model_id = "x-eval"
+base_url = "http://127.0.0.1:8272/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = false } }
+
+# X-34 / X-35: the same three slots with thinking on (explore/x_eval.sh THINK=1, vLLM --reasoning-parser qwen3);
+# max_tokens 28,672 as the D thinking-on entries (d-qwen35-9b-on). Only these two values differ from x-eval-<slot>.
+[x-eval-think-0]
+model_id = "x-eval"
+base_url = "http://127.0.0.1:8270/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[x-eval-think-1]
+model_id = "x-eval"
+base_url = "http://127.0.0.1:8271/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+[x-eval-think-2]
+model_id = "x-eval"
+base_url = "http://127.0.0.1:8272/v1"
+api_key = "EMPTY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+thinking_echo_field = "reasoning"
+extra_body = { top_p = 1.0, top_k = -1, min_p = 0.0, repetition_penalty = 1.0, presence_penalty = 0.0, frequency_penalty = 0.0, chat_template_kwargs = { enable_thinking = true } }
+
+# PREREG_PAPER_ANALYSES §21 (2026-11-07): frontier models in the X evaluation harness (explore/frontier21.sh). Thinking-off
+# caps as x-eval-<SLOT> (8,192), thinking-on as x-eval-think (28,672); temperature 0.3 everywhere; keys from the environment.
+[frontier21-deepseek-v4-flash-off]    # api1 gateway (user, 2026-11-07); probe: reasoning_tokens 0
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_B_API_KEY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 900.0
+extra_body = { thinking = { type = "disabled" } }
+
+[frontier21-deepseek-v4-flash-on]     # api1 gateway; probe: reasoning_content returned with reasoning_effort = high
+model_id = "deepseek-v4-flash"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_B_API_KEY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+extra_body = { thinking = { type = "enabled" }, reasoning_effort = "high" }
+thinking_echo_field = "reasoning_content"
+
+["frontier21-gpt-5.5-off"]              # external-api-platform; probe: reasoning_tokens 0 with reasoning_effort = none
+model_id = "gpt-5.5"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_A_API_KEY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 900.0
+extra_body = { reasoning_effort = "none" }
+
+["frontier21-gpt-5.5-on"]               # external-api-platform; medium as AtmosCoder-Bench's gpt55-reasoning
+model_id = "gpt-5.5"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_A_API_KEY"
+temperature = 0.3
+max_tokens = 28672
+timeout = 1800.0
+extra_body = { reasoning_effort = "medium" }
+
+["frontier21-gpt-5.4-off"]
+model_id = "gpt-5.4"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_A_API_KEY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 900.0
+extra_body = { reasoning_effort = "none" }
+
+[frontier21-minimax-m3-off]           # external-api-platform; probe: reasoning_tokens 0 with thinking.type = disabled
+model_id = "MiniMax-M3"
+base_url = "https://YOUR-ENDPOINT/v1"  # an OpenAI-compatible endpoint serving this model
+api_key_env = "GATEWAY_A_API_KEY"
+temperature = 0.3
+max_tokens = 8192
+timeout = 900.0
+extra_body = { thinking = { type = "disabled" } }

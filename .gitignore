@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Local experiment outputs — results are artifacts, not source
+runs/
+/experiments
+checkpoints/
+*.log
+
+# Outputs of the figure scripts
+paper/figures/
+numbers.tex

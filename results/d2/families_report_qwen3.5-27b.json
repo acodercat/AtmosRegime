@@ -1,0 +1,3165 @@
+{
+ "analysis": {
+  "bootstrap_draws": 10000,
+  "bootstrap_seed": 20261008,
+  "missing_data": "no verdict for an incomplete model-mode configuration",
+  "regime_pairs": "all regime-recognise pairs across three repetitions",
+  "template_gate": "a cluster is usable if any template meets both inside/given thresholds",
+  "template_primary": "average ALL templates within cluster, then equal cluster weights; usability only gates the verdict",
+  "template_usable_only": "descriptive sensitivity analysis; never used for D-1",
+  "textbook_ci": "average repetitions within trap, independently resample traps within family",
+  "textbook_gate_parent_denominator": "unique parent ids, averaged over all three repetitions"
+ },
+ "complete": false,
+ "configurations": [
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "qwen3.5-9b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3.5-9b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3.5-9b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3.5-9b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Qwen3.5",
+   "key": "qwen3.5-9b.think-off",
+   "mode": "off",
+   "model": "qwen3.5-9b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "qwen3.5-9b.think-on.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3.5-9b.think-on.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3.5-9b.think-on.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3.5-9b.think-on.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Qwen3.5",
+   "key": "qwen3.5-9b.think-on",
+   "mode": "on",
+   "model": "qwen3.5-9b",
+   "status": "incomplete"
+  },
+  {
+   "D1": "threshold_not_met",
+   "family": "Qwen3.5",
+   "key": "qwen3.5-27b.think-off",
+   "mode": "off",
+   "model": "qwen3.5-27b",
+   "status": "complete",
+   "templates": {
+    "all": {
+     "cluster_count": 32,
+     "clusters": {
+      "angular_weighting": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "aqueous_equilibria": {
+       "flag": 0.9375,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9125
+      },
+      "box_model": {
+       "flag": 0.9199999999999999,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      },
+      "capillary_rise_gravity": {
+       "flag": 0.7,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.3
+      },
+      "condensate_loading": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "cooper_jacob_early_time": {
+       "flag": 1.0,
+       "given": 0.5,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "density_with_height": {
+       "flag": 0.975,
+       "given": 0.95,
+       "inside": 0.9875,
+       "outside": 0.9625
+      },
+      "diffusional_growth": {
+       "flag": 0.3,
+       "given": 0.975,
+       "inside": 0.975,
+       "outside": 0.15
+      },
+      "dispersion": {
+       "flag": 0.825,
+       "given": 1.0,
+       "inside": 0.825,
+       "outside": 0.7625
+      },
+      "doppler_aliasing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "flux_through_growing_layer": {
+       "flag": 0.8999999999999999,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "freezing_point_depth": {
+       "flag": 0.25,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.5
+      },
+      "fresnel_reflectance_grazing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "ground_heat_flux_neglect": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "ice_above_flotation": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "isotope_mixing_weighting": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "latent_heating": {
+       "flag": 0.8333333333333334,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.7166666666666667
+      },
+      "line_broadening": {
+       "flag": 0.0,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "log_wind_profile": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.925
+      },
+      "photostationary_peroxy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "radiative_linearisation": {
+       "flag": 0.5,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.4916666666666667
+      },
+      "reactant_in_excess": {
+       "flag": 0.7166666666666667,
+       "given": 1.0,
+       "inside": 0.9833333333333334,
+       "outside": 0.5166666666666667
+      },
+      "rotating_balance": {
+       "flag": 0.9500000000000001,
+       "given": 0.85,
+       "inside": 1.0,
+       "outside": 0.8166666666666668
+      },
+      "rotation": {
+       "flag": 0.7166666666666668,
+       "given": 0.9666666666666667,
+       "inside": 0.9833333333333334,
+       "outside": 0.6333333333333333
+      },
+      "saturated_lapse": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "size_distribution_moment": {
+       "flag": 0.975,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.975
+      },
+      "size_vs_length_scale": {
+       "flag": 0.7250000000000001,
+       "given": 0.9583333333333334,
+       "inside": 1.0,
+       "outside": 0.8416666666666667
+      },
+      "sonic_humidity_flux": {
+       "flag": 0.05,
+       "given": 0.9,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "spherical_geometry": {
+       "flag": 0.8875,
+       "given": 1.0,
+       "inside": 0.9625,
+       "outside": 0.6375
+      },
+      "surface_gravity_wave": {
+       "flag": 0.925,
+       "given": 0.975,
+       "inside": 0.875,
+       "outside": 0.95
+      },
+      "surface_multiple_reflection": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.2
+      },
+      "weir_approach_velocity": {
+       "flag": 0.4,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      }
+     },
+     "contrasts": {
+      "flag_minus_outside": {
+       "ci95": [
+        0.012083333333333343,
+        0.13789062500000002
+       ],
+       "mean": 0.07171875,
+       "units": 32
+      },
+      "given_minus_outside": {
+       "ci95": [
+        0.173828125,
+        0.4171875
+       ],
+       "mean": 0.29322916666666665,
+       "units": 32
+      },
+      "inside_minus_outside": {
+       "ci95": [
+        0.19830729166666666,
+        0.437109375
+       ],
+       "mean": 0.3140625,
+       "units": 32
+      }
+     }
+    },
+    "templates": {
+     "actinic_flux_horizontal": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "angular_weighting",
+      "usable": true
+     },
+     "anelastic_continuity": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "bay_tidal_resonance": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 0.95,
+       "inside": 0.75,
+       "outside": 0.9
+      },
+      "cluster": "surface_gravity_wave",
+      "usable": true
+     },
+     "box_ventilation_loss": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "capillary_rise_gravity": {
+      "accuracy": {
+       "flag": 0.7,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.3
+      },
+      "cluster": "capillary_rise_gravity",
+      "usable": true
+     },
+     "ch4_forcing_sqrt": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "clausius_clapeyron_extrapolation": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "co2_forcing_log": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "condensate_loading": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "cluster": "condensate_loading",
+      "usable": true
+     },
+     "constant_pressure_expansion": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.45
+      },
+      "cluster": "reactant_in_excess",
+      "usable": true
+     },
+     "cooper_jacob_early_time": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 0.5,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "cluster": "cooper_jacob_early_time",
+      "usable": false
+     },
+     "coriolis_neglect": {
+      "accuracy": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "rotation",
+      "usable": true
+     },
+     "cstr_vs_pfr": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "cunningham_slip": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.7
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "deposition_brownian": {
+      "accuracy": {
+       "flag": 0.45,
+       "given": 0.8,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "diffuse_transmission": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "angular_weighting",
+      "usable": true
+     },
+     "displacement_height_canopy": {
+      "accuracy": {
+       "flag": 0.65,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "log_wind_profile",
+      "usable": true
+     },
+     "doppler_aliasing": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "doppler_aliasing",
+      "usable": true
+     },
+     "drop_size_truncation": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "size_distribution_moment",
+      "usable": true
+     },
+     "drop_ventilation": {
+      "accuracy": {
+       "flag": 0.1,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.0
+      },
+      "cluster": "diffusional_growth",
+      "usable": true
+     },
+     "effective_henry": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "evaporative_cooling_limit": {
+      "accuracy": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.15
+      },
+      "cluster": "latent_heating",
+      "usable": true
+     },
+     "finite_line_source": {
+      "accuracy": {
+       "flag": 0.65,
+       "given": 1.0,
+       "inside": 0.65,
+       "outside": 0.65
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "freezing_latent_heat": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "latent_heating",
+      "usable": true
+     },
+     "freezing_point_depth": {
+      "accuracy": {
+       "flag": 0.25,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.5
+      },
+      "cluster": "freezing_point_depth",
+      "usable": true
+     },
+     "fresnel_reflectance_grazing": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "fresnel_reflectance_grazing",
+      "usable": true
+     },
+     "frictional_three_force_balance": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "rotating_balance",
+      "usable": true
+     },
+     "gradient_wind_curvature": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "rotating_balance",
+      "usable": true
+     },
+     "gravity_wave_doppler_shift": {
+      "accuracy": {
+       "flag": 0.8,
+       "given": 0.9,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "rotation",
+      "usable": true
+     },
+     "ground_heat_flux_neglect": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "ground_heat_flux_neglect",
+      "usable": true
+     },
+     "henry_depletion": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.65
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "hydrostatic_constant_density": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "ice_above_flotation": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "ice_above_flotation",
+      "usable": true
+     },
+     "ice_capacitance_shape": {
+      "accuracy": {
+       "flag": 0.5,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.3
+      },
+      "cluster": "diffusional_growth",
+      "usable": true
+     },
+     "ice_saturation": {
+      "accuracy": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "inertia_gravity_wave": {
+      "accuracy": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 0.0
+      },
+      "cluster": "rotation",
+      "usable": true
+     },
+     "ionic_strength_activity": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "isa_above_tropopause": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 0.8,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "isotope_mixing_weighting": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "isotope_mixing_weighting",
+      "usable": true
+     },
+     "kelvin_curvature": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "limiting_reagent": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "reactant_in_excess",
+      "usable": true
+     },
+     "line_broadening": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "line_broadening",
+      "usable": true
+     },
+     "log_wind_stability": {
+      "accuracy": {
+       "flag": 0.75,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "log_wind_profile",
+      "usable": true
+     },
+     "lognormal_mass": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 0.9,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "size_distribution_moment",
+      "usable": true
+     },
+     "mie_geometric": {
+      "accuracy": {
+       "flag": 0.65,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "mixed_layer_response": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "nonsteady_burden": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "optically_thin_emission": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "photostationary_peroxy": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "photostationary_peroxy",
+      "usable": true
+     },
+     "planck_linearization": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "plume_ground_reflection": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 0.9,
+       "outside": 0.95
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "plume_mixing_lid": {
+      "accuracy": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 0.75,
+       "outside": 0.45
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "ppm_conversion_pressure": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "pseudo_first_order": {
+      "accuracy": {
+       "flag": 0.25,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 0.2
+      },
+      "cluster": "reactant_in_excess",
+      "usable": true
+     },
+     "racemization_reversibility": {
+      "accuracy": {
+       "flag": 0.6,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.25
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "radar_beam_height": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "raindrop_drag_regime": {
+      "accuracy": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "rossby_deformation": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 0.55,
+       "inside": 1.0,
+       "outside": 0.45
+      },
+      "cluster": "rotating_balance",
+      "usable": false
+     },
+     "saturated_lapse": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "cluster": "saturated_lapse",
+      "usable": true
+     },
+     "sea_ice_insulation": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "flux_through_growing_layer",
+      "usable": true
+     },
+     "semivolatile_partitioning_temperature": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "shallow_water_wave_speed": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "surface_gravity_wave",
+      "usable": true
+     },
+     "snowpack_cold_content": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "latent_heating",
+      "usable": true
+     },
+     "solid_angle": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.65
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "sonic_humidity_flux": {
+      "accuracy": {
+       "flag": 0.05,
+       "given": 0.9,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "sonic_humidity_flux",
+      "usable": true
+     },
+     "spherical_slant_path": {
+      "accuracy": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 0.85,
+       "outside": 0.9
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "sun_photometer_airmass": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "surface_multiple_reflection": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.2
+      },
+      "cluster": "surface_multiple_reflection",
+      "usable": true
+     },
+     "taylor_dispersion": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "unconfined_dupuit": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "flux_through_growing_layer",
+      "usable": true
+     },
+     "weak_acid_dissociation": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "weir_approach_velocity": {
+      "accuracy": {
+       "flag": 0.4,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "weir_approach_velocity",
+      "usable": true
+     }
+    },
+    "usable": true,
+    "usable_only": {
+     "cluster_count": 31,
+     "clusters": {
+      "angular_weighting": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "aqueous_equilibria": {
+       "flag": 0.9375,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9125
+      },
+      "box_model": {
+       "flag": 0.9199999999999999,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      },
+      "capillary_rise_gravity": {
+       "flag": 0.7,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.3
+      },
+      "condensate_loading": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "density_with_height": {
+       "flag": 0.975,
+       "given": 0.95,
+       "inside": 0.9875,
+       "outside": 0.9625
+      },
+      "diffusional_growth": {
+       "flag": 0.3,
+       "given": 0.975,
+       "inside": 0.975,
+       "outside": 0.15
+      },
+      "dispersion": {
+       "flag": 0.825,
+       "given": 1.0,
+       "inside": 0.825,
+       "outside": 0.7625
+      },
+      "doppler_aliasing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "flux_through_growing_layer": {
+       "flag": 0.8999999999999999,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "freezing_point_depth": {
+       "flag": 0.25,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.5
+      },
+      "fresnel_reflectance_grazing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "ground_heat_flux_neglect": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "ice_above_flotation": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "isotope_mixing_weighting": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "latent_heating": {
+       "flag": 0.8333333333333334,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.7166666666666667
+      },
+      "line_broadening": {
+       "flag": 0.0,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "log_wind_profile": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.925
+      },
+      "photostationary_peroxy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "radiative_linearisation": {
+       "flag": 0.5,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.4916666666666667
+      },
+      "reactant_in_excess": {
+       "flag": 0.7166666666666667,
+       "given": 1.0,
+       "inside": 0.9833333333333334,
+       "outside": 0.5166666666666667
+      },
+      "rotating_balance": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "rotation": {
+       "flag": 0.7166666666666668,
+       "given": 0.9666666666666667,
+       "inside": 0.9833333333333334,
+       "outside": 0.6333333333333333
+      },
+      "saturated_lapse": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.85
+      },
+      "size_distribution_moment": {
+       "flag": 0.975,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.975
+      },
+      "size_vs_length_scale": {
+       "flag": 0.7250000000000001,
+       "given": 0.9583333333333334,
+       "inside": 1.0,
+       "outside": 0.8416666666666667
+      },
+      "sonic_humidity_flux": {
+       "flag": 0.05,
+       "given": 0.9,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "spherical_geometry": {
+       "flag": 0.8875,
+       "given": 1.0,
+       "inside": 0.9625,
+       "outside": 0.6375
+      },
+      "surface_gravity_wave": {
+       "flag": 0.925,
+       "given": 0.975,
+       "inside": 0.875,
+       "outside": 0.95
+      },
+      "surface_multiple_reflection": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.2
+      },
+      "weir_approach_velocity": {
+       "flag": 0.4,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      }
+     },
+     "contrasts": {
+      "flag_minus_outside": {
+       "ci95": [
+        0.00198924731182797,
+        0.13129032258064513
+       ],
+       "mean": 0.06166666666666667,
+       "units": 31
+      },
+      "given_minus_outside": {
+       "ci95": [
+        0.1932795698924731,
+        0.43387096774193545
+       ],
+       "mean": 0.3096774193548387,
+       "units": 31
+      },
+      "inside_minus_outside": {
+       "ci95": [
+        0.18911290322580646,
+        0.4413978494623656
+       ],
+       "mean": 0.3102150537634409,
+       "units": 31
+      }
+     }
+    }
+   },
+   "textbook": {
+    "families": {
+     "averaging_space": {
+      "conditional_denominator": 32,
+      "conditional_recognition": 0.96875,
+      "gap": {
+       "ci95": [
+        -0.1111111111111111,
+        0.05555555555555555
+       ],
+       "mean": -0.027777777777777776,
+       "units": 12
+      },
+      "pairs": 36,
+      "parent_accuracy": 0.8888888888888888,
+      "trap_accuracy": 0.9166666666666666,
+      "traps": 12
+     },
+     "definition_confusion": {
+      "conditional_denominator": 47,
+      "conditional_recognition": 0.9148936170212766,
+      "gap": {
+       "ci95": [
+        -0.15,
+        0.11666666666666665
+       ],
+       "mean": -0.01666666666666667,
+       "units": 20
+      },
+      "pairs": 60,
+      "parent_accuracy": 0.7833333333333333,
+      "trap_accuracy": 0.8,
+      "traps": 20
+     },
+     "formula_selection": {
+      "conditional_denominator": 65,
+      "conditional_recognition": 0.8153846153846154,
+      "gap": {
+       "ci95": [
+        -0.041666666666666664,
+        0.2777777777777778
+       ],
+       "mean": 0.1111111111111111,
+       "units": 24
+      },
+      "pairs": 72,
+      "parent_accuracy": 0.9027777777777778,
+      "trap_accuracy": 0.7916666666666666,
+      "traps": 24
+     },
+     "geometry_detail": {
+      "conditional_denominator": 169,
+      "conditional_recognition": 0.863905325443787,
+      "gap": {
+       "ci95": [
+        -0.05555555555555555,
+        0.07870370370370369
+       ],
+       "mean": 0.013888888888888888,
+       "units": 72
+      },
+      "pairs": 216,
+      "parent_accuracy": 0.7824074074074074,
+      "trap_accuracy": 0.7685185185185185,
+      "traps": 72
+     },
+     "regime:given": {
+      "conditional_denominator": 45,
+      "conditional_recognition": 0.9333333333333333,
+      "gap": {
+       "ci95": [
+        -0.1875,
+        0.1875
+       ],
+       "mean": 0.0,
+       "units": 16
+      },
+      "pairs": 48,
+      "parent_accuracy": 0.9375,
+      "trap_accuracy": 0.9375,
+      "traps": 16
+     },
+     "regime:recognise": {
+      "conditional_denominator": 85,
+      "conditional_recognition": 0.7058823529411765,
+      "gap": {
+       "ci95": [
+        -0.10526315789473684,
+        0.21929824561403505
+       ],
+       "mean": 0.05263157894736842,
+       "units": 38
+      },
+      "pairs": 114,
+      "parent_accuracy": 0.7456140350877193,
+      "trap_accuracy": 0.6929824561403509,
+      "traps": 38
+     },
+     "sign_direction": {
+      "conditional_denominator": 39,
+      "conditional_recognition": 0.8974358974358975,
+      "gap": {
+       "ci95": [
+        -0.2156862745098039,
+        0.11764705882352941
+       ],
+       "mean": -0.03921568627450981,
+       "units": 17
+      },
+      "pairs": 51,
+      "parent_accuracy": 0.7647058823529411,
+      "trap_accuracy": 0.803921568627451,
+      "traps": 17
+     }
+    },
+    "parent_accuracy_unique_parents": 0.8073701842546064,
+    "regime_minus_geometry": {
+     "ci95": [
+      -0.13182261208576998,
+      0.21881091617933723
+     ],
+     "mean": 0.03874269005847953,
+     "units": [
+      38,
+      72
+     ]
+    },
+    "regime_pairs": 114,
+    "usable": true
+   }
+  },
+  {
+   "D1": "threshold_not_met",
+   "family": "Qwen3.5",
+   "key": "qwen3.5-27b.think-on",
+   "mode": "on",
+   "model": "qwen3.5-27b",
+   "status": "complete",
+   "templates": {
+    "all": {
+     "cluster_count": 32,
+     "clusters": {
+      "angular_weighting": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.675
+      },
+      "aqueous_equilibria": {
+       "flag": 0.9125,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9875
+      },
+      "box_model": {
+       "flag": 0.9400000000000001,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9199999999999999
+      },
+      "capillary_rise_gravity": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 0.2
+      },
+      "condensate_loading": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cooper_jacob_early_time": {
+       "flag": 0.4,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.65
+      },
+      "density_with_height": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.9875,
+       "outside": 0.9875
+      },
+      "diffusional_growth": {
+       "flag": 0.575,
+       "given": 1.0,
+       "inside": 0.925,
+       "outside": 0.225
+      },
+      "dispersion": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 0.8625,
+       "outside": 0.6875
+      },
+      "doppler_aliasing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "flux_through_growing_layer": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.975
+      },
+      "freezing_point_depth": {
+       "flag": 0.4,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.4
+      },
+      "fresnel_reflectance_grazing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.8,
+       "outside": 0.95
+      },
+      "ground_heat_flux_neglect": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "ice_above_flotation": {
+       "flag": 0.6,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "isotope_mixing_weighting": {
+       "flag": 1.0,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.95
+      },
+      "latent_heating": {
+       "flag": 0.8166666666666668,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.7833333333333333
+      },
+      "line_broadening": {
+       "flag": 0.2,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "log_wind_profile": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.925
+      },
+      "photostationary_peroxy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "radiative_linearisation": {
+       "flag": 0.5,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.5
+      },
+      "reactant_in_excess": {
+       "flag": 0.9833333333333334,
+       "given": 1.0,
+       "inside": 0.9166666666666666,
+       "outside": 0.7833333333333333
+      },
+      "rotating_balance": {
+       "flag": 0.9833333333333334,
+       "given": 0.9833333333333334,
+       "inside": 0.9666666666666667,
+       "outside": 0.9333333333333332
+      },
+      "rotation": {
+       "flag": 0.7999999999999999,
+       "given": 1.0,
+       "inside": 0.9666666666666667,
+       "outside": 0.7999999999999999
+      },
+      "saturated_lapse": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "size_distribution_moment": {
+       "flag": 1.0,
+       "given": 0.975,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "size_vs_length_scale": {
+       "flag": 0.8250000000000001,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "sonic_humidity_flux": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "spherical_geometry": {
+       "flag": 0.975,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.7375
+      },
+      "surface_gravity_wave": {
+       "flag": 0.875,
+       "given": 1.0,
+       "inside": 0.875,
+       "outside": 0.925
+      },
+      "surface_multiple_reflection": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.45
+      },
+      "weir_approach_velocity": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      }
+     },
+     "contrasts": {
+      "flag_minus_outside": {
+       "ci95": [
+        0.025781250000000006,
+        0.17341145833333332
+       ],
+       "mean": 0.09502604166666667,
+       "units": 32
+      },
+      "given_minus_outside": {
+       "ci95": [
+        0.17385416666666667,
+        0.3884375
+       ],
+       "mean": 0.27697916666666667,
+       "units": 32
+      },
+      "inside_minus_outside": {
+       "ci95": [
+        0.14752604166666666,
+        0.37057291666666664
+       ],
+       "mean": 0.25484375,
+       "units": 32
+      }
+     }
+    },
+    "templates": {
+     "actinic_flux_horizontal": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "angular_weighting",
+      "usable": true
+     },
+     "anelastic_continuity": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 0.95
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "bay_tidal_resonance": {
+      "accuracy": {
+       "flag": 0.75,
+       "given": 1.0,
+       "inside": 0.75,
+       "outside": 0.85
+      },
+      "cluster": "surface_gravity_wave",
+      "usable": true
+     },
+     "box_ventilation_loss": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "capillary_rise_gravity": {
+      "accuracy": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 0.2
+      },
+      "cluster": "capillary_rise_gravity",
+      "usable": true
+     },
+     "ch4_forcing_sqrt": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "clausius_clapeyron_extrapolation": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "co2_forcing_log": {
+      "accuracy": {
+       "flag": 0.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.05
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "condensate_loading": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "condensate_loading",
+      "usable": true
+     },
+     "constant_pressure_expansion": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.45
+      },
+      "cluster": "reactant_in_excess",
+      "usable": true
+     },
+     "cooper_jacob_early_time": {
+      "accuracy": {
+       "flag": 0.4,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.65
+      },
+      "cluster": "cooper_jacob_early_time",
+      "usable": true
+     },
+     "coriolis_neglect": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 0.9,
+       "outside": 0.9
+      },
+      "cluster": "rotation",
+      "usable": true
+     },
+     "cstr_vs_pfr": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "cunningham_slip": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "deposition_brownian": {
+      "accuracy": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.65
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "diffuse_transmission": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.35
+      },
+      "cluster": "angular_weighting",
+      "usable": true
+     },
+     "displacement_height_canopy": {
+      "accuracy": {
+       "flag": 0.75,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "log_wind_profile",
+      "usable": true
+     },
+     "doppler_aliasing": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "doppler_aliasing",
+      "usable": true
+     },
+     "drop_size_truncation": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "size_distribution_moment",
+      "usable": true
+     },
+     "drop_ventilation": {
+      "accuracy": {
+       "flag": 0.6,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "diffusional_growth",
+      "usable": true
+     },
+     "effective_henry": {
+      "accuracy": {
+       "flag": 0.65,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "evaporative_cooling_limit": {
+      "accuracy": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.55
+      },
+      "cluster": "latent_heating",
+      "usable": true
+     },
+     "finite_line_source": {
+      "accuracy": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 0.6,
+       "outside": 0.6
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "freezing_latent_heat": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "latent_heating",
+      "usable": true
+     },
+     "freezing_point_depth": {
+      "accuracy": {
+       "flag": 0.4,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.4
+      },
+      "cluster": "freezing_point_depth",
+      "usable": true
+     },
+     "fresnel_reflectance_grazing": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.8,
+       "outside": 0.95
+      },
+      "cluster": "fresnel_reflectance_grazing",
+      "usable": true
+     },
+     "frictional_three_force_balance": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "rotating_balance",
+      "usable": true
+     },
+     "gradient_wind_curvature": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "cluster": "rotating_balance",
+      "usable": true
+     },
+     "gravity_wave_doppler_shift": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "rotation",
+      "usable": true
+     },
+     "ground_heat_flux_neglect": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "ground_heat_flux_neglect",
+      "usable": true
+     },
+     "henry_depletion": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "hydrostatic_constant_density": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "ice_above_flotation": {
+      "accuracy": {
+       "flag": 0.6,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "ice_above_flotation",
+      "usable": true
+     },
+     "ice_capacitance_shape": {
+      "accuracy": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 0.85,
+       "outside": 0.45
+      },
+      "cluster": "diffusional_growth",
+      "usable": true
+     },
+     "ice_saturation": {
+      "accuracy": {
+       "flag": 0.65,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "inertia_gravity_wave": {
+      "accuracy": {
+       "flag": 0.5,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.5
+      },
+      "cluster": "rotation",
+      "usable": true
+     },
+     "ionic_strength_activity": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "isa_above_tropopause": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "isotope_mixing_weighting": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.95
+      },
+      "cluster": "isotope_mixing_weighting",
+      "usable": true
+     },
+     "kelvin_curvature": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "limiting_reagent": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "reactant_in_excess",
+      "usable": true
+     },
+     "line_broadening": {
+      "accuracy": {
+       "flag": 0.2,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "line_broadening",
+      "usable": true
+     },
+     "log_wind_stability": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "log_wind_profile",
+      "usable": true
+     },
+     "lognormal_mass": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 0.95,
+       "inside": 0.9,
+       "outside": 1.0
+      },
+      "cluster": "size_distribution_moment",
+      "usable": true
+     },
+     "mie_geometric": {
+      "accuracy": {
+       "flag": 0.6,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.4
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "mixed_layer_response": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "nonsteady_burden": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "optically_thin_emission": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "photostationary_peroxy": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "photostationary_peroxy",
+      "usable": true
+     },
+     "planck_linearization": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "plume_ground_reflection": {
+      "accuracy": {
+       "flag": 0.9,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "plume_mixing_lid": {
+      "accuracy": {
+       "flag": 0.75,
+       "given": 1.0,
+       "inside": 0.9,
+       "outside": 0.15
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "ppm_conversion_pressure": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "density_with_height",
+      "usable": true
+     },
+     "pseudo_first_order": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.75,
+       "outside": 0.9
+      },
+      "cluster": "reactant_in_excess",
+      "usable": true
+     },
+     "racemization_reversibility": {
+      "accuracy": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.6
+      },
+      "cluster": "box_model",
+      "usable": true
+     },
+     "radar_beam_height": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "raindrop_drag_regime": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9
+      },
+      "cluster": "size_vs_length_scale",
+      "usable": true
+     },
+     "rossby_deformation": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.85
+      },
+      "cluster": "rotating_balance",
+      "usable": true
+     },
+     "saturated_lapse": {
+      "accuracy": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "cluster": "saturated_lapse",
+      "usable": true
+     },
+     "sea_ice_insulation": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "flux_through_growing_layer",
+      "usable": true
+     },
+     "semivolatile_partitioning_temperature": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cluster": "radiative_linearisation",
+      "usable": true
+     },
+     "shallow_water_wave_speed": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "surface_gravity_wave",
+      "usable": true
+     },
+     "snowpack_cold_content": {
+      "accuracy": {
+       "flag": 0.75,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      },
+      "cluster": "latent_heating",
+      "usable": true
+     },
+     "solid_angle": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "sonic_humidity_flux": {
+      "accuracy": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "sonic_humidity_flux",
+      "usable": true
+     },
+     "spherical_slant_path": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "sun_photometer_airmass": {
+      "accuracy": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "cluster": "spherical_geometry",
+      "usable": true
+     },
+     "surface_multiple_reflection": {
+      "accuracy": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.45
+      },
+      "cluster": "surface_multiple_reflection",
+      "usable": true
+     },
+     "taylor_dispersion": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "cluster": "dispersion",
+      "usable": true
+     },
+     "unconfined_dupuit": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "flux_through_growing_layer",
+      "usable": true
+     },
+     "weak_acid_dissociation": {
+      "accuracy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "cluster": "aqueous_equilibria",
+      "usable": true
+     },
+     "weir_approach_velocity": {
+      "accuracy": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      },
+      "cluster": "weir_approach_velocity",
+      "usable": true
+     }
+    },
+    "usable": true,
+    "usable_only": {
+     "cluster_count": 32,
+     "clusters": {
+      "angular_weighting": {
+       "flag": 0.95,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.675
+      },
+      "aqueous_equilibria": {
+       "flag": 0.9125,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9875
+      },
+      "box_model": {
+       "flag": 0.9400000000000001,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.9199999999999999
+      },
+      "capillary_rise_gravity": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 0.2
+      },
+      "condensate_loading": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.95
+      },
+      "cooper_jacob_early_time": {
+       "flag": 0.4,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.65
+      },
+      "density_with_height": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.9875,
+       "outside": 0.9875
+      },
+      "diffusional_growth": {
+       "flag": 0.575,
+       "given": 1.0,
+       "inside": 0.925,
+       "outside": 0.225
+      },
+      "dispersion": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 0.8625,
+       "outside": 0.6875
+      },
+      "doppler_aliasing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "flux_through_growing_layer": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.975
+      },
+      "freezing_point_depth": {
+       "flag": 0.4,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.4
+      },
+      "fresnel_reflectance_grazing": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 0.8,
+       "outside": 0.95
+      },
+      "ground_heat_flux_neglect": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "ice_above_flotation": {
+       "flag": 0.6,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "isotope_mixing_weighting": {
+       "flag": 1.0,
+       "given": 0.95,
+       "inside": 0.95,
+       "outside": 0.95
+      },
+      "latent_heating": {
+       "flag": 0.8166666666666668,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.7833333333333333
+      },
+      "line_broadening": {
+       "flag": 0.2,
+       "given": 0.95,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "log_wind_profile": {
+       "flag": 0.85,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.925
+      },
+      "photostationary_peroxy": {
+       "flag": 1.0,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 1.0
+      },
+      "radiative_linearisation": {
+       "flag": 0.5,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.5
+      },
+      "reactant_in_excess": {
+       "flag": 0.9833333333333334,
+       "given": 1.0,
+       "inside": 0.9166666666666666,
+       "outside": 0.7833333333333333
+      },
+      "rotating_balance": {
+       "flag": 0.9833333333333334,
+       "given": 0.9833333333333334,
+       "inside": 0.9666666666666667,
+       "outside": 0.9333333333333332
+      },
+      "rotation": {
+       "flag": 0.7999999999999999,
+       "given": 1.0,
+       "inside": 0.9666666666666667,
+       "outside": 0.7999999999999999
+      },
+      "saturated_lapse": {
+       "flag": 0.8,
+       "given": 1.0,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "size_distribution_moment": {
+       "flag": 1.0,
+       "given": 0.975,
+       "inside": 0.95,
+       "outside": 1.0
+      },
+      "size_vs_length_scale": {
+       "flag": 0.8250000000000001,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.75
+      },
+      "sonic_humidity_flux": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.0
+      },
+      "spherical_geometry": {
+       "flag": 0.975,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.7375
+      },
+      "surface_gravity_wave": {
+       "flag": 0.875,
+       "given": 1.0,
+       "inside": 0.875,
+       "outside": 0.925
+      },
+      "surface_multiple_reflection": {
+       "flag": 0.55,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.45
+      },
+      "weir_approach_velocity": {
+       "flag": 0.7,
+       "given": 1.0,
+       "inside": 1.0,
+       "outside": 0.8
+      }
+     },
+     "contrasts": {
+      "flag_minus_outside": {
+       "ci95": [
+        0.025781250000000006,
+        0.17341145833333332
+       ],
+       "mean": 0.09502604166666667,
+       "units": 32
+      },
+      "given_minus_outside": {
+       "ci95": [
+        0.17385416666666667,
+        0.3884375
+       ],
+       "mean": 0.27697916666666667,
+       "units": 32
+      },
+      "inside_minus_outside": {
+       "ci95": [
+        0.14752604166666666,
+        0.37057291666666664
+       ],
+       "mean": 0.25484375,
+       "units": 32
+      }
+     }
+    }
+   },
+   "textbook": {
+    "families": {
+     "averaging_space": {
+      "conditional_denominator": 35,
+      "conditional_recognition": 0.9714285714285714,
+      "gap": {
+       "ci95": [
+        -0.08333333333333333,
+        0.08333333333333333
+       ],
+       "mean": 0.0,
+       "units": 12
+      },
+      "pairs": 36,
+      "parent_accuracy": 0.9722222222222222,
+      "trap_accuracy": 0.9722222222222222,
+      "traps": 12
+     },
+     "definition_confusion": {
+      "conditional_denominator": 50,
+      "conditional_recognition": 0.9,
+      "gap": {
+       "ci95": [
+        -0.13333333333333333,
+        0.1
+       ],
+       "mean": -2.7755575615628915e-18,
+       "units": 20
+      },
+      "pairs": 60,
+      "parent_accuracy": 0.8333333333333334,
+      "trap_accuracy": 0.8333333333333334,
+      "traps": 20
+     },
+     "formula_selection": {
+      "conditional_denominator": 68,
+      "conditional_recognition": 0.8088235294117647,
+      "gap": {
+       "ci95": [
+        0.05555555555555555,
+        0.3194444444444445
+       ],
+       "mean": 0.18055555555555555,
+       "units": 24
+      },
+      "pairs": 72,
+      "parent_accuracy": 0.9444444444444444,
+      "trap_accuracy": 0.7638888888888888,
+      "traps": 24
+     },
+     "geometry_detail": {
+      "conditional_denominator": 174,
+      "conditional_recognition": 0.9137931034482759,
+      "gap": {
+       "ci95": [
+        -0.08796296296296297,
+        0.06018518518518518
+       ],
+       "mean": -0.013888888888888888,
+       "units": 72
+      },
+      "pairs": 216,
+      "parent_accuracy": 0.8055555555555556,
+      "trap_accuracy": 0.8194444444444444,
+      "traps": 72
+     },
+     "regime:given": {
+      "conditional_denominator": 45,
+      "conditional_recognition": 0.9333333333333333,
+      "gap": {
+       "ci95": [
+        -0.1875,
+        0.1875
+       ],
+       "mean": 0.0,
+       "units": 16
+      },
+      "pairs": 48,
+      "parent_accuracy": 0.9375,
+      "trap_accuracy": 0.9375,
+      "traps": 16
+     },
+     "regime:recognise": {
+      "conditional_denominator": 93,
+      "conditional_recognition": 0.7634408602150538,
+      "gap": {
+       "ci95": [
+        -0.061403508771929814,
+        0.2192982456140351
+       ],
+       "mean": 0.07894736842105263,
+       "units": 38
+      },
+      "pairs": 114,
+      "parent_accuracy": 0.8157894736842105,
+      "trap_accuracy": 0.7368421052631579,
+      "traps": 38
+     },
+     "sign_direction": {
+      "conditional_denominator": 44,
+      "conditional_recognition": 0.9318181818181818,
+      "gap": {
+       "ci95": [
+        -0.11764705882352941,
+        0.0784313725490196
+       ],
+       "mean": -0.0196078431372549,
+       "units": 17
+      },
+      "pairs": 51,
+      "parent_accuracy": 0.8627450980392157,
+      "trap_accuracy": 0.8823529411764706,
+      "traps": 17
+     }
+    },
+    "parent_accuracy_unique_parents": 0.8525963149078727,
+    "regime_minus_geometry": {
+     "ci95": [
+      -0.06408382066276802,
+      0.25316764132553604
+     ],
+     "mean": 0.09283625730994152,
+     "units": [
+      38,
+      72
+     ]
+    },
+    "regime_pairs": 114,
+    "usable": true
+   }
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "gemma4-e4b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-e4b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-e4b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-e4b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Gemma 4",
+   "key": "gemma4-e4b.think-off",
+   "mode": "off",
+   "model": "gemma4-e4b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "gemma4-e4b.think-on.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-e4b.think-on.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-e4b.think-on.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-e4b.think-on.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Gemma 4",
+   "key": "gemma4-e4b.think-on",
+   "mode": "on",
+   "model": "gemma4-e4b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "gemma4-31b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-31b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-31b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-31b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Gemma 4",
+   "key": "gemma4-31b.think-off",
+   "mode": "off",
+   "model": "gemma4-31b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "gemma4-31b.think-on.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-31b.think-on.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-31b.think-on.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "gemma4-31b.think-on.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Gemma 4",
+   "key": "gemma4-31b.think-on",
+   "mode": "on",
+   "model": "gemma4-31b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "granite4.2-8b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-8b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-8b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-8b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Granite 4.2",
+   "key": "granite4.2-8b.think-off",
+   "mode": "off",
+   "model": "granite4.2-8b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "granite4.2-8b.think-on.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-8b.think-on.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-8b.think-on.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-8b.think-on.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Granite 4.2",
+   "key": "granite4.2-8b.think-on",
+   "mode": "on",
+   "model": "granite4.2-8b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "granite4.2-30b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-30b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-30b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-30b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Granite 4.2",
+   "key": "granite4.2-30b.think-off",
+   "mode": "off",
+   "model": "granite4.2-30b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "granite4.2-30b.think-on.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-30b.think-on.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-30b.think-on.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "granite4.2-30b.think-on.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Granite 4.2",
+   "key": "granite4.2-30b.think-on",
+   "mode": "on",
+   "model": "granite4.2-30b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "ministral3-8b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "ministral3-8b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "ministral3-8b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "ministral3-8b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Ministral 3",
+   "key": "ministral3-8b.think-off",
+   "mode": "off",
+   "model": "ministral3-8b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "ministral3-14b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "ministral3-14b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "ministral3-14b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "ministral3-14b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "Ministral 3",
+   "key": "ministral3-14b.think-off",
+   "mode": "off",
+   "model": "ministral3-14b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "qwen3-8b.think-off.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3-8b.think-off.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3-8b.think-off.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3-8b.think-off.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "bridge",
+   "key": "qwen3-8b.think-off",
+   "mode": "off",
+   "model": "qwen3-8b",
+   "status": "incomplete"
+  },
+  {
+   "D1": null,
+   "errors": [
+    {
+     "file": "qwen3-8b.think-on.textbook.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3-8b.think-on.textbook.run2.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3-8b.think-on.textbook.run3.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    },
+    {
+     "file": "qwen3-8b.think-on.templates.run1.json",
+     "issues": [
+      "missing run file",
+      "missing provenance receipt"
+     ]
+    }
+   ],
+   "family": "bridge",
+   "key": "qwen3-8b.think-on",
+   "mode": "on",
+   "model": "qwen3-8b",
+   "status": "incomplete"
+  }
+ ],
+ "experiment": "families_context_v2",
+ "notes": [
+  "All 72 templates retained as D prescribes; physical caveats in PROPOSAL still apply.",
+  "No pooled cross-family verdict; no detected effect is not evidence of equivalence."
+ ]
+}

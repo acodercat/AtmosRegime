@@ -1,0 +1,262 @@
+{
+ "qwen3-8b": {
+  "templates_kept": 8,
+  "units": 8,
+  "outside_given_inside": {
+   "mean": 0.2857638888888889,
+   "ci95": [
+    0.1076388888888889,
+    0.496875
+   ],
+   "units": 8
+  },
+  "given_given_inside": {
+   "mean": 0.61875,
+   "ci95": [
+    0.325,
+    0.8875
+   ],
+   "units": 8
+  },
+  "flag_given_inside": {
+   "mean": 0.253125,
+   "ci95": [
+    0.08125,
+    0.440625
+   ],
+   "units": 8
+  },
+  "per_template": {
+   "grating_small_angle": {
+    "outside": 0.65,
+    "given": 0.95,
+    "flag": 0.6
+   },
+   "gravity_altitude": {
+    "outside": 0.625,
+    "given": 1.0,
+    "flag": 0.375
+   },
+   "orifice_choked": {
+    "outside": 0.1,
+    "given": 1.0,
+    "flag": 0.0
+   },
+   "pendulum_amplitude": {
+    "outside": 0.0,
+    "given": 0.05,
+    "flag": 0.0
+   },
+   "spring_mass_effective": {
+    "outside": 0.65,
+    "given": 0.35,
+    "flag": 0.65
+   },
+   "stefan_diffusion": {
+    "outside": 0.0,
+    "given": 0.0,
+    "flag": 0.0
+   },
+   "thick_lens": {
+    "outside": 0.1111111111111111,
+    "given": 1.0,
+    "flag": 0.0
+   },
+   "thick_wall_hoop": {
+    "outside": 0.15,
+    "given": 0.6,
+    "flag": 0.4
+   }
+  }
+ },
+ "qwen3.5-9b": {
+  "templates_kept": 13,
+  "units": 13,
+  "outside_given_inside": {
+   "mean": 0.8297689926172899,
+   "ci95": [
+    0.6893427006430102,
+    0.9479757085020242
+   ],
+   "units": 13
+  },
+  "given_given_inside": {
+   "mean": 0.9316742081447964,
+   "ci95": [
+    0.8334841628959276,
+    0.9961538461538461
+   ],
+   "units": 13
+  },
+  "flag_given_inside": {
+   "mean": 0.8853655632293402,
+   "ci95": [
+    0.7555013098356752,
+    0.9676708740176232
+   ],
+   "units": 13
+  },
+  "per_template": {
+   "enclosure_radiation": {
+    "outside": 0.9473684210526315,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "fin_tip_length": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 0.85
+   },
+   "grating_small_angle": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "gravity_altitude": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "lumped_capacitance_biot": {
+    "outside": 0.29411764705882354,
+    "given": 0.4117647058823529,
+    "flag": 0.17647058823529413
+   },
+   "orifice_choked": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "pendulum_amplitude": {
+    "outside": 0.55,
+    "given": 0.8,
+    "flag": 0.9
+   },
+   "pipe_friction_regime": {
+    "outside": 0.85,
+    "given": 1.0,
+    "flag": 0.85
+   },
+   "solenoid_finite": {
+    "outside": 0.42105263157894735,
+    "given": 1.0,
+    "flag": 0.9473684210526315
+   },
+   "spring_mass_effective": {
+    "outside": 1.0,
+    "given": 0.95,
+    "flag": 1.0
+   },
+   "stefan_diffusion": {
+    "outside": 0.8421052631578947,
+    "given": 1.0,
+    "flag": 0.8947368421052632
+   },
+   "thick_lens": {
+    "outside": 1.0,
+    "given": 0.95,
+    "flag": 0.95
+   },
+   "thick_wall_hoop": {
+    "outside": 0.8823529411764706,
+    "given": 1.0,
+    "flag": 0.9411764705882353
+   }
+  }
+ },
+ "deepseek": {
+  "templates_kept": 13,
+  "units": 13,
+  "outside_given_inside": {
+   "mean": 0.9192307692307692,
+   "ci95": [
+    0.7692307692307693,
+    1.0
+   ],
+   "units": 13
+  },
+  "given_given_inside": {
+   "mean": 0.9846153846153847,
+   "ci95": [
+    0.9538461538461539,
+    1.0
+   ],
+   "units": 13
+  },
+  "flag_given_inside": {
+   "mean": 0.9384615384615385,
+   "ci95": [
+    0.8692307692307693,
+    1.0
+   ],
+   "units": 13
+  },
+  "per_template": {
+   "enclosure_radiation": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "fin_tip_length": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 0.7
+   },
+   "grating_small_angle": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "gravity_altitude": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "lumped_capacitance_biot": {
+    "outside": 0.95,
+    "given": 0.8,
+    "flag": 0.7
+   },
+   "orifice_choked": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "pendulum_amplitude": {
+    "outside": 0.95,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "pipe_friction_regime": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "solenoid_finite": {
+    "outside": 0.05,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "spring_mass_effective": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 0.8
+   },
+   "stefan_diffusion": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "thick_lens": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   },
+   "thick_wall_hoop": {
+    "outside": 1.0,
+    "given": 1.0,
+    "flag": 1.0
+   }
+  }
+ }
+}

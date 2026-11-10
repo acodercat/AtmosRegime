@@ -1,0 +1,720 @@
+{
+ "family": "ministral3-8b",
+ "inputs_sha256": {
+  "experiments/_x/ministral3-8b/passk_final_outside.x18.jsonl": "90e9e08364541dd12c752514aa93af287cbe6f566f03fa5e9274b795aa58836e",
+  "experiments/_x/ministral3-8b/warm_samples_F1.jsonl": "b35d8a21dde46f417cde8d0d428e14a833a9c2fb9488337de44687fd228627d1",
+  "experiments/_x/ministral3-8b/warm_samples_F2.jsonl": "aada33f9faa693ac5e18d0c17a31be8d97f776c7d8268b7e837e7e53d0d5909c"
+ },
+ "outside_rows": 1400,
+ "passk_error_rows": 0,
+ "given_rows_without_samples": [],
+ "mean_pass@1": 0.12244419642857142,
+ "mean_pass@64": 0.5971428571428571,
+ "Z": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log",
+  "doppler_aliasing",
+  "drop_ventilation",
+  "henry_depletion",
+  "ice_above_flotation",
+  "line_broadening",
+  "rossby_deformation",
+  "snowpack_cold_content"
+ ],
+ "candidates_pass64_le_0.10": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log",
+  "diffuse_transmission",
+  "doppler_aliasing",
+  "drop_ventilation",
+  "freezing_point_depth",
+  "henry_depletion",
+  "ice_above_flotation",
+  "inertia_gravity_wave",
+  "line_broadening",
+  "plume_mixing_lid",
+  "raindrop_drag_regime",
+  "rossby_deformation",
+  "saturated_lapse",
+  "snowpack_cold_content",
+  "sun_photometer_airmass"
+ ],
+ "Z_knows_0.5": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log"
+ ],
+ "candidates_knows_0.5": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log",
+  "diffuse_transmission",
+  "inertia_gravity_wave",
+  "plume_mixing_lid",
+  "raindrop_drag_regime",
+  "sun_photometer_airmass"
+ ],
+ "candidates_proxy_0.2": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log",
+  "diffuse_transmission",
+  "doppler_aliasing",
+  "freezing_point_depth",
+  "henry_depletion",
+  "inertia_gravity_wave",
+  "plume_mixing_lid",
+  "raindrop_drag_regime",
+  "saturated_lapse",
+  "snowpack_cold_content",
+  "sun_photometer_airmass"
+ ],
+ "candidates_pairs_ge_4": [
+  "ch4_forcing_sqrt",
+  "clausius_clapeyron_extrapolation",
+  "co2_forcing_log",
+  "diffuse_transmission",
+  "doppler_aliasing",
+  "freezing_point_depth",
+  "henry_depletion",
+  "inertia_gravity_wave",
+  "line_broadening",
+  "rossby_deformation",
+  "snowpack_cold_content",
+  "sun_photometer_airmass"
+ ],
+ "per_mechanism": {
+  "actinic_flux_horizontal": {
+   "fold": "F1",
+   "pass@1": 0.11875,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.525,
+   "pairs": 20
+  },
+  "anelastic_continuity": {
+   "fold": "F2",
+   "pass@1": 0.0046875,
+   "pass@8": 1.0,
+   "pass@64": 0.25,
+   "rows": 20,
+   "given_acc": 0.5,
+   "pairs": 20
+  },
+  "bay_tidal_resonance": {
+   "fold": "F1",
+   "pass@1": 0.0078125,
+   "pass@8": 0.1,
+   "pass@64": 0.3,
+   "rows": 20,
+   "given_acc": 0.0125,
+   "pairs": 0
+  },
+  "box_ventilation_loss": {
+   "fold": "F1",
+   "pass@1": 0.3,
+   "pass@8": 0.85,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.1625,
+   "pairs": 17
+  },
+  "capillary_rise_gravity": {
+   "fold": "F2",
+   "pass@1": 0.00234375,
+   "pass@8": 0.1,
+   "pass@64": 0.15,
+   "rows": 20,
+   "given_acc": 0.0125,
+   "pairs": 0
+  },
+  "ch4_forcing_sqrt": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 1.0,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.63125,
+   "pairs": 20
+  },
+  "clausius_clapeyron_extrapolation": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 0.65,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.51875,
+   "pairs": 20
+  },
+  "co2_forcing_log": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 1.0,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.85,
+   "pairs": 20
+  },
+  "condensate_loading": {
+   "fold": "F1",
+   "pass@1": 0.01953125,
+   "pass@8": 1.0,
+   "pass@64": 0.75,
+   "rows": 20,
+   "given_acc": 0.61875,
+   "pairs": 19
+  },
+  "constant_pressure_expansion": {
+   "fold": "F2",
+   "pass@1": 0.01484375,
+   "pass@8": 0.75,
+   "pass@64": 0.75,
+   "rows": 20,
+   "given_acc": 0.1375,
+   "pairs": 13
+  },
+  "cooper_jacob_early_time": {
+   "fold": "F1",
+   "pass@1": 0.01953125,
+   "pass@8": 0.05,
+   "pass@64": 0.8,
+   "rows": 20,
+   "given_acc": 0.00625,
+   "pairs": 0
+  },
+  "coriolis_neglect": {
+   "fold": "F2",
+   "pass@1": 0.003125,
+   "pass@8": 0.65,
+   "pass@64": 0.2,
+   "rows": 20,
+   "given_acc": 0.1375,
+   "pairs": 7
+  },
+  "cstr_vs_pfr": {
+   "fold": "F1",
+   "pass@1": 0.60703125,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.9625,
+   "pairs": 20
+  },
+  "cunningham_slip": {
+   "fold": "F2",
+   "pass@1": 0.0265625,
+   "pass@8": 0.65,
+   "pass@64": 0.8,
+   "rows": 20,
+   "given_acc": 0.10625,
+   "pairs": 11
+  },
+  "deposition_brownian": {
+   "fold": "F2",
+   "pass@1": 0.0046875,
+   "pass@8": 0.7,
+   "pass@64": 0.25,
+   "rows": 20,
+   "given_acc": 0.125,
+   "pairs": 20
+  },
+  "diffuse_transmission": {
+   "fold": "F1",
+   "pass@1": 0.0015625,
+   "pass@8": 1.0,
+   "pass@64": 0.1,
+   "rows": 20,
+   "given_acc": 1.0,
+   "pairs": 20
+  },
+  "displacement_height_canopy": {
+   "fold": "F1",
+   "pass@1": 0.12265625,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.83125,
+   "pairs": 20
+  },
+  "doppler_aliasing": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 1.0,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.35625,
+   "pairs": 16
+  },
+  "drop_size_truncation": {
+   "fold": "F2",
+   "pass@1": 0.28046875,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.39375,
+   "pairs": 19
+  },
+  "drop_ventilation": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 0.0,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.0,
+   "pairs": 0
+  },
+  "effective_henry": {
+   "fold": "F1",
+   "pass@1": 0.0328125,
+   "pass@8": 0.7,
+   "pass@64": 0.9,
+   "rows": 20,
+   "given_acc": 0.1125,
+   "pairs": 12
+  },
+  "freezing_latent_heat": {
+   "fold": "F2",
+   "pass@1": 0.46875,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.85,
+   "pairs": 19
+  },
+  "freezing_point_depth": {
+   "fold": "F1",
+   "pass@1": 0.0015625,
+   "pass@8": 1.0,
+   "pass@64": 0.1,
+   "rows": 20,
+   "given_acc": 0.48125,
+   "pairs": 18
+  },
+  "fresnel_reflectance_grazing": {
+   "fold": "F2",
+   "pass@1": 0.1015625,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.50625,
+   "pairs": 20
+  },
+  "frictional_three_force_balance": {
+   "fold": "F1",
+   "pass@1": 0.01171875,
+   "pass@8": 0.55,
+   "pass@64": 0.5,
+   "rows": 20,
+   "given_acc": 0.1,
+   "pairs": 10
+  },
+  "gradient_wind_curvature": {
+   "fold": "F1",
+   "pass@1": 0.0046875,
+   "pass@8": 0.65,
+   "pass@64": 0.25,
+   "rows": 20,
+   "given_acc": 0.11875,
+   "pairs": 12
+  },
+  "gravity_wave_doppler_shift": {
+   "fold": "F2",
+   "pass@1": 0.01796875,
+   "pass@8": 0.6,
+   "pass@64": 0.7,
+   "rows": 20,
+   "given_acc": 0.08125,
+   "pairs": 7
+  },
+  "ground_heat_flux_neglect": {
+   "fold": "F1",
+   "pass@1": 0.94609375,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 1.0,
+   "pairs": 20
+  },
+  "henry_depletion": {
+   "fold": "F1",
+   "pass@1": 0.0,
+   "pass@8": 0.95,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.25625,
+   "pairs": 16
+  },
+  "hydrostatic_constant_density": {
+   "fold": "F2",
+   "pass@1": 0.65390625,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.93125,
+   "pairs": 20
+  },
+  "ice_above_flotation": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 0.65,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.13125,
+   "pairs": 1
+  },
+  "ice_capacitance_shape": {
+   "fold": "F2",
+   "pass@1": 0.0046875,
+   "pass@8": 0.2,
+   "pass@64": 0.3,
+   "rows": 20,
+   "given_acc": 0.03125,
+   "pairs": 4
+  },
+  "ice_saturation": {
+   "fold": "F2",
+   "pass@1": 0.08359375,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.6625,
+   "pairs": 20
+  },
+  "inertia_gravity_wave": {
+   "fold": "F2",
+   "pass@1": 0.0015625,
+   "pass@8": 1.0,
+   "pass@64": 0.05,
+   "rows": 20,
+   "given_acc": 0.6125,
+   "pairs": 20
+  },
+  "ionic_strength_activity": {
+   "fold": "F1",
+   "pass@1": 0.009375,
+   "pass@8": 0.05,
+   "pass@64": 0.4,
+   "rows": 20,
+   "given_acc": 0.00625,
+   "pairs": 1
+  },
+  "isa_above_tropopause": {
+   "fold": "F2",
+   "pass@1": 0.04140625,
+   "pass@8": 0.35,
+   "pass@64": 0.9,
+   "rows": 20,
+   "given_acc": 0.04375,
+   "pairs": 2
+  },
+  "isotope_mixing_weighting": {
+   "fold": "F1",
+   "pass@1": 0.02734375,
+   "pass@8": 0.25,
+   "pass@64": 0.85,
+   "rows": 20,
+   "given_acc": 0.04375,
+   "pairs": 4
+  },
+  "kelvin_curvature": {
+   "fold": "F2",
+   "pass@1": 0.2609375,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.8625,
+   "pairs": 20
+  },
+  "limiting_reagent": {
+   "fold": "F2",
+   "pass@1": 0.05859375,
+   "pass@8": 0.1,
+   "pass@64": 0.95,
+   "rows": 20,
+   "given_acc": 0.0125,
+   "pairs": 2
+  },
+  "line_broadening": {
+   "fold": "F1",
+   "pass@1": 0.0,
+   "pass@8": 0.35,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.05625,
+   "pairs": 4
+  },
+  "log_wind_stability": {
+   "fold": "F1",
+   "pass@1": 0.0171875,
+   "pass@8": 1.0,
+   "pass@64": 0.7,
+   "rows": 20,
+   "given_acc": 0.7625,
+   "pairs": 19
+  },
+  "lognormal_mass": {
+   "fold": "F2",
+   "pass@1": 0.0125,
+   "pass@8": 0.2,
+   "pass@64": 0.65,
+   "rows": 20,
+   "given_acc": 0.025,
+   "pairs": 2
+  },
+  "mie_geometric": {
+   "fold": "F2",
+   "pass@1": 0.0609375,
+   "pass@8": 0.9,
+   "pass@64": 0.9,
+   "rows": 20,
+   "given_acc": 0.76875,
+   "pairs": 0
+  },
+  "mixed_layer_response": {
+   "fold": "F1",
+   "pass@1": 0.1046875,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.44375,
+   "pairs": 14
+  },
+  "nonsteady_burden": {
+   "fold": "F1",
+   "pass@1": 0.72734375,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.95,
+   "pairs": 20
+  },
+  "optically_thin_emission": {
+   "fold": "F2",
+   "pass@1": 0.84140625,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.975,
+   "pairs": 20
+  },
+  "photostationary_peroxy": {
+   "fold": "F2",
+   "pass@1": 0.090625,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.33125,
+   "pairs": 17
+  },
+  "planck_linearization": {
+   "fold": "F2",
+   "pass@1": 0.6640625,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.73125,
+   "pairs": 20
+  },
+  "plume_ground_reflection": {
+   "fold": "F2",
+   "pass@1": 0.01796875,
+   "pass@8": 1.0,
+   "pass@64": 0.7,
+   "rows": 20,
+   "given_acc": 0.325,
+   "pairs": 20
+  },
+  "plume_mixing_lid": {
+   "fold": "F2",
+   "pass@1": 0.0015625,
+   "pass@8": 1.0,
+   "pass@64": 0.1,
+   "rows": 20,
+   "given_acc": 0.55625,
+   "pairs": 1
+  },
+  "ppm_conversion_pressure": {
+   "fold": "F2",
+   "pass@1": 0.36328125,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.4625,
+   "pairs": 20
+  },
+  "pseudo_first_order": {
+   "fold": "F2",
+   "pass@1": 0.00703125,
+   "pass@8": 0.1,
+   "pass@64": 0.25,
+   "rows": 20,
+   "given_acc": 0.0125,
+   "pairs": 1
+  },
+  "racemization_reversibility": {
+   "fold": "F1",
+   "pass@1": 0.034375,
+   "pass@8": 1.0,
+   "pass@64": 0.8,
+   "rows": 20,
+   "given_acc": 0.95,
+   "pairs": 20
+  },
+  "radar_beam_height": {
+   "fold": "F2",
+   "pass@1": 0.0265625,
+   "pass@8": 1.0,
+   "pass@64": 0.85,
+   "rows": 20,
+   "given_acc": 0.725,
+   "pairs": 18
+  },
+  "raindrop_drag_regime": {
+   "fold": "F2",
+   "pass@1": 0.00234375,
+   "pass@8": 1.0,
+   "pass@64": 0.1,
+   "rows": 20,
+   "given_acc": 0.925,
+   "pairs": 0
+  },
+  "rossby_deformation": {
+   "fold": "F1",
+   "pass@1": 0.0,
+   "pass@8": 0.4,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.05625,
+   "pairs": 7
+  },
+  "saturated_lapse": {
+   "fold": "F1",
+   "pass@1": 0.00078125,
+   "pass@8": 0.95,
+   "pass@64": 0.05,
+   "rows": 20,
+   "given_acc": 0.26875,
+   "pairs": 0
+  },
+  "sea_ice_insulation": {
+   "fold": "F1",
+   "pass@1": 0.11328125,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.325,
+   "pairs": 20
+  },
+  "semivolatile_partitioning_temperature": {
+   "fold": "F2",
+   "pass@1": 0.15859375,
+   "pass@8": 0.95,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.2625,
+   "pairs": 19
+  },
+  "shallow_water_wave_speed": {
+   "fold": "F1",
+   "pass@1": 0.22421875,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.825,
+   "pairs": 20
+  },
+  "snowpack_cold_content": {
+   "fold": "F2",
+   "pass@1": 0.0,
+   "pass@8": 1.0,
+   "pass@64": 0.0,
+   "rows": 20,
+   "given_acc": 0.46875,
+   "pairs": 20
+  },
+  "solid_angle": {
+   "fold": "F2",
+   "pass@1": 0.1671875,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.69375,
+   "pairs": 20
+  },
+  "sonic_humidity_flux": {
+   "fold": "F2",
+   "pass@1": 0.01484375,
+   "pass@8": 0.5,
+   "pass@64": 0.7,
+   "rows": 20,
+   "given_acc": 0.06875,
+   "pairs": 11
+  },
+  "spherical_slant_path": {
+   "fold": "F2",
+   "pass@1": 0.00390625,
+   "pass@8": 1.0,
+   "pass@64": 0.25,
+   "rows": 20,
+   "given_acc": 0.81875,
+   "pairs": 20
+  },
+  "sun_photometer_airmass": {
+   "fold": "F2",
+   "pass@1": 0.00078125,
+   "pass@8": 1.0,
+   "pass@64": 0.05,
+   "rows": 20,
+   "given_acc": 0.55,
+   "pairs": 20
+  },
+  "surface_multiple_reflection": {
+   "fold": "F1",
+   "pass@1": 0.04296875,
+   "pass@8": 1.0,
+   "pass@64": 0.95,
+   "rows": 20,
+   "given_acc": 1.0,
+   "pairs": 20
+  },
+  "taylor_dispersion": {
+   "fold": "F2",
+   "pass@1": 0.209375,
+   "pass@8": 1.0,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.9,
+   "pairs": 19
+  },
+  "unconfined_dupuit": {
+   "fold": "F1",
+   "pass@1": 0.009375,
+   "pass@8": 1.0,
+   "pass@64": 0.5,
+   "rows": 20,
+   "given_acc": 0.65625,
+   "pairs": 19
+  },
+  "weak_acid_dissociation": {
+   "fold": "F1",
+   "pass@1": 0.18984375,
+   "pass@8": 0.85,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.2,
+   "pairs": 17
+  },
+  "weir_approach_velocity": {
+   "fold": "F1",
+   "pass@1": 0.20390625,
+   "pass@8": 0.3,
+   "pass@64": 1.0,
+   "rows": 20,
+   "given_acc": 0.04375,
+   "pairs": 5
+  }
+ }
+}

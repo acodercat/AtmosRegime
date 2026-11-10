@@ -1,0 +1,24 @@
+{
+ "host": "host-B",
+ "max_num_seqs": 32,
+ "max_num_batched_tokens": 16384,
+ "language_model_only": false,
+ "wall_seconds": 345600,
+ "extra_vllm_args": [],
+ "reasoning_parser": "deepseek_r1",
+ "modes": [
+  "off",
+  "on"
+ ],
+ "name": "granite42_30b_tp2",
+ "config_prefix": "granite4.2-30b",
+ "model_path": "/path/to/local/models/granite-4.2-30b",
+ "upstream_repo": "ibm-granite/granite-4.2-30b",
+ "revision": "9e668ce1c538387ef24d3644e9b0606647762636",
+ "served_name": "d-v2-granite42-30b",
+ "port": 8197,
+ "gpus": "6,7",
+ "tensor_parallel": 2,
+ "data_parallel": 1,
+ "workers": 32
+}

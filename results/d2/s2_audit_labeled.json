@@ -1,0 +1,642 @@
+[
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_mie_geometric_05_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Computes x~815 and states the Rayleigh approximation is completely invalid; moves to the geometric-optics limit."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_lognormal_mass_07_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "'Correction' just revises its own formula; no regime recognition."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_ionic_strength_activity_03_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Comment says the activity approximation holds only for I<0.1 and that higher I needs more accurate methods."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_log_wind_stability_04_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Weak: applies a (wrong) stability correction because L is given, implicitly accepting that the neutral log law needs correcting."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_coriolis_neglect_17_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "States that ignoring the Coriolis force over this time span is incorrect."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_log_wind_stability_07_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Notes that the full Monin-Obukhov stability correction applies, but falls back to the neutral profile."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_line_broadening_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "'temperature correction factor is 1' is incidental; it applies the width-proportional-to-pressure rule at 0.4 hPa without noting Doppler broadening."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_ionic_strength_activity_17_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Says I=0.12 is moderately high and chooses the extended Debye-Huckel/Davies form over the limiting law."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_cunningham_slip_07_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Computes Kn, says plain Stokes needs slip correction in this regime, applies Cunningham."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_mie_geometric_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Uses a Rayleigh-regime formula blindly for a 34 um particle."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_radar_beam_height_03_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Debugs a formula error; no recognition of a validity limit."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_raindrop_drag_regime_06_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Computes Re~412 and states Stokes' law is not accurate, so it uses a drag correlation."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_ionic_strength_activity_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Says ionic strength is significant and calls Debye-Huckel a dilute-solution approximation here."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_raindrop_drag_regime_05_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Checks Re and states Stokes' law is not valid, so it uses Schiller-Naumann."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_unconfined_dupuit_17_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "States the Dupuit-Thiem assumption as holding and dismisses the correction; does not question it for these conditions."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_log_wind_stability_05_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Notes that the full MOST stability correction applies, but defaults to the neutral profile."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_raindrop_drag_regime_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Computes Re~80 and states Stokes' law is not applicable."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_fresnel_reflectance_grazing_10_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "'Self-correction' is formula churn; no grazing-angle or regime recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_displacement_height_canopy_20_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Plain log law with no displacement height; the validity check is only z>z0."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_finite_line_source_03_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "'Correction/Refinement' is about a missing distance; no recognition that the infinite-line approximation fails."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_ionic_strength_activity_07_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Only restates that ionic strength is given; no statement that a simplified relation fails."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_fresnel_reflectance_grazing_10_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Uses the full Fresnel equations without noting a regime; the 'not applicable' comment is about total internal reflection."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_semivolatile_partitioning_temperature_06_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Long derivation of partitioning; no validity or regime recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_bay_tidal_resonance_11_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Debates progressive vs standing wave in general terms but never flags bay length vs wavelength."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_ionic_strength_activity_06_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "States that I=0.1 is significant enough that the activity-based Ka should be used, then ignores it."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_kelvin_curvature_20_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Applies the Kelvin equation at r=6 nm with no breakdown caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_semivolatile_partitioning_temperature_03_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "No regime recognition; 'correction' refers to temperature-correcting C*."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_mie_geometric_16_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Computes x~200-500 and states this is the geometric-optics regime (Q_ext->2), not the small-particle law."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_deposition_brownian_04_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Applies the Cunningham correction explicitly because particle size is comparable to the mean free path."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_mie_geometric_01_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Identifies x>>1 as the geometric-optics limit with a wavelength-independent cross-section."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_gradient_wind_curvature_02_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Uses the gradient-wind quadratic; comments discuss roots, not whether geostrophic balance fails."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_cunningham_slip_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Computes Kn=0.25 and states standard Stokes' law is inaccurate in the transition regime."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_mie_geometric_17_outside",
+  "outcome": "outside_right",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "States that x~300 is deep in the geometric regime, unlike the Rayleigh lambda^-4 case."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_plume_ground_reflection_15_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Fixes a NameError; no recognition of ground reflection or a regime."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_deposition_brownian_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Applies the slip correction by default in code with no statement of why plain Stokes would fail."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_evaporative_cooling_limit_05_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Treats the humidity as extraneous; does not recognise a saturation limit on evaporation."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_cunningham_slip_15_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "Uses the Cunningham formula by default with no statement that plain Stokes is invalid for this size."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_evaporative_cooling_limit_15_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 0,
+  "reason": "'Self-correction' fixes its own vapour-pressure formula; no saturation-limit recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_ionic_strength_activity_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Says I=0.13 is moderate and the limiting law is only an approximation at this ionic strength."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_sun_photometer_airmass_15_outside",
+  "outcome": "outside_wrong",
+  "cue": 1,
+  "is_real_warning": 1,
+  "reason": "Notes that the sec(theta) plane-parallel airmass becomes inaccurate near 90 deg, but uses it anyway."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_box_ventilation_loss_14_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Applies the simple box formula; no caveat."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_ice_above_flotation_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Counts total ice thickness with no height-above-flotation consideration."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_weak_acid_dissociation_07_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Plain weak-acid quadratic; no caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_planck_linearization_18_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Uses the exact T^4 form but never mentions linearisation or its validity."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_clausius_clapeyron_extrapolation_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Asserts the linear approximation holds 'over a small temperature range' and applies it over 20 K without flagging it."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_cooper_jacob_early_time_02_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 1,
+  "reason": "Comments that the small-u approximation holds only for u<0.01 and uses series terms for larger u."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_line_broadening_08_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Applies pressure-proportional width at 0.26 hPa with no caveat."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_ch4_forcing_sqrt_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Linear per-ppb forcing with no caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_unconfined_dupuit_13_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Unconfined Thiem quadratic; no regime statement."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_rossby_deformation_19_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Made-up Rossby formula; no deformation-radius recognition."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_cooper_jacob_early_time_07_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 1,
+  "reason": "States that W(u)~-gamma-ln(u) holds only for u<0.01 and gives the large-u form."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_clausius_clapeyron_extrapolation_14_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Linear extrapolation with no caveat."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_lognormal_mass_05_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Ignores the size distribution entirely; no caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_ppm_conversion_pressure_05_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Uses the ideal gas at ambient P correctly but says nothing about the standard-condition conversion failing."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_freezing_latent_heat_11_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_effective_henry_02_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Calls pH 'not needed'; does not recognise the effective-Henry dissociation."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_limiting_reagent_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Plain limiting-reagent calculation; no caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_solid_angle_20_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Exact solid-angle formula with no mention of the small-angle approximation."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_cooper_jacob_early_time_17_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Asserts u is small and uses Cooper-Jacob without checking."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_radar_beam_height_18_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "4/3 effective-radius geometry with no caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_isa_above_tropopause_16_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 1,
+  "reason": "Recognises the target is above the tropopause and switches from the lapse-rate formula to the isothermal layer."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_evaporative_cooling_limit_12_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No saturation-limit recognition."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_bay_tidal_resonance_04_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Ad hoc current formula; no caveat."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_nonsteady_burden_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No caveat."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_limiting_reagent_04_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No caveat."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_rossby_deformation_12_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Barotropic beta/k^2 with no deformation-radius term mentioned."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_ppm_conversion_pressure_17_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No caveat."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_isotope_mixing_weighting_15_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Unweighted delta mixing with no DIC-weighting recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_henry_depletion_04_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Calls LWC unnecessary; does not recognise gas-phase depletion."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_freezing_point_depth_17_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No pressure dependence of freezing point."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_fresnel_reflectance_grazing_16_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Ad hoc cos/n formula; no caveat."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_isa_above_tropopause_14_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 1,
+  "reason": "Recognises the target is above the tropopause and uses the isothermal stratosphere formula."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_lognormal_mass_12_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Moment formula applied (wrongly) with no caveat."
+ },
+ {
+  "config": "gemma4-e4b.think-off",
+  "id": "tpl_20261008_diffuse_transmission_15_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Beer-Lambert for flux with no diffusivity-factor recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_mixed_layer_response_03_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Uses the full exponential solution but does not flag the linear or equilibrium approximation."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_drop_ventilation_19_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No ventilation-factor recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_drop_size_truncation_13_outside",
+  "outcome": "outside_right",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Integrates to D_max but never says the untruncated formula fails."
+ },
+ {
+  "config": "gemma4-e4b.think-on",
+  "id": "tpl_20261008_frictional_three_force_balance_13_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "No caveat."
+ },
+ {
+  "config": "qwen3-8b.think-off",
+  "id": "tpl_20261008_capillary_rise_gravity_09_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "Invented formula; no gravity-limit recognition."
+ },
+ {
+  "config": "qwen3.5-9b.think-off",
+  "id": "tpl_20261008_ice_above_flotation_10_outside",
+  "outcome": "outside_wrong",
+  "cue": 0,
+  "is_real_warning": 0,
+  "reason": "States the ice is grounded with no flotation consideration."
+ }
+]

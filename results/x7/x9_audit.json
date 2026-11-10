@@ -1,0 +1,582 @@
+{
+ "seed": "random.Random('x9:20261012:audit').sample(sorted by id, 15) per model; flips: random.Random('x9:20261013:flips').sample(old no -> new valid, 10)",
+ "auditor": "AI blind read (Claude subagent), declared",
+ "items": [
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_plume_ground_reflection_02_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_pseudo_first_order_02_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_box_ventilation_loss_04_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_semivolatile_partitioning_temperature_05_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_doppler_aliasing_02_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_box_ventilation_loss_05_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_pseudo_first_order_03_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_isa_above_tropopause_03_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_capillary_rise_gravity_05_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_cunningham_slip_01_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "yes ... Stokes' law or drag coefficient models may still provide a reasonable approximation"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_ground_heat_flux_neglect_01_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_solid_angle_02_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_sun_photometer_airmass_01_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_mie_geometric_05_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen3-8b",
+   "id": "x7:tpl_20261008_log_wind_stability_04_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_plume_ground_reflection_02_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_pseudo_first_order_02_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "no, the standard textbook treatment ... assuming constant ozone concentration is not strictly valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_box_ventilation_loss_04_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_semivolatile_partitioning_temperature_05_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_doppler_aliasing_02_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_box_ventilation_loss_05_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "no, the standard well-mixed box model ... may be invalid for a 280 km plume"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_pseudo_first_order_03_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_isa_above_tropopause_03_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_capillary_rise_gravity_05_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "yes, the standard Washburn equation treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_cunningham_slip_01_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "no, ... standard Stokes' law (continuum regime) is invalid and slip correction or free-molecule theory must be used"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_ground_heat_flux_neglect_01_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_solid_angle_02_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_sun_photometer_airmass_01_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_mie_geometric_05_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "no; ... invalidates the standard Mie scattering series summation ... requiring asymptotic approximations"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_log_wind_stability_04_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_optically_thin_emission_05_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard Rayleigh–Jeans approximation remains valid here"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_mixed_layer_response_01_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard linear response approximation remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_pseudo_first_order_01_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard ... pseudo-first-order reaction for NO is valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_sonic_humidity_flux_03_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_limiting_reagent_02_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, ... assumes dilute aqueous solutions ... which remains valid here"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_mie_geometric_01_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, ... geometric optics regime where the standard textbook treatment ... remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_taylor_dispersion_05_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no; ... the standard Gaussian plume approximation for continuous sources remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_evaporative_cooling_limit_02_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard textbook treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_kelvin_curvature_03_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no, the standard Kelvin equation treatment remains valid"
+  },
+  {
+   "model": "qwen35-9b",
+   "id": "x7:tpl_20261008_doppler_aliasing_04_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "no; the standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_plume_ground_reflection_02_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_pseudo_first_order_02_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "**No**, ... the standard pseudo-first-order approximation (assuming O3 in large excess) is not valid here"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_box_ventilation_loss_04_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "remains valid if the mixing time ... is much shorter than the chemical lifetime, which we can check (never flags failure; proceeds)"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_semivolatile_partitioning_temperature_05_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "Yes, the treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_doppler_aliasing_02_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_box_ventilation_loss_05_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "valid here ... the well-mixed assumption is borderline but still commonly used"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_pseudo_first_order_03_outside",
+   "kind": "prereg",
+   "judgement": "no",
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "they are comparable, so the pseudo-first-order approximation is **not** valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_isa_above_tropopause_03_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "Yes, the standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_capillary_rise_gravity_05_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "valid only when the capillary rise height is much smaller than the equilibrium height ... so the approximation may fail"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_cunningham_slip_01_outside",
+   "kind": "prereg",
+   "judgement": "yes",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "Yes, the standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_ground_heat_flux_neglect_01_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_solid_angle_02_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_sun_photometer_airmass_01_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "not_valid",
+   "audit": "not_valid",
+   "quote": "plane-parallel approximation, which breaks down at very large solar zenith angles (above ~80°), so it is not valid here"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_mie_geometric_05_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_log_wind_stability_04_outside",
+   "kind": "prereg",
+   "judgement": null,
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_solid_angle_04_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_rossby_deformation_04_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_sonic_humidity_flux_05_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_planck_linearization_01_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_mixed_layer_response_02_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_photostationary_peroxy_01_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "That is valid here because the given values are in the typical range for such analysis"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_freezing_latent_heat_02_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:tpl_20261008_line_broadening_05_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  },
+  {
+   "model": "deepseek",
+   "id": "x7:x5:tpl_20261013_enclosure_radiation_01_outside",
+   "kind": "flip",
+   "judgement": "no",
+   "judgement2": "valid",
+   "audit": "valid",
+   "quote": "The standard textbook treatment remains valid"
+  }
+ ]
+}

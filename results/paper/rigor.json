@@ -1,0 +1,746 @@
+{
+ "dose_randomisation": {
+  "observed_H1": 0.6134615384615384,
+  "randomisation_p": 0.001999800019998,
+  "draws": 10000,
+  "runs": [
+   "F1-s42",
+   "F1-s43",
+   "F2-s42",
+   "F2-s43"
+  ],
+  "null_quantiles": {
+   "50": 0.03355555555555556,
+   "95": 0.33577777777777773,
+   "99": 0.45817307692307685
+  },
+  "loo_mechanism_min_lower": 0.34423076923076923,
+  "loo_mechanism": {
+   "ch4_forcing_sqrt": [
+    0.39107142857142857,
+    0.8312499999999999
+   ],
+   "clausius_clapeyron_extrapolation": [
+    0.3761904761904762,
+    0.8571428571428571
+   ],
+   "co2_forcing_log": [
+    0.3761904761904762,
+    0.8571428571428571
+   ],
+   "cunningham_slip": [
+    0.34782608695652173,
+    0.8181818181818182
+   ],
+   "diffuse_transmission": [
+    0.4074074074074074,
+    0.8673913043478261
+   ],
+   "displacement_height_canopy": [
+    0.43799999999999994,
+    0.8759999999999999
+   ],
+   "doppler_aliasing": [
+    0.36363636363636365,
+    0.8260869565217391
+   ],
+   "freezing_point_depth": [
+    0.34782608695652173,
+    0.8142857142857143
+   ],
+   "henry_depletion": [
+    0.43799999999999994,
+    0.875
+   ],
+   "inertia_gravity_wave": [
+    0.36,
+    0.8217391304347825
+   ],
+   "line_broadening": [
+    0.36,
+    0.8217391304347825
+   ],
+   "plume_ground_reflection": [
+    0.43478260869565216,
+    0.875
+   ],
+   "snowpack_cold_content": [
+    0.34782608695652173,
+    0.8159090909090909
+   ],
+   "spherical_slant_path": [
+    0.4055555555555555,
+    0.8636363636363636
+   ],
+   "sun_photometer_airmass": [
+    0.3456521739130435,
+    0.8095238095238095
+   ],
+   "surface_multiple_reflection": [
+    0.36,
+    0.8195652173913044
+   ],
+   "unconfined_dupuit": [
+    0.34423076923076923,
+    0.8071428571428572
+   ]
+  },
+  "loo_run_min_lower": 0.2777777777777778,
+  "loo_run": {
+   "F1-s42": [
+    0.35294117647058826,
+    0.8147058823529412
+   ],
+   "F1-s43": [
+    0.4444444444444444,
+    0.8652173913043477
+   ],
+   "F2-s42": [
+    0.365625,
+    0.8833333333333333
+   ],
+   "F2-s43": [
+    0.2777777777777778,
+    0.8235294117647058
+   ]
+  },
+  "per_run_sign": {
+   "F1-s42": 0.6666666666666666,
+   "F1-s43": 0.4,
+   "F2-s42": 0.5714285714285714,
+   "F2-s43": 0.74375
+  }
+ },
+ "p1": {
+  "qwen3-8b": {
+   "mechanisms": 69,
+   "Z": 14,
+   "learned_definition": "any of A/D/F, any seed, >= 0.5 on training-fold outside rows",
+   "fisher_table_[Z_learned, Z_not],[nonZ_learned, nonZ_not]": [
+    [
+     1,
+     13
+    ],
+    [
+     39,
+     16
+    ]
+   ],
+   "fisher_p_two_sided": 1.8059903495902342e-05,
+   "auc_pass64": {
+    "auc": 0.9120689655172414,
+    "ci95": [
+     0.8356481481481481,
+     0.969396551724138
+    ],
+    "draws_used": 10000,
+    "n": 69,
+    "positives": 40
+   },
+   "auc_pass1": {
+    "auc": 0.9129310344827586,
+    "ci95": [
+     0.8377272727272728,
+     0.9705128205128205
+    ],
+    "draws_used": 10000,
+    "n": 69,
+    "positives": 40
+   },
+   "spearman_by_k": {
+    "1": {
+     "rho": 0.7909038281323353,
+     "ci95_mechanism": [
+      0.6808238876062442,
+      0.8663288696107306
+     ],
+     "n": 69
+    },
+    "8": {
+     "rho": 0.7909217414966396,
+     "ci95_mechanism": [
+      0.6796648797950303,
+      0.8680221298328319
+     ],
+     "n": 69
+    },
+    "16": {
+     "rho": 0.7924740802898164,
+     "ci95_mechanism": [
+      0.6805780485199066,
+      0.8686988552672193
+     ],
+     "n": 69
+    },
+    "32": {
+     "rho": 0.7970558990297899,
+     "ci95_mechanism": [
+      0.6877036435374221,
+      0.8704048520680777
+     ],
+     "n": 69
+    },
+    "64": {
+     "rho": 0.8001294428792238,
+     "ci95_mechanism": [
+      0.6951099476985965,
+      0.8736757140327593
+     ],
+     "n": 69,
+     "ci95_cluster": [
+      0.6759986380858914,
+      0.8850607950242427
+     ],
+     "loo_mechanism_min": 0.7946312951312957
+    }
+   },
+   "sensitivity_pass32_T0.7": {
+    "Z": 24,
+    "stay_at_or_below_0.10_every_arm_seed": 19,
+    "mechanisms": [
+     "capillary_rise_gravity",
+     "ch4_forcing_sqrt",
+     "clausius_clapeyron_extrapolation",
+     "co2_forcing_log",
+     "constant_pressure_expansion",
+     "coriolis_neglect",
+     "cunningham_slip",
+     "deposition_brownian",
+     "diffuse_transmission",
+     "displacement_height_canopy",
+     "drop_ventilation",
+     "freezing_point_depth",
+     "gravity_wave_doppler_shift",
+     "henry_depletion",
+     "ice_above_flotation",
+     "inertia_gravity_wave",
+     "line_broadening",
+     "lognormal_mass",
+     "plume_ground_reflection",
+     "pseudo_first_order",
+     "saturated_lapse",
+     "snowpack_cold_content",
+     "solid_angle",
+     "sun_photometer_airmass"
+    ]
+   },
+   "accuracies_in_(0.1,0.9)": {
+    "count": 12,
+    "of": 414
+   },
+   "learned": [
+    "actinic_flux_horizontal",
+    "box_ventilation_loss",
+    "condensate_loading",
+    "constant_pressure_expansion",
+    "cooper_jacob_early_time",
+    "cstr_vs_pfr",
+    "drop_size_truncation",
+    "effective_henry",
+    "freezing_latent_heat",
+    "fresnel_reflectance_grazing",
+    "frictional_three_force_balance",
+    "gradient_wind_curvature",
+    "gravity_wave_doppler_shift",
+    "ground_heat_flux_neglect",
+    "hydrostatic_constant_density",
+    "ice_saturation",
+    "isa_above_tropopause",
+    "isotope_mixing_weighting",
+    "kelvin_curvature",
+    "limiting_reagent",
+    "log_wind_stability",
+    "lognormal_mass",
+    "mie_geometric",
+    "mixed_layer_response",
+    "nonsteady_burden",
+    "optically_thin_emission",
+    "photostationary_peroxy",
+    "planck_linearization",
+    "ppm_conversion_pressure",
+    "pseudo_first_order",
+    "racemization_reversibility",
+    "raindrop_drag_regime",
+    "rossby_deformation",
+    "sea_ice_insulation",
+    "semivolatile_partitioning_temperature",
+    "shallow_water_wave_speed",
+    "solid_angle",
+    "taylor_dispersion",
+    "weak_acid_dissociation",
+    "weir_approach_velocity"
+   ]
+  },
+  "qwen35-9b": {
+   "mechanisms": 69,
+   "Z": 5,
+   "learned_definition": "any of A/D/F, any seed, >= 0.5 on training-fold outside rows",
+   "fisher_table_[Z_learned, Z_not],[nonZ_learned, nonZ_not]": [
+    [
+     2,
+     3
+    ],
+    [
+     62,
+     2
+    ]
+   ],
+   "fisher_p_two_sided": 0.0018223941192220003,
+   "auc_pass64": {
+    "auc": 0.978125,
+    "ci95": [
+     0.9404761904761905,
+     1.0
+    ],
+    "draws_used": 9922,
+    "n": 69,
+    "positives": 64
+   },
+   "auc_pass1": {
+    "auc": 0.978125,
+    "ci95": [
+     0.9404761904761905,
+     1.0
+    ],
+    "draws_used": 9953,
+    "n": 69,
+    "positives": 64
+   },
+   "spearman_by_k": {
+    "1": {
+     "rho": 0.6278262816375421,
+     "ci95_mechanism": [
+      0.47565593189124195,
+      0.742848316294324
+     ],
+     "n": 69
+    },
+    "8": {
+     "rho": 0.627877920345708,
+     "ci95_mechanism": [
+      0.47109883124985547,
+      0.7428511934946592
+     ],
+     "n": 69
+    },
+    "16": {
+     "rho": 0.6299249996454036,
+     "ci95_mechanism": [
+      0.4734335886433477,
+      0.7455507321731625
+     ],
+     "n": 69
+    },
+    "32": {
+     "rho": 0.6490772688939519,
+     "ci95_mechanism": [
+      0.4944719301638906,
+      0.7654189925035
+     ],
+     "n": 69
+    },
+    "64": {
+     "rho": 0.7552905294558396,
+     "ci95_mechanism": [
+      0.5313088875929471,
+      0.9171765647242947
+     ],
+     "n": 69,
+     "ci95_cluster": [
+      0.46163763259568685,
+      0.9210255193400546
+     ],
+     "loo_mechanism_min": 0.7344492976465379
+    }
+   },
+   "sensitivity_pass32_T0.7": {
+    "Z": 7,
+    "stay_at_or_below_0.10_every_arm_seed": 4,
+    "mechanisms": [
+     "ch4_forcing_sqrt",
+     "clausius_clapeyron_extrapolation",
+     "co2_forcing_log",
+     "drop_ventilation",
+     "ice_above_flotation",
+     "sonic_humidity_flux",
+     "sun_photometer_airmass"
+    ]
+   },
+   "accuracies_in_(0.1,0.9)": {
+    "count": 4,
+    "of": 207
+   },
+   "learned": [
+    "actinic_flux_horizontal",
+    "anelastic_continuity",
+    "bay_tidal_resonance",
+    "box_ventilation_loss",
+    "capillary_rise_gravity",
+    "co2_forcing_log",
+    "condensate_loading",
+    "constant_pressure_expansion",
+    "cooper_jacob_early_time",
+    "coriolis_neglect",
+    "cstr_vs_pfr",
+    "cunningham_slip",
+    "deposition_brownian",
+    "diffuse_transmission",
+    "displacement_height_canopy",
+    "doppler_aliasing",
+    "drop_size_truncation",
+    "effective_henry",
+    "freezing_latent_heat",
+    "freezing_point_depth",
+    "fresnel_reflectance_grazing",
+    "frictional_three_force_balance",
+    "gradient_wind_curvature",
+    "gravity_wave_doppler_shift",
+    "ground_heat_flux_neglect",
+    "henry_depletion",
+    "hydrostatic_constant_density",
+    "ice_capacitance_shape",
+    "ice_saturation",
+    "inertia_gravity_wave",
+    "ionic_strength_activity",
+    "isa_above_tropopause",
+    "isotope_mixing_weighting",
+    "kelvin_curvature",
+    "limiting_reagent",
+    "line_broadening",
+    "log_wind_stability",
+    "lognormal_mass",
+    "mie_geometric",
+    "mixed_layer_response",
+    "nonsteady_burden",
+    "optically_thin_emission",
+    "photostationary_peroxy",
+    "planck_linearization",
+    "plume_ground_reflection",
+    "ppm_conversion_pressure",
+    "pseudo_first_order",
+    "racemization_reversibility",
+    "radar_beam_height",
+    "raindrop_drag_regime",
+    "rossby_deformation",
+    "saturated_lapse",
+    "sea_ice_insulation",
+    "semivolatile_partitioning_temperature",
+    "shallow_water_wave_speed",
+    "snowpack_cold_content",
+    "solid_angle",
+    "spherical_slant_path",
+    "sun_photometer_airmass",
+    "surface_multiple_reflection",
+    "taylor_dispersion",
+    "unconfined_dupuit",
+    "weak_acid_dissociation",
+    "weir_approach_velocity"
+   ]
+  }
+ },
+ "p_curve": {
+  "dose": {
+   "auc_warm_p": 0.95,
+   "ci95": [
+    0.8352941176470589,
+    1.0
+   ],
+   "observations": 26,
+   "mechanisms": 16,
+   "isotonic": [
+    {
+     "p_from": 0.0,
+     "p_to": 0.0,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.00078125,
+     "p_to": 0.00078125,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.00078125,
+     "p_to": 0.00078125,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.003125,
+     "p_to": 0.003125,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.003125,
+     "p_to": 0.003125,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.003125,
+     "p_to": 0.003125,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.00390625,
+     "p_to": 0.00390625,
+     "learned_share": 0.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.0046875,
+     "p_to": 0.00625,
+     "learned_share": 0.5,
+     "n": 2
+    },
+    {
+     "p_from": 0.0078125,
+     "p_to": 0.015625,
+     "learned_share": 0.6,
+     "n": 5
+    },
+    {
+     "p_from": 0.021875,
+     "p_to": 0.021875,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.03203125,
+     "p_to": 0.03203125,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.0328125,
+     "p_to": 0.0328125,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.0484375,
+     "p_to": 0.0484375,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.04921875,
+     "p_to": 0.04921875,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.07265625,
+     "p_to": 0.07265625,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.3125,
+     "p_to": 0.3125,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.34921875,
+     "p_to": 0.34921875,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.48203125,
+     "p_to": 0.48203125,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.5078125,
+     "p_to": 0.5078125,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.53046875,
+     "p_to": 0.53046875,
+     "learned_share": 1.0,
+     "n": 1
+    },
+    {
+     "p_from": 0.60546875,
+     "p_to": 0.60546875,
+     "learned_share": 1.0,
+     "n": 1
+    }
+   ]
+  },
+  "x_qwen3-8b": {
+   "threshold": 0.02,
+   "table_[hi_learned, hi_not],[lo_learned, lo_not]": [
+    [
+     22,
+     1
+    ],
+    [
+     18,
+     28
+    ]
+   ],
+   "fisher_p_two_sided": 4.413915043173708e-06,
+   "share_learned_hi": 0.9565217391304348,
+   "share_learned_lo": 0.391304347826087
+  },
+  "x_qwen35-9b": {
+   "threshold": 0.02,
+   "table_[hi_learned, hi_not],[lo_learned, lo_not]": [
+    [
+     57,
+     0
+    ],
+    [
+     7,
+     5
+    ]
+   ],
+   "fisher_p_two_sided": 7.04719565657841e-05,
+   "share_learned_hi": 1.0,
+   "share_learned_lo": 0.5833333333333334
+  }
+ },
+ "frontier_batch": {
+  "batches": {
+   "pre_screening_2026-09-26/27": {
+    "templates": 30,
+    "kept_of": 30,
+    "clusters": 16,
+    "mean_rec_outside": 0.7925447084735011,
+    "ci95_cluster": [
+     0.6649807364977645,
+     0.8920555064130916
+    ],
+    "failing_at_or_below_0.5": [
+     "coriolis_neglect",
+     "evaporative_cooling_limit",
+     "finite_line_source",
+     "henry_depletion",
+     "inertia_gravity_wave",
+     "line_broadening",
+     "rossby_deformation"
+    ]
+   },
+   "post_screening": {
+    "templates": 42,
+    "kept_of": 42,
+    "clusters": 29,
+    "mean_rec_outside": 0.6118997891554282,
+    "ci95_cluster": [
+     0.4642980557454242,
+     0.7579663444325098
+    ],
+    "failing_at_or_below_0.5": [
+     "bay_tidal_resonance",
+     "capillary_rise_gravity",
+     "ch4_forcing_sqrt",
+     "clausius_clapeyron_extrapolation",
+     "co2_forcing_log",
+     "constant_pressure_expansion",
+     "deposition_brownian",
+     "diffuse_transmission",
+     "displacement_height_canopy",
+     "drop_ventilation",
+     "freezing_point_depth",
+     "ice_above_flotation",
+     "ice_capacitance_shape",
+     "raindrop_drag_regime",
+     "sonic_humidity_flux",
+     "sun_photometer_airmass",
+     "weir_approach_velocity"
+    ]
+   }
+  },
+  "first_commit_dates": {
+   "actinic_flux_horizontal": "2026-10-05",
+   "anelastic_continuity": "2026-09-26",
+   "bay_tidal_resonance": "2026-10-05",
+   "box_ventilation_loss": "2026-10-05",
+   "capillary_rise_gravity": "2026-10-05",
+   "ch4_forcing_sqrt": "2026-10-01",
+   "clausius_clapeyron_extrapolation": "2026-10-01",
+   "co2_forcing_log": "2026-10-01",
+   "condensate_loading": "2026-10-01",
+   "constant_pressure_expansion": "2026-10-05",
+   "cooper_jacob_early_time": "2026-10-02",
+   "coriolis_neglect": "2026-09-26",
+   "cstr_vs_pfr": "2026-10-01",
+   "cunningham_slip": "2026-09-26",
+   "deposition_brownian": "2026-10-01",
+   "diffuse_transmission": "2026-10-01",
+   "displacement_height_canopy": "2026-10-01",
+   "doppler_aliasing": "2026-09-26",
+   "drop_size_truncation": "2026-10-05",
+   "drop_ventilation": "2026-10-01",
+   "effective_henry": "2026-09-26",
+   "evaporative_cooling_limit": "2026-09-27",
+   "finite_line_source": "2026-09-26",
+   "freezing_latent_heat": "2026-10-01",
+   "freezing_point_depth": "2026-10-05",
+   "fresnel_reflectance_grazing": "2026-10-05",
+   "frictional_three_force_balance": "2026-10-01",
+   "gradient_wind_curvature": "2026-09-26",
+   "gravity_wave_doppler_shift": "2026-10-05",
+   "ground_heat_flux_neglect": "2026-10-01",
+   "henry_depletion": "2026-09-26",
+   "hydrostatic_constant_density": "2026-09-26",
+   "ice_above_flotation": "2026-10-05",
+   "ice_capacitance_shape": "2026-10-05",
+   "ice_saturation": "2026-09-27",
+   "inertia_gravity_wave": "2026-09-26",
+   "ionic_strength_activity": "2026-10-01",
+   "isa_above_tropopause": "2026-10-01",
+   "isotope_mixing_weighting": "2026-10-05",
+   "kelvin_curvature": "2026-09-26",
+   "limiting_reagent": "2026-10-01",
+   "line_broadening": "2026-09-26",
+   "log_wind_stability": "2026-09-26",
+   "lognormal_mass": "2026-09-27",
+   "mie_geometric": "2026-09-26",
+   "mixed_layer_response": "2026-09-26",
+   "nonsteady_burden": "2026-10-01",
+   "optically_thin_emission": "2026-09-26",
+   "photostationary_peroxy": "2026-10-01",
+   "planck_linearization": "2026-09-26",
+   "plume_ground_reflection": "2026-10-01",
+   "plume_mixing_lid": "2026-09-26",
+   "ppm_conversion_pressure": "2026-09-26",
+   "pseudo_first_order": "2026-09-26",
+   "racemization_reversibility": "2026-10-05",
+   "radar_beam_height": "2026-09-26",
+   "raindrop_drag_regime": "2026-10-01",
+   "rossby_deformation": "2026-09-26",
+   "saturated_lapse": "2026-09-26",
+   "sea_ice_insulation": "2026-10-05",
+   "semivolatile_partitioning_temperature": "2026-10-01",
+   "shallow_water_wave_speed": "2026-10-05",
+   "snowpack_cold_content": "2026-10-05",
+   "solid_angle": "2026-09-26",
+   "sonic_humidity_flux": "2026-10-05",
+   "spherical_slant_path": "2026-09-26",
+   "sun_photometer_airmass": "2026-10-01",
+   "surface_multiple_reflection": "2026-10-01",
+   "taylor_dispersion": "2026-09-26",
+   "unconfined_dupuit": "2026-10-05",
+   "weak_acid_dissociation": "2026-09-26",
+   "weir_approach_velocity": "2026-10-05"
+  },
+  "x5_deepseek_off": {
+   "templates": 13,
+   "mean_outside": 0.9192307692307692,
+   "mean_inside": 0.9461538461538462,
+   "failing_outside_at_or_below_0.5": [
+    "solenoid_finite"
+   ]
+  }
+ }
+}

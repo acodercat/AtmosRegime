@@ -1,0 +1,244 @@
+{
+ "rescue_by_type": {
+  "thinking": {
+   "dimensionless-number regime crossing": {
+    "templates": 8,
+    "clusters": 5,
+    "mean": 0.08604166100175194,
+    "ci95_cluster": [
+     0.0462785165900491,
+     0.15918019029474137
+    ],
+    "reportable": true
+   },
+   "fixed reservoir / steady state / reactant in excess": {
+    "templates": 8,
+    "clusters": 4,
+    "mean": 0.32615917147028933,
+    "ci95_cluster": [
+     0.26313951151965304,
+     0.3835294743894368
+    ],
+    "reportable": true
+   },
+   "geometric idealisation (plane-parallel, flat, infinite)": {
+    "templates": 10,
+    "clusters": 6,
+    "mean": 0.10762625704189173,
+    "ci95_cluster": [
+     0.04642365718217111,
+     0.21737247530591186
+    ],
+    "reportable": true
+   },
+   "linearisation / local-slope extrapolation": {
+    "templates": 14,
+    "clusters": 8,
+    "mean": 0.15672551026708478,
+    "ci95_cluster": [
+     0.07415810154471145,
+     0.27607020757020756
+    ],
+    "reportable": true
+   },
+   "neglected process / missing term": {
+    "templates": 22,
+    "clusters": 17,
+    "mean": 0.16234971347517083,
+    "ci95_cluster": [
+     0.11139520394571722,
+     0.206342298372246
+    ],
+    "reportable": true
+   },
+   "reference state / datum / boundary condition": {
+    "templates": 10,
+    "clusters": 10,
+    "mean": 0.07718131053181915,
+    "ci95_cluster": [
+     0.033654499120222246,
+     0.11958533890798376
+    ],
+    "reportable": true
+   }
+  },
+  "scale": {
+   "dimensionless-number regime crossing": {
+    "templates": 8,
+    "clusters": 5,
+    "mean": 0.30195982154670237,
+    "ci95_cluster": [
+     0.24148587319543202,
+     0.37489039475439295
+    ],
+    "reportable": true
+   },
+   "fixed reservoir / steady state / reactant in excess": {
+    "templates": 8,
+    "clusters": 4,
+    "mean": 0.13087035003395298,
+    "ci95_cluster": [
+     0.045446413214408565,
+     0.2238659147869674
+    ],
+    "reportable": true
+   },
+   "geometric idealisation (plane-parallel, flat, infinite)": {
+    "templates": 9,
+    "clusters": 6,
+    "mean": 0.34974484838283426,
+    "ci95_cluster": [
+     0.17368298196471574,
+     0.577294099901169
+    ],
+    "reportable": true
+   },
+   "linearisation / local-slope extrapolation": {
+    "templates": 13,
+    "clusters": 7,
+    "mean": 0.24608785386946852,
+    "ci95_cluster": [
+     0.151455990032752,
+     0.4123044677869239
+    ],
+    "reportable": true
+   },
+   "neglected process / missing term": {
+    "templates": 22,
+    "clusters": 17,
+    "mean": 0.21529944455113326,
+    "ci95_cluster": [
+     0.14793925325441384,
+     0.2826639556170785
+    ],
+    "reportable": true
+   },
+   "reference state / datum / boundary condition": {
+    "templates": 10,
+    "clusters": 10,
+    "mean": 0.25570555068426587,
+    "ci95_cluster": [
+     0.12549856447302268,
+     0.39105192193427485
+    ],
+    "reportable": true
+   }
+  }
+ },
+ "organisation_holm": {
+  "raw": {
+   "category": 0.7582241775822418,
+   "cluster": 0.15728427157284272,
+   "type": 0.26617338266173385
+  },
+  "holm": {
+   "cluster": 0.47185281471852814,
+   "type": 0.5323467653234677,
+   "category": 0.7582241775822418
+  }
+ },
+ "premerge_sensitivity": {
+  "icc": {
+   "icc": 0.022268697197580106,
+   "templates": 72,
+   "groups": 8,
+   "perm_p": 0.31956804319568044,
+   "draws": 10000
+  },
+  "group_means": {
+   "boundary / image source / finite domain": {
+    "templates": 3,
+    "clusters": 2,
+    "mean": 0.5412316121342824,
+    "ci95_cluster": [
+     0.41763382816014394,
+     0.7884271800825593
+    ],
+    "reportable": false
+   },
+   "dimensionless-number regime crossing": {
+    "templates": 8,
+    "clusters": 5,
+    "mean": 0.4576997426109752,
+    "ci95_cluster": [
+     0.34533455759926346,
+     0.5868469021764025
+    ],
+    "reportable": true
+   },
+   "fixed reservoir / steady state / reactant in excess": {
+    "templates": 8,
+    "clusters": 4,
+    "mean": 0.5817987129269903,
+    "ci95_cluster": [
+     0.29976978628705603,
+     0.7726030264079315
+    ],
+    "reportable": true
+   },
+   "geometric idealisation (plane-parallel, flat, infinite)": {
+    "templates": 7,
+    "clusters": 5,
+    "mean": 0.33501618737847766,
+    "ci95_cluster": [
+     0.20091792227717978,
+     0.49084989258861444
+    ],
+    "reportable": true
+   },
+   "instrument convention": {
+    "templates": 3,
+    "clusters": 3,
+    "mean": 0.32701219193817876,
+    "ci95_cluster": [
+     0.0,
+     0.5433721021303258
+    ],
+    "reportable": true
+   },
+   "linearisation / local-slope extrapolation": {
+    "templates": 14,
+    "clusters": 8,
+    "mean": 0.5933015148502923,
+    "ci95_cluster": [
+     0.467310023810162,
+     0.7515053307272826
+    ],
+    "reportable": true
+   },
+   "neglected process / missing term": {
+    "templates": 22,
+    "clusters": 17,
+    "mean": 0.3981491460869076,
+    "ci95_cluster": [
+     0.2902312355722766,
+     0.499869872859303
+    ],
+    "reportable": true
+   },
+   "reference state / datum / boundary condition": {
+    "templates": 7,
+    "clusters": 7,
+    "mean": 0.47011825967772136,
+    "ci95_cluster": [
+     0.27945624453428203,
+     0.6598785431007761
+    ],
+    "reportable": true
+   }
+  }
+ },
+ "type_vs_cluster": {
+  "clusters": 32,
+  "single_type_clusters": 17,
+  "templates_in_single_type_clusters": 20,
+  "templates": 72,
+  "icc_type_within_cluster": {
+   "icc": 0.02721294759892081,
+   "templates": 72,
+   "groups": 6,
+   "perm_p": 0.46125387461253875,
+   "draws": 10000
+  }
+ }
+}

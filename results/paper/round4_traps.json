@@ -1,0 +1,6550 @@
+{
+ "categories": {
+  "air_quality": [
+   "trap_ca_5.3_gen",
+   "trap_dn_15.19_gen",
+   "trap_dn_15.2_gen",
+   "trap_dn_4.4_regime",
+   "trap_jacob_13.4_p11",
+   "trap_turner_2_p11"
+  ],
+  "atmospheric_chemistry": [
+   "trap_11.1_gen",
+   "trap_6.1.4_gen",
+   "trap_6.2_gen",
+   "trap_6.6_gen",
+   "trap_dn_10.39_gen",
+   "trap_fp_13.2_gen",
+   "trap_fp_6.1_gen"
+  ],
+  "atmospheric_dynamics": [
+   "trap_5.3_gen",
+   "trap_5.7_regime",
+   "trap_5.9_gen",
+   "trap_air_202_regime",
+   "trap_air_226_gen",
+   "trap_holton_28_gen",
+   "trap_holton_38_gen",
+   "trap_holton_39_gen",
+   "trap_holton_5_gen",
+   "trap_p_108_gen",
+   "trap_p_96_gen"
+  ],
+  "atmospheric_thermodynamics": [
+   "trap_1.1_gen",
+   "trap_1.2_gen",
+   "trap_2.10_gen",
+   "trap_air_301_gen",
+   "trap_air_332_gen",
+   "trap_air_68_gen",
+   "trap_holton_50_gen"
+  ],
+  "climate_dynamics": [
+   "trap_7.4_gen",
+   "trap_7.5_gen",
+   "trap_jacob_8.2_gen"
+  ],
+  "other": [
+   "trap_3.4_regime",
+   "trap_3.8_gen",
+   "trap_7.1_gen",
+   "trap_7.6_regime",
+   "trap_air170_cunningham",
+   "trap_air_91_gen",
+   "trap_p_40_regime",
+   "trap_p_55_regime",
+   "trap_ry_12.2_gen",
+   "trap_ry_14.2_p11",
+   "trap_ry_5.1_p11",
+   "trap_ry_7.7_regime"
+  ]
+ },
+ "families": {
+  "ministral3-8b": {
+   "groups": {
+    "base": {
+     "all": {
+      "capture_share": 0.2,
+      "captured_rows": 8,
+      "failed_rows": 40,
+      "parent_acc": 0.3695652173913043,
+      "trap_acc": 0.13043478260869565,
+      "trap_acc_ci95": [
+       0.043478260869565216,
+       0.2391304347826087
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.2,
+       "captured_rows": 1,
+       "failed_rows": 5,
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.5,
+       "captured_rows": 2,
+       "failed_rows": 4,
+       "parent_acc": 0.2857142857142857,
+       "trap_acc": 0.42857142857142855,
+       "trap_acc_ci95": [
+        0.14285714285714285,
+        0.8571428571428571
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.1,
+       "captured_rows": 1,
+       "failed_rows": 10,
+       "parent_acc": 0.36363636363636365,
+       "trap_acc": 0.09090909090909091,
+       "trap_acc_ci95": [
+        0.0,
+        0.2727272727272727
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 1,
+       "failed_rows": 6,
+       "parent_acc": 0.42857142857142855,
+       "trap_acc": 0.14285714285714285,
+       "trap_acc_ci95": [
+        0.0,
+        0.42857142857142855
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "failed_rows": 3,
+       "parent_acc": 0.3333333333333333,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.25,
+       "captured_rows": 3,
+       "failed_rows": 12,
+       "parent_acc": 0.5,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 17,
+      "share": 0.17647058823529413,
+      "trap_right": 3
+     },
+     "endpoints": [
+      "x-ministral3-8b-base"
+     ],
+     "starts": []
+    },
+    "dose_rl": {
+     "all": {
+      "capture_share": 0.18791946308724833,
+      "captured_rows": 28,
+      "discordant_vs_start": {
+       "trap_right_only_after": 15,
+       "trap_right_only_before": 4
+      },
+      "failed_rows": 149,
+      "gain_over_start": {
+       "ci95": [
+        0.021739130434782608,
+        0.18478260869565216
+       ],
+       "mean": 0.10326086956521739,
+       "units": 46
+      },
+      "parent_acc": 0.42934782608695654,
+      "trap_acc": 0.19021739130434784,
+      "trap_acc_ci95": [
+       0.11413043478260869,
+       0.27717391304347827
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.17391304347826086,
+       "captured_rows": 4,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         -0.375,
+         0.125
+        ],
+        "mean": -0.08333333333333333,
+        "units": 6
+       },
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.041666666666666664,
+       "trap_acc_ci95": [
+        0.0,
+        0.125
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.5384615384615384,
+       "captured_rows": 7,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 2
+       },
+       "failed_rows": 13,
+       "gain_over_start": {
+        "ci95": [
+         -0.10714285714285714,
+         0.5
+        ],
+        "mean": 0.17857142857142858,
+        "units": 7
+       },
+       "parent_acc": 0.5714285714285714,
+       "trap_acc": 0.5357142857142857,
+       "trap_acc_ci95": [
+        0.25,
+        0.8214285714285714
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.12195121951219512,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 2,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 41,
+       "gain_over_start": {
+        "ci95": [
+         -0.045454545454545456,
+         0.1590909090909091
+        ],
+        "mean": 0.045454545454545456,
+        "units": 11
+       },
+       "parent_acc": 0.3181818181818182,
+       "trap_acc": 0.06818181818181818,
+       "trap_acc_ci95": [
+        0.0,
+        0.18181818181818182
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.23809523809523808,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 4,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 21,
+       "gain_over_start": {
+        "ci95": [
+         0.07142857142857142,
+         0.35714285714285715
+        ],
+        "mean": 0.21428571428571427,
+        "units": 7
+       },
+       "parent_acc": 0.5714285714285714,
+       "trap_acc": 0.25,
+       "trap_acc_ci95": [
+        0.07142857142857142,
+        0.4642857142857143
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 9,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.75
+        ],
+        "mean": 0.25,
+        "units": 3
+       },
+       "parent_acc": 0.0,
+       "trap_acc": 0.25,
+       "trap_acc_ci95": [
+        0.0,
+        0.75
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 7,
+       "discordant_vs_start": {
+        "trap_right_only_after": 4,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 42,
+       "gain_over_start": {
+        "ci95": [
+         0.020833333333333332,
+         0.20833333333333334
+        ],
+        "mean": 0.10416666666666667,
+        "units": 12
+       },
+       "parent_acc": 0.4791666666666667,
+       "trap_acc": 0.125,
+       "trap_acc_ci95": [
+        0.041666666666666664,
+        0.22916666666666666
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 79,
+      "share": 0.24050632911392406,
+      "trap_right": 19
+     },
+     "endpoints": [
+      "dose-ministral3-8b-F1-WA-s42",
+      "dose-ministral3-8b-F1-WA-s43",
+      "dose-ministral3-8b-F2-WA-s42",
+      "dose-ministral3-8b-F2-WA-s43"
+     ],
+     "starts": [
+      "sft-dose-ministral3-8b-F1-s42",
+      "sft-dose-ministral3-8b-F1-s43",
+      "sft-dose-ministral3-8b-F2-s42",
+      "sft-dose-ministral3-8b-F2-s43"
+     ]
+    },
+    "dose_rl_vs_base": {
+     "all": {
+      "capture_share": 0.18791946308724833,
+      "captured_rows": 28,
+      "discordant_vs_start": {
+       "trap_right_only_after": 14,
+       "trap_right_only_before": 4
+      },
+      "failed_rows": 149,
+      "gain_over_start": {
+       "ci95": [
+        -0.043478260869565216,
+        0.15760869565217392
+       ],
+       "mean": 0.059782608695652176,
+       "units": 46
+      },
+      "parent_acc": 0.42934782608695654,
+      "trap_acc": 0.19021739130434784,
+      "trap_acc_ci95": [
+       0.11413043478260869,
+       0.27717391304347827
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.17391304347826086,
+       "captured_rows": 4,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         -0.5,
+         0.125
+        ],
+        "mean": -0.125,
+        "units": 6
+       },
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.041666666666666664,
+       "trap_acc_ci95": [
+        0.0,
+        0.125
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.5384615384615384,
+       "captured_rows": 7,
+       "discordant_vs_start": {
+        "trap_right_only_after": 2,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 13,
+       "gain_over_start": {
+        "ci95": [
+         -0.14285714285714285,
+         0.39285714285714285
+        ],
+        "mean": 0.10714285714285714,
+        "units": 7
+       },
+       "parent_acc": 0.5714285714285714,
+       "trap_acc": 0.5357142857142857,
+       "trap_acc_ci95": [
+        0.25,
+        0.8214285714285714
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.12195121951219512,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 41,
+       "gain_over_start": {
+        "ci95": [
+         -0.20454545454545456,
+         0.13636363636363635
+        ],
+        "mean": -0.022727272727272728,
+        "units": 11
+       },
+       "parent_acc": 0.3181818181818182,
+       "trap_acc": 0.06818181818181818,
+       "trap_acc_ci95": [
+        0.0,
+        0.18181818181818182
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.23809523809523808,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 4,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 21,
+       "gain_over_start": {
+        "ci95": [
+         -0.32142857142857145,
+         0.42857142857142855
+        ],
+        "mean": 0.10714285714285714,
+        "units": 7
+       },
+       "parent_acc": 0.5714285714285714,
+       "trap_acc": 0.25,
+       "trap_acc_ci95": [
+        0.07142857142857142,
+        0.4642857142857143
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 9,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.75
+        ],
+        "mean": 0.25,
+        "units": 3
+       },
+       "parent_acc": 0.0,
+       "trap_acc": 0.25,
+       "trap_acc_ci95": [
+        0.0,
+        0.75
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 7,
+       "discordant_vs_start": {
+        "trap_right_only_after": 5,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 42,
+       "gain_over_start": {
+        "ci95": [
+         0.041666666666666664,
+         0.22916666666666666
+        ],
+        "mean": 0.125,
+        "units": 12
+       },
+       "parent_acc": 0.4791666666666667,
+       "trap_acc": 0.125,
+       "trap_acc_ci95": [
+        0.041666666666666664,
+        0.22916666666666666
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 79,
+      "share": 0.24050632911392406,
+      "trap_right": 19
+     },
+     "endpoints": [
+      "dose-ministral3-8b-F1-WA-s42",
+      "dose-ministral3-8b-F1-WA-s43",
+      "dose-ministral3-8b-F2-WA-s42",
+      "dose-ministral3-8b-F2-WA-s43"
+     ],
+     "starts": [
+      "x-ministral3-8b-base"
+     ]
+    },
+    "dose_warm": {
+     "all": {
+      "capture_share": 0.09523809523809523,
+      "captured_rows": 16,
+      "discordant_vs_start": {
+       "trap_right_only_after": 7,
+       "trap_right_only_before": 6
+      },
+      "failed_rows": 168,
+      "gain_over_start": {
+       "ci95": [
+        -0.14673913043478262,
+        0.043478260869565216
+       ],
+       "mean": -0.043478260869565216,
+       "units": 46
+      },
+      "parent_acc": 0.29347826086956524,
+      "trap_acc": 0.08695652173913043,
+      "trap_acc_ci95": [
+       0.03260869565217391,
+       0.15217391304347827
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.09523809523809523,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 21,
+       "gain_over_start": {
+        "ci95": [
+         -0.5,
+         0.375
+        ],
+        "mean": -0.041666666666666664,
+        "units": 6
+       },
+       "parent_acc": 0.25,
+       "trap_acc": 0.125,
+       "trap_acc_ci95": [
+        0.0,
+        0.375
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.1111111111111111,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 3
+       },
+       "failed_rows": 18,
+       "gain_over_start": {
+        "ci95": [
+         -0.42857142857142855,
+         0.25
+        ],
+        "mean": -0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.35714285714285715,
+       "trap_acc": 0.35714285714285715,
+       "trap_acc_ci95": [
+        0.14285714285714285,
+        0.5714285714285714
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.11627906976744186,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 43,
+       "gain_over_start": {
+        "ci95": [
+         -0.2727272727272727,
+         0.06818181818181818
+        ],
+        "mean": -0.06818181818181818,
+        "units": 11
+       },
+       "parent_acc": 0.20454545454545456,
+       "trap_acc": 0.022727272727272728,
+       "trap_acc_ci95": [
+        0.0,
+        0.06818181818181818
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.14814814814814814,
+       "captured_rows": 4,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 27,
+       "gain_over_start": {
+        "ci95": [
+         -0.42857142857142855,
+         0.10714285714285714
+        ],
+        "mean": -0.10714285714285714,
+        "units": 7
+       },
+       "parent_acc": 0.32142857142857145,
+       "trap_acc": 0.03571428571428571,
+       "trap_acc_ci95": [
+        0.0,
+        0.10714285714285714
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 3
+       },
+       "parent_acc": 0.0,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.06382978723404255,
+       "captured_rows": 3,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 47,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0625
+        ],
+        "mean": 0.020833333333333332,
+        "units": 12
+       },
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.020833333333333332,
+       "trap_acc_ci95": [
+        0.0,
+        0.0625
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 54,
+      "share": 0.14814814814814814,
+      "trap_right": 8
+     },
+     "endpoints": [
+      "sft-dose-ministral3-8b-F1-s42",
+      "sft-dose-ministral3-8b-F1-s43",
+      "sft-dose-ministral3-8b-F2-s42",
+      "sft-dose-ministral3-8b-F2-s43"
+     ],
+     "starts": [
+      "x-ministral3-8b-base"
+     ]
+    }
+   },
+   "per_trap": {
+    "base": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 1.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 1.0
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 1.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     }
+    },
+    "dose_rl": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.75
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.25
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 1.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 1,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_6.6_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_air_202_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.5
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 3,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.5
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     }
+    },
+    "dose_rl_vs_base": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.75
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.25
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 1.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 1,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_6.6_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_air_202_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.5
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 3,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.5
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     }
+    },
+    "dose_warm": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.25
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_6.1.4_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.75
+     },
+     "trap_6.6_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.5
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.75
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     }
+    }
+   }
+  },
+  "qwen3-8b": {
+   "groups": {
+    "base": {
+     "all": {
+      "capture_share": 0.08888888888888889,
+      "captured_rows": 4,
+      "failed_rows": 45,
+      "parent_acc": 0.30434782608695654,
+      "trap_acc": 0.021739130434782608,
+      "trap_acc_ci95": [
+       0.0,
+       0.06521739130434782
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 1,
+       "failed_rows": 6,
+       "parent_acc": 0.0,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 1,
+       "failed_rows": 6,
+       "parent_acc": 0.42857142857142855,
+       "trap_acc": 0.14285714285714285,
+       "trap_acc_ci95": [
+        0.0,
+        0.42857142857142855
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.18181818181818182,
+       "captured_rows": 2,
+       "failed_rows": 11,
+       "parent_acc": 0.36363636363636365,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "failed_rows": 7,
+       "parent_acc": 0.14285714285714285,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "failed_rows": 3,
+       "parent_acc": 0.3333333333333333,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "failed_rows": 12,
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 14,
+      "share": 0.07142857142857142,
+      "trap_right": 1
+     },
+     "endpoints": [
+      "x-qwen3-8b-base"
+     ],
+     "starts": []
+    },
+    "dose_rl": {
+     "all": {
+      "capture_share": 0.28859060402684567,
+      "captured_rows": 43,
+      "discordant_vs_start": {
+       "trap_right_only_after": 15,
+       "trap_right_only_before": 2
+      },
+      "failed_rows": 149,
+      "gain_over_start": {
+       "ci95": [
+        0.07608695652173914,
+        0.2391304347826087
+       ],
+       "mean": 0.15217391304347827,
+       "units": 46
+      },
+      "parent_acc": 0.391304347826087,
+      "trap_acc": 0.19021739130434784,
+      "trap_acc_ci95": [
+       0.10869565217391304,
+       0.2826086956521739
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.55,
+       "captured_rows": 11,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 20,
+       "gain_over_start": {
+        "ci95": [
+         -0.08333333333333333,
+         0.2916666666666667
+        ],
+        "mean": 0.125,
+        "units": 6
+       },
+       "parent_acc": 0.3333333333333333,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.041666666666666664,
+        0.3333333333333333
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.5,
+       "captured_rows": 6,
+       "discordant_vs_start": {
+        "trap_right_only_after": 4,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.07142857142857142,
+         0.7857142857142857
+        ],
+        "mean": 0.42857142857142855,
+        "units": 7
+       },
+       "parent_acc": 0.4642857142857143,
+       "trap_acc": 0.5714285714285714,
+       "trap_acc_ci95": [
+        0.2857142857142857,
+        0.8571428571428571
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.23076923076923078,
+       "captured_rows": 9,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 39,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.20454545454545456
+        ],
+        "mean": 0.09090909090909091,
+        "units": 11
+       },
+       "parent_acc": 0.3409090909090909,
+       "trap_acc": 0.11363636363636363,
+       "trap_acc_ci95": [
+        0.0,
+        0.22727272727272727
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.17391304347826086,
+       "captured_rows": 4,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         0.03571428571428571,
+         0.35714285714285715
+        ],
+        "mean": 0.17857142857142858,
+        "units": 7
+       },
+       "parent_acc": 0.4642857142857143,
+       "trap_acc": 0.17857142857142858,
+       "trap_acc_ci95": [
+        0.03571428571428571,
+        0.35714285714285715
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.1,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 10,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.25
+        ],
+        "mean": 0.08333333333333333,
+        "units": 3
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.26666666666666666,
+       "captured_rows": 12,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 45,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.1875
+        ],
+        "mean": 0.0625,
+        "units": 12
+       },
+       "parent_acc": 0.4375,
+       "trap_acc": 0.0625,
+       "trap_acc_ci95": [
+        0.0,
+        0.1875
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 72,
+      "share": 0.2638888888888889,
+      "trap_right": 19
+     },
+     "endpoints": [
+      "dose-qwen3-8b-F1-WA-s42",
+      "dose-qwen3-8b-F1-WA-s43",
+      "dose-qwen3-8b-F2-WA-s42",
+      "dose-qwen3-8b-F2-WA-s43"
+     ],
+     "starts": [
+      "sft-dose-qwen3-8b-F1-s42",
+      "sft-dose-qwen3-8b-F1-s43",
+      "sft-dose-qwen3-8b-F2-s42",
+      "sft-dose-qwen3-8b-F2-s43"
+     ]
+    },
+    "dose_rl_vs_base": {
+     "all": {
+      "capture_share": 0.28859060402684567,
+      "captured_rows": 43,
+      "discordant_vs_start": {
+       "trap_right_only_after": 15,
+       "trap_right_only_before": 1
+      },
+      "failed_rows": 149,
+      "gain_over_start": {
+       "ci95": [
+        0.08695652173913043,
+        0.2554347826086957
+       ],
+       "mean": 0.16847826086956522,
+       "units": 46
+      },
+      "parent_acc": 0.391304347826087,
+      "trap_acc": 0.19021739130434784,
+      "trap_acc_ci95": [
+       0.10869565217391304,
+       0.27717391304347827
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.55,
+       "captured_rows": 11,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 20,
+       "gain_over_start": {
+        "ci95": [
+         0.041666666666666664,
+         0.3333333333333333
+        ],
+        "mean": 0.16666666666666666,
+        "units": 6
+       },
+       "parent_acc": 0.3333333333333333,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.041666666666666664,
+        0.3333333333333333
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.5,
+       "captured_rows": 6,
+       "discordant_vs_start": {
+        "trap_right_only_after": 4,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.07142857142857142,
+         0.7857142857142857
+        ],
+        "mean": 0.42857142857142855,
+        "units": 7
+       },
+       "parent_acc": 0.4642857142857143,
+       "trap_acc": 0.5714285714285714,
+       "trap_acc_ci95": [
+        0.25,
+        0.8571428571428571
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.23076923076923078,
+       "captured_rows": 9,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 39,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.25
+        ],
+        "mean": 0.11363636363636363,
+        "units": 11
+       },
+       "parent_acc": 0.3409090909090909,
+       "trap_acc": 0.11363636363636363,
+       "trap_acc_ci95": [
+        0.0,
+        0.25
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.17391304347826086,
+       "captured_rows": 4,
+       "discordant_vs_start": {
+        "trap_right_only_after": 3,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         0.03571428571428571,
+         0.35714285714285715
+        ],
+        "mean": 0.17857142857142858,
+        "units": 7
+       },
+       "parent_acc": 0.4642857142857143,
+       "trap_acc": 0.17857142857142858,
+       "trap_acc_ci95": [
+        0.03571428571428571,
+        0.35714285714285715
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.1,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 10,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.5
+        ],
+        "mean": 0.16666666666666666,
+        "units": 3
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.26666666666666666,
+       "captured_rows": 12,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 45,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.1875
+        ],
+        "mean": 0.0625,
+        "units": 12
+       },
+       "parent_acc": 0.4375,
+       "trap_acc": 0.0625,
+       "trap_acc_ci95": [
+        0.0,
+        0.1875
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 72,
+      "share": 0.2638888888888889,
+      "trap_right": 19
+     },
+     "endpoints": [
+      "dose-qwen3-8b-F1-WA-s42",
+      "dose-qwen3-8b-F1-WA-s43",
+      "dose-qwen3-8b-F2-WA-s42",
+      "dose-qwen3-8b-F2-WA-s43"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    },
+    "dose_warm": {
+     "all": {
+      "capture_share": 0.04519774011299435,
+      "captured_rows": 8,
+      "discordant_vs_start": {
+       "trap_right_only_after": 3,
+       "trap_right_only_before": 0
+      },
+      "failed_rows": 177,
+      "gain_over_start": {
+       "ci95": [
+        0.0,
+        0.03804347826086957
+       ],
+       "mean": 0.016304347826086956,
+       "units": 46
+      },
+      "parent_acc": 0.22282608695652173,
+      "trap_acc": 0.03804347826086957,
+      "trap_acc_ci95": [
+       0.005434782608695652,
+       0.09239130434782608
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.08695652173913043,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.125
+        ],
+        "mean": 0.041666666666666664,
+        "units": 6
+       },
+       "parent_acc": 0.08333333333333333,
+       "trap_acc": 0.041666666666666664,
+       "trap_acc_ci95": [
+        0.0,
+        0.125
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 24,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 7
+       },
+       "parent_acc": 0.39285714285714285,
+       "trap_acc": 0.14285714285714285,
+       "trap_acc_ci95": [
+        0.0,
+        0.42857142857142855
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.046511627906976744,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 43,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.06818181818181818
+        ],
+        "mean": 0.022727272727272728,
+        "units": 11
+       },
+       "parent_acc": 0.13636363636363635,
+       "trap_acc": 0.022727272727272728,
+       "trap_acc_ci95": [
+        0.0,
+        0.06818181818181818
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.03571428571428571,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 28,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 7
+       },
+       "parent_acc": 0.10714285714285714,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.09090909090909091,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 11,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.25
+        ],
+        "mean": 0.08333333333333333,
+        "units": 3
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.08333333333333333,
+       "trap_acc_ci95": [
+        0.0,
+        0.25
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.041666666666666664,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 48,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 12
+       },
+       "parent_acc": 0.3541666666666667,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 41,
+      "share": 0.12195121951219512,
+      "trap_right": 5
+     },
+     "endpoints": [
+      "sft-dose-qwen3-8b-F1-s42",
+      "sft-dose-qwen3-8b-F1-s43",
+      "sft-dose-qwen3-8b-F2-s42",
+      "sft-dose-qwen3-8b-F2-s43"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    },
+    "opd_P": {
+     "all": {
+      "capture_share": 0.08045977011494253,
+      "captured_rows": 14,
+      "discordant_vs_start": {
+       "trap_right_only_after": 5,
+       "trap_right_only_before": 1
+      },
+      "failed_rows": 174,
+      "gain_over_start": {
+       "ci95": [
+        0.0,
+        0.07065217391304347
+       ],
+       "mean": 0.03260869565217391,
+       "units": 46
+      },
+      "parent_acc": 0.2608695652173913,
+      "trap_acc": 0.05434782608695652,
+      "trap_acc_ci95": [
+       0.016304347826086956,
+       0.10326086956521739
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.043478260869565216,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.125
+        ],
+        "mean": 0.041666666666666664,
+        "units": 6
+       },
+       "parent_acc": 0.08333333333333333,
+       "trap_acc": 0.041666666666666664,
+       "trap_acc_ci95": [
+        0.0,
+        0.125
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 24,
+       "gain_over_start": {
+        "ci95": [
+         -0.10714285714285714,
+         0.10714285714285714
+        ],
+        "mean": 0.0,
+        "units": 7
+       },
+       "parent_acc": 0.39285714285714285,
+       "trap_acc": 0.14285714285714285,
+       "trap_acc_ci95": [
+        0.0,
+        0.35714285714285715
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.20454545454545456,
+       "captured_rows": 9,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 44,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 11
+       },
+       "parent_acc": 0.22727272727272727,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.11538461538461539,
+       "captured_rows": 3,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 26,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.21428571428571427
+        ],
+        "mean": 0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.17857142857142858,
+       "trap_acc": 0.07142857142857142,
+       "trap_acc_ci95": [
+        0.0,
+        0.21428571428571427
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 10,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.5
+        ],
+        "mean": 0.16666666666666666,
+        "units": 3
+       },
+       "parent_acc": 0.08333333333333333,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.02127659574468085,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 47,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0625
+        ],
+        "mean": 0.020833333333333332,
+        "units": 12
+       },
+       "parent_acc": 0.3958333333333333,
+       "trap_acc": 0.020833333333333332,
+       "trap_acc_ci95": [
+        0.0,
+        0.0625
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 48,
+      "share": 0.08333333333333333,
+      "trap_right": 4
+     },
+     "endpoints": [
+      "opd-qwen3-8b-F1-P-s42",
+      "opd-qwen3-8b-F1-P-s43",
+      "opd-qwen3-8b-F2-P-s42",
+      "opd-qwen3-8b-F2-P-s43"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    },
+    "opd_Pk2": {
+     "all": {
+      "capture_share": 0.10588235294117647,
+      "captured_rows": 9,
+      "discordant_vs_start": {
+       "trap_right_only_after": 4,
+       "trap_right_only_before": 0
+      },
+      "failed_rows": 85,
+      "gain_over_start": {
+       "ci95": [
+        0.010869565217391304,
+        0.11956521739130435
+       ],
+       "mean": 0.05434782608695652,
+       "units": 46
+      },
+      "parent_acc": 0.2608695652173913,
+      "trap_acc": 0.07608695652173914,
+      "trap_acc_ci95": [
+       0.021739130434782608,
+       0.15217391304347827
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 6
+       },
+       "parent_acc": 0.0,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 11,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.21428571428571427
+        ],
+        "mean": 0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.2857142857142857,
+       "trap_acc": 0.21428571428571427,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.23809523809523808,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 21,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.13636363636363635
+        ],
+        "mean": 0.045454545454545456,
+        "units": 11
+       },
+       "parent_acc": 0.2727272727272727,
+       "trap_acc": 0.045454545454545456,
+       "trap_acc_ci95": [
+        0.0,
+        0.13636363636363635
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 13,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.21428571428571427
+        ],
+        "mean": 0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.21428571428571427,
+       "trap_acc": 0.07142857142857142,
+       "trap_acc_ci95": [
+        0.0,
+        0.21428571428571427
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 4,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         1.0
+        ],
+        "mean": 0.3333333333333333,
+        "units": 3
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.3333333333333333,
+       "trap_acc_ci95": [
+        0.0,
+        1.0
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.08333333333333333,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 24,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 12
+       },
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 24,
+      "share": 0.125,
+      "trap_right": 3
+     },
+     "endpoints": [
+      "opd-qwen3-8b-F1-Pk2-s42",
+      "opd-qwen3-8b-F2-Pk2-s42"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    },
+    "opd_Pk3": {
+     "all": {
+      "capture_share": 0.09090909090909091,
+      "captured_rows": 8,
+      "discordant_vs_start": {
+       "trap_right_only_after": 2,
+       "trap_right_only_before": 1
+      },
+      "failed_rows": 88,
+      "gain_over_start": {
+       "ci95": [
+        -0.021739130434782608,
+        0.07608695652173914
+       ],
+       "mean": 0.021739130434782608,
+       "units": 46
+      },
+      "parent_acc": 0.29347826086956524,
+      "trap_acc": 0.043478260869565216,
+      "trap_acc_ci95": [
+       0.0,
+       0.09782608695652174
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.08333333333333333,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 6
+       },
+       "parent_acc": 0.08333333333333333,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 11,
+       "gain_over_start": {
+        "ci95": [
+         -0.21428571428571427,
+         0.42857142857142855
+        ],
+        "mean": 0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.42857142857142855,
+       "trap_acc": 0.21428571428571427,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.2857142857142857,
+       "captured_rows": 6,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 21,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.13636363636363635
+        ],
+        "mean": 0.045454545454545456,
+        "units": 11
+       },
+       "parent_acc": 0.2727272727272727,
+       "trap_acc": 0.045454545454545456,
+       "trap_acc_ci95": [
+        0.0,
+        0.13636363636363635
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.07142857142857142,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 14,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 7
+       },
+       "parent_acc": 0.21428571428571427,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 6,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 3
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 24,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 12
+       },
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 27,
+      "share": 0.14814814814814814,
+      "trap_right": 4
+     },
+     "endpoints": [
+      "opd-qwen3-8b-F1-Pk3-s42",
+      "opd-qwen3-8b-F2-Pk3-s42"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    },
+    "opd_Pshuf": {
+     "all": {
+      "capture_share": 0.1511627906976744,
+      "captured_rows": 13,
+      "discordant_vs_start": {
+       "trap_right_only_after": 5,
+       "trap_right_only_before": 1
+      },
+      "failed_rows": 86,
+      "gain_over_start": {
+       "ci95": [
+        0.0,
+        0.09782608695652174
+       ],
+       "mean": 0.043478260869565216,
+       "units": 46
+      },
+      "parent_acc": 0.2717391304347826,
+      "trap_acc": 0.06521739130434782,
+      "trap_acc_ci95": [
+       0.021739130434782608,
+       0.11956521739130435
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 6
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 2,
+        "trap_right_only_before": 1
+       },
+       "failed_rows": 11,
+       "gain_over_start": {
+        "ci95": [
+         -0.14285714285714285,
+         0.2857142857142857
+        ],
+        "mean": 0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.35714285714285715,
+       "trap_acc": 0.21428571428571427,
+       "trap_acc_ci95": [
+        0.07142857142857142,
+        0.42857142857142855
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.38095238095238093,
+       "captured_rows": 8,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 21,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.13636363636363635
+        ],
+        "mean": 0.045454545454545456,
+        "units": 11
+       },
+       "parent_acc": 0.3181818181818182,
+       "trap_acc": 0.045454545454545456,
+       "trap_acc_ci95": [
+        0.0,
+        0.13636363636363635
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.07142857142857142,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 14,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 7
+       },
+       "parent_acc": 0.07142857142857142,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 5,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.5
+        ],
+        "mean": 0.16666666666666666,
+        "units": 3
+       },
+       "parent_acc": 0.16666666666666666,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.08695652173913043,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 23,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.125
+        ],
+        "mean": 0.041666666666666664,
+        "units": 12
+       },
+       "parent_acc": 0.375,
+       "trap_acc": 0.041666666666666664,
+       "trap_acc_ci95": [
+        0.0,
+        0.125
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 25,
+      "share": 0.08,
+      "trap_right": 2
+     },
+     "endpoints": [
+      "opd-qwen3-8b-F1-Pshuf-s42",
+      "opd-qwen3-8b-F2-Pshuf-s42"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    },
+    "opd_S": {
+     "all": {
+      "capture_share": 0.14772727272727273,
+      "captured_rows": 13,
+      "discordant_vs_start": {
+       "trap_right_only_after": 2,
+       "trap_right_only_before": 0
+      },
+      "failed_rows": 88,
+      "gain_over_start": {
+       "ci95": [
+        0.0,
+        0.05434782608695652
+       ],
+       "mean": 0.021739130434782608,
+       "units": 46
+      },
+      "parent_acc": 0.22826086956521738,
+      "trap_acc": 0.043478260869565216,
+      "trap_acc_ci95": [
+       0.0,
+       0.09782608695652174
+      ],
+      "traps": 46
+     },
+     "by_category": {
+      "air_quality": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 2,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 12,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 6
+       },
+       "parent_acc": 0.0,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 6
+      },
+      "atmospheric_chemistry": {
+       "capture_share": 0.09090909090909091,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 11,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.21428571428571427
+        ],
+        "mean": 0.07142857142857142,
+        "units": 7
+       },
+       "parent_acc": 0.2857142857142857,
+       "trap_acc": 0.21428571428571427,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 7
+      },
+      "atmospheric_dynamics": {
+       "capture_share": 0.22727272727272727,
+       "captured_rows": 5,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 22,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 11
+       },
+       "parent_acc": 0.13636363636363635,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 11
+      },
+      "atmospheric_thermodynamics": {
+       "capture_share": 0.07142857142857142,
+       "captured_rows": 1,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 14,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 7
+       },
+       "parent_acc": 0.14285714285714285,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 7
+      },
+      "climate_dynamics": {
+       "capture_share": 0.0,
+       "captured_rows": 0,
+       "discordant_vs_start": {
+        "trap_right_only_after": 1,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 5,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.5
+        ],
+        "mean": 0.16666666666666666,
+        "units": 3
+       },
+       "parent_acc": 0.3333333333333333,
+       "trap_acc": 0.16666666666666666,
+       "trap_acc_ci95": [
+        0.0,
+        0.5
+       ],
+       "traps": 3
+      },
+      "other": {
+       "capture_share": 0.16666666666666666,
+       "captured_rows": 4,
+       "discordant_vs_start": {
+        "trap_right_only_after": 0,
+        "trap_right_only_before": 0
+       },
+       "failed_rows": 24,
+       "gain_over_start": {
+        "ci95": [
+         0.0,
+         0.0
+        ],
+        "mean": 0.0,
+        "units": 12
+       },
+       "parent_acc": 0.4166666666666667,
+       "trap_acc": 0.0,
+       "trap_acc_ci95": [
+        0.0,
+        0.0
+       ],
+       "traps": 12
+      }
+     },
+     "conditional": {
+      "parent_right": 21,
+      "share": 0.14285714285714285,
+      "trap_right": 3
+     },
+     "endpoints": [
+      "opd-qwen3-8b-F1-S-s42",
+      "opd-qwen3-8b-F2-S-s42"
+     ],
+     "starts": [
+      "x-qwen3-8b-base"
+     ]
+    }
+   },
+   "per_trap": {
+    "base": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 1,
+      "parent": 0.0,
+      "trap": 0.0
+     }
+    },
+    "dose_rl": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.25
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.5
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 1.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_air_91_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 2,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.25
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.75
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_holton_28_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.5
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.25
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.75
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     }
+    },
+    "dose_rl_vs_base": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.25
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.5
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 1.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_air_91_gen": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 2,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.25
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.75
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.75
+     },
+     "trap_holton_28_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.5
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.25
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 4,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.75
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     }
+    },
+    "dose_warm": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 1,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.25
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.25
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     }
+    },
+    "opd_P": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.25
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 0,
+      "failed": 3,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.25
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.75
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 2,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 3,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.75,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 1,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 4,
+      "n": 4,
+      "parent": 0.25,
+      "trap": 0.0
+     }
+    },
+    "opd_Pk2": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 1.0
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     }
+    },
+    "opd_Pk3": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_1.2_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     }
+    },
+    "opd_Pshuf": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 1,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.5
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 1,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     }
+    },
+    "opd_S": {
+     "trap_1.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_1.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_11.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_2.10_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.4_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_3.8_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.3_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_5.9_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.5,
+      "trap": 0.0
+     },
+     "trap_6.1.4_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_6.2_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.5
+     },
+     "trap_6.6_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_7.4_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_7.5_gen": {
+      "captured": 0,
+      "failed": 1,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.5
+     },
+     "trap_7.6_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air170_cunningham": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_202_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_226_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_301_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_332_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_air_68_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_air_91_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_ca_5.3_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_10.39_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.19_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_15.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_dn_4.4_regime": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_fp_13.2_gen": {
+      "captured": 0,
+      "failed": 0,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 1.0
+     },
+     "trap_fp_6.1_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_28_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_38_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_39_gen": {
+      "captured": 2,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_50_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_holton_5_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_13.4_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_jacob_8.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_108_gen": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_40_regime": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_55_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 1.0,
+      "trap": 0.0
+     },
+     "trap_p_96_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_12.2_gen": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_14.2_p11": {
+      "captured": 1,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_5.1_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_ry_7.7_regime": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     },
+     "trap_turner_2_p11": {
+      "captured": 0,
+      "failed": 2,
+      "n": 2,
+      "parent": 0.0,
+      "trap": 0.0
+     }
+    }
+   },
+   "vs_x_A": {
+    "A_trap_acc": 0.16847826086956522,
+    "WA_trap_acc": 0.15217391304347827,
+    "base_trap_acc": 0.021739130434782608,
+    "dose_rl_minus_A": {
+     "ci95": [
+      -0.021739130434782608,
+      0.06521739130434782
+     ],
+     "mean": 0.021739130434782608,
+     "units": 46
+    },
+    "dose_rl_minus_WA": {
+     "ci95": [
+      -0.021739130434782608,
+      0.09782608695652174
+     ],
+     "mean": 0.03804347826086957,
+     "units": 46
+    },
+    "dose_rl_trap_acc": 0.19021739130434784,
+    "reading": "注入的模板知识没有额外迁移到教科书陷阱"
+   }
+  }
+ },
+ "traps": 46
+}

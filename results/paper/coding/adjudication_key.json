@@ -1,0 +1,70 @@
+{
+ "templates/anelastic_continuity": {
+  "A": "linearisation / local-slope extrapolation",
+  "B": "reference state / datum / boundary condition"
+ },
+ "templates/cooper_jacob_early_time": {
+  "A": "dimensionless-number regime crossing",
+  "B": "linearisation / local-slope extrapolation"
+ },
+ "templates/fresnel_reflectance_grazing": {
+  "A": "linearisation / local-slope extrapolation",
+  "B": "geometric idealisation (plane-parallel, flat, infinite)"
+ },
+ "templates/hydrostatic_constant_density": {
+  "A": "reference state / datum / boundary condition",
+  "B": "linearisation / local-slope extrapolation"
+ },
+ "templates/ionic_strength_activity": {
+  "A": "neglected process / missing term",
+  "B": "reference state / datum / boundary condition"
+ },
+ "templates/line_broadening": {
+  "A": "dimensionless-number regime crossing",
+  "B": "neglected process / missing term"
+ },
+ "templates/unconfined_dupuit": {
+  "A": "fixed reservoir / steady state / reactant in excess",
+  "B": "linearisation / local-slope extrapolation"
+ },
+ "traps/trap_6.6_gen": {
+  "A": "reference state / datum / boundary condition",
+  "B": "neglected process / missing term"
+ },
+ "traps/trap_air_405_gen": {
+  "A": "linearisation / local-slope extrapolation",
+  "B": "reference state / datum / boundary condition"
+ },
+ "traps/trap_ca_5.1_gen": {
+  "A": "neglected process / missing term",
+  "B": "dimensionless-number regime crossing"
+ },
+ "traps/trap_dn_13.4_gen": {
+  "A": "reference state / datum / boundary condition",
+  "B": "neglected process / missing term"
+ },
+ "traps/trap_dn_15.18_gen": {
+  "A": "reference state / datum / boundary condition",
+  "B": "neglected process / missing term"
+ },
+ "traps/trap_fp_2.4_gen": {
+  "A": "neglected process / missing term",
+  "B": "reference state / datum / boundary condition"
+ },
+ "traps/trap_holton_38_gen": {
+  "A": "fixed reservoir / steady state / reactant in excess",
+  "B": "neglected process / missing term"
+ },
+ "traps/trap_p_70_gen": {
+  "A": "neglected process / missing term",
+  "B": "reference state / datum / boundary condition"
+ },
+ "traps/trap_ry_14.2_p11": {
+  "A": "fixed reservoir / steady state / reactant in excess",
+  "B": "reference state / datum / boundary condition"
+ },
+ "traps/trap_snp_4_gen": {
+  "A": "reference state / datum / boundary condition",
+  "B": "neglected process / missing term"
+ }
+}

@@ -1,0 +1,1239 @@
+{
+ "A_frontier_silent_failure": [
+  {
+   "trap": "trap_holton_28_gen",
+   "category": "atmospheric_dynamics",
+   "mechanism": null,
+   "problem": "Two balls 4 cm in diameter are placed with their centers 8 cm apart on a frictionless horizontal plane at 43°N. If the balls are impulsively propelled directly at each other with equal speeds, at what speed must they travel so that they just miss each other?",
+   "parent": "holton_28",
+   "parent_problem": "Two balls 4 cm in diameter are placed 100 m apart on a frictionless horizontal plane at 43°N. If the balls are impulsively propelled directly at each other with equal speeds, at what speed must they travel so that they just miss each other?",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 2.984e-06,
+     "unit": "m/s"
+    }
+   ],
+   "shortcut_values": {
+    "1": 3.978568868148536e-06
+   },
+   "runs_failed_captured": "3/3",
+   "parent_passed": "3/3",
+   "response": "We can treat this as a problem of relative motion on a rotating Earth.  \nThe key is that the Coriolis effect will deflect each ball sideways, and for them to just miss, the deflection must equal half the separation between centers.\n\n---\n\n**Step 1 – Geometry**  \nBall diameter = 4 cm → radius = 2 cm.  \nCenters initially 8 cm apart → surface-to-surface gap = 8 − 4 = 4 cm.  \nFor a \"just miss\", each ball must deflect sideways by 2 cm (half the gap) by the time they meet.\n\n---\n\n**Step 2 – Coriolis deflection**  \nOn a horizontal frictionless plane at latitude φ, a horizontally moving object experiences a Coriolis acceleration:\n\n\\[\na_c = 2 \\, \\Omega \\, v \\, \\sin\\phi\n\\]\n\nwhere  \n\\(\\Omega = 7.2921 \\times 10^{-5} \\, \\text{rad/s}\\) (Earth’s rotation rate),  \n\\(\\phi = 43^\\circ\\)N,  \n\\(v\\) = speed of each ball.\n\nThe deflection perpendicular to the initial direction over time \\(t\\) is:\n\n\\[\nd = \\frac{1}{2} a_c t^2\n\\]\n\n---\n\n**Step 3 – Time to meet**  \nInitial separation = 8 cm = 0.08 m.  \nEach travels at speed \\(v\\), so relative speed = \\(2v\\).  \nTime to meet:\n\n\\[\nt = \\frac{0.08}{2v} = \\frac{0.04}{v}\n\\]\n\n---\n\n**Step 4 – Set deflection equal to 0.02 m**  \n\n\\[\n0.02 = \\frac{1}{2} (2 \\Omega v \\sin\\phi) \\, t^2\n\\]\n\nSubstitute \\(t = 0.04 / v\\):\n\n\\[\n0.02 = \\Omega v \\sin\\phi \\cdot \\frac{(0.04)^2}{v^2}\n\\]\n\n\\[\n0.02 = \\Omega \\sin\\phi \\cdot \\frac{0.0016}{v}\n\\]\n\n\\[\nv = \\frac{\\Omega \\sin\\phi \\cdot 0.0016}{0.02}\n\\]\n\n---\n\n**Step 5 – Compute**  \n\n\\(\\sin 43^\\circ \\approx 0.681998\\)  \n\n\\[\nv = \\frac{7.2921\\times10^{-5} \\times 0.681998 \\times 0.0016}{0.02}\n\\]\n\n\\[\nv \\approx 3.979 \\times 10^{-6} \\, \\text{m/s}\n\\]\n\nThat is about \\(4 \\times 10^{-6}\\) m/s — extremely slow, as expected for a small-scale Coriolis effect.\n\n---\n\n```python\nimport math\n\ndef solve(\n    diameter_cm: float = 4.0,\n    center_distance_cm: float = 8.0,\n    latitude_deg: float = 43.0,\n    Omega: float = 7.2921e-5  # rad/s\n):\n    # Convert to meters\n    diameter_m = diameter_cm / 100.0\n    center_distance_m = center_distance_cm / 100.0\n    \n    # Gap between surfaces\n    gap_m = center_distance_m - diameter_m\n    \n    # Each ball must deflect by half the gap to just miss\n    deflection_m = gap_m / 2.0\n    \n    # Latitude in radians\n    phi = math.radians(latitude_deg)\n    sin_phi = math.sin(phi)\n    \n    # From deflection formula: deflection = Omega * sin(phi) * (0.04)^2 / v\n    # with t = 0.04 / v\n    # deflection = Omega * sin(phi) * (0.04^2) / v\n    # => v = Omega * sin(phi) * (0.04^2) / deflection\n    \n    half_distance_m = center_distance_m / 2.0  # = 0.04 m\n    v = Omega * sin_phi * (half_distance_m ** 2) / deflection_m\n    \n    return {\n        \"1\": {\"value\": v, \"unit\": \"m/s\"}\n    }\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      2.984e-06
+     ],
+     "actual": 3.978560193129396e-06,
+     "passed": false,
+     "expected_units": [
+      "m/s"
+     ]
+    }
+   ]
+  },
+  {
+   "trap": "trap_7.1_gen",
+   "category": "observation_and_modeling",
+   "mechanism": "shell radius a+z in a limb path (z << a approximation crossed)",
+   "problem": "Consider a thin layer of gas of uniform density between altitudes z = 3000 km and z + d in a spherical atmosphere around Earth, emitting thermal radiation. The Earth's radius is a = 6371 km. Find the ratio of the maximum mass of the gas in a limb-viewing path to the mass of gas in a nadir-viewing path. Evaluate this ratio for d = 10 km.",
+   "parent": "7.1",
+   "parent_problem": "Consider a thin layer of gas of uniform density, between altitudes z and z + d in a spherical atmosphere, emitting thermal radiation. Show that the ratio of the maximum mass of the gas in a limb-viewing path to the mass of gas in a nadir-viewing path is approximately $(8a/d)^{1/2}$, where a is the Earth's radius. Evaluate this ratio for d = 10 km and comment on your result.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 86.6071590574359,
+     "unit": ""
+    }
+   ],
+   "shortcut_values": {
+    "1": 71.39187628855261
+   },
+   "runs_failed_captured": "3/3",
+   "parent_passed": "3/3",
+   "response": "```python\nimport math\n\ndef solve(a=6371, d=10):\n    \"\"\"\n    Compute the ratio of the maximum mass of gas in a limb-viewing path\n    to the mass of gas in a nadir-viewing path for a thin spherical shell.\n    \n    Parameters:\n    a : Earth radius in km (default 6371)\n    d : shell thickness in km (default 10)\n    \n    Returns:\n    dict with one entry \"1\" mapping to {\"value\": ratio, \"unit\": \"dimensionless\"}\n    \"\"\"\n    # For a thin shell of uniform density, the nadir path length is simply d.\n    # The maximum limb path length is the chord through the shell at the\n    # tangent point. For a spherical shell of inner radius R = a and outer\n    # radius R+d, the maximum limb path length is:\n    # L_limb = 2 * sqrt((a+d)^2 - a^2) = 2 * sqrt(2*a*d + d^2)\n    \n    R_inner = a\n    R_outer = a + d\n    \n    # Maximum limb path length (tangent to Earth's surface)\n    L_limb = 2 * math.sqrt(R_outer**2 - R_inner**2)\n    \n    # Nadir path length\n    L_nadir = d\n    \n    # Since density is uniform, mass ratio = path length ratio\n    ratio = L_limb / L_nadir\n    \n    return {\n        \"1\": {\"value\": ratio, \"unit\": \"dimensionless\"}\n    }\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      86.6071590574359
+     ],
+     "expected_units": [
+      ""
+     ],
+     "actual": 71.41988518613006,
+     "actual_unit": "dimensionless",
+     "passed": false
+    }
+   ]
+  },
+  {
+   "trap": "trap_13.5_gen",
+   "category": "atmospheric_chemistry",
+   "mechanism": "water autoionisation floor on weak-acid pH",
+   "problem": "This problem examines the acidity of rain in an extremely CO2-depleted atmosphere. Make use of the following equilibria:\n\nCO2(g) <=> CO2.H2O\nCO2.H2O <=> HCO3- + H+\nHCOOH(g) <=> HCOOH(aq)\nHCOOH(aq) <=> HCOO- + H+\nCH3COOH(g) <=> CH3COOH(aq)\nCH3COOH(aq) <=> CH3COO- + H+\nH2O <=> H+ + OH-\n\nwith equilibrium constants K1 = 3.0e-2 M atm^-1, K2 = 4.2e-7 M, K3 = 3.7e3 M atm^-1, K4 = 1.8e-4 M, K5 = 8.8e3 M atm^-1, K6 = 1.7e-5 M, and Kw = 1.0e-14 M^2 at 25 C.\n\n1. The atmosphere contained 0.00028 ppmv CO2. Calculate the pH of the rain at equilibrium with this concentration of CO2.\n\n2. The atmosphere also contained organic acids emitted from vegetation, in particular formic acid (HCOOH) and acetic acid (CH3COOH). Calculate the pH of the rain at equilibrium with 0.1 ppbv HCOOH(g), 0.1 ppbv CH3COOH(g), and 0.00028 ppmv CO2(g). Which of CO2, HCOOH, or CH3COOH is the most important source of rain acidity?\n\n3. The atmosphere also contained sulfur compounds emitted by marine plankton and volcanoes, and NOx emitted by soils and lightning. These sources amounted globally to 1.0e12 moles S yr^-1 and 1.0e12 moles N yr^-1, respectively. Assume that all the emitted sulfur and NOx are oxidized in the atmosphere to H2SO4 and HNO3, respectively, which are then scavenged by rain.\n\n3.1. Calculate the mean concentrations (M) of SO4^2- and NO3- in the rain, assuming a global mean precipitation rate over the Earth of 2 mm day^-1. Use Earth's radius 6.371e6 m and 365.25 days yr^-1.\n\n3.2. Calculate the resulting rainwater pH, again assuming equilibrium with 0.1 ppbv HCOOH(g), 0.1 ppbv CH3COOH(g), and 0.00028 ppmv CO2(g). Of all the acids in the atmosphere, which one was the most important source of rainwater acidity?\n\nExpress your answers: (1) in pH, (2) in pH, (3.1) in M — two values, one for SO4^2- and one for NO3-, (3.2) in pH. Report five values in total, in this order.",
+   "parent": "13.5",
+   "parent_problem": "This problem examines the acidity of rain in the preindustrial atmosphere. Make use of the following equilibria:\n\n$$\nC O _ { 2 } ( g ) \\Leftrightarrow C O _ { 2 } \\cdot H _ { 2 } O\n$$\n\n$$\nC O _ { 2 } \\cdot H _ { 2 } O \\Leftrightarrow H C O _ { 3 } ^ { - } + H ^ { + }\n$$\n\n$$\nH C O O H ( g ) \\Leftrightarrow H C O O H ( a q )\n$$\n\n$$\nH C O O H ( a q ) \\Leftrightarrow H C O O ^ { - } + H ^ { + }\n$$\n\n$$\nC H _ { 3 } C O O H ( g ) \\Leftrightarrow C H _ { 3 } C O O H ( a q )\n$$\n\n$$\nC H _ { 3 } C O O H ( a q ) \\Leftrightarrow C H _ { 3 } C O O ^ { - } + H ^ { + }\n$$\n\nwith equilibrium constants $K _ { 1 } = 3 . 0 { \\bf x } 1 0 ^ { - 2 } \\mathrm { Matm } ^ { - 1 }$ , $K _ { 2 } = 4 . 2 \\mathrm { x } 1 0 ^ { - 7 } \\mathrm { M } .$ , $K _ { 3 } = 3 . 7 \\mathrm { x } 1 0 ^ { 3 } \\mathrm { M }$ $\\mathbf { atm } ^ { - 1 }$ , $\\dot { K } _ { 4 } = 1 . 8 \\mathrm { x } 1 0 ^ { - 4 } \\mathrm { M }$ , $K _ { 5 } = 8 . { \\overset { \\cdot } { 8 } } \\mathbf { x } 1 0 ^ { 3 } \\mathbf { M } \\mathbf { a } \\mathbf { tm } ^ { - 1 }$ , $K _ { 6 } = 1 . 7 \\mathrm { x } 1 0 ^ { - 5 } \\mathrm { M } .$ .\n\n1. The preindustrial atmosphere contained 280 ppmv $\\mathrm { C O _ { 2 } }$ . Calculate the $\\mathrm { p H }$ of the rain at equilibrium with this concentration of $\\mathrm { C O _ { 2 } }$ .\n\n2. The preindustrial atmosphere also contained organic acids emitted from vegetation, in particular formic acid (HCOOH) and acetic acid $\\mathrm { ( C H _ { 3 } C O O H ) }$ . Calculate the $\\mathrm { p H }$ of the rain at equilibrium with 0.1 ppbv HCOOH(g), 0.1 ppbv $\\mathrm { C H _ { 3 } C O O H ( g ) }$ , and 280 ppmv $\\mathrm { C O _ { 2 } ( g ) }$ . Which of $\\mathrm { C O _ { 2 } }$ , HCOOH, or $\\mathrm { C H _ { 3 } C O O H }$ is the most important source of rain acidity?\n\n3. The preindustrial atmosphere also contained sulfur compunds emitted by marine plankton and volcanoes, and $\\mathrm { N O } _ { \\mathbf { x } }$ emitted by soils and lightning. These sources amounted globally to $\\mathrm { 1x10 ^ { 1 2 } moles ~ S ~ yr ^ { - 1 } }$ and $1 \\mathbf { x } 1 0 ^ { 1 2 }$ moles $\\mathrm { ~ \\textit ~ { ~ N ~ } ~ } \\mathbf { y } \\mathbf { r } ^ { - 1 }$ , respectively. Assume that all the emitted sulfur and $\\mathrm { N O } _ { \\mathbf { x } }$ are oxidized in the atmosphere to $\\mathrm { H _ { 2 } S O _ { 4 } }$ and $\\mathrm { H N O _ { 3 } }$ , respectively, which are then scavenged by rain.\n\n3.1. Calculate the mean concentrations (M) of $\\mathrm { S O } _ { 4 } ^ { 2 - }$ and $\\mathrm { N O _ { 3 } } ^ { - }$ in the rain, assuming a global mean precipitation rate over the Earth of $2 \\mathrm { mm } \\mathrm { day } ^ { - 1 }$ .\n\n3.2. Calculate the resulting rainwater $\\mathrm { p H }$ (again assuming equilibrium with 0.1 ppbv HCOOH(g), 0.1 ppbv $\\mathrm { C H _ { 3 } C O O H ( g ) }$ , and 280 ppmv $\\mathrm { C O } _ { 2 } ( \\mathbf { g } ) ,$ ). Of all the acids in the preindustrial atmosphere, which one was the most important source of rainwater acidity?\n\n[To know more: Galloway, J.N., et al., The composition of precipitation in remote areas of the world, J. Geophys, Res, 87, 8771,1982.]\n\nExpress your answers: (1) in pH, (2) in pH, (3.1) in M — two values, one for SO4(2-) and one for NO3(-), (3.2) in pH. Report five values in total, in this order.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 6.9999234039641385,
+     "unit": "pH"
+    },
+    {
+     "sub": "2",
+     "value": 5.044234759454541,
+     "unit": "pH"
+    },
+    {
+     "sub": "3",
+     "value": 2.6838281608607385e-06,
+     "unit": "M"
+    },
+    {
+     "sub": "4",
+     "value": 2.6838281608607385e-06,
+     "unit": "M"
+    },
+    {
+     "sub": "5",
+     "value": 4.856549638258324,
+     "unit": "pH"
+    }
+   ],
+   "shortcut_values": {
+    "1": 8.726235711770109,
+    "2": 5.04426138205392,
+    "3": 2.6838281608607385e-06,
+    "4": 2.6838281608607385e-06,
+    "5": 4.856565421836857
+   },
+   "runs_failed_captured": "2/3",
+   "parent_passed": "2/3",
+   "response": "```python\nimport math\n\ndef solve(\n    # Given constants\n    K1=3.0e-2,      # M atm^-1\n    K2=4.2e-7,      # M\n    K3=3.7e3,       # M atm^-1\n    K4=1.8e-4,      # M\n    K5=8.8e3,       # M atm^-1\n    K6=1.7e-5,      # M\n    Kw=1.0e-14,     # M^2\n    # Concentrations\n    CO2_ppmv=0.00028,\n    HCOOH_ppbv=0.1,\n    CH3COOH_ppbv=0.1,\n    # Global sulfur and nitrogen emissions\n    S_emission=1.0e12,      # mol S yr^-1\n    N_emission=1.0e12,      # mol N yr^-1\n    # Earth parameters\n    R_earth=6.371e6,        # m\n    days_per_year=365.25,\n    precip_rate=2.0,        # mm day^-1\n    # Conversion factors\n    atm_per_ppmv=1e-6,\n    atm_per_ppbv=1e-9\n):\n    # Convert mixing ratios to partial pressures in atm\n    P_CO2 = CO2_ppmv * atm_per_ppmv\n    P_HCOOH = HCOOH_ppbv * atm_per_ppbv\n    P_CH3COOH = CH3COOH_ppbv * atm_per_ppbv\n\n    # ------------------------------------------------------------\n    # Part 1: Only CO2\n    # [CO2·H2O] = K1 * P_CO2\n    # Then from K2: [H+][HCO3-] / [CO2·H2O] = K2\n    # With [H+] = [HCO3-] (ignoring water autoionization)\n    # [H+]^2 = K2 * K1 * P_CO2\n    H1 = math.sqrt(K2 * K1 * P_CO2)\n    pH1 = -math.log10(H1)\n\n    # ------------------------------------------------------------\n    # Part 2: CO2 + HCOOH + CH3COOH\n    # We need to solve charge balance:\n    # [H+] = [HCO3-] + [HCOO-] + [CH3COO-] + [OH-]\n    # With each weak acid equilibrium:\n    # [HCO3-] = K2 * [CO2·H2O] / [H+] = K2 * K1 * P_CO2 / [H+]\n    # [HCOO-] = K4 * [HCOOH(aq)] / [H+] = K4 * K3 * P_HCOOH / [H+]\n    # [CH3COO-] = K6 * [CH3COOH(aq)] / [H+] = K6 * K5 * P_CH3COOH / [H+]\n    # [OH-] = Kw / [H+]\n    # So: [H+] = (A + B + C + Kw) / [H+]\n    # where A = K2*K1*P_CO2, B = K4*K3*P_HCOOH, C = K6*K5*P_CH3COOH\n    # [H+]^2 = A + B + C + Kw\n\n    A = K2 * K1 * P_CO2\n    B = K4 * K3 * P_HCOOH\n    C = K6 * K5 * P_CH3COOH\n    H2 = math.sqrt(A + B + C + Kw)\n    pH2 = -math.log10(H2)\n\n    # Determine most important acid: compare contributions to [H+]\n    # Contribution from each: sqrt(term) for that acid alone\n    contrib_CO2 = math.sqrt(A)\n    contrib_HCOOH = math.sqrt(B)\n    contrib_CH3COOH = math.sqrt(C)\n    # Find which is largest\n    max_contrib = max(contrib_CO2, contrib_HCOOH, contrib_CH3COOH)\n    # (We'll just report the pH, but the problem asks which is most important;\n    #  we can note it in the answer but the graded answer is just pH)\n\n    # ------------------------------------------------------------\n    # Part 3.1: Mean concentrations of SO4^2- and NO3-\n    # Earth surface area = 4 * pi * R^2\n    area = 4 * math.pi * R_earth**2  # m^2\n    # Precipitation volume per year = area * precip_rate (mm/day -> m/day)\n    # precip_rate in mm/day = 2 mm/day = 0.002 m/day\n    precip_m_per_day = precip_rate / 1000.0  # m/day\n    volume_per_year = area * precip_m_per_day * days_per_year  # m^3\n    # Convert to liters: 1 m^3 = 1000 L\n    volume_per_year_L = volume_per_year * 1000.0\n\n    # Concentration = moles / volume\n    conc_SO4 = S_emission / volume_per_year_L  # M\n    conc_NO3 = N_emission / volume_per_year_L  # M\n\n    # ------------------------------------------------------------\n    # Part 3.2: pH with all acids including H2SO4 and HNO3\n    # H2SO4 is strong diprotic: contributes 2*[SO4^2-] H+\n    # HNO3 is strong monoprotic: contributes [NO3-] H+\n    # So total strong acid H+ = 2*conc_SO4 + conc_NO3\n    # Then we add weak acid contributions as before\n    # Charge balance:\n    # [H+] = [HCO3-] + [HCOO-] + [CH3COO-] + [OH-] + 2*[SO4^2-] + [NO3-]\n    # Let S = 2*conc_SO4 + conc_NO3\n    # Then [H+] = (A + B + C + Kw)/[H+] + S\n    # Multiply: [H+]^2 - S*[H+] - (A+B+C+Kw) = 0\n    # Quadratic: [H+] = (S + sqrt(S^2 + 4*(A+B+C+Kw))) / 2\n\n    S = 2*conc_SO4 + conc_NO3\n    H3 = (S + math.sqrt(S**2 + 4*(A+B+C+Kw))) / 2.0\n    pH3 = -math.log10(H3)\n\n    # Determine most important acid overall:\n    # Compare contributions: strong acids give S, weak acids give sqrt(A+B+C+Kw) approx\n    # But the problem asks which is most important source\n    # We'll compute effective H+ from each group\n    # (Not needed for graded answer, but for completeness)\n\n    return {\n        \"1\": {\"value\": pH1, \"unit\": \"pH\"},\n        \"2\": {\"value\": pH2, \"unit\": \"pH\"},\n        \"3\": {\"value\": conc_SO4, \"unit\": \"M\"},\n        \"4\": {\"value\": conc_NO3, \"unit\": \"M\"},\n        \"5\": {\"value\": pH3, \"unit\": \"pH\"}\n    }\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      6.9999234039641385
+     ],
+     "expected_units": [
+      "pH"
+     ],
+     "actual": 8.726235711770109,
+     "actual_unit": "pH",
+     "passed": false
+    },
+    {
+     "sub": "2",
+     "expected": [
+      5.044234759454541
+     ],
+     "expected_units": [
+      "pH"
+     ],
+     "actual": 5.044234759454541,
+     "actual_unit": "pH",
+     "passed": true
+    },
+    {
+     "sub": "3",
+     "expected": [
+      2.6838281608607385e-06
+     ],
+     "expected_units": [
+      "M"
+     ],
+     "actual": 2.6838281608607385e-06,
+     "actual_unit": "M",
+     "passed": true
+    },
+    {
+     "sub": "4",
+     "expected": [
+      2.6838281608607385e-06
+     ],
+     "expected_units": [
+      "M"
+     ],
+     "actual": 2.6838281608607385e-06,
+     "actual_unit": "M",
+     "passed": true
+    },
+    {
+     "sub": "5",
+     "expected": [
+      4.856549638258324
+     ],
+     "expected_units": [
+      "pH"
+     ],
+     "actual": 4.856549638258324,
+     "actual_unit": "pH",
+     "passed": true
+    }
+   ]
+  },
+  {
+   "trap": "trap_air_63_gen",
+   "category": "atmospheric_thermodynamics",
+   "mechanism": "inverse-square gravity in the hydrostatic integral over a deep column",
+   "problem": "Compare the pressures at 100 km above sea level for average temperatures of 250 K and 300 K. Assume a dry, hydrostatic atmosphere in which the temperature is taken constant (isothermal) at the stated average value over the layer, with the air behaving as an ideal gas. Take the average sea-level pressure to be P_o = 101.325 kPa, use a sea-level scale-height constant a = 0.0342 K m^-1, and take Earth's radius to be R_E = 6371 km.\n\nExpress your answers: (1) in kPa for 250 K, (2) in kPa for 300 K.",
+   "parent": "air_63",
+   "parent_problem": "Compare the pressures at 10 km above sea level for average temperatures of 250 K and 300 K. Assume a dry, hydrostatic atmosphere in which the temperature is taken constant (isothermal) at the stated average value over the layer, with the air behaving as an ideal gas. Take the average sea-level pressure to be P_o = 101.325 kPa and use a scale-height constant a = 0.0342 K m^-1.\n\nExpress your answers: (a) in kPa, (b) in kPa.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 0.00014334416103466212,
+     "unit": "kPa"
+    },
+    {
+     "sub": "2",
+     "value": 0.0013529116650169855,
+     "unit": "kPa"
+    }
+   ],
+   "shortcut_values": {
+    "1": 0.000116029414295868,
+    "2": 0.001134382501675527
+   },
+   "runs_failed_captured": "3/3",
+   "parent_passed": "3/3",
+   "response": "```python\nimport math\n\ndef solve(\n    P0=101.325,  # kPa\n    a=0.0342,    # K/m\n    RE=6371e3,   # m\n    z=100e3,     # m\n    T1=250.0,    # K\n    T2=300.0     # K\n):\n    # For an isothermal atmosphere, pressure decreases exponentially:\n    # P(z) = P0 * exp(-z / H)\n    # where scale height H = (R_specific * T) / g\n    # Using the given a = g / (R_specific) = 0.0342 K/m, so R_specific = g / a\n    # Then H = (g / a * T) / g = T / a\n    # So H = T / a\n    \n    H1 = T1 / a   # scale height in meters\n    H2 = T2 / a\n    \n    P1 = P0 * math.exp(-z / H1)\n    P2 = P0 * math.exp(-z / H2)\n    \n    return {\n        \"1\": {\"value\": P1, \"unit\": \"kPa\"},\n        \"2\": {\"value\": P2, \"unit\": \"kPa\"}\n    }",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      0.00014334416103466212
+     ],
+     "expected_units": [
+      "kPa"
+     ],
+     "actual": 0.00011602941429586821,
+     "actual_unit": "kPa",
+     "passed": false
+    },
+    {
+     "sub": "2",
+     "expected": [
+      0.0013529116650169855
+     ],
+     "expected_units": [
+      "kPa"
+     ],
+     "actual": 0.001134382501675527,
+     "actual_unit": "kPa",
+     "passed": false
+    }
+   ]
+  },
+  {
+   "trap": "trap_air_91_gen",
+   "category": "atmospheric_radiation",
+   "mechanism": "self-emission term in the measured outgoing radiance",
+   "problem": "If 500 W·m^-2 of visible light strikes a hot translucent object, a detector on the far side measures 100 W·m^-2 of total visible radiation emerging through the object, and a detector on the illuminated side measures 150 W·m^-2 of total visible radiation emerging back from the object. At the same temperature, with the incident light blocked, the object emits 80 W·m^-2 of visible radiation from each face. Find the transmissivity (t_λ), reflectivity (r_λ), absorptivity (a_λ), and emissivity (e_λ). Assume the object is in local thermodynamic equilibrium and its temperature is unchanged by the incident beam. Express your answers as dimensionless fractions.",
+   "parent": "air_91",
+   "parent_problem": "If 500 W·m^-2 of visible light strikes a translucent object that allows 100 W·m^-2 to shine through and 150 W·m^-2 to bounce off, find the transmissivity (t_λ), reflectivity (r_λ), absorptivity (a_λ), and emissivity (e_λ). Assume the object is in local thermodynamic equilibrium.\n\nExpress your answers as dimensionless fractions.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 0.04,
+     "unit": ""
+    },
+    {
+     "sub": "2",
+     "value": 0.14,
+     "unit": ""
+    },
+    {
+     "sub": "3",
+     "value": 0.82,
+     "unit": ""
+    },
+    {
+     "sub": "4",
+     "value": 0.82,
+     "unit": ""
+    }
+   ],
+   "shortcut_values": {
+    "1": 0.2,
+    "2": 0.3,
+    "3": 0.49999999999999994,
+    "4": 0.49999999999999994
+   },
+   "runs_failed_captured": "3/3",
+   "parent_passed": "3/3",
+   "response": "```python\nimport math\n\ndef solve(\n    incident_flux=500.0,       # W·m^-2, visible light striking the object\n    transmitted_flux=100.0,    # W·m^-2, measured on far side (with incident on)\n    reflected_flux=150.0,      # W·m^-2, measured on illuminated side (with incident on)\n    emitted_flux=80.0          # W·m^-2, from each face when incident is blocked\n):\n    \"\"\"\n    Compute transmissivity (t_λ), reflectivity (r_λ), absorptivity (a_λ),\n    and emissivity (e_λ) for a translucent object in LTE.\n    \"\"\"\n    # Transmissivity: fraction of incident that is transmitted\n    t = transmitted_flux / incident_flux\n    \n    # Reflectivity: fraction of incident that is reflected\n    r = reflected_flux / incident_flux\n    \n    # Absorptivity: fraction of incident that is absorbed\n    # By energy conservation: incident = transmitted + reflected + absorbed\n    a = 1.0 - t - r\n    \n    # Emissivity: by Kirchhoff's law for a body in LTE,\n    # emissivity equals absorptivity at the same wavelength and temperature.\n    e = a\n    \n    return {\n        \"1\": {\"value\": t, \"unit\": \"dimensionless\"},\n        \"2\": {\"value\": r, \"unit\": \"dimensionless\"},\n        \"3\": {\"value\": a, \"unit\": \"dimensionless\"},\n        \"4\": {\"value\": e, \"unit\": \"dimensionless\"}\n    }\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      0.04
+     ],
+     "expected_units": [
+      ""
+     ],
+     "actual": 0.2,
+     "actual_unit": "dimensionless",
+     "passed": false
+    },
+    {
+     "sub": "2",
+     "expected": [
+      0.14
+     ],
+     "expected_units": [
+      ""
+     ],
+     "actual": 0.3,
+     "actual_unit": "dimensionless",
+     "passed": false
+    },
+    {
+     "sub": "3",
+     "expected": [
+      0.82
+     ],
+     "expected_units": [
+      ""
+     ],
+     "actual": 0.5,
+     "actual_unit": "dimensionless",
+     "passed": false
+    },
+    {
+     "sub": "4",
+     "expected": [
+      0.82
+     ],
+     "expected_units": [
+      ""
+     ],
+     "actual": 0.5,
+     "actual_unit": "dimensionless",
+     "passed": false
+    }
+   ]
+  },
+  {
+   "trap": "trap_ca_5.3_gen",
+   "category": "air_quality",
+   "mechanism": "laminar (unmixed) collection replaces the exponential Deutsch-Anderson law",
+   "problem": "An ESP operating in laminar, unmixed plug flow, with no transverse turbulent mixing and particles initially uniformly distributed across each gas passage, must treat 500,000 acfm with 99% efficiency. Assuming an effective drift velocity of 0.4 ft/sec, calculate the required collecting plate area in ft2, and the number of plates if each plate is 20 ft tall by 10 ft long and collects on both sides.",
+   "parent": "ca_5.3",
+   "parent_problem": "An ESP must treat 500,000 acfm with 99% efficiency. Assuming an effective drift velocity of 0.4 ft/sec, calculate the required plate area in ft2 , and the number of plates if each is 20 ft tall by 10 ft long. Problems 177",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 20625.0,
+     "unit": "ft2"
+    },
+    {
+     "sub": "2",
+     "value": 51.5625,
+     "unit": "plates"
+    }
+   ],
+   "shortcut_values": {
+    "1": 95941.04554141856,
+    "2": 239.8526138535464
+   },
+   "runs_failed_captured": "3/3",
+   "parent_passed": "3/3",
+   "response": "```python\nimport math\n\ndef solve(\n    flow_rate_acfm=500_000,\n    efficiency=0.99,\n    drift_velocity_ft_per_s=0.4,\n    plate_height_ft=20,\n    plate_length_ft=10\n):\n    # Convert flow rate from acfm to ft^3/s\n    flow_rate_ft3_per_s = flow_rate_acfm / 60.0\n    \n    # Deutsch-Anderson equation for laminar, unmixed plug flow:\n    # efficiency = 1 - exp(- (A * w) / Q)\n    # => A = - (Q / w) * ln(1 - efficiency)\n    A_total = - (flow_rate_ft3_per_s / drift_velocity_ft_per_s) * math.log(1 - efficiency)\n    \n    # Each plate collects on both sides, so effective area per plate = 2 * height * length\n    area_per_plate = 2 * plate_height_ft * plate_length_ft\n    \n    # Number of plates needed (must be integer, so round up)\n    num_plates = math.ceil(A_total / area_per_plate)\n    \n    return {\n        \"1\": {\"value\": A_total, \"unit\": \"ft2\"},\n        \"2\": {\"value\": num_plates, \"unit\": \"plates\"}\n    }\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      20625.0
+     ],
+     "expected_units": [
+      "ft2"
+     ],
+     "actual": 95941.04554141856,
+     "actual_unit": "ft2",
+     "passed": false
+    },
+    {
+     "sub": "2",
+     "expected": [
+      51.5625
+     ],
+     "expected_units": [
+      "plates"
+     ],
+     "actual": 240.0,
+     "actual_unit": "plates",
+     "passed": false
+    }
+   ]
+  },
+  {
+   "trap": "trap_p_114_gen",
+   "category": "atmospheric_thermodynamics",
+   "mechanism": "Proudman resonance amplification of the inverse-barometer response",
+   "problem": "In the eye of an intense tropical cyclone, the sea-level pressure is 60 hPa lower than in the large-scale environment. The cyclone is moving steadily at U = 20 m s^-1 along a long, straight continental shelf of uniform depth H = 50 m. Treat the pressure minimum locally as a one-dimensional steady disturbance in the linear shallow-water equations, with seawater density rho_w = 1025 kg m^-3. Estimate the peak elevation of sea level forced by the low pressure. Express your answer in m to two decimal places.",
+   "parent": "p_114",
+   "parent_problem": "In the eye of an intense tropical cyclone, the sea-level pressure is 60 hPa (6000 Pa) lower than in the large-scale environment. Estimate the elevation of sea level due to the hydrostatic adjustment to the low pressure, assuming the ocean is in hydrostatic balance with a seawater density of ρ_w = 1025 kg m⁻³. Express your answer in m to two decimal places.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 3.2340654898261683,
+     "unit": "m"
+    }
+   ],
+   "shortcut_values": {
+    "1": 0.5967032147385694
+   },
+   "runs_failed_captured": "2/3",
+   "parent_passed": "3/3",
+   "response": "```python\nimport math\n\ndef solve(\n    delta_p=60,  # hPa\n    U=20,        # m/s\n    H=50,        # m\n    rho_w=1025,  # kg/m^3\n    g=9.81       # m/s^2\n):\n    # Convert pressure difference from hPa to Pa\n    delta_p_Pa = delta_p * 100  # 1 hPa = 100 Pa\n    \n    # In the linear shallow-water equations, for a steady moving disturbance,\n    # the sea surface elevation eta is related to the pressure anomaly by:\n    #   rho_w * g * eta = -delta_p   (in the simplest hydrostatic balance)\n    # However, with the moving disturbance, the reduced gravity effect\n    # and the moving frame lead to:\n    #   eta = -delta_p / (rho_w * g)\n    # The negative sign indicates a rise under low pressure (inverse barometer).\n    # But here the problem asks for the peak elevation forced by the low pressure,\n    # so we take the magnitude.\n    \n    eta = delta_p_Pa / (rho_w * g)\n    \n    # Round to two decimal places\n    eta = round(eta, 2)\n    \n    return {\n        \"1\": {\"value\": eta, \"unit\": \"m\"}\n    }\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      3.2340654898261683
+     ],
+     "expected_units": [
+      "m"
+     ],
+     "actual": 0.6,
+     "actual_unit": "m",
+     "passed": false
+    }
+   ]
+  },
+  {
+   "trap": "trap_snp_30_gen",
+   "category": "atmospheric_chemistry",
+   "mechanism": "second-order kinetics once the bath reagent is no longer in excess",
+   "problem": "Determine the e-folding lifetime of NO2 at night against the reaction NO2 + O3 → NO3 + O2 at z = 0, 5, and 10 km. The air parcel is closed and well mixed, with initial NO2 and O3 mixing ratios both equal to 50 ppb; there are no other sources or sinks, and T and P remain fixed during the reaction.\n\nExpress each lifetime in seconds.\n\nUse the rate constant k = 1.2×10⁻¹³·exp(−2450/T) cm³ molecule⁻¹ s⁻¹ and the US Standard Atmosphere for T and P.",
+   "parent": "snp_30",
+   "parent_problem": "Determine the lifetime of NO₂ at night against the reaction NO₂ + O₃ → NO₃ + O₂ at z = 0, 5, and 10 km. Assume an O₃ mixing ratio of 50 ppb.\n\nExpress each lifetime in seconds.\n\nUse the rate constant k = 1.2×10⁻¹³·exp(−2450/T) cm³ molecule⁻¹ s⁻¹ and the US Standard Atmosphere for T and P.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 55401.84707523725,
+     "unit": "s"
+    },
+    {
+     "sub": "2",
+     "value": 271732.649312502,
+     "unit": "s"
+    },
+    {
+     "sub": "3",
+     "value": 1952391.5472881042,
+     "unit": "s"
+    }
+   ],
+   "shortcut_values": {
+    "1": 32242.5845153246,
+    "2": 158142.0723957675,
+    "3": 1136246.4032102397
+   },
+   "runs_failed_captured": "2/3",
+   "parent_passed": "3/3",
+   "response": "```python\nimport math\n\ndef solve(\n    k0=1.2e-13,\n    B=2450.0,\n    initial_mixing_ratio_ppb=50.0,\n    # US Standard Atmosphere values at z=0,5,10 km (T in K, P in hPa)\n    T0=288.15, P0=1013.25,\n    T5=255.65, P5=540.48,\n    T10=223.15, P10=265.00\n):\n    # Avogadro constant and ideal gas constant\n    NA = 6.02214076e23  # molecules/mol\n    R = 8.314462618     # J/(mol·K)\n    \n    # Convert mixing ratio from ppb to mole fraction\n    mixing_ratio = initial_mixing_ratio_ppb * 1e-9\n    \n    # Altitudes with their corresponding T and P\n    altitudes = [(0, T0, P0), (5, T5, P5), (10, T10, P10)]\n    \n    results = {}\n    for i, (z, T, P_hPa) in enumerate(altitudes, start=1):\n        # Pressure in Pa\n        P = P_hPa * 100.0\n        \n        # Number density of air (molecules/cm^3)\n        n_air_m3 = P / (R * T) * NA  # molecules/m^3\n        n_air_cm3 = n_air_m3 * 1e-6   # molecules/cm^3\n        \n        # O3 number density\n        n_O3 = mixing_ratio * n_air_cm3  # molecules/cm^3\n        \n        # Rate constant\n        k = k0 * math.exp(-B / T)  # cm^3/(molecule·s)\n        \n        # e-folding lifetime = 1/(k * [O3])\n        tau = 1.0 / (k * n_O3)  # seconds\n        \n        results[str(i)] = {\"value\": tau, \"unit\": \"s\"}\n    \n    return results\n```",
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      55401.84707523725
+     ],
+     "expected_units": [
+      "s"
+     ],
+     "actual": 32242.584514730348,
+     "actual_unit": "s",
+     "passed": false
+    },
+    {
+     "sub": "2",
+     "expected": [
+      271732.649312502
+     ],
+     "expected_units": [
+      "s"
+     ],
+     "actual": 158060.14562355517,
+     "actual_unit": "s",
+     "passed": false
+    },
+    {
+     "sub": "3",
+     "expected": [
+      1952391.5472881042
+     ],
+     "expected_units": [
+      "s"
+     ],
+     "actual": 1136246.403189298,
+     "actual_unit": "s",
+     "passed": false
+    }
+   ]
+  }
+ ],
+ "C_thinking_rescues": [
+  {
+   "trap": "trap_holton_28_gen",
+   "category": "atmospheric_dynamics",
+   "mechanism": null,
+   "off_response": "We can treat this as a problem of relative motion on a rotating Earth.  \nThe key is that the Coriolis effect will deflect each ball sideways, and for them to just miss, the deflection must equal half the separation between centers.\n\n---\n\n**Step 1 – Geometry**  \nBall diameter = 4 cm → radius = 2 cm.  \nCenters initially 8 cm apart → surface-to-surface gap = 8 − 4 = 4 cm.  \nFor a \"just miss\", each ball must deflect sideways by 2 cm (half the gap) by the time they meet.\n\n---\n\n**Step 2 – Coriolis deflection**  \nOn a horizontal frictionless plane at latitude φ, a horizontally moving object experiences a Coriolis acceleration:\n\n\\[\na_c = 2 \\, \\Omega \\, v \\, \\sin\\phi\n\\]\n\nwhere  \n\\(\\Omega = 7.2921 \\times 10^{-5} \\, \\text{rad/s}\\) (Earth’s rotation rate),  \n\\(\\phi = 43^\\circ\\)N,  \n\\(v\\) = speed of each ball.\n\nThe deflection perpendicular to the initial direction over time \\(t\\) is:\n\n\\[\nd = \\frac{1}{2} a_c t^2\n\\]\n\n---\n\n**Step 3 – Time to meet**  \nInitial separation = 8 cm = 0.08 m.  \nEach travels at speed \\(v\\), so relative speed = \\(2v\\).  \nTime to meet:\n\n\\[\nt = \\frac{0.08}{2v} = \\frac{0.04}{v}\n\\]\n\n---\n\n**Step 4 – Set deflection equal to 0.02 m**  \n\n\\[\n0.02 = \\frac{1}{2} (2 \\Omega v \\sin\\phi) \\, t^2\n\\]\n\nSubstitute \\(t = 0.04 / v\\):\n\n\\[\n0.02 = \\Omega v \\sin\\phi \\cdot \\frac{(0.04)^2}{v^2}\n\\]\n\n\\[\n0.02 = \\Omega \\sin\\phi \\cdot \\frac{0.0016}{v}\n\\]\n\n\\[\nv = \\frac{\\Omega \\sin\\phi \\cdot 0.0016}{0.02}\n\\]\n\n---\n\n**Step 5 – Compute**  \n\n\\(\\sin 43^\\circ \\approx 0.681998\\)  \n\n\\[\nv = \\frac{7.2921\\times10^{-5} \\times 0.681998 \\times 0.0016}{0.02}\n\\]\n\n\\[\nv \\approx 3.979 \\times 10^{-6} \\, \\text{m/s}\n\\]\n\nThat is about \\(4 \\times 10^{-6}\\) m/s — extremely slow, as expected for a small-scale Coriolis effect.\n\n---\n\n```python\nimport math\n\ndef solve(\n    diameter_cm: float = 4.0,\n    center_distance_cm: float = 8.0,\n    latitude_deg: float = 43.0,\n    Omega: float = 7.2921e-5  # rad/s\n):\n    # Convert to meters\n    diameter_m = diameter_cm / 100.0\n    center_distance_m = center_distance_cm / 100.0\n    \n    # Gap between surfaces\n    gap_m = center_distance_m - diameter_m\n    \n    # Each ball must deflect by half the gap to just miss\n    deflection_m = gap_m / 2.0\n    \n    # Latitude in radians\n    phi = math.radians(latitude_deg)\n    sin_phi = math.sin(phi)\n    \n    # From deflection formula: deflection = Omega * sin(phi) * (0.04)^2 / v\n    # with t = 0.04 / v\n    # deflection = Omega * sin(phi) * (0.04^2) / v\n    # => v = Omega * sin(phi) * (0.04^2) / deflection\n    \n    half_distance_m = center_distance_m / 2.0  # = 0.04 m\n    v = Omega * sin_phi * (half_distance_m ** 2) / deflection_m\n    \n    return {\n        \"1\": {\"value\": v, \"unit\": \"m/s\"}\n    }\n```",
+   "on_reasoning_excerpt": " 2ω cos φ u). For motion confined to horizontal plane, w=0. So horizontal components: a_x = 2ω sin φ v, a_y = -2ω sin φ u. So indeed, the Coriolis acceleration in the horizontal plane is (2ω sin φ v, -2ω sin φ u). This is the acceleration due to Coriolis (per unit mass). So the equations of motion (neglecting centrifugal force, which is included in gravity) are:  du/dt = 2ω sin φ v dv/dt = -2ω sin φ u  where u = dx/dt (eastward), v = dy/dt (northward). This is a coupled system. It can be solved by noting that the magnitude of velocity is constant? Actually, the Coriolis force does no work, so speed i",
+   "on_response": "```python\nimport math\n\ndef solve(ball_diameter=4, center_distance=8, latitude=43, earth_rotation_rate=7.2921150e-5):\n    \"\"\"\n    Compute the speed at which two balls must be propelled toward each other\n    so that they just miss due to the Coriolis effect.\n\n    Parameters\n    ----------\n    ball_diameter : float, optional\n        Diameter of each ball in cm (default 4).\n    center_distance : float, optional\n        Initial distance between centers in cm (default 8).\n    latitude : float, optional\n        Latitude in degrees north (default 43).\n    earth_rotation_rate : float, optional\n        Earth's angular velocity in rad/s (default 7.2921150e-5).\n\n    Returns\n    -------\n    dict\n        A dictionary with key \"1\" mapping to {\"value\": speed, \"unit\": \"m/s\"}.\n    \"\"\"\n    # Convert lengths from cm to m\n    d = center_distance / 100.0          # initial center separation [m]\n    r_min = ball_diameter / 100.0        # minimum center distance for just miss [m]\n\n    # Coriolis parameter\n    phi = math.radians(latitude)\n    f = 2.0 * earth_rotation_rate * math.sin(phi)   # [rad/s]\n\n    # Speed derived from the condition that the minimum distance equals r_min\n    # V = f * (d^2 - r_min^2) / (4 * r_min)\n    V = f * (d**2 - r_min**2) / (4.0 * r_min)       # [m/s]\n\n    return {\"1\": {\"value\": V, \"unit\": \"m/s\"}}\n```"
+  },
+  {
+   "trap": "trap_7.1_gen",
+   "category": "observation_and_modeling",
+   "mechanism": "shell radius a+z in a limb path (z << a approximation crossed)",
+   "off_response": "```python\nimport math\n\ndef solve(a=6371, d=10):\n    \"\"\"\n    Compute the ratio of the maximum mass of gas in a limb-viewing path\n    to the mass of gas in a nadir-viewing path for a thin spherical shell.\n    \n    Parameters:\n    a : Earth radius in km (default 6371)\n    d : shell thickness in km (default 10)\n    \n    Returns:\n    dict with one entry \"1\" mapping to {\"value\": ratio, \"unit\": \"dimensionless\"}\n    \"\"\"\n    # For a thin shell of uniform density, the nadir path length is simply d.\n    # The maximum limb path length is the chord through the shell at the\n    # tangent point. For a spherical shell of inner radius R = a and outer\n    # radius R+d, the maximum limb path length is:\n    # L_limb = 2 * sqrt((a+d)^2 - a^2) = 2 * sqrt(2*a*d + d^2)\n    \n    R_inner = a\n    R_outer = a + d\n    \n    # Maximum limb path length (tangent to Earth's surface)\n    L_limb = 2 * math.sqrt(R_outer**2 - R_inner**2)\n    \n    # Nadir path length\n    L_nadir = d\n    \n    # Since density is uniform, mass ratio = path length ratio\n    ratio = L_limb / L_nadir\n    \n    return {\n        \"1\": {\"value\": ratio, \"unit\": \"dimensionless\"}\n    }\n```",
+   "on_reasoning_excerpt": " boundary, the line of sight is entirely within the shell? But the shell is a thin layer, so if the tangent point is above the inner radius, the line of sight enters the shell at the outer boundary, goes through the shell, and exits at the outer boundary. Since the shell is thin, the path length is approximately the chord length through the outer sphere. But the outer sphere radius is R_outer, and the inner sphere radius is R_inner. The chord length through the outer sphere for a given h is 2*sqrt(R_outer^2 - h^2). But if h is close to R_outer, the chord is short. If h is just above R_inner, the chord i",
+   "on_response": "```python\nimport math\n\ndef solve(a=6371, z=3000, d=10):\n    \"\"\"\n    Compute the ratio of the maximum mass of gas in a limb-viewing path\n    to the mass of gas in a nadir-viewing path for a thin spherical layer.\n\n    Parameters:\n        a: Earth's radius (km, default 6371)\n        z: altitude of the bottom of the layer (km, default 3000)\n        d: thickness of the layer (km, default 10)\n\n    Returns:\n        dict with key \"1\" mapping to {\"value\": ratio, \"unit\": \"\"}\n    \"\"\"\n    # Inner and outer radii of the layer\n    R_inner = a + z\n    R_outer = R_inner + d\n\n    # Maximum limb path length is when the line of sight is tangent to the inner radius\n    # Path length = 2 * sqrt(R_outer^2 - R_inner^2)\n    # Nadir path length = d\n    # Ratio = path_length / d\n    ratio = 2 * math.sqrt(R_outer**2 - R_inner**2) / d\n\n    # Equivalent formula: ratio = 2 * math.sqrt((2 * R_inner + d) / d)\n    # ratio = 2 * math.sqrt((2 * R_inner + d) / d)\n\n    return {\"1\": {\"value\": ratio, \"unit\": \"\"}}\n```"
+  },
+  {
+   "trap": "trap_13.5_gen",
+   "category": "atmospheric_chemistry",
+   "mechanism": "water autoionisation floor on weak-acid pH",
+   "off_response": "```python\nimport math\n\ndef solve(\n    # Given constants\n    K1=3.0e-2,      # M atm^-1\n    K2=4.2e-7,      # M\n    K3=3.7e3,       # M atm^-1\n    K4=1.8e-4,      # M\n    K5=8.8e3,       # M atm^-1\n    K6=1.7e-5,      # M\n    Kw=1.0e-14,     # M^2\n    # Concentrations\n    CO2_ppmv=0.00028,\n    HCOOH_ppbv=0.1,\n    CH3COOH_ppbv=0.1,\n    # Global sulfur and nitrogen emissions\n    S_emission=1.0e12,      # mol S yr^-1\n    N_emission=1.0e12,      # mol N yr^-1\n    # Earth parameters\n    R_earth=6.371e6,        # m\n    days_per_year=365.25,\n    precip_rate=2.0,        # mm day^-1\n    # Conversion factors\n    atm_per_ppmv=1e-6,\n    atm_per_ppbv=1e-9\n):\n    # Convert mixing ratios to partial pressures in atm\n    P_CO2 = CO2_ppmv * atm_per_ppmv\n    P_HCOOH = HCOOH_ppbv * atm_per_ppbv\n    P_CH3COOH = CH3COOH_ppbv * atm_per_ppbv\n\n    # ------------------------------------------------------------\n    # Part 1: Only CO2\n    # [CO2·H2O] = K1 * P_CO2\n    # Then from K2: [H+][HCO3-] / [CO2·H2O] = K2\n    # With [H+] = [HCO3-] (ignoring water autoionization)\n    # [H+]^2 = K2 * K1 * P_CO2\n    H1 = math.sqrt(K2 * K1 * P_CO2)\n    pH1 = -math.log10(H1)\n\n    # ------------------------------------------------------------\n    # Part 2: CO2 + HCOOH + CH3COOH\n    # We need to solve charge balance:\n    # [H+] = [HCO3-] + [HCOO-] + [CH3COO-] + [OH-]\n    # With each weak acid equilibrium:\n    # [HCO3-] = K2 * [CO2·H2O] / [H+] = K2 * K1 * P_CO2 / [H+]\n    # [HCOO-] = K4 * [HCOOH(aq)] / [H+] = K4 * K3 * P_HCOOH / [H+]\n    # [CH3COO-] = K6 * [CH3COOH(aq)] / [H+] = K6 * K5 * P_CH3COOH / [H+]\n    # [OH-] = Kw / [H+]\n    # So: [H+] = (A + B + C + Kw) / [H+]\n    # where A = K2*K1*P_CO2, B = K4*K3*P_HCOOH, C = K6*K5*P_CH3COOH\n    # [H+]^2 = A + B + C + Kw\n\n    A = K2 * K1 * P_CO2\n    B = K4 * K3 * P_HCOOH\n    C = K6 * K5 * P_CH3COOH\n    H2 = math.sqrt(A + B + C + Kw)\n    pH2 = -math.log10(H2)\n\n    # Determine most important acid: compare contributions to [H+]\n    # Contribution from each: sqrt(term) for that acid alone\n    contrib_CO2 = math.sqrt(A)\n    contrib_HCOOH = math.sqrt(B)\n    contrib_CH3COOH = math.sqrt(C)\n    # Find which is largest\n    max_contrib = max(contrib_CO2, contrib_HCOOH, contrib_CH3COOH)\n    # (We'll just report the pH, but the problem asks which is most important;\n    #  we can note it in the answer but the graded answer is just pH)\n\n    # ------------------------------------------------------------\n    # Part 3.1: Mean concentrations of SO4^2- and NO3-\n    # Earth surface area = 4 * pi * R^2\n    area = 4 * math.pi * R_earth**2  # m^2\n    # Precipitation volume per year = area * precip_rate (mm/day -> m/day)\n    # precip_rate in mm/day = 2 mm/day = 0.002 m/day\n    precip_m_per_day = precip_rate / 1000.0  # m/day\n    volume_per_year = area * precip_m_per_day * days_per_year  # m^3\n    # Convert to liters: 1 m^3 = 1000 L\n    volume_per_year_L = volume_per_year * 1000.0\n\n    # Concentration = moles / volume\n    conc_SO4 = S_emission / volume_per_year_L  # M\n    conc_NO3 = N_emission / volume_per_year_L  # M\n\n    # ------------------------------------------------------------\n    # Part 3.2: pH with all acids including H2SO4 and HNO3\n    # H2SO4 is strong diprotic: contributes 2*[SO4^2-] H+\n    # HNO3 is strong monoprotic: contributes [NO3-] H+\n    # So total strong acid H+ = 2*conc_SO4 + conc_NO3\n    # Then we add weak acid contributions as before\n    # Charge balance:\n    # [H+] = [HCO3-] + [HCOO-] + [CH3COO-] + [OH-] + 2*[SO4^2-] + [NO3-]\n    # Let S = 2*conc_SO4 + conc_NO3\n    # Then [H+] = (A + B + C + Kw)/[H+] + S\n    # Multiply: [H+]^2 - S*[H+] - (A+B+C+Kw) = 0\n    # Quadratic: [H+] = (S + sqrt(S^2 + 4*(A+B+C+Kw))) / 2\n\n    S = 2*conc_SO4 + conc_NO3\n    H3 = (S + math.sqrt(S**2 + 4*(A+B+C+Kw))) / 2.0\n    pH3 = -math.log10(H3)\n\n    # Determine most important acid overall:\n    # Compare contributions: strong acids give S, weak acids give sqrt(A+B+C+Kw) approx\n    # But the problem asks which is most important source\n    # We'll compute effective H+ from each group\n    # (Not needed for graded answer, but for completeness)\n\n    return {\n        \"1\": {\"value\": pH1, \"unit\": \"pH\"},\n        \"2\": {\"value\": pH2, \"unit\": \"pH\"},\n        \"3\": {\"value\": conc_SO4, \"unit\": \"M\"},\n        \"4\": {\"value\": conc_NO3, \"unit\": \"M\"},\n        \"5\": {\"value\": pH3, \"unit\": \"pH\"}\n    }\n```",
+   "on_reasoning_excerpt": "n constants: K1=3.0e-2 M/atm, K2=4.2e-7 M, K3=3.7e3 M/atm, K4=1.8e-4 M, K5=8.8e3 M/atm, K6=1.7e-5 M, Kw=1.0e-14 M^2.  We have atmospheric concentrations: CO2: 0.00028 ppmv = 0.00028 parts per million by volume. That is mole fraction. For ideal gas, partial pressure = mole fraction * total pressure. Assume total pressure 1 atm? Usually in such problems, we assume 1 atm total pressure. So partial pressure of CO2 = 0.00028e-6 atm? Wait: ppmv means parts per million by volume, so 1 ppmv = 1e-6 atm if total pressure is 1 atm. So 0.00028 ppmv = 0.00028 * 1e-6 atm = 2.8e-10 atm. But careful: 0.00028 ppmv ",
+   "on_response": "```python\nimport math\n\ndef solve(\n    # Equilibrium constants\n    K1=3.0e-2,   # M/atm\n    K2=4.2e-7,   # M\n    K3=3.7e3,    # M/atm\n    K4=1.8e-4,   # M\n    K5=8.8e3,    # M/atm\n    K6=1.7e-5,   # M\n    Kw=1.0e-14,  # M^2\n    # Atmospheric concentrations\n    pCO2_ppmv=0.00028,    # ppmv\n    pHCOOH_ppbv=0.1,      # ppbv\n    pCH3COOH_ppbv=0.1,    # ppbv\n    # Global emissions\n    S_emission=1.0e12,    # mol S/yr\n    N_emission=1.0e12,    # mol N/yr\n    # Earth parameters\n    precip_rate_mm_per_day=2.0,  # mm/day\n    earth_radius=6.371e6,        # m\n    days_per_year=365.25\n):\n    # Convert partial pressures to atm\n    pCO2 = pCO2_ppmv * 1e-6          # ppmv -> atm\n    pHCOOH = pHCOOH_ppbv * 1e-9      # ppbv -> atm\n    pCH3COOH = pCH3COOH_ppbv * 1e-9  # ppbv -> atm\n\n    # Part 1: only CO2\n    C_CO2 = K1 * pCO2   # [CO2.H2O]\n    # Charge balance: [H+]^2 = Kw + K2 * C_CO2\n    H1 = math.sqrt(Kw + K2 * C_CO2)\n    pH1 = -math.log10(H1)\n\n    # Part 2: CO2 + HCOOH + CH3COOH\n    # Products: A = K2*C_CO2, B = K4*K3*pHCOOH, C_ac = K6*K5*pCH3COOH\n    A = K2 * K1 * pCO2\n    B = K4 * K3 * pHCOOH\n    C_ac = K6 * K5 * pCH3COOH\n    # [H+]^2 = Kw + A + B + C_ac\n    H2 = math.sqrt(Kw + A + B + C_ac)\n    pH2 = -math.log10(H2)\n\n    # Part 3.1: concentrations of SO4^2- and NO3- in rain\n    # Earth surface area\n    area = 4.0 * math.pi * (earth_radius ** 2)\n    # Annual precipitation depth in meters\n    depth_m_per_year = precip_rate_mm_per_day * 1e-3 * days_per_year  # mm -> m\n    # Annual precipitation volume in m^3\n    vol_m3 = area * depth_m_per_year\n    # Convert to liters: 1 m^3 = 1000 L\n    vol_L = vol_m3 * 1000.0\n    # Concentrations in M (mol/L)\n    SO4_conc = S_emission / vol_L\n    NO3_conc = N_emission / vol_L\n\n    # Part 3.2: pH including strong acids\n    # D = 2*[SO4^2-] + [NO3-] = 2*SO4_conc + NO3_conc (since both equal)\n    D = 2.0 * SO4_conc + NO3_conc\n    # Constant term from weak acids and water\n    const = Kw + A + B + C_ac\n    # Quadratic: [H+]^2 - D[H+] - const = 0\n    H3 = (D + math.sqrt(D*D + 4.0*const)) / 2.0\n    pH3 = -math.log10(H3)\n\n    # Determine most important acid for part 2 and part 3.2 (not required to output)\n    # But we just return the requested values.\n\n    return {\n        \"1\": {\"value\": pH1, \"unit\": \"pH\"},\n        \"2\": {\"value\": pH2, \"unit\": \"pH\"},\n        \"3\": {\"value\": SO4_conc, \"unit\": \"M\"},\n        \"4\": {\"value\": NO3_conc, \"unit\": \"M\"},\n        \"5\": {\"value\": pH3, \"unit\": \"pH\"}\n    }\n```"
+  },
+  {
+   "trap": "trap_air_63_gen",
+   "category": "atmospheric_thermodynamics",
+   "mechanism": "inverse-square gravity in the hydrostatic integral over a deep column",
+   "off_response": "```python\nimport math\n\ndef solve(\n    P0=101.325,  # kPa\n    a=0.0342,    # K/m\n    RE=6371e3,   # m\n    z=100e3,     # m\n    T1=250.0,    # K\n    T2=300.0     # K\n):\n    # For an isothermal atmosphere, pressure decreases exponentially:\n    # P(z) = P0 * exp(-z / H)\n    # where scale height H = (R_specific * T) / g\n    # Using the given a = g / (R_specific) = 0.0342 K/m, so R_specific = g / a\n    # Then H = (g / a * T) / g = T / a\n    # So H = T / a\n    \n    H1 = T1 / a   # scale height in meters\n    H2 = T2 / a\n    \n    P1 = P0 * math.exp(-z / H1)\n    P2 = P0 * math.exp(-z / H2)\n    \n    return {\n        \"1\": {\"value\": P1, \"unit\": \"kPa\"},\n        \"2\": {\"value\": P2, \"unit\": \"kPa\"}\n    }",
+   "on_reasoning_excerpt": "z))/(R_E+z) = (R_E^2 - R_E^2 - R_E z)/(R_E+z) = -R_E z/(R_E+z). So exponent = -(a/T) * (R_E z)/(R_E+z). So the formula becomes P = P0 * exp( - (a/T) * (R_E z)/(R_E+z) ). This is the correct form for an isothermal atmosphere with varying gravity. If we ignore gravity variation, we get the flat Earth approximation: P = P0 * exp( - (a/T) * z ). Which one is expected? The problem includes Earth's radius, so likely they want the more accurate formula. Also, 100 km is a significant height, so gravity variation matters. So I'll use the spherical formula.  Thus, compute pressure at z=100 km for T=250 K and T=30",
+   "on_response": "```python\nimport math\n\ndef solve(P0=101.325, a=0.0342, R_E=6371e3, z=100e3, T1=250, T2=300):\n    \"\"\"\n    Compute pressure at 100 km above sea level for two isothermal temperatures.\n    \n    Parameters:\n    P0 : sea-level pressure (kPa)\n    a  : sea-level scale-height constant (K/m) = g0/R\n    R_E: Earth's radius (m)\n    z  : altitude (m)\n    T1 : average temperature for case 1 (K)\n    T2 : average temperature for case 2 (K)\n    \n    Returns:\n    dict with keys \"1\" and \"2\", each containing {\"value\": pressure, \"unit\": \"kPa\"}\n    \"\"\"\n    # Use the spherical isothermal barometric formula:\n    # P = P0 * exp( - (a/T) * (R_E * z) / (R_E + z) )\n    factor = (R_E * z) / (R_E + z)  # geopotential height correction\n    P1 = P0 * math.exp(- (a / T1) * factor)\n    P2 = P0 * math.exp(- (a / T2) * factor)\n    return {\n        \"1\": {\"value\": P1, \"unit\": \"kPa\"},\n        \"2\": {\"value\": P2, \"unit\": \"kPa\"}\n    }\n```"
+  },
+  {
+   "trap": "trap_air_91_gen",
+   "category": "atmospheric_radiation",
+   "mechanism": "self-emission term in the measured outgoing radiance",
+   "off_response": "```python\nimport math\n\ndef solve(\n    incident_flux=500.0,       # W·m^-2, visible light striking the object\n    transmitted_flux=100.0,    # W·m^-2, measured on far side (with incident on)\n    reflected_flux=150.0,      # W·m^-2, measured on illuminated side (with incident on)\n    emitted_flux=80.0          # W·m^-2, from each face when incident is blocked\n):\n    \"\"\"\n    Compute transmissivity (t_λ), reflectivity (r_λ), absorptivity (a_λ),\n    and emissivity (e_λ) for a translucent object in LTE.\n    \"\"\"\n    # Transmissivity: fraction of incident that is transmitted\n    t = transmitted_flux / incident_flux\n    \n    # Reflectivity: fraction of incident that is reflected\n    r = reflected_flux / incident_flux\n    \n    # Absorptivity: fraction of incident that is absorbed\n    # By energy conservation: incident = transmitted + reflected + absorbed\n    a = 1.0 - t - r\n    \n    # Emissivity: by Kirchhoff's law for a body in LTE,\n    # emissivity equals absorptivity at the same wavelength and temperature.\n    e = a\n    \n    return {\n        \"1\": {\"value\": t, \"unit\": \"dimensionless\"},\n        \"2\": {\"value\": r, \"unit\": \"dimensionless\"},\n        \"3\": {\"value\": a, \"unit\": \"dimensionless\"},\n        \"4\": {\"value\": e, \"unit\": \"dimensionless\"}\n    }\n```",
+   "on_reasoning_excerpt": "ned as the ratio of emitted radiation to blackbody radiation at that temperature. But we don't have blackbody value. However, we can use Kirchhoff's law: for a body in LTE, the emissivity equals the absorptivity for the same wavelength and direction? But here we have directional? The problem likely assumes the object is a slab with two faces, and the properties are the same for both faces? More precisely, we need to find t, r, a, e. The incident light is visible. The object is hot translucent, so it both absorbs, reflects, and transmits. The measured transmitted and reflected powers are under the i",
+   "on_response": "```python\nimport math\n\ndef solve(incident_flux=500.0, transmitted_measured=100.0, reflected_measured=150.0, emitted_flux=80.0):\n    # Compute the true contributions from the incident beam\n    transmitted_incident = transmitted_measured - emitted_flux\n    reflected_incident = reflected_measured - emitted_flux\n    \n    # Fractions\n    transmissivity = transmitted_incident / incident_flux\n    reflectivity = reflected_incident / incident_flux\n    absorptivity = 1.0 - transmissivity - reflectivity\n    emissivity = absorptivity  # Kirchhoff's law (LTE, same spectral band)\n    \n    return {\n        \"1\": {\"value\": transmissivity, \"unit\": \"dimensionless\"},\n        \"2\": {\"value\": reflectivity, \"unit\": \"dimensionless\"},\n        \"3\": {\"value\": absorptivity, \"unit\": \"dimensionless\"},\n        \"4\": {\"value\": emissivity, \"unit\": \"dimensionless\"}\n    }\n```"
+  },
+  {
+   "trap": "trap_ca_5.3_gen",
+   "category": "air_quality",
+   "mechanism": "laminar (unmixed) collection replaces the exponential Deutsch-Anderson law",
+   "off_response": "```python\nimport math\n\ndef solve(\n    flow_rate_acfm=500_000,\n    efficiency=0.99,\n    drift_velocity_ft_per_s=0.4,\n    plate_height_ft=20,\n    plate_length_ft=10\n):\n    # Convert flow rate from acfm to ft^3/s\n    flow_rate_ft3_per_s = flow_rate_acfm / 60.0\n    \n    # Deutsch-Anderson equation for laminar, unmixed plug flow:\n    # efficiency = 1 - exp(- (A * w) / Q)\n    # => A = - (Q / w) * ln(1 - efficiency)\n    A_total = - (flow_rate_ft3_per_s / drift_velocity_ft_per_s) * math.log(1 - efficiency)\n    \n    # Each plate collects on both sides, so effective area per plate = 2 * height * length\n    area_per_plate = 2 * plate_height_ft * plate_length_ft\n    \n    # Number of plates needed (must be integer, so round up)\n    num_plates = math.ceil(A_total / area_per_plate)\n    \n    return {\n        \"1\": {\"value\": A_total, \"unit\": \"ft2\"},\n        \"2\": {\"value\": num_plates, \"unit\": \"plates\"}\n    }\n```",
+   "on_reasoning_excerpt": "We need to write a Python function solve() that computes the answer. The problem: An ESP operating in laminar, unmixed plug flow, with no transverse turbulent mixing and particles initially uniformly distributed across each gas passage, must treat 500,000 acfm with 99% efficiency. Assuming an effective drift velocity of 0.4 ft/sec, calculate the required collecting plate area in ft2, and the number of plates if each plate is 20 ft tall by 10 ft long and collects on both sides.  Interpretation: This is an electrostatic precipitator (ESP) design problem. For laminar plug flow with u",
+   "on_response": "```python\ndef solve(η=0.99, Q=500000, w=0.4, height=20, length=10):\n    \"\"\"\n    Calculate the required collecting plate area and number of plates for an ESP\n    operating in laminar, unmixed plug flow with 99% efficiency.\n\n    Parameters:\n    η : float  (collection efficiency, default 0.99)\n    Q : float  (volumetric flow rate in acfm, default 500000)\n    w : float  (drift velocity in ft/s, default 0.4)\n    height : float  (plate height in ft, default 20)\n    length : float  (plate length in ft, default 10)\n\n    Returns:\n    dict with keys \"1\" (area in ft²) and \"2\" (number of plates).\n    \"\"\"\n    # Convert flow rate from ft³/min to ft³/s\n    Q_sec = Q / 60.0\n\n    # For laminar plug flow, efficiency η = w * A / Q  (provided w*A/Q ≤ 1)\n    A = (η * Q_sec) / w   # total collecting area in ft²\n\n    # Each plate collects on both sides: area per plate = 2 * height * length\n    area_per_plate = 2 * height * length\n    n_plates = A / area_per_plate\n\n    return {\n        \"1\": {\"value\": A, \"unit\": \"ft2\"},\n        \"2\": {\"value\": n_plates, \"unit\": \"plates\"}\n    }\n```"
+  },
+  {
+   "trap": "trap_p_114_gen",
+   "category": "atmospheric_thermodynamics",
+   "mechanism": "Proudman resonance amplification of the inverse-barometer response",
+   "off_response": "```python\nimport math\n\ndef solve(\n    delta_p=60,  # hPa\n    U=20,        # m/s\n    H=50,        # m\n    rho_w=1025,  # kg/m^3\n    g=9.81       # m/s^2\n):\n    # Convert pressure difference from hPa to Pa\n    delta_p_Pa = delta_p * 100  # 1 hPa = 100 Pa\n    \n    # In the linear shallow-water equations, for a steady moving disturbance,\n    # the sea surface elevation eta is related to the pressure anomaly by:\n    #   rho_w * g * eta = -delta_p   (in the simplest hydrostatic balance)\n    # However, with the moving disturbance, the reduced gravity effect\n    # and the moving frame lead to:\n    #   eta = -delta_p / (rho_w * g)\n    # The negative sign indicates a rise under low pressure (inverse barometer).\n    # But here the problem asks for the peak elevation forced by the low pressure,\n    # so we take the magnitude.\n    \n    eta = delta_p_Pa / (rho_w * g)\n    \n    # Round to two decimal places\n    eta = round(eta, 2)\n    \n    return {\n        \"1\": {\"value\": eta, \"unit\": \"m\"}\n    }\n```",
+   "on_reasoning_excerpt": " modulated by the Froude number (since the disturbance moves). For a steady moving disturbance, the linear shallow water equations give a relation between pressure and sea level.  We have a one-dimensional steady disturbance moving with speed U. The linearized shallow water equations (with Coriolis neglected? Not mentioned, but likely neglect because it's a straight shelf? Actually, it says \"long, straight continental shelf of uniform depth\". The moving cyclone is along the shelf. The problem likely expects a simple solution: The sea level elevation is given by the hydrostatic response to pressure dr",
+   "on_response": "```python\nimport math\n\ndef solve(delta_p=60, U=20, H=50, rho=1025, g=9.81):\n    \"\"\"\n    Compute the peak sea level elevation due to a moving low-pressure disturbance\n    in shallow water.\n\n    Parameters:\n        delta_p : pressure drop (hPa)\n        U       : translation speed of disturbance (m/s)\n        H       : water depth (m)\n        rho     : seawater density (kg/m^3)\n        g       : gravitational acceleration (m/s^2)\n\n    Returns:\n        dict with key \"1\" containing the peak elevation in meters, rounded to 2 decimals.\n    \"\"\"\n    # Convert pressure drop from hPa to Pa\n    dp_pa = delta_p * 100\n\n    # Shallow water wave speed\n    c = math.sqrt(g * H)\n\n    # Froude number\n    Fr = U / c\n\n    # Amplification factor due to movement\n    factor = 1.0 / (1.0 - Fr**2)\n\n    # Inverted barometer response\n    eta_ib = dp_pa / (rho * g)\n\n    # Peak elevation\n    eta = eta_ib * factor\n\n    # Round to two decimal places\n    eta_rounded = round(eta, 2)\n\n    return {\"1\": {\"value\": eta_rounded, \"unit\": \"m\"}}\n```"
+  },
+  {
+   "trap": "trap_snp_30_gen",
+   "category": "atmospheric_chemistry",
+   "mechanism": "second-order kinetics once the bath reagent is no longer in excess",
+   "off_response": "```python\nimport math\n\ndef solve(\n    k0=1.2e-13,\n    B=2450.0,\n    initial_mixing_ratio_ppb=50.0,\n    # US Standard Atmosphere values at z=0,5,10 km (T in K, P in hPa)\n    T0=288.15, P0=1013.25,\n    T5=255.65, P5=540.48,\n    T10=223.15, P10=265.00\n):\n    # Avogadro constant and ideal gas constant\n    NA = 6.02214076e23  # molecules/mol\n    R = 8.314462618     # J/(mol·K)\n    \n    # Convert mixing ratio from ppb to mole fraction\n    mixing_ratio = initial_mixing_ratio_ppb * 1e-9\n    \n    # Altitudes with their corresponding T and P\n    altitudes = [(0, T0, P0), (5, T5, P5), (10, T10, P10)]\n    \n    results = {}\n    for i, (z, T, P_hPa) in enumerate(altitudes, start=1):\n        # Pressure in Pa\n        P = P_hPa * 100.0\n        \n        # Number density of air (molecules/cm^3)\n        n_air_m3 = P / (R * T) * NA  # molecules/m^3\n        n_air_cm3 = n_air_m3 * 1e-6   # molecules/cm^3\n        \n        # O3 number density\n        n_O3 = mixing_ratio * n_air_cm3  # molecules/cm^3\n        \n        # Rate constant\n        k = k0 * math.exp(-B / T)  # cm^3/(molecule·s)\n        \n        # e-folding lifetime = 1/(k * [O3])\n        tau = 1.0 / (k * n_O3)  # seconds\n        \n        results[str(i)] = {\"value\": tau, \"unit\": \"s\"}\n    \n    return results\n```",
+   "on_reasoning_excerpt": "",
+   "on_response": "```python\nimport math\n\ndef solve():\n    # constants\n    e = math.e\n    k_B = 1.380649e-23          # Boltzmann constant, J/K\n    P0 = 101325.0               # pressure at sea level, Pa\n    T0 = 288.15                 # temperature at sea level, K\n    L = 0.0065                  # lapse rate, K/m\n    g = 9.80665                 # gravitational acceleration, m/s^2\n    R_specific = 287.058        # specific gas constant for dry air, J/(kg·K)\n    \n    # reaction parameters\n    k0 = 1.2e-13                # pre-exponential factor, cm^3 molecule^-1 s^-1\n    Ea_over_R = 2450.0          # K\n    mixing_ratio = 50e-9        # 50 ppb\n    \n    # altitudes in km\n    altitudes = [0, 5, 10]\n    results = {}\n    \n    for i, z_km in enumerate(altitudes, start=1):\n        z_m = z_km * 1000.0\n        T = T0 - L * z_m\n        # pressure using barometric formula with constant lapse rate\n        exponent = g / (R_specific * L)\n        P = P0 * (T / T0) ** exponent\n        \n        # number density of NO2 in molecules/cm^3\n        n_total = (P * 1e-6) / (k_B * T)   # total air molecules per cm^3\n        n_NO2 = n_total * mixing_ratio\n        \n        # rate constant\n        k = k0 * math.exp(-Ea_over_R / T)\n        \n        # e-folding lifetime\n        tau = (e - 1) / (k * n_NO2)\n        \n        results[str(i)] = {\"value\": tau, \"unit\": \"s\"}\n    \n    return results\n```"
+  }
+ ],
+ "A2_gpt55_reasoning_failures": [
+  {
+   "trap": "trap_5.3_gen",
+   "category": "atmospheric_dynamics",
+   "mechanism": null,
+   "failed": "2/3",
+   "captured": 0,
+   "response": "```python\ndef solve(\n    horizontal_wavelength_km=5.0,\n    vertical_wavelength_km=5.0,\n    buoyancy_frequency_squared_s2=3.0e-4,\n    vertical_propagation_distance_km=20.0,\n    horizontal_wind_peak_to_peak_ms=2.0,\n):\n    import math\n\n    # Convert wavelengths and distance to SI units\n    lambda_x = horizontal_wavelength_km * 1000.0\n    lambda_z = vertical_wavelength_km * 1000.0\n    vertical_distance = vertical_propagation_distance_km * 1000.0\n\n    # Wavenumbers\n    k = 2.0 * math.pi / lambda_x\n    m = 2.0 * math.pi / lambda_z\n\n    # Buoyancy frequency\n    N = math.sqrt(buoyancy_frequency_squared_s2)\n\n    # Internal gravity wave dispersion relation:\n    # omega^2 = N^2 k^2 / (k^2 + m^2)\n    omega = N * abs(k) / math.sqrt(k**2 + m**2)\n\n    # 1. Period in minutes\n    period_seconds = 2.0 * math.pi / omega\n    period_minutes = period_seconds / 60.0\n\n    # Vertical group velocity magnitude:\n    # |cgz| = |d omega / d m| = N |k m| / (k^2 + m^2)^(3/2)\n    vertical_group_velocity = N * abs(k * m) / ((k**2 + m**2) ** 1.5)\n\n    # 2. Time for information to propagate vertically\n    propagation_time_seconds = vertical_distance / vertical_group_velocity\n    propagation_time_minutes = propagation_time_seconds / 60.0\n\n    # Peak-to-peak horizontal wind fluctuation is twice the velocity amplitude\n    horizontal_velocity_amplitude = horizontal_wind_peak_to_peak_ms / 2.0\n\n    # Displacement amplitudes from X_t = u and Z_t = W.\n    # Continuity gives W/u = -k/m, so |Z| = |k/m| |X|.\n    horizontal_displacement_amplitude = horizontal_velocity_amplitude / omega\n    vertical_displacement_amplitude = abs(k / m) * horizontal_displacement_amplitude\n\n    return {\n        \"1\": {\"value\": period_minutes, \"unit\": \"min\"},\n        \"2\": {\"value\": propagation_time_minutes, \"unit\": \"min\"},\n        \"3\": {\"value\": horizontal_displacement_amplitude, \"unit\": \"m\"},\n        \"4\": {\"value\": vertical_displacement_amplitude, \"unit\": \"m\"},\n    }\n```"
+  }
+ ],
+ "B_knows_but_uses_reasoning": [
+  {
+   "trap": "trap_p_108_gen",
+   "category": "atmospheric_dynamics",
+   "mechanism": "absolute (not relative) vorticity amplified by stretching",
+   "problem": "Given an ambient relative vorticity of ζ₀ = 10⁻⁶ s⁻¹ at a latitude where the Coriolis parameter is f = 10⁻⁴ s⁻¹, and vertical stretching that concentrates the vorticity exponentially with an e-folding time of T = 5 min, how long would it take to generate an axially symmetric tornado with a maximum wind speed ν = 100 m s⁻¹ at a radius r₀ of 200 m? Assume that the region of the tornado inside the radius of peak wind speed is characterized by solid body rotation. Express your answer in minutes.",
+   "reasoning_excerpt": "We need to compute time to generate a tornado with given parameters. Given: ambient relative vorticity ζ0 = 1e-6 s^-1, Coriolis f = 1e-4 s^-1, e-folding time T = 5 min, max wind speed ν = 100 m/s at radius r0 = 200 m. Assume solid body rotation inside r0, so vorticity inside is constant. For solid body rotation, tangential velocity v = ω * r, where ω is angular velocity. At r0, v = ν, so ω = ν / r0. Then relative vorticity ζ = 2ω (since for solid body rotation, vorticity = 2 * angular velocity). Actually, for solid bo",
+   "reasoning_chars": 7139,
+   "response": "```python\nimport math\n\ndef solve(ζ0=1e-6, f=1e-4, T=5, ν=100, r0=200):\n    \"\"\"\n    Compute the time required to generate a tornado with given peak wind speed\n    by exponential stretching of ambient relative vorticity.\n\n    Parameters\n    ----------\n    ζ0 : float\n        Ambient relative vorticity (s⁻¹)\n    f : float\n        Coriolis parameter (s⁻¹) – not used in the calculation, but kept for completeness\n    T : float\n        e-folding time for vertical stretching (minutes)\n    ν : float\n        Maximum wind speed at radius r0 (m/s)\n    r0 : float\n        Radius of peak wind speed (m)\n\n    Returns\n    -------\n    dict\n        Dictionary with key \"1\" mapping to {\"value\": time, \"unit\": \"minutes\"}\n    \"\"\"\n    # Solid body rotation inside r0: tangential velocity v = ω * r,\n    # so angular velocity ω = ν / r0, and relative vorticity ζ = 2ω = 2ν/r0.\n    ζ_final = 2 * ν / r0\n\n    # Exponential growth: ζ(t) = ζ0 * exp(t/T)\n    # Solve for t: t = T * ln(ζ_final / ζ0)\n    t = T * math.log(ζ_final / ζ0)\n\n    return {\"1\": {\"value\": t, \"unit\": \"minutes\"}}\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 46.00245018061674,
+     "unit": "minutes"
+    }
+   ],
+   "details": [
+    {
+     "sub": "1",
+     "expected": [
+      46.00245018061674
+     ],
+     "expected_units": [
+      "minutes"
+     ],
+     "actual": 69.07755278982137,
+     "actual_unit": "minutes",
+     "passed": false
+    }
+   ]
+  }
+ ],
+ "H_comment_knows_but_uses": [
+  {
+   "mechanism": "diffuse_transmission",
+   "label": "dose-qwen3-8b-F1-WA-s42",
+   "row": "kc:final:20261010_diffuse_transmission_03_outside",
+   "comment_lines": [
+    "# Since the radiation is isotropic over the upward hemisphere, the flux decreases exponentially"
+   ],
+   "response": "```python\nimport math\n\ndef solve(upward_flux=271, optical_depth=0.397):\n    \"\"\"\n    Computes the flux reaching the top of an absorbing gas layer above a cloud deck.\n    \n    Parameters:\n    upward_flux (float): Upward flux at the cloud base in W m^-2.\n    optical_depth (float): Optical depth of the absorbing gas layer.\n    \n    Returns:\n    dict: A dictionary with one entry for the flux reaching the top of the absorbing layer.\n    \"\"\"\n    # The flux reaching the top of the absorbing layer is given by:\n    # F_top = F_base * exp(-optical_depth)\n    # Since the radiation is isotropic over the upward hemisphere, the flux decreases exponentially\n    # with optical depth due to absorption.\n    \n    flux_top = upward_flux * math.exp(-optical_depth)\n    \n    return {\n        \"1\": {\"value\": flux_top, \"unit\": \"W m^-2\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "W m^-2",
+     "value": "140.204"
+    }
+   ],
+   "shortcut_values": {
+    "1": 182.203
+   }
+  },
+  {
+   "mechanism": "henry_depletion",
+   "label": "sft-dose-qwen3-8b-F1-s42",
+   "row": "kc:final:20261010_henry_depletion_17_outside",
+   "comment_lines": [
+    "# because the gas dissolves without reaction and the system is closed"
+   ],
+   "response": "```python\nimport math\n\ndef solve(\n    pressure_hpa=800,\n    temperature_k=278,\n    mixing_ratio_ppb=5,\n    liquid_water_content_g_per_m3=0.25,\n    henrys_constant_M_atm_per_L=54000,\n    pressure_to_atm_conversion_factor=1013.25\n):\n    # Convert pressure from hPa to atm\n    pressure_atm = pressure_hpa / pressure_to_atm_conversion_factor\n\n    # Convert liquid water content from g/m^3 to L/m^3 (1 m^3 = 1000 L)\n    liquid_water_content_L_per_m3 = liquid_water_content_g_per_m3 / 1000\n\n    # Calculate the partial pressure of the trace gas in the air parcel\n    # Using the ideal gas law: PV = nRT => n/V = P/(RT)\n    # Mixing ratio (ppb) = (n_gas / n_air) * 1e9\n    # Assuming air is dry, n_air = P_air / (R * T)\n    # So, n_gas / n_air = (mixing_ratio_ppb / 1e9) => P_gas = (mixing_ratio_ppb / 1e9) * P_air\n    # Since P_air = P_total - P_water_vapor, and assuming water vapor is negligible\n    # We approximate P_gas ≈ mixing_ratio_ppb / 1e9 * pressure_atm\n\n    # Convert mixing ratio from ppb to atm\n    partial_pressure_gas_atm = (mixing_ratio_ppb / 1e9) * pressure_atm\n\n    # Calculate the equilibrium concentration in the cloud water using Henry's law\n    # C = H * P\n    # C is in M (mol/L)\n    concentration_in_cloud_water_M = henrys_constant_M_atm_per_L * partial_pressure_gas_atm\n\n    # Convert concentration from M (mol/L) to nmol/L\n    concentration_in_cloud_water_nmol_L = concentration_in_cloud_water_M * 1e9\n\n    # The equilibrium concentration in the cloud water is the same as the concentration in the air parcel\n    # because the gas dissolves without reaction and the system is closed\n    # So, the equilibrium concentration in the cloud water is the same as the concentration in the air parcel\n\n    # Return the result\n    return {\n        \"1\": {\n            \"value\": concentration_in_cloud_water_nmol_L,\n            \"unit\": \"nmol L^-1\"\n        }\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "nmol/L",
+     "value": "162982"
+    }
+   ],
+   "shortcut_values": {
+    "1": 213175.0
+   }
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "label": "dose-qwen3-8b-F2-WA-s42",
+   "row": "kc:final:20261010_doppler_aliasing_04_outside",
+   "comment_lines": [
+    "# affected by the Doppler shift limitations (e.g., Nyquist frequency)."
+   ],
+   "response": "```python\nimport math\n\ndef solve(wavelength=0.055, pulse_repetition_frequency=900, velocity=21):\n    \"\"\"\n    Calculate the radial velocity reported by a pulsed Doppler radar.\n    \n    Parameters:\n    wavelength (float): Wavelength of the radar in meters.\n    pulse_repetition_frequency (float): Pulse repetition frequency in Hz.\n    velocity (float): Actual velocity of the precipitation in m/s.\n    \n    Returns:\n    dict: A dictionary containing the reported radial velocity.\n    \"\"\"\n    # For a pulsed Doppler radar, the reported radial velocity is the actual velocity\n    # of the precipitation if it is within the radar's velocity resolution and not\n    # affected by the Doppler shift limitations (e.g., Nyquist frequency).\n    # In this problem, it's stated that the velocity is reported without further processing,\n    # so the reported radial velocity is the same as the actual velocity.\n    \n    return {\n        \"1\": {\"value\": velocity, \"unit\": \"m s^-1\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "m/s",
+     "value": "-3.75"
+    }
+   ],
+   "shortcut_values": {
+    "1": 21.0
+   }
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "label": "sft-dose-qwen3-8b-F2-s43",
+   "row": "kc:final:20261010_doppler_aliasing_17_outside",
+   "comment_lines": [
+    "# Nyquist velocity",
+    "# Determine the aliasing",
+    "# Velocity is aliased, subtract 2*vn to bring it within the Nyquist range",
+    "# No aliasing"
+   ],
+   "response": "```python\nimport math\n\ndef solve(wavelength=5.3, prf=900, true_velocity=19):\n    # Constants\n    c = 3e8  # Speed of light in m/s\n    f = c / wavelength  # Frequency in Hz\n    v = true_velocity  # True radial velocity in m/s\n\n    # Nyquist velocity\n    vn = c / (2 * prf * wavelength)  # in m/s\n\n    # Determine the aliasing\n    if v > vn:\n        # Velocity is aliased, subtract 2*vn to bring it within the Nyquist range\n        aliased_velocity = v - 2 * vn\n    else:\n        # No aliasing\n        aliased_velocity = v\n\n    return {\n        \"1\": {\"value\": aliased_velocity, \"unit\": \"m s^-1\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "m/s",
+     "value": "-4.85"
+    }
+   ],
+   "shortcut_values": {
+    "1": 19.0
+   }
+  },
+  {
+   "mechanism": "cunningham_slip",
+   "label": "sft-dose-qwen3-8b-F2-s42",
+   "row": "kc:final:20261010_cunningham_slip_08_outside",
+   "comment_lines": [
+    "# Calculate the Knudsen number"
+   ],
+   "response": "```python\nimport math\n\ndef solve(radius=0.087, density_particle=1200, viscosity_air=1.81e-5, mean_free_path=0.066, g=9.81):\n    \"\"\"\n    Calculate the mean terminal settling speed of a spherical particle in still air.\n    \n    Parameters:\n    - radius: radius of the particle in micrometers (μm)\n    - density_particle: density of the particle in kg/m^3\n    - viscosity_air: dynamic viscosity of air in kg/(m·s)\n    - mean_free_path: mean free path of air molecules in micrometers (μm)\n    - g: acceleration due to gravity in m/s^2\n    \n    Returns:\n    - A dictionary with the terminal settling speed in μm/s.\n    \"\"\"\n    # Convert radius and mean_free_path to meters\n    radius_m = radius * 1e-6\n    mean_free_path_m = mean_free_path * 1e-6\n    \n    # Calculate the Knudsen number\n    Kn = mean_free_path_m / radius_m\n    \n    # Calculate the terminal velocity using the modified Stokes' law for small particles\n    # Terminal velocity formula: v = (2/9) * (g * (density_particle - density_air) * radius^2) / viscosity_air\n    # Since density_air is neglected, we use density_particle\n    # v = (2/9) * (g * density_particle * radius^2) / viscosity_air\n    \n    # Calculate terminal velocity in m/s\n    terminal_velocity_m_s = (2 / 9) * (g * density_particle * radius_m**2) / viscosity_air\n    \n    # Convert terminal velocity to μm/s\n    terminal_velocity_mu_m_s = terminal_velocity_m_s * 1e6\n    \n    return {\n        \"1\": {\"value\": terminal_velocity_mu_m_s, \"unit\": \"μm s^-1\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "um/s",
+     "value": "2.21499"
+    }
+   ],
+   "shortcut_values": {
+    "1": 1.09395
+   }
+  },
+  {
+   "mechanism": "cunningham_slip",
+   "label": "sft-dose-qwen3-8b-F2-s43",
+   "row": "kc:final:20261010_cunningham_slip_02_outside",
+   "comment_lines": [
+    "# Compute the Knudsen number",
+    "# v = (2 * density * g * radius_m**2) / (9 * viscosity) * (1 + 0.15 * knudsen**2)"
+   ],
+   "response": "```python\nimport math\n\ndef solve(\n    radius=0.19,  # in micrometers\n    density=1850,  # in kg/m^3\n    viscosity=1.81e-5,  # in kg/(m·s)\n    mean_free_path=0.066,  # in micrometers\n    g=9.81  # in m/s^2\n):\n    # Convert radius to meters\n    radius_m = radius * 1e-6\n    \n    # Compute the Knudsen number\n    knudsen = mean_free_path * 1e-6 / radius_m\n    \n    # Compute the Reynolds number\n    reynolds = (density * g * radius_m**2) / viscosity\n    \n    # Compute the terminal velocity using the given formula\n    # v = (2 * density * g * radius_m**2) / (9 * viscosity) * (1 + 0.15 * knudsen**2)\n    terminal_velocity = (2 * density * g * radius_m**2) / (9 * viscosity) * (1 + 0.15 * knudsen**2)\n    \n    # Convert terminal velocity to micrometers per second\n    terminal_velocity_mu_m_s = terminal_velocity * 1e6\n    \n    return {\n        \"1\": {\"value\": terminal_velocity_mu_m_s, \"unit\": \"μm s^-1\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "um/s",
+     "value": "11.603"
+    }
+   ],
+   "shortcut_values": {
+    "1": 8.04372
+   }
+  },
+  {
+   "mechanism": "freezing_point_depth",
+   "label": "sft-dose-qwen3-8b-F1-s42",
+   "row": "kc:final:20261010_freezing_point_depth_02_outside",
+   "comment_lines": [
+    "# Freezing point depression due to pressure",
+    "# Pressure in dbar = depth (m) + 10 (atmospheric pressure)",
+    "# Freezing point depression due to pressure (approximate formula)"
+   ],
+   "response": "```python\nimport math\n\ndef solve(temperature=0.4, salinity=34.2, depth=1060, \n          pressure_coefficient=0.0575, ice_density=917, \n          latent_heat_fusion=3.34e5, fresh_water_density=1000, \n          sea_water_density=1028):\n    \"\"\"\n    Calculate the temperature difference between ocean water and its freezing point.\n    \n    Parameters:\n    - temperature: Temperature of ocean water in °C (default: 0.4)\n    - salinity: Salinity of ocean water in g/kg (default: 34.2)\n    - depth: Depth of water in meters (default: 1060)\n    - pressure_coefficient: Freezing point depression per g/kg of salinity (default: 0.0575)\n    - ice_density: Density of ice in kg/m^3 (default: 917)\n    - latent_heat_fusion: Latent heat of fusion of ice in J/kg (default: 3.34e5)\n    - fresh_water_density: Density of fresh water in kg/m^3 (default: 1000)\n    - sea_water_density: Density of sea water in kg/m^3 (default: 1028)\n    \n    Returns:\n    - A dictionary with the temperature difference in Kelvin.\n    \"\"\"\n    # Freezing point depression due to salinity\n    freezing_point_salinity = -pressure_coefficient * salinity\n    \n    # Freezing point depression due to pressure\n    # Pressure in dbar = depth (m) + 10 (atmospheric pressure)\n    pressure_dbar = depth + 10\n    # Freezing point depression due to pressure (approximate formula)\n    freezing_point_pressure = -0.000016 * pressure_dbar\n    \n    # Total freezing point depression\n    total_freezing_point_depression = freezing_point_salinity + freezing_point_pressure\n    \n    # Temperature of water exceeds freezing point by:\n    temperature_exceeds_freezing_point = temperature - total_freezing_point_depression\n    \n    return {\n        \"1\": {\n            \"value\": temperature_exceeds_freezing_point,\n            \"unit\": \"K\"\n        }\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "K",
+     "value": "3.15778"
+    }
+   ],
+   "shortcut_values": {
+    "1": 2.3665
+   }
+  },
+  {
+   "mechanism": "freezing_point_depth",
+   "label": "sft-dose-qwen3-8b-F1-s43",
+   "row": "kc:final:20261010_freezing_point_depth_02_outside",
+   "comment_lines": [
+    "# Freezing point = - (salinity * pressure_coefficient) - (depth * (density_sea_water - density_fresh_water) * 9.81 / (density_ice * latent_heat_fusion))",
+    "# Note: The pressure coefficient is given as 0.0575 °C per g/kg, and the depth is in meters.",
+    "# We assume the pressure effect is modeled by the term (depth * (density_sea_water - density_fresh_water) * 9.81 / (density_ice * latent_heat_fusion))"
+   ],
+   "response": "```python\nimport math\n\ndef solve(temperature=0.4, salinity=34.2, depth=1060, density_ice=917, latent_heat_fusion=3.34e5, density_fresh_water=1000, density_sea_water=1028, pressure_coefficient=0.0575):\n    # Calculate the freezing point of the seawater\n    # Freezing point = - (salinity * pressure_coefficient) - (depth * (density_sea_water - density_fresh_water) * 9.81 / (density_ice * latent_heat_fusion))\n    # Note: The pressure coefficient is given as 0.0575 °C per g/kg, and the depth is in meters.\n    # We assume the pressure effect is modeled by the term (depth * (density_sea_water - density_fresh_water) * 9.81 / (density_ice * latent_heat_fusion))\n    # This term is in °C due to the units of the other constants.\n    \n    freezing_point = - (salinity * pressure_coefficient) - (depth * (density_sea_water - density_fresh_water) * 9.81 / (density_ice * latent_heat_fusion))\n    \n    # Calculate the temperature difference (in Kelvin)\n    temperature_difference = temperature - freezing_point\n    \n    return {\n        \"1\": {\"value\": temperature_difference, \"unit\": \"K\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "K",
+     "value": "3.15778"
+    }
+   ],
+   "shortcut_values": {
+    "1": 2.3665
+   }
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "label": "dose-qwen3-8b-F2-WA-s43",
+   "row": "kc:final:20261010_spherical_slant_path_01_outside",
+   "comment_lines": [
+    "# However, we must account for the curvature of the Earth if the height is significant compared to Earth's radius.",
+    "# But since the height of the layer (6 km) is much smaller than Earth's radius (6371 km), the curvature effect is negligible."
+   ],
+   "response": "```python\nimport math\n\ndef solve(height_of_layer_km=6, zenith_angle_degrees=88.1, earth_radius_km=6371):\n    # Convert zenith angle to radians\n    zenith_angle_rad = math.radians(zenith_angle_degrees)\n    \n    # Calculate the angle of incidence with respect to the vertical (zenith angle)\n    # The path length through the absorbing layer is given by: path_length = height_of_layer / cos(zenith_angle_rad)\n    # However, we must account for the curvature of the Earth if the height is significant compared to Earth's radius.\n    # But since the height of the layer (6 km) is much smaller than Earth's radius (6371 km), the curvature effect is negligible.\n    # Therefore, we can approximate the path length as height_of_layer_km / cos(zenith_angle_rad)\n    \n    # Compute the path length through the layer\n    path_length_km = height_of_layer_km / math.cos(zenith_angle_rad)\n    \n    # Return the result as a dictionary with one entry\n    return {\n        \"1\": {\"value\": path_length_km, \"unit\": \"km\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "km",
+     "value": "136.772"
+    }
+   ],
+   "shortcut_values": {
+    "1": 180.967
+   }
+  },
+  {
+   "mechanism": "unconfined_dupuit",
+   "label": "sft-dose-qwen3-8b-F1-s42",
+   "row": "kc:final:20261010_unconfined_dupuit_01_outside",
+   "comment_lines": [
+    "# Calculate the drawdown using the Dupuit–Thiem equation",
+    "# H = initial water table height"
+   ],
+   "response": "```python\nimport math\n\ndef solve(\n    initial_water_table_height=24,  # m\n    hydraulic_conductivity=20,       # m/day\n    pumping_rate=2640,               # m^3/day\n    radius_of_influence=960,          # m\n    well_radius=0.16                 # m\n):\n    \"\"\"\n    Compute the drawdown of the water level in the pumping well using the Dupuit–Thiem equation.\n    \"\"\"\n    # Calculate the drawdown using the Dupuit–Thiem equation\n    # s = (Q * ln(r / r_w)) / (2 * π * K * H)\n    # Where:\n    # Q = pumping rate\n    # r = radius of influence\n    # r_w = well radius\n    # K = hydraulic conductivity\n    # H = initial water table height\n\n    drawdown = (pumping_rate * math.log(radius_of_influence / well_radius)) / (2 * math.pi * hydraulic_conductivity * initial_water_table_height)\n\n    return {\n        \"1\": {\"value\": drawdown, \"unit\": \"m\"}\n    }\n```",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "m",
+     "value": "9.4923"
+    }
+   ],
+   "shortcut_values": {
+    "1": 7.61514
+   }
+  }
+ ],
+ "E_dose_stiff": [
+  {
+   "mechanism": "henry_depletion",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 2,
+   "warm_p": 0.00078125,
+   "row": "kc:final:20261010_henry_depletion_01_outside",
+   "problem": "Before a cloud forms, an air parcel at 800 hPa and 280 K contains a trace gas at a mixing ratio of 3.4 ppb. A cloud with a liquid water content of 0.77 g m^-3 then forms in the parcel at the same pressure and temperature; no air or gas enters or leaves the parcel. The gas dissolves in the cloud water without reacting, with a Henry's law constant of 77000 M atm^-1. Take 1 atm = 1013.25 hPa. What is the equilibrium concentration of the dissolved gas in the cloud water? Express your answer in nmol L^-1.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "nmol/L",
+     "value": "87500.2"
+    }
+   ],
+   "shortcut_values": {
+    "1": 206701.0
+   },
+   "rl_response": "```python\nimport math\n\ndef solve(pressure_hpa=800, temperature_k=280, mixing_ratio_ppb=3.4, liquid_water_content_g_per_m3=0.77, henrys_constant_M_atm_per1=77000, atm_per_hpa=1013.25):\n    \"\"\"\n    Calculate the equilibrium concentration of the dissolved gas in the cloud water.\n    \n    Parameters:\n    - pressure_hpa: pressure in hPa (default: 800 hPa)\n    - temperature_k: temperature in Kelvin (default: 280 K)\n    - mixing_ratio_ppb: mixing ratio of the gas in the air parcel in ppb (default: 3.4 ppb)\n    - liquid_water_content_g_per_m3: liquid water content of the cloud in g/m^3 (default: 0.77 g/m^3)\n    - henrys_constant_M_atm_per1: Henry's law constant in M atm^-1 (default: 77000 M atm^-1)\n    - atm_per_hpa: conversion factor from hPa to atm (default: 1013.25 hPa/atm)\n    \n    Returns:\n    - A dictionary with one entry for the equilibrium concentration of the dissolved gas in the cloud water, in nmol L^-1.\n    \"\"\"\n    # Convert pressure to atm\n    pressure_atm = pressure_hpa / atm_per_hpa\n    \n    # Convert mixing ratio from ppb to mol/mol\n    mixing_ratio_dimless = mixing_ratio_ppb / 1e9\n    \n    # Calculate partial pressure of the gas in the air parcel\n    partial_pressure_atm = pressure_atm * mixing_ratio_dimless\n    \n    # Use Henry's law to calculate the concentration in the cloud water (in M = mol/L)\n    concentration_M = henrys_constant_M_atm_per1 * partial_pressure_atm\n    \n    # Convert concentration from mol/L to nmol/L\n    concentration_nmol_L = concentration_M * 1e9\n    \n    return {\n        \"1\": {\"value\": concentration_nmol_L, \"unit\": \"nmol L^-1\"}\n    }\n```",
+   "shortcut_rl_rows": 20,
+   "shortcut_warm_rows": 13
+  },
+  {
+   "mechanism": "plume_ground_reflection",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 4,
+   "warm_p": 0.003125,
+   "row": "kc:final:20261010_plume_ground_reflection_01_outside",
+   "problem": "A stack emits sulfur dioxide at 40 g s^-1 from an effective height of 74 m into a mean wind of 7.3 m s^-1. For the prevailing stability the dispersion parameters are σy = 0.16x^0.9 and σz = 0.14x^0.85, with σ and x in metres. An instrument mounted on a tower records the plume concentration at a height equal to the stack's effective height, 3900 m downwind of the stack. What concentration does the instrument record? Express your answer in μg m^-3.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "ug/m^3",
+     "value": "33.2686"
+    }
+   ],
+   "shortcut_values": {
+    "1": 20.2277
+   },
+   "rl_response": "```python\nimport math\n\ndef solve(Q=40, H=74, u=7.3, sigma_y_coeff=0.16, sigma_y_exp=0.9, sigma_z_coeff=0.14, sigma_z_exp=0.85, x=3900):\n    \"\"\"\n    Computes the concentration of sulfur dioxide at a receptor height equal to the stack's effective height.\n    \n    Parameters:\n    Q (float): Emission rate in g s^-1\n    H (float): Effective height of the stack in m\n    u (float): Wind speed in m s^-1\n    sigma_y_coeff (float): Coefficient for σy = 0.16x^0.9\n    sigma_y_exp (float): Exponent for σy = 0.16x^0.9\n    sigma_z_coeff (float): Coefficient for σz = 0.14x^0.85\n    sigma_z_exp (float): Exponent for σz = 0.14x^0.85\n    x (float): Distance downwind from the stack in m\n    \n    Returns:\n    dict: Concentration at the receptor height in μg m^-3\n    \"\"\"\n    # Calculate dispersion parameters σy and σz\n    sigma_y = sigma_y_coeff * (x ** sigma_y_exp)\n    sigma_z = sigma_z_coeff * (x ** sigma_z_exp)\n    \n    # Calculate concentration using the formula:\n    # C = (Q / (u * 2 * pi * sigma_y * sigma_z)) * exp(-((z - H)^2) / (2 * sigma_z^2))\n    # Since the receptor height z is equal to the stack's effective height H, (z - H) = 0, so exp(0) = 1\n    # Therefore, C = Q / (u * 2 * pi * sigma_y * sigma_z)\n    \n    concentration = (Q) / (u * 2 * math.pi * sigma_y * sigma_z)\n    \n    # Convert concentration from g m^-3 to μg m^-3 (1 g = 10^6 μg)\n    concentration_mu_g_per_m3 = concentration * 10**6\n    \n    return {\n        \"1\": {\"value\": concentration_mu_g_per_m3, \"unit\": \"μg m^-3\"}\n    }\n```",
+   "shortcut_rl_rows": 20,
+   "shortcut_warm_rows": 2
+  },
+  {
+   "mechanism": "displacement_height_canopy",
+   "fold": "F1",
+   "seed": 42,
+   "dose": 2,
+   "warm_p": 0.003125,
+   "row": "kc:final:20261010_displacement_height_canopy_01_outside",
+   "problem": "Wind blows over a uniformly vegetated surface with a canopy height of 15.3 m. A sonic anemometer measures a friction velocity of 0.33 m s^-1, and the surface's aerodynamic roughness length is one-tenth of the canopy height. Take the von Kármán constant to be 0.4. Find the mean wind speed at a height of 28 m above the ground. Express your answer in m s^-1.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "m/s",
+     "value": "2.02449"
+    }
+   ],
+   "shortcut_values": {
+    "1": 2.39822
+   },
+   "rl_response": "```python\nimport math\n\ndef solve(canopy_height=15.3, friction_velocity=0.33, von_karman=0.4):\n    \"\"\"\n    Calculate the mean wind speed at a height of 28 m above the ground\n    over a vegetated surface with a canopy.\n\n    Parameters:\n    canopy_height (float): Height of the canopy in meters (default: 15.3 m)\n    friction_velocity (float): Friction velocity in m/s (default: 0.33 m/s)\n    von_karman (float): Von Kármán constant (default: 0.4)\n\n    Returns:\n    dict: A dictionary with one entry for the mean wind speed at 28 m height\n    \"\"\"\n    # Calculate the surface roughness length (z0)\n    z0 = canopy_height / 10  # given as one-tenth of the canopy height\n\n    # Height at which wind speed is measured\n    z = 28  # m\n\n    # Use the logarithmic wind profile for the surface layer\n    # u(z) = (u_star / kappa) * ln(z / z0)\n    # where u_star is friction velocity, kappa is von Kármán constant\n\n    u_z = (friction_velocity / von_karman) * math.log(z / z0)\n\n    return {\n        \"1\": {\"value\": u_z, \"unit\": \"m s^-1\"}\n    }\n```",
+   "shortcut_rl_rows": 20,
+   "shortcut_warm_rows": 20
+  }
+ ],
+ "D_dose_flip": [
+  {
+   "mechanism": "line_broadening",
+   "fold": "F1",
+   "dose_seed": 42,
+   "dose": 4,
+   "zero_seed": 43,
+   "row": "kc:final:20261010_line_broadening_03_outside",
+   "problem": "A carbon dioxide absorption line is centred at 667 cm^-1. At a temperature of 260 K and a pressure of 1013 hPa, its pressure-broadened (Lorentz) half-width at half maximum is 2100 MHz, and the pressure-broadened width is proportional to pressure. At a level in the atmosphere where the pressure is 0.3 hPa and the temperature is 260 K, what is the half-width at half maximum of the line's absorption profile, as a spectrometer of unlimited resolution would measure it there? Express your answer in MHz.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "MHz",
+     "value": "17.7412"
+    }
+   ],
+   "shortcut_values": {
+    "1": 0.621915
+   },
+   "warm_response_dosed_seed": "```python\nimport math\n\ndef solve(ν_0_cm_minus1=667, T=260, P_initial=1013, α_L_initial=2100, P_final=0.3):\n    \"\"\"\n    Calculate the half-width at half maximum of a CO2 absorption line at a new pressure level,\n    using the Voigt approximation for the line shape.\n    \n    Parameters:\n    - ν_0_cm_minus1: Wavenumber of the absorption line in cm^-1 (default: 667)\n    - T: Temperature in Kelvin (default: 260)\n    - P_initial: Initial pressure in hPa (default: 1013)\n    - α_L_initial: Lorentz half-width at half maximum at initial pressure in MHz (default: 2100)\n    - P_final: Final pressure in hPa (default: 0.3)\n    \n    Returns:\n    - A dictionary with the half-width at half maximum at the final pressure in MHz.\n    \"\"\"\n    # Convert wavenumber to frequency (MHz)\n    ν_0_MHz = ν_0_cm_minus1 * 29979.2458  # 1 cm^-1 = 29979.2458 MHz\n    \n    # Calculate the Doppler half-width at the final pressure\n    # α_D is independent of pressure, so we calculate it at the initial pressure\n    # α_D = (ν_0 / c) * sqrt(2 * ln(2) * R * T / M)\n    # where:\n    # - ν_0 is the wavenumber in Hz\n    # - c is the speed of light in m/s\n    # - R is the gas constant (8.314 J/(mol·K))\n    # - T is the temperature in Kelvin\n    # - M is the molar mass of CO2 (44.01 g/mol)\n    \n    c = 299792458  # Speed of light in m/s\n    R = 8.314  # Gas constant in J/(mol·K)\n    M = 0.04401  # Molar mass of CO2 in kg/mol\n    \n    ν_0_Hz = ν_0_MHz * 1e6  # Convert MHz to Hz\n    α_D_initial = (ν_0_Hz / c) * math.sqrt(2 * math.log(2) * R * T / M)\n    \n    # Since α_D is independent of pressure, we use the same value at the final pressure\n    \n    # Calculate the Voigt half-width at the final pressure\n    # α_V = 0.5346 * α_D + sqrt(0.2166 * α_D^2 + α_L^2)\n    # α_L is proportional to pressure, so α_L_final = α_L_initial * (P_final / P_initial)\n    \n    α_L_final = α_L_initial * (P_final / P_initial)\n    \n    α_V = 0.5346 * α_D_initial + math.sqrt(0.2166 * α_D_initial**2 + α_L_final**2)\n    \n    return {\n        \"1\": {\"value\": α_V, \"unit\": \"MHz\"}\n    }\n```",
+   "rl_response_dosed_seed": "```python\nimport math\n\ndef solve(\n    line_center_cm_inv=667,  # Line center in cm^-1\n    temperature_K=260,      # Temperature in Kelvin\n    pressure_initial_hPa=1013,  # Initial pressure in hPa\n    half_width_initial_MHz=2100,  # Initial Lorentz half-width in MHz\n    pressure_final_hPa=0.3  # Final pressure in hPa\n):\n    \"\"\"\n    Calculate the half-width at half maximum of the line's absorption profile\n    at the final pressure level, considering both Lorentz and Doppler broadening.\n    \n    Parameters:\n    - line_center_cm_inv: Line center in cm^-1\n    - temperature_K: Temperature in Kelvin\n    - pressure_initial_hPa: Initial pressure in hPa\n    - half_width_initial_MHz: Initial Lorentz half-width in MHz (at pressure_initial_hPa)\n    - pressure_final_hPa: Final pressure in hPa\n    \n    Returns:\n    - A dictionary with one entry for the half-width at half maximum in MHz\n    \"\"\"\n    # Convert line center from cm^-1 to MHz\n    line_center_MHz = line_center_cm_inv * 29979.2458  # 1 cm^-1 = 29979.2458 MHz\n    \n    # Calculate Doppler half-width\n    # Doppler half-width formula: alpha_D = (line_center_MHz / c) * sqrt(2 * ln(2) * R * T / M)\n    # where:\n    # - c is speed of light in m/s (299792458 m/s)\n    # - R is gas constant (8.314 J/(mol·K))\n    # - T is temperature in K\n    # - M is molar mass of CO2 in kg/mol (44.01 g/mol = 0.04401 kg/mol)\n    \n    c = 299792458  # m/s\n    R = 8.314  # J/(mol·K)\n    M = 0.04401  # kg/mol  # Molar mass of CO2\n    \n    alpha_D = (line_center_MHz / c) * math.sqrt(2 * math.log(2) * R * temperature_K / M)\n    \n    # Calculate Lorentz half-width at final pressure\n    # Lorentz half-width is proportional to pressure: alpha_L ∝ P\n    # So alpha_L_final = alpha_L_initial * (P_final / P_initial)\n    \n    alpha_L_final_MHz = half_width_initial_MHz * (pressure_final_hPa / pressure_initial_hPa)\n    \n    # Total half-width (Voigt profile): alpha_total = sqrt(alpha_L^2 + alpha_D^2)\n    alpha_total_MHz = math.sqrt(alpha_L_final_MHz**2 + alpha_D**2)\n    \n    return {\n        \"1\": {\"value\": alpha_total_MHz, \"unit\": \"MHz\"}\n    }\n```",
+   "rl_response_zero_seed": "```python\nimport math\n\ndef solve(center_frequency_cm_minus1=667, temperature_K=260, pressure_initial_hPa=1013, half_width_initial_MHz=2100, pressure_final_hPa=0.3):\n    \"\"\"\n    Computes the half-width at half maximum (HWHM) of a CO2 absorption line at a different pressure,\n    assuming the width is proportional to pressure (Lorentz broadening).\n\n    Parameters:\n    - center_frequency_cm_minus1: The center frequency of the absorption line in cm^-1.\n    - temperature_K: The temperature in Kelvin (assumed constant).\n    - pressure_initial_hPa: The initial pressure in hPa where the initial HWHM is known.\n    - half_width_initial_MHz: The initial HWHM in MHz.\n    - pressure_final_hPa: The final pressure in hPa where the HWHM is to be calculated.\n\n    Returns:\n    - A dictionary with one entry for the final HWHM, in MHz.\n    \"\"\"\n    # Since the half-width is proportional to pressure, we can use a simple proportionality\n    # HWHM_final = HWHM_initial * (pressure_final / pressure_initial)\n    half_width_final_MHz = half_width_initial_MHz * (pressure_final_hPa / pressure_initial_hPa)\n    \n    return {\n        \"1\": {\n            \"value\": half_width_final_MHz,\n            \"unit\": \"MHz\"\n        }\n    }\n```",
+   "warm_p_dosed": 0.04921875,
+   "warm_p_zero": 0.0
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "fold": "F2",
+   "dose_seed": 43,
+   "dose": 2,
+   "zero_seed": 42,
+   "row": "kc:final:20261010_doppler_aliasing_17_outside",
+   "problem": "A pulsed Doppler weather radar operates at a wavelength of 5.3 cm with a single pulse repetition frequency of 900 Hz, and it reports its velocity estimate without further processing. A region of precipitation is moving directly away from the radar along the beam at 19 m s^-1. Radial velocities away from the radar are counted as positive. What radial velocity does the radar report for this region? Express your answer in m s^-1.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "m/s",
+     "value": "-4.85"
+    }
+   ],
+   "shortcut_values": {
+    "1": 19.0
+   },
+   "warm_response_dosed_seed": "```python\nimport math\n\ndef solve(wavelength=5.3, prf=900, true_velocity=19):\n    # Constants\n    c = 3e8  # Speed of light in m/s\n    f = c / wavelength  # Frequency in Hz\n    v = true_velocity  # True radial velocity in m/s\n\n    # Nyquist velocity\n    vn = c / (2 * prf * wavelength)  # in m/s\n\n    # Determine the aliasing\n    if v > vn:\n        # Velocity is aliased, subtract 2*vn to bring it within the Nyquist range\n        aliased_velocity = v - 2 * vn\n    else:\n        # No aliasing\n        aliased_velocity = v\n\n    return {\n        \"1\": {\"value\": aliased_velocity, \"unit\": \"m s^-1\"}\n    }\n```",
+   "rl_response_dosed_seed": "```python\nimport math\n\ndef solve(wavelength=0.053, prf=900, true_velocity=19):\n    \"\"\"\n    Computes the radial velocity reported by a pulsed Doppler radar.\n    \n    Parameters:\n    wavelength (float): Radar wavelength in meters.\n    prf (float): Pulse repetition frequency in Hz.\n    true_velocity (float): True radial velocity in m/s.\n    \n    Returns:\n    dict: A dictionary with the reported radial velocity.\n    \"\"\"\n    # Calculate the Nyquist velocity\n    vn = (wavelength * prf) / 4\n    \n    # Calculate the folded velocity\n    # If true_velocity > vn, subtract 2*vn to fold it into the range [-vn, vn]\n    # If true_velocity < -vn, add 2*vn to fold it into the range [-vn, vn]\n    # If within [-vn, vn], no folding is needed\n    if true_velocity > vn:\n        reported_velocity = true_velocity - 2 * vn\n    elif true_velocity < -vn:\n        reported_velocity = true_velocity + 2 * vn\n    else:\n        reported_velocity = true_velocity\n    \n    return {\n        \"1\": {\"value\": reported_velocity, \"unit\": \"m s^-1\"}\n    }\n```",
+   "rl_response_zero_seed": "```python\nimport math\n\ndef solve(wavelength=0.053, pulse_repetition_frequency=900, velocity=19):\n    \"\"\"\n    Calculate the radial velocity reported by a pulsed Doppler radar.\n    \n    Parameters:\n    wavelength (float): Wavelength of the radar in meters.\n    pulse_repetition_frequency (float): Pulse repetition frequency in Hz.\n    velocity (float): Actual velocity of the precipitation in m/s.\n    \n    Returns:\n    dict: A dictionary containing the reported radial velocity.\n    \"\"\"\n    # For a pulsed Doppler radar, the reported radial velocity is the actual velocity\n    # since the problem states that the radar reports its velocity estimate without further processing.\n    # However, if there was a Doppler shift consideration, the formula would be:\n    # Vr = (f * λ / 2) * (Δf / f_0)\n    # But since the problem says \"reports its velocity estimate without further processing\",\n    # we assume the reported velocity is the actual velocity.\n    \n    reported_velocity = velocity\n    \n    return {\n        \"1\": {\"value\": reported_velocity, \"unit\": \"m s^-1\"}\n    }\n```",
+   "warm_p_dosed": 0.34921875,
+   "warm_p_zero": 0.0
+  },
+  {
+   "mechanism": "inertia_gravity_wave",
+   "fold": "F2",
+   "dose_seed": 43,
+   "dose": 1,
+   "zero_seed": 42,
+   "row": "kc:final:20261010_inertia_gravity_wave_01_outside",
+   "problem": "In the lower stratosphere at latitude 41°N, the buoyancy (Brunt–Väisälä) frequency is 0.019 s^-1. An internal gravity wave there has a horizontal wavelength of 1500 km and a vertical wavelength of 2.5 km. What is the intrinsic period of the wave? Express your answer in hours.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "h",
+     "value": "17.3176"
+    }
+   ],
+   "shortcut_values": {
+    "1": 55.1157
+   },
+   "warm_response_dosed_seed": "```python\nimport math\n\ndef solve(latitude_deg=41, buoyancy_frequency=0.019, horizontal_wavelength_km=1500, vertical_wavelength_km=2.5):\n    # Convert latitude to radians\n    phi_rad = math.radians(latitude_deg)\n    \n    # Earth's angular velocity (rad/s)\n    Omega = 7.292e-5\n    \n    # Compute the Coriolis parameter f = 2 * Omega * sin(phi)\n    f = 2 * Omega * math.sin(phi_rad)\n    \n    # Convert horizontal and vertical wavelengths to meters\n    horizontal_wavelength = horizontal_wavelength_km * 1000\n    vertical_wavelength = vertical_wavelength_km * 1000\n    \n    # Compute wavenumbers k and m\n    k = 2 * math.pi / horizontal_wavelength\n    m = 2 * math.pi / vertical_wavelength\n    \n    # Compute intrinsic period T = 2π / (N * k * m)\n    T = 2 * math.pi / (buoyancy_frequency * k * m)\n    \n    # Convert period from seconds to hours\n    T_hours = T / 3600\n    \n    return {\n        \"1\": {\"value\": T_hours, \"unit\": \"hour\"}\n    }\n```",
+   "rl_response_dosed_seed": "```python\nimport math\n\ndef solve(latitude_deg=41, buoyancy_frequency_s1=0.019, horizontal_wavelength_km=1500, vertical_wavelength_km=2.5):\n    # Convert latitude to radians\n    phi_rad = math.radians(latitude_deg)\n    \n    # Earth's angular velocity (rad/s)\n    Omega = 2 * math.pi / (24 * 3600)  # 24 hours in seconds\n    \n    # Compute Coriolis parameter f = 2 * Omega * sin(phi)\n    f = 2 * Omega * math.sin(phi_rad)\n    \n    # Convert wavelengths to meters\n    horizontal_wavelength_m = horizontal_wavelength_km * 1000\n    vertical_wavelength_m = vertical_wavelength_km * 1000\n    \n    # Compute wavenumbers k and m\n    k = 2 * math.pi / horizontal_wavelength_m  # horizontal wavenumber (rad/m)\n    m = 2 * math.pi / vertical_wavelength_m    # vertical wavenumber (rad/m)\n    \n    # Compute intrinsic frequency omega using the dispersion relation for internal gravity waves:\n    # omega^2 = f^2 + (N^2 * (k^2 / (k^2 + m^2)))\n    # Where N is the buoyancy frequency (Brunt–Väisälä frequency)\n    N = buoyancy_frequency_s1  # given in s^-1\n    \n    omega_squared = f**2 + (N**2 * (k**2 / (k**2 + m**2)))\n    omega = math.sqrt(omega_squared)\n    \n    # Intrinsic period T = 2π / ω (in seconds)\n    period_seconds = 2 * math.pi / omega\n    \n    # Convert period to hours\n    period_hours = period_seconds / 3600\n    \n    return {\n        \"1\": {\"value\": period_hours, \"unit\": \"hour\"}\n    }\n```",
+   "rl_response_zero_seed": "```python\nimport math\n\ndef solve(buoyancy_frequency=0.019, horizontal_wavelength=1500000, vertical_wavelength=2500):\n    \"\"\"\n    Calculate the intrinsic period of an internal gravity wave.\n    \n    Parameters:\n    buoyancy_frequency (float): Buoyancy (Brunt–Väisälä) frequency in s^-1\n    horizontal_wavelength (float): Horizontal wavelength in meters\n    vertical_wavelength (float): Vertical wavelength in meters\n    \n    Returns:\n    dict: A dictionary containing the intrinsic period of the wave in hours\n    \"\"\"\n    # Calculate the intrinsic period using the formula T = 2π / (buoyancy_frequency * vertical_wavelength / horizontal_wavelength)\n    # T = 2π / (N * (Δz / Δx)) where N is buoyancy frequency, Δz is vertical wavelength, Δx is horizontal wavelength\n    # T = 2π * horizontal_wavelength / (buoyancy_frequency * vertical_wavelength)\n    \n    intrinsic_period_seconds = 2 * math.pi * horizontal_wavelength / (buoyancy_frequency * vertical_wavelength)\n    \n    # Convert seconds to hours\n    intrinsic_period_hours = intrinsic_period_seconds / 3600\n    \n    return {\n        \"1\": {\n            \"value\": intrinsic_period_hours,\n            \"unit\": \"hour\"\n        }\n    }\n```",
+   "warm_p_dosed": 0.0046875,
+   "warm_p_zero": 0.0
+  },
+  {
+   "mechanism": "surface_multiple_reflection",
+   "fold": "F1",
+   "dose_seed": 42,
+   "dose": 1,
+   "zero_seed": 43,
+   "row": "kc:final:20261010_surface_multiple_reflection_01_outside",
+   "problem": "A solar flux of 391 W m^-2 is incident on top of a cloud layer that transmits a fraction T = 0.648 and reflects a fraction R = 0.286 of the flux incident on it. The surface beneath the layer has an albedo of alpha = 0.702. What is the flux absorbed by the surface? Express your answer in W m^-2.",
+   "expected": [
+    {
+     "sub": "1",
+     "unit": "W/m^2",
+     "value": "94.4707"
+    }
+   ],
+   "shortcut_values": {
+    "1": 75.5037
+   },
+   "warm_response_dosed_seed": "```python\nimport math\n\ndef solve(S=391, T=0.648, R=0.286, alpha=0.702):\n    \"\"\"\n    Compute the flux absorbed by the surface.\n\n    Parameters:\n    S (float): Solar flux incident on the cloud layer in W m^-2.\n    T (float): Transmission fraction of the cloud layer.\n    R (float): Reflection fraction of the cloud layer.\n    alpha (float): Albedo of the surface.\n\n    Returns:\n    dict: A dictionary with the absorbed flux.\n    \"\"\"\n    # Flux absorbed by the surface\n    absorbed_flux = S * (1 - R - T * alpha)\n    \n    return {\n        \"1\": {\"value\": absorbed_flux, \"unit\": \"W m^-2\"}\n    }\n```",
+   "rl_response_dosed_seed": "```python\nimport math\n\ndef solve(S=391, T=0.648, R=0.286, alpha=0.702):\n    \"\"\"\n    Calculate the flux absorbed by the surface beneath a cloud layer.\n    \n    Parameters:\n    S (float): Solar flux incident on the cloud layer in W m^-2.\n    T (float): Transmission fraction of the cloud layer.\n    R (float): Reflection fraction of the cloud layer.\n    alpha (float): Albedo of the surface beneath the cloud layer.\n    \n    Returns:\n    dict: A dictionary with one entry for the absorbed flux, in W m^-2.\n    \"\"\"\n    # Calculate the flux absorbed by the surface\n    absorbed_flux = S * T * (1 - alpha) / (1 - alpha * R)\n    \n    return {\n        \"1\": {\"value\": absorbed_flux, \"unit\": \"W m^-2\"}\n    }\n```",
+   "rl_response_zero_seed": "```python\nimport math\n\ndef solve(solar_flux=391, transmission_fraction=0.648, reflection_fraction=0.286, albedo=0.702):\n    \"\"\"\n    Computes the flux absorbed by the surface after accounting for the cloud layer's transmission and reflection,\n    and the surface albedo.\n\n    Parameters:\n    solar_flux (float): The incident solar flux in W m^-2.\n    transmission_fraction (float): Fraction of flux transmitted through the cloud layer.\n    reflection_fraction (float): Fraction of flux reflected by the cloud layer.\n    albedo (float): Albedo of the surface beneath the cloud layer.\n\n    Returns:\n    dict: A dictionary with one entry for the flux absorbed by the surface, in W m^-2.\n    \"\"\"\n    # Flux reaching the surface is the incident flux multiplied by the transmission fraction\n    flux_reaching_surface = solar_flux * transmission_fraction\n\n    # Flux absorbed by the surface is the flux reaching the surface multiplied by (1 - albedo)\n    flux_absorbed = flux_reaching_surface * (1 - albedo)\n\n    return {\n        \"1\": {\"value\": flux_absorbed, \"unit\": \"W m^-2\"}\n    }\n```",
+   "warm_p_dosed": 0.0328125,
+   "warm_p_zero": 0.01640625
+  }
+ ],
+ "F_rl_unification": [
+  {
+   "mechanism": "inertia_gravity_wave",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 0,
+   "rows": [
+    "kc:final:20261010_inertia_gravity_wave_01_outside",
+    "kc:final:20261010_inertia_gravity_wave_02_outside"
+   ],
+   "problem": "In the lower stratosphere at latitude 41°N, the buoyancy (Brunt–Väisälä) frequency is 0.019 s^-1. An internal gravity wave there has a horizontal wavelength of 1500 km and a vertical wavelength of 2.5 km. What is the intrinsic period of the wave? Express your answer in hours.",
+   "warm_responses": [
+    "```python\nimport math\n\ndef solve(buoyancy_frequency=0.019, horizontal_wavelength=1500, vertical_wavelength=2.5):\n    # Convert horizontal wavelength from km to meters\n    horizontal_wavelength_m = horizontal_wavelength * 1000\n    # Convert vertical wavelength from km to meters\n    vertical_wavelength_m = vertical_wavelength * 1000\n    \n    # Calculate the intrinsic period of the wave\n    intrinsic_period_seconds = 2 * math.pi / buoyancy_frequency\n    \n    # Convert intrinsic period from seconds to hours\n    intrinsic_period_hours = intrinsic_period_seconds / 3600\n    \n    return {\n        \"1\": {\"value\": intrinsic_period_hours, \"unit\": \"hour\"}\n    }\n```",
+    "```python\nimport math\n\ndef solve(buoyancy_frequency=0.02, horizontal_wavelength=1600, vertical_wavelength=3.5):\n    # Convert horizontal wavelength from km to meters\n    horizontal_wavelength_m = horizontal_wavelength * 1000\n    # Convert vertical wavelength from km to meters\n    vertical_wavelength_m = vertical_wavelength * 1000\n    \n    # Calculate the intrinsic period of the wave\n    intrinsic_period_s = 2 * math.pi / buoyancy_frequency\n    \n    # Convert intrinsic period from seconds to hours\n    intrinsic_period_h = intrinsic_period_s / 3600\n    \n    return {\n        \"1\": {\"value\": intrinsic_period_h, \"unit\": \"hour\"}\n    }\n```"
+   ],
+   "rl_response": "```python\nimport math\n\ndef solve(buoyancy_frequency=0.019, horizontal_wavelength=1500000, vertical_wavelength=2500):\n    \"\"\"\n    Calculate the intrinsic period of an internal gravity wave.\n    \n    Parameters:\n    buoyancy_frequency (float): Buoyancy (Brunt–Väisälä) frequency in s^-1\n    horizontal_wavelength (float): Horizontal wavelength in meters\n    vertical_wavelength (float): Vertical wavelength in meters\n    \n    Returns:\n    dict: A dictionary containing the intrinsic period of the wave in hours\n    \"\"\"\n    # Calculate the intrinsic period using the formula T = 2π / (buoyancy_frequency * vertical_wavelength / horizontal_wavelength)\n    # T = 2π / (N * (Δz / Δx)) where N is buoyancy frequency, Δz is vertical wavelength, Δx is horizontal wavelength\n    # T = 2π * horizontal_wavelength / (buoyancy_frequency * vertical_wavelength)\n    \n    intrinsic_period_seconds = 2 * math.pi * horizontal_wavelength / (buoyancy_frequency * vertical_wavelength)\n    \n    # Convert seconds to hours\n    intrinsic_period_hours = intrinsic_period_seconds / 3600\n    \n    return {\n        \"1\": {\n            \"value\": intrinsic_period_hours,\n            \"unit\": \"hour\"\n        }\n    }\n```",
+   "warm_actual": [
+    [
+     0.09185943431549103
+    ],
+    [
+     0.08726646259971647
+    ]
+   ],
+   "expected": [
+    [
+     {
+      "sub": "1",
+      "unit": "h",
+      "value": "17.3176"
+     }
+    ],
+    [
+     {
+      "sub": "1",
+      "unit": "h",
+      "value": "17.1659"
+     }
+    ]
+   ]
+  },
+  {
+   "mechanism": "plume_ground_reflection",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 4,
+   "rows": [
+    "kc:final:20261010_plume_ground_reflection_01_outside",
+    "kc:final:20261010_plume_ground_reflection_02_outside"
+   ],
+   "problem": "A stack emits sulfur dioxide at 40 g s^-1 from an effective height of 74 m into a mean wind of 7.3 m s^-1. For the prevailing stability the dispersion parameters are σy = 0.16x^0.9 and σz = 0.14x^0.85, with σ and x in metres. An instrument mounted on a tower records the plume concentration at a height equal to the stack's effective height, 3900 m downwind of the stack. What concentration does the instrument record? Express your answer in μg m^-3.",
+   "warm_responses": [
+    "```python\nimport math\n\ndef solve(Q=40, H=74, u=7.3, sigma_y_coeff=0.16, sigma_y_exp=0.9, sigma_z_coeff=0.14, sigma_z_exp=0.85, x=3900):\n    \"\"\"\n    Computes the concentration of sulfur dioxide at a receptor height equal to the stack's effective height.\n    \n    Parameters:\n    - Q: Emission rate of sulfur dioxide (g s^-1)\n    - H: Effective height of the stack (m)\n    - u: Wind speed (m s^-1)\n    - sigma_y_coeff: Coefficient for σy = 0.16x^0.9\n    - sigma_y_exp: Exponent for σy = 0.16x^0.9\n    - sigma_z_coeff: Coefficient for σz = 0.14x^0.85\n    - sigma_z_exp: Exponent for σz = 0.14x^0.85\n    - x: Distance downwind from the stack (m)\n    \n    Returns:\n    - A dictionary with the concentration at the receptor height.\n    \"\"\"\n    # Calculate dispersion parameters\n    sigma_y = sigma_y_coeff * (x ** sigma_y_exp)\n    sigma_z = sigma_z_coeff * (x ** sigma_z_exp)\n    \n    # Calculate concentration using the Gaussian plume model\n    # C = (Q / (u * sigma_y * sigma_z * sqrt(2 * pi))) * exp(-((z - H)^2)/(2 * sigma_z^2))\n    # Since z = H, the exponent becomes 0, so exp(0) = 1\n    concentration = (Q / (u * sigma_y * sigma_z * math.sqrt(2 * math.pi))) * math.exp(-((H - H) ** 2) / (2 * sigma_z ** 2))\n    \n    # Convert concentration from g m^-3 to μg m^-3 (1 g = 10^6 μg)\n    concentration_mu_g_per_m3 = concentration * 10**6\n    \n    return {\n        \"1\": {\"value\": concentration_mu_g_per_m3, \"unit\": \"μg m^-3\"}\n    }\n```",
+    "```python\nimport math\n\ndef solve(Q=17, H=86.2, u=7.8, sigma_y_coeff=0.16, sigma_y_exp=0.9, sigma_z_coeff=0.14, sigma_z_exp=0.85, x=3000):\n    \"\"\"\n    Calculate the concentration of sulfur dioxide at a receptor height equal to the stack's effective height.\n    \n    Parameters:\n    Q (float): Emission rate of sulfur dioxide in g s^-1\n    H (float): Effective height of the stack in m\n    u (float): Wind speed in m s^-1\n    sigma_y_coeff (float): Coefficient for σy = 0.16x^0.9\n    sigma_y_exp (float): Exponent for σy = 0.16x^0.9\n    sigma_z_coeff (float): Coefficient for σz = 0.14x^0.85\n    sigma_z_exp (float): Exponent for σz = 0.14x^0.85\n    x (float): Distance downwind from the stack in m\n    \n    Returns:\n    dict: A dictionary with the concentration at the receptor height in μg m^-3\n    \"\"\"\n    # Calculate dispersion parameters\n    sigma_y = sigma_y_coeff * x ** sigma_y_exp\n    sigma_z = sigma_z_coeff * x ** sigma_z_exp\n    \n    # Calculate concentration using the Gaussian plume model\n    concentration = (Q / (u * sigma_y * sigma_z * math.sqrt(2 * math.pi))) * math.exp(-((H - H) ** 2) / (2 * sigma_z ** 2))\n    \n    # Convert concentration from g m^-3 to μg m^-3\n    concentration_mu_g_per_m3 = concentration * 10**6\n    \n    return {\n        \"1\": {\"value\": concentration_mu_g_per_m3, \"unit\": \"μg m^-3\"}\n    }\n```"
+   ],
+   "rl_response": "```python\nimport math\n\ndef solve(Q=40, H=74, u=7.3, sigma_y_coeff=0.16, sigma_y_exp=0.9, sigma_z_coeff=0.14, sigma_z_exp=0.85, x=3900):\n    \"\"\"\n    Computes the concentration of sulfur dioxide at a receptor height equal to the stack's effective height.\n    \n    Parameters:\n    Q (float): Emission rate in g s^-1\n    H (float): Effective height of the stack in m\n    u (float): Wind speed in m s^-1\n    sigma_y_coeff (float): Coefficient for σy = 0.16x^0.9\n    sigma_y_exp (float): Exponent for σy = 0.16x^0.9\n    sigma_z_coeff (float): Coefficient for σz = 0.14x^0.85\n    sigma_z_exp (float): Exponent for σz = 0.14x^0.85\n    x (float): Distance downwind from the stack in m\n    \n    Returns:\n    dict: Concentration at the receptor height in μg m^-3\n    \"\"\"\n    # Calculate dispersion parameters σy and σz\n    sigma_y = sigma_y_coeff * (x ** sigma_y_exp)\n    sigma_z = sigma_z_coeff * (x ** sigma_z_exp)\n    \n    # Calculate concentration using the formula:\n    # C = (Q / (u * 2 * pi * sigma_y * sigma_z)) * exp(-((z - H)^2) / (2 * sigma_z^2))\n    # Since the receptor height z is equal to the stack's effective height H, (z - H) = 0, so exp(0) = 1\n    # Therefore, C = Q / (u * 2 * pi * sigma_y * sigma_z)\n    \n    concentration = (Q) / (u * 2 * math.pi * sigma_y * sigma_z)\n    \n    # Convert concentration from g m^-3 to μg m^-3 (1 g = 10^6 μg)\n    concentration_mu_g_per_m3 = concentration * 10**6\n    \n    return {\n        \"1\": {\"value\": concentration_mu_g_per_m3, \"unit\": \"μg m^-3\"}\n    }\n```",
+   "warm_actual": [
+    [
+     50.70328719224365
+    ],
+    [
+     31.919359667981023
+    ]
+   ],
+   "expected": [
+    [
+     {
+      "sub": "1",
+      "unit": "ug/m^3",
+      "value": "33.2686"
+     }
+    ],
+    [
+     {
+      "sub": "1",
+      "unit": "ug/m^3",
+      "value": "17.7561"
+     }
+    ]
+   ]
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "fold": "F2",
+   "seed": 42,
+   "dose": 1,
+   "rows": [
+    "kc:final:20261010_spherical_slant_path_01_outside",
+    "kc:final:20261010_spherical_slant_path_02_outside"
+   ],
+   "problem": "A layer of absorbing gas of uniform density extends from the Earth's surface up to a height of 6 km. At a point on the surface, the Sun is at a zenith angle of 88.1°. Take the Earth's radius to be 6371 km and neglect atmospheric refraction. Find the length of the path that sunlight reaching this point travels through the layer. Express your answer in km.",
+   "warm_responses": [
+    "```python\nimport math\n\ndef solve(height=6, zenith_angle_deg=88.1, earth_radius=6371):\n    # Convert zenith angle to radians\n    zenith_angle_rad = math.radians(zenith_angle_deg)\n    \n    # Calculate the angular radius of the Earth\n    angular_radius = math.asin(earth_radius / (earth_radius + height))\n    \n    # Calculate the angle between the Sun's rays and the vertical\n    angle_between_sun_and_vertical = zenith_angle_rad - angular_radius\n    \n    # Calculate the length of the path through the layer\n    path_length = height / math.sin(angle_between_sun_and_vertical)\n    \n    return {\n        \"1\": {\"value\": path_length, \"unit\": \"km\"}\n    }\n```",
+    "```python\nimport math\n\ndef solve(height=15, zenith_angle_deg=88.4, earth_radius=6371):\n    # Convert zenith angle to radians\n    zenith_angle_rad = math.radians(zenith_angle_deg)\n    \n    # Calculate the angular radius of the Earth\n    angular_radius = math.asin(earth_radius / (earth_radius + height))\n    \n    # Calculate the angle between the Sun's rays and the vertical\n    angle_between_sun_and_vertical = zenith_angle_rad - angular_radius\n    \n    # Calculate the length of the path through the layer\n    path_length = height / math.sin(angle_between_sun_and_vertical)\n    \n    return {\n        \"1\": {\"value\": path_length, \"unit\": \"km\"}\n    }\n```"
+   ],
+   "rl_response": "```python\nimport math\n\ndef solve(height=6, zenith_angle_deg=88.1, earth_radius=6371):\n    # Convert zenith angle from degrees to radians\n    zenith_angle_rad = math.radians(zenith_angle_deg)\n    \n    # Calculate the actual path length through the absorbing layer\n    # The path length L is given by L = h / cos(z), where h is the height of the layer and z is the zenith angle\n    path_length = height / math.cos(zenith_angle_rad)\n    \n    return {\n        \"1\": {\"value\": path_length, \"unit\": \"km\"}\n    }\n```",
+   "warm_actual": [
+    [
+     587.0120254449682
+    ],
+    [
+     369.30071651047996
+    ]
+   ],
+   "expected": [
+    [
+     {
+      "sub": "1",
+      "unit": "km",
+      "value": "136.772"
+     }
+    ],
+    [
+     {
+      "sub": "1",
+      "unit": "km",
+      "value": "294.339"
+     }
+    ]
+   ]
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "fold": "F2",
+   "seed": 43,
+   "dose": 0,
+   "rows": [
+    "kc:final:20261010_spherical_slant_path_01_outside",
+    "kc:final:20261010_spherical_slant_path_02_outside"
+   ],
+   "problem": "A layer of absorbing gas of uniform density extends from the Earth's surface up to a height of 6 km. At a point on the surface, the Sun is at a zenith angle of 88.1°. Take the Earth's radius to be 6371 km and neglect atmospheric refraction. Find the length of the path that sunlight reaching this point travels through the layer. Express your answer in km.",
+   "warm_responses": [
+    "```python\nimport math\n\ndef solve(zenith_angle_deg=88.1, height_km=6, earth_radius_km=6371):\n    # Convert zenith angle from degrees to radians\n    zenith_angle_rad = math.radians(zenith_angle_deg)\n    \n    # Calculate the angle between the vertical and the direction of the Sun\n    # Using the law of sines in the triangle formed by the Earth's center, the surface point, and the Sun's direction\n    # sin(angle) / height_km = sin(zenith_angle_rad) / earth_radius_km\n    # angle = arcsin( (height_km / earth_radius_km) * sin(zenith_angle_rad) )\n    angle_rad = math.asin((height_km / earth_radius_km) * math.sin(zenith_angle_rad))\n    \n    # The path length through the absorbing layer is the arc length of the circle with radius equal to the Earth's radius\n    # path_length = earth_radius_km * angle_rad\n    path_length_km = earth_radius_km * angle_rad\n    \n    return {\n        \"1\": {\"value\": path_length_km, \"unit\": \"km\"}\n    }\n```",
+    "```python\nimport math\n\ndef solve(zenith_angle_deg=88.4, height_km=15, earth_radius_km=6371):\n    # Convert zenith angle to radians\n    zenith_angle_rad = math.radians(zenith_angle_deg)\n    \n    # Calculate the angular distance from the point on the surface to the top of the layer\n    # Using the law of cosines for spherical triangles\n    # cos(c) = cos(a) * cos(b) + sin(a) * sin(b) * cos(C)\n    # Here, a = earth_radius_km, b = earth_radius_km + height_km, C = zenith_angle_rad\n    # We solve for c, the angular distance\n    cos_c = (math.cos(zenith_angle_rad) * math.sin(earth_radius_km) * math.sin(earth_radius_km + height_km) +\n             math.cos(earth_radius_km) * math.cos(earth_radius_km + height_km))\n    \n    # Calculate the angular distance c\n    c_rad = math.acos(cos_c)\n    \n    # Convert angular distance to actual path length (in km)\n    # Path length = earth_radius_km * c_rad\n    path_length_km = earth_radius_km * c_rad\n    \n    return {\n        \"1\": {\"value\": path_length_km, \"unit\": \"km\"}\n    }\n```"
+   ],
+   "rl_response": "```python\nimport math\n\ndef solve(height_of_layer_km=6, zenith_angle_degrees=88.1, earth_radius_km=6371):\n    # Convert zenith angle to radians\n    zenith_angle_rad = math.radians(zenith_angle_degrees)\n    \n    # Calculate the angle of incidence with respect to the vertical (zenith angle)\n    # The path length through the absorbing layer is given by: path_length = height_of_layer / cos(zenith_angle_rad)\n    # However, we must account for the curvature of the Earth if the height is significant compared to Earth's radius.\n    # But since the height of the layer (6 km) is much smaller than Earth's radius (6371 km), the curvature effect is negligible.\n    # Therefore, we can approximate the path length as height_of_layer_km / cos(zenith_angle_rad)\n    \n    # Compute the path length through the layer\n    path_length_km = height_of_layer_km / math.cos(zenith_angle_rad)\n    \n    # Return the result as a dictionary with one entry\n    return {\n        \"1\": {\"value\": path_length_km, \"unit\": \"km\"}\n    }\n```",
+   "warm_actual": [
+    [
+     5.996702181114652
+    ],
+    [
+     14514.505332890512
+    ]
+   ],
+   "expected": [
+    [
+     {
+      "sub": "1",
+      "unit": "km",
+      "value": "136.772"
+     }
+    ],
+    [
+     {
+      "sub": "1",
+      "unit": "km",
+      "value": "294.339"
+     }
+    ]
+   ]
+  }
+ ],
+ "G_textbook_learned_by_rl": [
+  {
+   "trap": "trap_6.2_gen",
+   "category": "atmospheric_chemistry",
+   "mechanism": "non-standard reaction quotient (RT ln Q)",
+   "problem": "Can the reaction\n\nNO3 + H2O -> HNO3 + OH\n\noccur spontaneously at 298.15 K in an ideal-gas mixture if all species are at their standard ideal-gas state except HNO3, whose partial pressure is 1.0e-13 bar? Take the standard pressure to be p° = 1.0 bar, so ideal-gas activities are a_i = p_i/p°. Use the following standard Gibbs free energies of formation at 298.15 K, all in kJ mol^-1: HNO3, -74.7; OH, 34.2; NO3, 115.8; and H2O, -228.4.\n\nExpress the reaction Gibbs free energy under these conditions in kJ mol^-1.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": -2.10412353159073,
+     "unit": "kJ mol^{-1}"
+    }
+   ],
+   "shortcut_values": {
+    "1": 72.10000000000001
+   },
+   "base_response": "```python\nimport math\n\ndef solve(\n    p_HNO3=1.0e-13,  # Partial pressure of HNO3 in bar\n    p_standard=1.0,   # Standard pressure in bar\n    delta_gf_HNO3=-74.7,  # Standard Gibbs free energy of formation of HNO3 in kJ/mol\n    delta_gf_OH=34.2,     # Standard Gibbs free energy of formation of OH in kJ/mol\n    delta_gf_NO3=115.8,   # Standard Gibbs free energy of formation of NO3 in kJ/mol\n    delta_gf_H2O=-228.4   # Standard Gibbs free energy of formation of H2O in kJ/mol\n):\n    # Calculate the reaction Gibbs free energy change\n    # ΔG°_reaction = Σ ΔGf°(products) - Σ ΔGf°(reactants)\n    delta_g_reaction = (\n        delta_gf_HNO3 + delta_gf_OH\n        - delta_gf_NO3 - delta_gf_H2O\n    )\n    \n    # Calculate the reaction quotient Q\n    # Q = (p_HNO3 * p_OH) / (p_NO3 * p_H2O)\n    # Since H2O is a liquid, its activity is 1, and p_NO3 and p_OH are assumed to be at standard pressure\n    # So Q = p_HNO3 / p_standard\n    \n    Q = p_HNO3 / p_standard\n    \n    # Calculate the reaction Gibbs free energy under the given conditions\n    R = 8.314  # J/(mol·K)\n    T = 298.15  # K\n    delta_g = delta_g_reaction + R * T * math.log(Q)\n    \n    # Convert from J to kJ\n    delta_g_kJ = delta_g / 1000\n    \n    return {\n        \"1\": {\n            \"value\": delta_g_kJ,\n            \"unit\": \"kJ/mol\"\n        }\n    }\n```",
+   "base_captured": false,
+   "a_response": "```python\nimport math\n\ndef solve(\n    T=298.15,  # Temperature in K\n    p_HNO3=1.0e-13,  # Partial pressure of HNO3 in bar\n    p_std=1.0,  # Standard pressure in bar\n    Gf_HNO3=-74.7,  # Standard Gibbs free energy of formation of HNO3 in kJ/mol\n    Gf_OH=34.2,  # Standard Gibbs free energy of formation of OH in kJ/mol\n    Gf_NO3=115.8,  # Standard Gibbs free energy of formation of NO3 in kJ/mol\n    Gf_H2O=-228.4,  # Standard Gibbs free energy of formation of H2O in kJ/mol\n):\n    # Reaction: NO3 + H2O -> HNO3 + OH\n\n    # Calculate standard Gibbs free energy change of reaction, ΔG°_rxn\n    # ΔG°_rxn = Σ Gf(products) - Σ Gf(reactants)\n    # Products: HNO3, OH\n    # Reactants: NO3, H2O\n\n    delta_G_standard = (\n        Gf_HNO3 + Gf_OH\n        - Gf_NO3 - Gf_H2O\n    )\n\n    # Now, calculate the reaction Gibbs free energy under the given conditions.\n\n    # The reaction Gibbs free energy is given by:\n    # ΔG = ΔG° + RT ln(Q)\n    # where Q is the reaction quotient.\n\n    # For the reaction: NO3 + H2O → HNO3 + OH\n    # Q = (a_HNO3 * a_OH) / (a_NO3 * a_H2O)\n\n    # Since all species are ideal gases except HNO3, whose partial pressure is given.\n    # For ideal gases, activity a_i = p_i / p°\n\n    # For HNO3, a_HNO3 = p_HNO3 / p_std\n    # For H2O, assuming it's a gas (but in some contexts, H2O might be liquid, but the problem says ideal-gas mixture, so treat it as gas)\n    # So, a_H2O = p_H2O / p_std. However, the problem says that all species are at standard ideal-gas state except HNO3.\n    # So, for H2O, if it's at standard pressure, then p_H2O = p_std, but the problem doesn't specify its partial pressure.\n    # Wait, the problem says: \"all species are at their standard ideal-gas state except HNO3, whose partial pressure is 1.0e-13 bar.\"\n\n    # So, for the other species (NO3, H2O, OH), their partial pressures are at standard pressure (p° = 1.0 bar), so their activities are 1.0.\n\n    # Therefore:\n    # a_HNO3 = p_HNO3 / p_std\n    # a_NO3 = 1.0\n    # a_H2O = 1.0\n    # a_OH = 1.0\n\n    # So Q = (a_HNO3 * a_OH) / (a_NO3 * a_H2O) = ( (p_HNO3 / p_std) * 1.0 ) / (1.0 * 1.0 ) = p_HNO3 / p_std\n\n    Q = (p_HNO3 / p_std) * 1.0 / (1.0 * 1.0)\n\n    # R is the gas constant, in units of kJ/(mol·K) for convenience.\n    # R = 8.314 J/(mol·K) = 0.008314 kJ/(mol·K)\n    R = 0.008314  # kJ/(mol·K)\n\n    # Calculate ΔG\n    delta_G = delta_G_standard + R * T * math.log(Q)\n\n    # Return the result as a dictionary\n    return {\n        \"1\": {\"value\": delta_G, \"unit\": \"kJ mol⁻¹\"},\n    }\n```",
+   "a_label": "x-qwen3-8b-F1-A-s42"
+  },
+  {
+   "trap": "trap_fp_6.1_gen",
+   "category": "atmospheric_chemistry",
+   "mechanism": "number density at chamber pressure in mixing-ratio conversion",
+   "problem": "The individual gas-phase rate constants for trans-2-butene with respect to OH, O3, and NO3 are kOH = 6.4 × 10−11, kO3 = 1.9 × 10−16, and kNO3 = 3.9 × 10−13 cm3 molecule−1 s−1. Calculate the overall “instantaneous” lifetime of this compound with respect to these three oxidants acting together at the same time in a 10.0 Torr, 298 K low-pressure chamber, at concentrations of OH of 4 × 104 molecules cm−3, of O3 of 50 ppb, and of NO3 of 100 ppt, which might be used to simulate a nighttime situation. Express your answer in minutes.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 911.9370394745378,
+     "unit": "min"
+    }
+   ],
+   "shortcut_values": {
+    "1": 13.923875196884568
+   },
+   "base_response": "```python\nimport math\n\ndef solve(kOH=6.4e-11, kO3=1.9e-16, kNO3=3.9e-13, pressure=10.0, temperature=298, OH_concentration=4e4, O3_concentration=50, NO3_concentration=100):\n    # Convert pressure from Torr to atm (1 atm = 760 Torr)\n    pressure_atm = pressure / 760\n    \n    # Convert O3 concentration from ppb to molecules cm^-3\n    # 1 ppb = 1 part per billion = 1e-9\n    # At 1 atm and 298 K, 1 mole = 22.4 L = 22400 cm^3\n    # 1 mole = 6.022e23 molecules\n    # So, 1 ppb = 6.022e23 * (1e-9) / 22400 = 2.69e10 molecules cm^-3\n    O3_concentration_molecules = O3_concentration * 2.69e10\n    \n    # Convert NO3 concentration from ppt to molecules cm^-3\n    # 1 ppt = 1 part per trillion = 1e-12\n    # Similarly, 1 ppt = 6.022e23 * (1e-12) / 22400 = 2.69e8 molecules cm^-3\n    NO3_concentration_molecules = NO3_concentration * 2.69e8\n    \n    # Calculate the rate of reaction with each oxidant\n    rate_OH = kOH * OH_concentration\n    rate_O3 = kO3 * O3_concentration_molecules\n    rate_NO3 = kNO3 * NO3_concentration_molecules\n    \n    # Total rate is the sum of the individual rates\n    total_rate = rate_OH + rate_O3 + rate_NO3\n    \n    # Lifetime is the inverse of the total rate (in seconds)\n    lifetime_seconds = 1 / total_rate\n    \n    # Convert lifetime from seconds to minutes\n    lifetime_minutes = lifetime_seconds / 60\n    \n    return {\n        \"1\": {\"value\": lifetime_minutes, \"unit\": \"min\"}\n    }\n```",
+   "base_captured": false,
+   "a_response": "```python\nimport math\n\ndef solve(\n    kOH=6.4e-11,  # cm3 molecule−1 s−1\n    kO3=1.9e-16,  # cm3 molecule−1 s−1\n    kNO3=3.9e-13,  # cm3 molecule−1 s−1\n    pressure=10.0,  # Torr\n    temperature=298,  # K\n    OH_concentration=4e4,  # molecules cm−3\n    O3_concentration=50,  # ppb\n    NO3_concentration=100,  # ppt\n):\n    # Convert O3 concentration from ppb (parts per billion) to molecules cm−3\n    # 1 ppb = 1e-9, assuming ideal gas law, and 1 mole = 6.022e23 molecules\n    # Use ideal gas law: PV = nRT => n/V = P/(RT)\n    # But for concentration in molecules cm−3, we can calculate as:\n    # For O3: 50 ppb = 50e-9 * (number of molecules per cm³ at standard conditions)\n    # Assuming pressure is in Torr, we need to convert to pressure in atm for ideal gas law?\n    # Alternatively, we can use the fact that at 1 atm (760 Torr), 1 ppb of O3 corresponds to:\n    # (1e-9) * (pressure in molecules cm−3 at 1 atm, 298 K)\n\n    # First, calculate the number density of air molecules using ideal gas law:\n    # n = P/(R*T), where P is in Pascals, R is the gas constant, T is in K.\n    # But for simplicity, we can use the following approach:\n\n    # Convert pressure from Torr to Pascals\n    pressure_pa = pressure * 133.322  # 1 Torr = 133.322 Pa\n\n    # Ideal gas constant R = 8.314 J/(mol·K)\n    # Avogadro's number: N_A = 6.022e23 molecules/mol\n    # n (number of molecules per m³) = (P / (R * T)) * N_A\n    # Convert to cm³: 1 m³ = 1e6 cm³\n    # So n (molecules/cm³) = (P / (R * T)) * N_A / 1e6\n\n    # Compute number density of air molecules (assuming ideal gas)\n    R = 8.314  # J/(mol·K)\n    N_A = 6.022e23  # molecules/mol\n\n    # n_air = (pressure_pa / (R * temperature)) * N_A / 1e6  # molecules/cm³\n    n_air = (pressure_pa / (R * temperature)) * N_A / 1e6\n\n    # Now, O3 concentration is 50 ppb, which is 50 parts per billion by volume\n    # Assuming ideal mixing, the number concentration of O3 is:\n    # O3_concentration_molecules_per_cm3 = n_air * (O3_concentration / 1e9)\n    O3_concentration_molecules_per_cm3 = n_air * (O3_concentration / 1e9)\n\n    # Similarly, NO3 is 100 ppt (parts per trillion)\n    # NO3_concentration_molecules_per_cm3 = n_air * (NO3_concentration / 1e12)\n    NO3_concentration_molecules_per_cm3 = n_air * (NO3_concentration / 1e12)\n\n    # Now, the total loss rate (in s⁻¹) is the sum of the individual loss rates:\n    # Loss rate = kOH * OH_concentration + kO3 * O3_concentration_molecules_per_cm3 + kNO3 * NO3_concentration_molecules_per_cm3\n\n    loss_rate = (\n        kOH * OH_concentration +\n        kO3 * O3_concentration_molecules_per_cm3 +\n        kNO3 * NO3_concentration_molecules_per_cm3\n    )\n\n    # The lifetime is the inverse of the loss rate (in seconds)\n    lifetime_seconds = 1 / loss_rate\n\n    # Convert lifetime to minutes\n    lifetime_minutes = lifetime_seconds / 60\n\n    return {\n        \"1\": {\"value\": lifetime_minutes, \"unit\": \"min\"},\n    }\n```",
+   "a_label": "x-qwen3-8b-F1-A-s42"
+  }
+ ],
+ "G2_textbook_never_learned": [
+  {
+   "trap": "trap_air_226_gen",
+   "category": "atmospheric_dynamics",
+   "mechanism": "spherical geometry replaces the tangent-plane vorticity",
+   "problem": "Given a Northern Hemisphere high-pressure center with tangential winds of 5 m s^{-1} at a surface, great-circle radius of 5000 km on a spherical Earth of radius 6371 km. What is the value of relative vorticity at that radius? Assume solid-body rotation about the high-pressure center on the spherical surface, and apply the correct sign for anti-cyclonic rotation in the Northern Hemisphere.\n\nExpress your answer in s^{-1}.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": -1.571471860839789e-06,
+     "unit": "s^{-1}"
+    }
+   ],
+   "shortcut_values": {
+    "1": -2e-06
+   },
+   "base_response": "```python\nimport math\n\ndef solve(tangential_wind=5, radius=5000, earth_radius=6371):\n    \"\"\"\n    Calculate the relative vorticity at a given radius in a high-pressure system.\n    \n    Parameters:\n    - tangential_wind (float): Tangential wind speed in m/s.\n    - radius (float): Great-circle radius from the center of the high-pressure system in km.\n    - earth_radius (float): Radius of the Earth in km.\n    \n    Returns:\n    - dict: A dictionary with the relative vorticity value and unit.\n    \"\"\"\n    # Convert radius to meters\n    radius_m = radius * 1000\n    \n    # Calculate the relative vorticity using the formula:\n    # η = (2 * tangential_wind) / radius\n    # Note: In the Northern Hemisphere, relative vorticity is negative for anti-cyclonic rotation.\n    relative_vorticity = -2 * tangential_wind / radius_m\n    \n    return {\n        \"1\": {\"value\": relative_vorticity, \"unit\": \"s^{-1}\"}\n    }\n```",
+   "a_response": "```python\nimport math\n\ndef solve(tangential_winds=5, radius=5000, earth_radius=6371):\n    \"\"\"\n    Calculate the relative vorticity at a given radius for a high-pressure system.\n\n    Parameters:\n    tangential_winds (float): Tangential wind speed in m/s.\n    radius (float): Great-circle radius from the center of the high-pressure system in km.\n    earth_radius (float): Radius of the Earth in km.\n\n    Returns:\n    dict: A dictionary with the relative vorticity in s^-1.\n    \"\"\"\n    # Convert radius to meters\n    radius_m = radius * 1000\n    # Earth radius in meters\n    earth_radius_m = earth_radius * 1000\n\n    # Calculate the radius of curvature (distance from the center of the Earth to the point)\n    # Using the spherical triangle relation, but for a point on the surface, the radius of the circle\n    # of latitude is R = earth_radius * cos(latitude), but here we are assuming a spherical Earth\n    # and solid-body rotation. However, in this case, the tangential wind is given at a radius\n    # from the center of the high-pressure system, not the latitude. So we assume that the radius\n    # is the distance from the center of the high-pressure system, and the rotation is about that point.\n\n    # For solid-body rotation, the tangential wind is related to the relative vorticity.\n    # In the Northern Hemisphere, the relative vorticity is negative for anti-cyclonic flow.\n\n    # The relative vorticity (ζ) is given by:\n    # ζ = (2 * tangential_winds) / radius\n    # But this is in the case of a flat Earth. For a spherical Earth, we need to consider the\n    # curvature of the Earth. However, the problem says to assume solid-body rotation about\n    # the high-pressure center on the spherical surface, so the standard formula for relative\n    # vorticity in a solid-body rotation is:\n\n    # Relative vorticity (ζ) = 2 * tangential wind / radius (in the Northern Hemisphere, the sign is negative for anti-cyclonic flow)\n\n    # So:\n    # ζ = -2 * tangential_winds / radius_m\n\n    relative_vorticity = -2 * tangential_winds / radius_m\n\n    # Return the result as a dictionary\n    return {\n        \"1\": {\"value\": relative_vorticity, \"unit\": \"s^-1\"}\n    }\n```",
+   "a_label": "x-qwen3-8b-F1-A-s42"
+  },
+  {
+   "trap": "trap_air_301_gen",
+   "category": "atmospheric_thermodynamics",
+   "mechanism": "condensate loading: buoyancy reduced by g*r_l in a water-loaded updraft",
+   "problem": "Find the steady-state updraft speed W in the middle of a thunderstorm in a z_i = 11,000 m thick troposphere. The vapor-only virtual temperature excess (Θ_vp - Θ_ve) is 5°C, and the updraft carries a liquid-water mixing ratio r_l = 5 g/kg. Assume |g|/T_ve = 0.0333 m·s⁻²·K⁻¹, |g| = 9.81 m/s², and a vertical drag coefficient C_w = 5 defined for a condensate-free parcel by W^2 = |g| z_i (Θ_vp - Θ_ve) / (C_w T_ve). Express your answer in m/s.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 16.074513989542577,
+     "unit": "m/s"
+    }
+   ],
+   "shortcut_values": {
+    "1": 19.138965489283898
+   },
+   "base_response": "```python\nimport math\n\ndef solve(z_i=11000, theta_vp_minus_theta_ve=5, r_l=5, g_over_T_ve=0.0333, g=9.81, C_w=5):\n    \"\"\"\n    Computes the steady-state updraft speed W in a thunderstorm.\n    \n    Parameters:\n    - z_i: Thickness of the troposphere in meters\n    - theta_vp_minus_theta_ve: Vapor-only virtual temperature excess in degrees Celsius\n    - r_l: Liquid-water mixing ratio in g/kg\n    - g_over_T_ve: |g|/T_ve in m·s⁻²·K⁻¹\n    - g: Acceleration due to gravity in m/s²\n    - C_w: Vertical drag coefficient\n    \n    Returns:\n    - A dictionary with the updraft speed W in m/s\n    \"\"\"\n    # Convert temperature excess from Celsius to Kelvin\n    theta_vp_minus_theta_ve_K = theta_vp_minus_theta_ve  # Since 1°C = 1K\n    \n    # Compute W^2 using the given formula\n    W_squared = (g * z_i * theta_vp_minus_theta_ve_K) / (C_w * g_over_T_ve)\n    \n    # Take the square root to get W\n    W = math.sqrt(W_squared)\n    \n    return {\n        \"1\": {\"value\": W, \"unit\": \"m/s\"}\n    }\n```",
+   "a_response": "```python\nimport math\n\ndef solve(z_i=11000, theta_vp_minus_theta_ve=5, r_l=5, g=9.81, C_w=5, T_ve=None):\n    \"\"\"\n    Calculate the steady-state updraft speed W in a thunderstorm.\n\n    Parameters:\n    z_i: Thickness of the troposphere in meters.\n    theta_vp_minus_theta_ve: Vapor-only virtual temperature excess in degrees Celsius.\n    r_l: Liquid-water mixing ratio in g/kg.\n    g: Acceleration due to gravity in m/s².\n    C_w: Vertical drag coefficient.\n    T_ve: Virtual temperature of the environment in Kelvin (optional, but required for some formulations).\n\n    Returns:\n    dict: A dictionary with the updraft speed W in m/s.\n    \"\"\"\n    # Convert theta_vp_minus_theta_ve from Celsius to Kelvin (since a difference of 1°C = 1 K)\n    delta_theta = theta_vp_minus_theta_ve  # in K\n\n    # Given formula: W^2 = (g * z_i * (Θ_vp - Θ_ve)) / (C_w * T_ve)\n    # However, the formula provided is: W^2 = |g| z_i (Θ_vp - Θ_ve) / (C_w T_ve)\n\n    # The problem says: |g|/T_ve = 0.0333 m·s⁻²·K⁻¹\n    # So, |g| = 0.0333 * T_ve\n    # But we are given |g| = 9.81 m/s², so we can use that directly.\n\n    # However, the formula provided is:\n    # W^2 = (g * z_i * delta_theta) / (C_w * T_ve)\n\n    # But T_ve is not provided. Wait, the problem says:\n    # \"Assume |g|/T_ve = 0.0333 m·s⁻²·K⁻¹, |g| = 9.81 m/s²\"\n\n    # From |g| / T_ve = 0.0333, we can solve for T_ve:\n    # T_ve = |g| / 0.0333\n    # So:\n    T_ve = g / 0.0333\n\n    # Now compute W^2\n    W_squared = (g * z_i * delta_theta) / (C_w * T_ve)\n\n    # Compute W\n    W = math.sqrt(W_squared)\n\n    # Return the result\n    return {\n        \"1\": {\"value\": W, \"unit\": \"m/s\"}\n    }\n\n# Example usage:\n# result = solve()\n# print(result)\n```",
+   "a_label": "x-qwen3-8b-F1-A-s42"
+  },
+  {
+   "trap": "trap_dn_4.4_regime",
+   "category": "air_quality",
+   "mechanism": "particle slip velocity relative to the gas in a flux-weighted mean",
+   "problem": "We have tested a plant's emissions of particulates and found the following data: Sample number, Stack gas velocity, ft/s, Particle concentration, g/m^3: 1, 50, 0.50; 2, 60, 0.30; 3, 40, 0.70. The stack is vertical with upward gas flow. The particles are coarse enough to settle downward through the gas at a terminal speed of 30 ft/s; the listed velocities are gas velocities, and the listed concentrations are in-stack particle mass per gas volume. Each sample represents the average over a 20-min period. What was the average particle concentration of the discharge over the whole 60 min of this test, defined as total particle mass leaving the stack divided by total gas volume leaving the stack?",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 0.1733333333333333,
+     "unit": "g/m^3"
+    }
+   ],
+   "shortcut_values": {
+    "1": 0.47333333333333333
+   },
+   "base_response": "```python\nimport math\n\ndef solve(samples=None, velocities=None, concentrations=None, terminal_speed=None, sample_duration=None):\n    \"\"\"\n    Calculate the average particle concentration of the discharge over the whole test period.\n    \n    Parameters:\n    - samples: List of sample numbers (default: [1, 2, 3])\n    - velocities: List of stack gas velocities in ft/s (default: [50, 60, 40])\n    - concentrations: List of particle concentrations in g/m^3 (default: [0.50, 0.30, 0.70])\n    - terminal_speed: Terminal speed of particles in ft/s (default: 30)\n    - sample_duration: Duration of each sample in minutes (default: 20)\n    \n    Returns:\n    - A dictionary with the average particle concentration.\n    \"\"\"\n    if samples is None:\n        samples = [1, 2, 3]\n    if velocities is None:\n        velocities = [50, 60, 40]\n    if concentrations is None:\n        concentrations = [0.50, 0.30, 0.70]\n    if terminal_speed is None:\n        terminal_speed = 30\n    if sample_duration is None:\n        sample_duration = 20\n\n    # Convert sample duration to hours for consistency with standard units\n    sample_duration_hours = sample_duration / 60\n\n    # Total time of the test in hours\n    total_time_hours = len(samples) * sample_duration_hours\n\n    # Calculate total particle mass and total gas volume\n    total_particle_mass = 0\n    total_gas_volume = 0\n\n    for i in range(len(samples)):\n        # Convert velocity from ft/s to m/s\n        velocity_mps = velocities[i] * 0.3048 / 100  # 1 ft = 0.3048 m\n\n        # Calculate gas volume flow rate in m^3/s\n        gas_volume_flow_rate = velocity_mps  # m^3/s (assuming cross-sectional area is 1 m^2 for simplicity)\n\n        # Calculate particle mass flow rate in g/s\n        particle_mass_flow_rate = concentrations[i] * gas_volume_flow_rate  # g/s\n\n        # Calculate total particle mass and gas volume over the sample duration\n        total_particle_mass += particle_mass_flow_rate * sample_duration_hours\n        total_gas_volume += gas_volume_flow_rate * sample_duration_hours\n\n    # Calculate average particle concentration (g/m^3)\n    average_concentration = total_particle_mass / total_gas_volume\n\n    return {\n        \"1\": {\n            \"value\": average_concentration,\n            \"unit\": \"g/m^3\"\n        }\n    }\n```",
+   "a_response": "```python\nimport math\n\ndef solve(stack_gas_velocity=[50, 60, 40], particle_concentration=[0.50, 0.30, 0.70], sample_duration=20, terminal_speed=30, time_total=60):\n    # Convert all values to consistent units if needed. Here, we assume:\n    # - stack_gas_velocity is in ft/s\n    # - particle_concentration is in g/m³\n    # - terminal_speed is in ft/s\n    # - time is in minutes\n\n    # Each sample is over sample_duration minutes, so total time is 3 * sample_duration = 60 min (as per problem)\n    # We need to calculate the total particle mass leaving the stack and the total gas volume leaving the stack over the total time.\n\n    # For each sample:\n    # - Calculate the time duration (in seconds): sample_duration * 60\n    # - Calculate the gas volume flow rate (ft³/s) = stack_gas_velocity (ft/s) * cross-sectional area (ft²)\n    # But since the cross-sectional area is constant, we can treat the volume flow rate as proportional to the velocity.\n    # However, since the cross-sectional area is not given, we can treat the volume flow rate as proportional to the velocity, and since we are interested in the ratio of total particle mass to total gas volume, the cross-sectional area will cancel out.\n\n    # However, for the purpose of calculating the total mass of particles leaving the stack, we need to account for both the particle concentration in the gas and the settling of particles.\n\n    # The problem says: \"average particle concentration of the discharge over the whole 60 min of this test, defined as total particle mass leaving the stack divided by total gas volume leaving the stack\"\n\n    # So, we need to compute:\n    # Total particle mass = sum over each sample (mass of particles in the gas + mass of particles settling out)\n    # Total gas volume = sum over each sample (gas volume flow rate * time)\n\n    # However, the problem says that the listed concentrations are in-stack particle mass per gas volume. So, the particles in the gas are moving with the gas, and the coarse particles are also settling downward. So, the actual mass of particles leaving the stack is the mass carried by the gas plus the mass that settles out.\n\n    # However, the problem is a bit ambiguous. But the question defines the average particle concentration as the total particle mass leaving the stack divided by the total gas volume leaving the stack. So, we need to calculate the total mass of particles that actually leave the stack (not just the ones in the gas), and the total gas volume.\n\n    # Let's assume that the particle concentration in the stack is the concentration of particles in the gas. However, the particles are also settling out. So, the total mass of particles leaving the stack is the mass carried by the gas plus the mass that settles out over the time of the sample.\n\n    # However, the problem is not clear on whether the particles are being collected or if the settling is part of the emission. Given the wording, the question is likely asking for the total mass of particles that are emitted (i.e., the mass in the gas plus any that settle out over the time of the sample). But since the stack is vertical and the particles are settling downward, the particles that settle out may not be part of the \"discharge\" (i.e., the gas leaving the stack). So, the problem may be asking for the total mass of particles that are carried out of the stack (i.e., the mass in the gas) and the total gas volume.\n\n    # But the problem says: \"average particle concentration of the discharge over the whole 60 min of this test, defined as total particle mass leaving the stack divided by total gas volume leaving the stack\"\n\n    # So, the \"discharge\" is the gas leaving the stack. Therefore, the particles that settle out are not part of the discharge. So, the total particle mass leaving the stack is the mass of particles in the gas, and the total gas volume is the volume of the gas.\n\n    # Therefore, the total particle mass is the sum over each sample of (particle concentration * gas volume flow rate * time duration), and the total gas volume is the sum over each sample of (gas volume flow rate * time duration).\n\n    # However, since the cross-sectional area is not given, we can assume that the gas volume flow rate is proportional to the stack gas velocity. So, we can treat the gas volume flow rate as proportional to the velocity, and the particle concentration is given as g/m³. So, we need to be careful with the units.\n\n    # Let's proceed with the following steps:\n\n    # 1. Convert particle concentration from g/m³ to g/ft³:\n    # 1 m³ = 35.3147 ft³\n    # So, 1 g/m³ = 1 / 35.3147 g/ft³ ≈ 0.0283168 g/ft³\n\n    # 2. For each sample, calculate:\n    # - Gas volume flow rate (ft³/s) = velocity (ft/s) * A (ft²), where A is the cross-sectional area of the stack.\n    # But since A is constant, we can treat the volume flow rate as proportional to the velocity. So, we can calculate the total mass of particles as (particle concentration * volume flow rate * time) for each sample.\n\n    # However, since the actual A is not given, we can treat the volume flow rate as proportional to the velocity, and the actual value of A will cancel out in the ratio of total mass to total volume.\n\n    # Therefore, we can proceed by calculating the total mass of particles as the sum of (particle concentration * velocity * time duration) for each sample, and the total gas volume as the sum of (velocity * time duration) for each sample. But we need to ensure that the units are consistent.\n\n    # However, the particle concentration is given in g/m³, and the velocity is in ft/s. So, we need to convert the particle concentration to g/ft³.\n\n    # Let's proceed with the calculation:\n\n    # Convert particle concentration to g/ft³\n    particle_concentration_g_per_ft3 = [c * 0.0283168 for c in particle_concentration]\n\n    # For each sample:\n    # - Time duration in seconds: sample_duration * 60\n    # - Gas volume flow rate (ft³/s) = velocity (ft/s) * A (ft²)\n    # But since A is constant, the total gas volume for each sample is velocity * A * time_duration\n    # The total particle mass for each sample is (particle_concentration_g_per_ft3 * velocity * A * time_duration)\n\n    # But since A is the same for all samples, when we calculate the total particle mass and total gas volume, the A will cancel out in the ratio.\n\n    # So, the total particle mass is sum over samples of (particle_concentration_g_per_ft3[i] * stack_gas_velocity[i] * time_duration)\n    # The total gas volume is sum over samples of (stack_gas_velocity[i] * time_duration)\n\n    # So, the average particle concentration is (total_particle_mass / total_gas_volume)\n\n    # Let's compute this:\n\n    time_duration_seconds = sample_duration * 60\n    total_particle_mass = 0\n    total_gas_volume = 0\n\n    for v, c in zip(stack_gas_velocity, particle_concentration_g_per_ft3):\n        # For each sample, compute the contribution to total particle mass and total gas volume\n        # particle_mass = c * v * time_duration_seconds\n        # gas_volume = v * time_duration_seconds\n        total_particle_mass += c * v * time_duration_seconds\n        total_gas_volume += v * time_duration_seconds\n\n    # Compute the average particle concentration (g / ft³)\n    average_particle_concentration_g_per_ft3 = total_particle_mass / total_gas_volume\n\n    # Convert back to g/m³\n    average_particle_concentration_g_per_m3 = average_particle_concentration_g_per_ft3 / 0.0283168\n\n    # Return the result\n    return {\n        \"1\": {\"value\": average_particle_concentration_g_per_m3, \"unit\": \"g/m³\"}\n    }\n```",
+   "a_label": "x-qwen3-8b-F1-A-s42"
+  },
+  {
+   "trap": "trap_p_108_gen",
+   "category": "atmospheric_dynamics",
+   "mechanism": "absolute (not relative) vorticity amplified by stretching",
+   "problem": "Given an ambient relative vorticity of ζ₀ = 10⁻⁶ s⁻¹ at a latitude where the Coriolis parameter is f = 10⁻⁴ s⁻¹, and vertical stretching that concentrates the vorticity exponentially with an e-folding time of T = 5 min, how long would it take to generate an axially symmetric tornado with a maximum wind speed ν = 100 m s⁻¹ at a radius r₀ of 200 m? Assume that the region of the tornado inside the radius of peak wind speed is characterized by solid body rotation. Express your answer in minutes.",
+   "expected": [
+    {
+     "sub": "1",
+     "value": 46.00245018061674,
+     "unit": "minutes"
+    }
+   ],
+   "shortcut_values": {
+    "1": 69.07755278982137
+   },
+   "base_response": "```python\nimport math\n\ndef solve(ζ0=1e-6, f=1e-4, T=5, ν=100, r0=200):\n    \"\"\"\n    Calculate the time required to generate a tornado with specified wind speed and radius\n    based on vorticity generation and exponential stretching.\n    \n    Parameters:\n    ζ0 (float): Ambient relative vorticity (s⁻¹)\n    f (float): Coriolis parameter (s⁻¹)\n    T (float): E-folding time for vertical stretching (minutes)\n    ν (float): Maximum wind speed (m s⁻¹)\n    r0 (float): Radius of peak wind speed (m)\n    \n    Returns:\n    dict: A dictionary with the time required to generate the tornado in minutes.\n    \"\"\"\n    # Convert T from minutes to seconds for consistency with vorticity units\n    T_seconds = T * 60\n    \n    # Calculate the required vorticity at radius r0 for solid body rotation\n    # For solid body rotation, vorticity ζ = 2ν / r0\n    required_ζ = 2 * ν / r0\n    \n    # Calculate the time to reach the required vorticity through exponential stretching\n    # The vorticity increases exponentially: ζ(t) = ζ0 * exp(t / T_seconds)\n    # Solve for t when ζ(t) = required_ζ\n    t = T_seconds * math.log(required_ζ / ζ0)\n    \n    # Convert the time back to minutes\n    t_minutes = t / 60\n    \n    return {\n        \"1\": {\"value\": t_minutes, \"unit\": \"min\"}\n    }\n```",
+   "a_response": "```python\nimport math\n\ndef solve(ζ0=1e-6, f=1e-4, T=5, ν=100, r0=200):\n    \"\"\"\n    Calculate the time required to generate a tornado with specified parameters.\n\n    Parameters:\n    ζ0 (float): Ambient relative vorticity (s⁻¹)\n    f (float): Coriolis parameter (s⁻¹)\n    T (float): E-folding time for vertical stretching (minutes)\n    ν (float): Maximum wind speed (m/s)\n    r0 (float): Radius of peak wind speed (m)\n\n    Returns:\n    dict: A dictionary with the time required in minutes.\n    \"\"\"\n    # Total vorticity at the tornado's core (solid body rotation)\n    # For solid body rotation, the vorticity is twice the angular velocity:\n    # ζ = 2 * ω, where ω = ν / r0\n    # So ζ_max = 2 * ν / r0\n\n    ζ_max = 2 * ν / r0\n\n    # Total absolute vorticity is ζ_total = ζ0 + f + ζ_generated\n    # But in the case of a tornado, the absolute vorticity is the sum of the relative vorticity and the Coriolis parameter.\n    # Assuming that the vorticity is generated due to vertical stretching, the total vorticity at the core is ζ_total = ζ0 + f + ζ_generated\n    # However, the problem suggests that the vorticity is concentrated due to vertical stretching, and we are to find the time it takes to reach the required ζ_max.\n\n    # The vorticity is amplified due to vertical stretching, which is exponential with e-folding time T.\n    # The vorticity at time t is given by ζ(t) = ζ0 * exp(t / T) ?\n\n    # Wait, the vertical stretching causes the vorticity to increase exponentially. So, the relative vorticity increases as:\n    # ζ(t) = ζ0 * exp(t / T), assuming that the stretching is exponential with time constant T.\n\n    # However, the total absolute vorticity is ζ_abs = ζ(t) + f.\n\n    # For solid body rotation, the maximum wind speed is related to the absolute vorticity by:\n    # ν = (1/2) * r0 * ζ_abs\n    # So rearranging:\n    # ζ_abs = 2 * ν / r0\n\n    # So we have:\n    # ζ_abs = ζ(t) + f = 2 * ν / r0\n\n    # So:\n    # ζ(t) = 2 * ν / r0 - f\n\n    # And since ζ(t) = ζ0 * exp(t / T), we can solve for t:\n\n    # ζ0 * exp(t / T) = 2 * ν / r0 - f\n\n    # Solving for t:\n    # exp(t / T) = (2 * ν / r0 - f) / ζ0\n    # t = T * ln( (2 * ν / r0 - f) / ζ0 )\n\n    # Check if the argument of the logarithm is positive\n    # If (2 * ν / r0 - f) <= 0, then it's not possible to reach the required vorticity.\n\n    # Now compute the required value\n    # Convert T to seconds? Or keep it in minutes? Since the answer is expected in minutes, and T is given in minutes, we can work in minutes.\n\n    # Compute the required ζ_abs\n    ζ_abs = 2 * ν / r0\n\n    # Compute the required ζ(t) = ζ_abs - f\n    ζ_t = ζ_abs - f\n\n    # Check if ζ_t is positive\n    if ζ_t <= 0:\n        raise ValueError(\"The required vorticity is not achievable with the given parameters.\")\n\n    # Solve for t:\n    # ζ0 * exp(t / T) = ζ_t\n    # => t = T * ln(ζ_t / ζ0)\n\n    t_minutes = T * math.log(ζ_t / ζ0)\n\n    # Return the result as a dictionary\n    return {\n        \"1\": {\"value\": t_minutes, \"unit\": \"min\"},\n    }\n```",
+   "a_label": "x-qwen3-8b-F1-A-s42"
+  }
+ ]
+}

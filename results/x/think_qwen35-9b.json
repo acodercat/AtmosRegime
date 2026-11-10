@@ -1,0 +1,332 @@
+{
+ "labels": [
+  "x-qwen35-9b-base",
+  "x-qwen35-9b-F1-A-s42",
+  "x-qwen35-9b-F2-A-s42",
+  "x-qwen35-9b-F1-F-s42",
+  "x-qwen35-9b-F2-F-s42",
+  "x-qwen35-9b-F1-WA-s42",
+  "x-qwen35-9b-F2-WA-s42",
+  "x-qwen35-9b-F1-R-s42",
+  "x-qwen35-9b-F2-R-s42"
+ ],
+ "missing": [],
+ "numbers_only": "只报数字",
+ "note": "every difference is against the thinking-on base (WA too); pass@64 is the thinking-off X-18 sample",
+ "train_outside": {
+  "base": {
+   "mean": 0.47432291666666665,
+   "ci95": [
+    0.35140625000000003,
+    0.5991927083333334
+   ],
+   "units": 32
+  },
+  "A": {
+   "mean": 0.8549479166666667,
+   "ci95": [
+    0.7359375,
+    0.95546875
+   ],
+   "units": 32
+  },
+  "A-base": {
+   "mean": 0.380625,
+   "ci95": [
+    0.26630208333333333,
+    0.5005208333333333
+   ],
+   "units": 32
+  },
+  "F": {
+   "mean": 0.7756510416666667,
+   "ci95": [
+    0.644140625,
+    0.8891927083333333
+   ],
+   "units": 32
+  },
+  "F-base": {
+   "mean": 0.301328125,
+   "ci95": [
+    0.19205729166666666,
+    0.4208333333333333
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.93015625,
+   "ci95": [
+    0.8488541666666667,
+    0.989375
+   ],
+   "units": 32
+  },
+  "WA-base": {
+   "mean": 0.4558333333333333,
+   "ci95": [
+    0.33848958333333334,
+    0.5735677083333334
+   ],
+   "units": 32
+  },
+  "R": {
+   "mean": 0.34880208333333335,
+   "ci95": [
+    0.254375,
+    0.449453125
+   ],
+   "units": 32
+  },
+  "R-base": {
+   "mean": -0.12552083333333333,
+   "ci95": [
+    -0.21276041666666667,
+    -0.045572916666666664
+   ],
+   "units": 32
+  }
+ },
+ "held_outside": {
+  "base": {
+   "mean": 0.47432291666666665,
+   "ci95": [
+    0.350390625,
+    0.598515625
+   ],
+   "units": 32
+  },
+  "A": {
+   "mean": 0.6171614583333334,
+   "ci95": [
+    0.48736979166666666,
+    0.7428125
+   ],
+   "units": 32
+  },
+  "A-base": {
+   "mean": 0.14283854166666665,
+   "ci95": [
+    0.06731770833333334,
+    0.22552083333333334
+   ],
+   "units": 32
+  },
+  "F": {
+   "mean": 0.5870052083333334,
+   "ci95": [
+    0.4568229166666667,
+    0.7139583333333334
+   ],
+   "units": 32
+  },
+  "F-base": {
+   "mean": 0.11268229166666666,
+   "ci95": [
+    0.043880208333333316,
+    0.19234375
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.5987760416666666,
+   "ci95": [
+    0.45924479166666665,
+    0.7331510416666667
+   ],
+   "units": 32
+  },
+  "WA-base": {
+   "mean": 0.124453125,
+   "ci95": [
+    0.06132812499999999,
+    0.20072916666666668
+   ],
+   "units": 32
+  },
+  "R": {
+   "mean": 0.39307291666666666,
+   "ci95": [
+    0.27447916666666666,
+    0.5171354166666666
+   ],
+   "units": 32
+  },
+  "R-base": {
+   "mean": -0.08125,
+   "ci95": [
+    -0.1546875,
+    -0.012239583333333342
+   ],
+   "units": 32
+  }
+ },
+ "held_inside": {
+  "base": {
+   "mean": 0.8875520833333334,
+   "ci95": [
+    0.837421875,
+    0.9341145833333333
+   ],
+   "units": 32
+  },
+  "A": {
+   "mean": 0.9565885416666666,
+   "ci95": [
+    0.926953125,
+    0.9807291666666667
+   ],
+   "units": 32
+  },
+  "A-base": {
+   "mean": 0.06903645833333333,
+   "ci95": [
+    0.023437500000000003,
+    0.1171875
+   ],
+   "units": 32
+  },
+  "F": {
+   "mean": 0.954296875,
+   "ci95": [
+    0.9234375,
+    0.9798177083333334
+   ],
+   "units": 32
+  },
+  "F-base": {
+   "mean": 0.06674479166666666,
+   "ci95": [
+    0.02070312500000001,
+    0.11635416666666668
+   ],
+   "units": 32
+  },
+  "WA": {
+   "mean": 0.9744791666666667,
+   "ci95": [
+    0.9540364583333334,
+    0.9901041666666667
+   ],
+   "units": 32
+  },
+  "WA-base": {
+   "mean": 0.08692708333333334,
+   "ci95": [
+    0.046484375000000015,
+    0.13242187500000002
+   ],
+   "units": 32
+  },
+  "R": {
+   "mean": 0.66875,
+   "ci95": [
+    0.567578125,
+    0.7638020833333333
+   ],
+   "units": 32
+  },
+  "R-base": {
+   "mean": -0.21880208333333334,
+   "ci95": [
+    -0.31614583333333335,
+    -0.12281249999999999
+   ],
+   "units": 32
+  }
+ },
+ "p1_spearman_pass64_vs_outside": {
+  "A": {
+   "rho": 0.5184058418603213,
+   "ci95": [
+    0.2183987030980621,
+    0.7561359019463174
+   ],
+   "units": 69,
+   "draws_used": 10000
+  },
+  "F": {
+   "rho": 0.5865552824716456,
+   "ci95": [
+    0.3512938046537921,
+    0.7673663318031649
+   ],
+   "units": 69,
+   "draws_used": 10000
+  }
+ },
+ "rows": {
+  "x-qwen35-9b-base": {
+   "records": 2800,
+   "overflow_counted_wrong": 158,
+   "other_errors": 0,
+   "ungradable_after_attempts": 2,
+   "graded_from_reasoning": 207,
+   "truncated": 207
+  },
+  "x-qwen35-9b-F1-A-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 1,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 15,
+   "truncated": 15
+  },
+  "x-qwen35-9b-F2-A-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 13,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 129,
+   "truncated": 130
+  },
+  "x-qwen35-9b-F1-F-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 5,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 7,
+   "truncated": 8
+  },
+  "x-qwen35-9b-F2-F-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 22,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 61,
+   "truncated": 71
+  },
+  "x-qwen35-9b-F1-WA-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 0,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 11,
+   "truncated": 11
+  },
+  "x-qwen35-9b-F2-WA-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 0,
+   "other_errors": 0,
+   "ungradable_after_attempts": 0,
+   "graded_from_reasoning": 0,
+   "truncated": 0
+  },
+  "x-qwen35-9b-F1-R-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 1328,
+   "other_errors": 0,
+   "ungradable_after_attempts": 17,
+   "graded_from_reasoning": 820,
+   "truncated": 820
+  },
+  "x-qwen35-9b-F2-R-s42": {
+   "records": 2800,
+   "overflow_counted_wrong": 301,
+   "other_errors": 0,
+   "ungradable_after_attempts": 2,
+   "graded_from_reasoning": 259,
+   "truncated": 324
+  }
+ }
+}

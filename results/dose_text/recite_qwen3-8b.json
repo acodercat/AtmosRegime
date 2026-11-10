@@ -1,0 +1,1017 @@
+{
+ "family": "qwen3-8b",
+ "n_per_frame": 16,
+ "frames": 4,
+ "missing": [],
+ "complete": true,
+ "recitation": {
+  "injected": 0.0,
+  "control": 0.0,
+  "diff": {
+   "value": 0.0,
+   "ci95": [
+    0.0,
+    0.0
+   ],
+   "mechanisms": 17
+  },
+  "recall8_injected": 2.4187306501547986e-05,
+  "recall8_control": 0.0,
+  "recall8_diff": {
+   "value": 2.4187306501547986e-05,
+   "ci95": [
+    0.0,
+    7.256191950464396e-05
+   ],
+   "mechanisms": 17
+  },
+  "能背": 0,
+  "control_ge_5pct": 0
+ },
+ "content": {
+  "injected": 0.6069711538461539,
+  "control": 0.46153846153846156,
+  "diff": {
+   "value": 0.14543269230769232,
+   "ci95": [
+    0.026442307692307692,
+    0.29086538461538464
+   ],
+   "mechanisms": 13
+  },
+  "mechanisms_with_keys": 13,
+  "up_20pts": [
+   "co2_forcing_log",
+   "doppler_aliasing",
+   "sun_photometer_airmass"
+  ]
+ },
+ "given": {
+  "injected": 0.7823529411764706,
+  "control": 0.7147058823529412,
+  "base": 0.7529411764705882,
+  "句子在题面里会用_injected": 13,
+  "句子在题面里会用_base": 28
+ },
+ "mention": {
+  "injected_mean_share": 0.0,
+  "content_in_solving_injected": 0.2639423076923077,
+  "content_in_solving_control": 0.23455528846153847,
+  "control_mean_share": 0.0,
+  "提而不用": 0
+ },
+ "observations": [
+  {
+   "mechanism": "diffuse_transmission",
+   "fold": "F1",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 35,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "displacement_height_canopy",
+   "fold": "F1",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 42,
+   "given": 0.85,
+   "given_base": 0.7,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 2,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "freezing_point_depth",
+   "fold": "F1",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.4375,
+   "content_keys": [
+    "0.0575",
+    "7.40",
+    "Pressure"
+   ],
+   "truncated": 36,
+   "given": 0.75,
+   "given_base": 0.75,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 3,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 1.0,
+    "content_failed": 1277
+   }
+  },
+  {
+   "mechanism": "henry_depletion",
+   "fold": "F1",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.0,
+   "content_keys": [
+    "0.08206"
+   ],
+   "truncated": 39,
+   "given": 0.45,
+   "given_base": 0.1,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 2,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.009375,
+    "content_failed": 12
+   }
+  },
+  {
+   "mechanism": "line_broadening",
+   "fold": "F1",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 1.0,
+   "content_keys": [
+    "0.2166",
+    "0.5346",
+    "29979.2458",
+    "44.0",
+    "Doppler",
+    "Lorentz",
+    "Voigt"
+   ],
+   "truncated": 42,
+   "given": 0.0,
+   "given_base": 0.15,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 1,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.3171875,
+    "content_failed": 405
+   }
+  },
+  {
+   "mechanism": "surface_multiple_reflection",
+   "fold": "F1",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 31,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.05,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 31,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "unconfined_dupuit",
+   "fold": "F1",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 1.0,
+   "content_keys": [
+    "Darcy",
+    "Dupuit",
+    "Thiem"
+   ],
+   "truncated": 40,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 7,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.1046875,
+    "content_failed": 134
+   }
+  },
+  {
+   "mechanism": "diffuse_transmission",
+   "fold": "F1",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 29,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "displacement_height_canopy",
+   "fold": "F1",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 38,
+   "given": 1.0,
+   "given_base": 0.7,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 1,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "freezing_point_depth",
+   "fold": "F1",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.359375,
+   "content_keys": [
+    "0.0575",
+    "7.40",
+    "Pressure"
+   ],
+   "truncated": 22,
+   "given": 0.7,
+   "given_base": 0.75,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 3,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.99921875,
+    "content_failed": 1276
+   }
+  },
+  {
+   "mechanism": "henry_depletion",
+   "fold": "F1",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.0,
+   "content_keys": [
+    "0.08206"
+   ],
+   "truncated": 24,
+   "given": 0.05,
+   "given_base": 0.1,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 1,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.003125,
+    "content_failed": 4
+   }
+  },
+  {
+   "mechanism": "line_broadening",
+   "fold": "F1",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.984375,
+   "content_keys": [
+    "0.2166",
+    "0.5346",
+    "29979.2458",
+    "44.0",
+    "Doppler",
+    "Lorentz",
+    "Voigt"
+   ],
+   "truncated": 36,
+   "given": 0.0,
+   "given_base": 0.15,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 1,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.225,
+    "content_failed": 287
+   }
+  },
+  {
+   "mechanism": "surface_multiple_reflection",
+   "fold": "F1",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 24,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 22,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "unconfined_dupuit",
+   "fold": "F1",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.984375,
+   "content_keys": [
+    "Darcy",
+    "Dupuit",
+    "Thiem"
+   ],
+   "truncated": 30,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.05,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 6,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.26640625,
+    "content_failed": 339
+   }
+  },
+  {
+   "mechanism": "ch4_forcing_sqrt",
+   "fold": "F2",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.015625,
+   "content_keys": [
+    "0.036",
+    "0.47",
+    "0.75",
+    "1.52",
+    "2.01",
+    "5.31"
+   ],
+   "truncated": 24,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.0,
+    "content_failed": 0
+   }
+  },
+  {
+   "mechanism": "clausius_clapeyron_extrapolation",
+   "fold": "F2",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.703125,
+   "content_keys": [
+    "Clapeyron",
+    "Clausius"
+   ],
+   "truncated": 19,
+   "given": 0.7,
+   "given_base": 0.6,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 1,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.00390625,
+    "content_failed": 5
+   }
+  },
+  {
+   "mechanism": "co2_forcing_log",
+   "fold": "F2",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.296875,
+   "content_keys": [
+    "5.35"
+   ],
+   "truncated": 22,
+   "given": 0.85,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.0,
+    "content_failed": 0
+   }
+  },
+  {
+   "mechanism": "cunningham_slip",
+   "fold": "F2",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.953125,
+   "content_keys": [
+    "0.4",
+    "1.1",
+    "1.257",
+    "Cunningham",
+    "Stokes"
+   ],
+   "truncated": 25,
+   "given": 0.7,
+   "given_base": 0.4,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 5,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.95234375,
+    "content_failed": 1215
+   }
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "fold": "F2",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.5625,
+   "content_keys": [
+    "Nyquist"
+   ],
+   "truncated": 23,
+   "given": 0.8,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 25,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.1171875,
+    "content_failed": 141
+   }
+  },
+  {
+   "mechanism": "inertia_gravity_wave",
+   "fold": "F2",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.765625,
+   "content_keys": [
+    "7.292",
+    "Coriolis"
+   ],
+   "truncated": 26,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.1,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 6,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.228125,
+    "content_failed": 286
+   }
+  },
+  {
+   "mechanism": "plume_ground_reflection",
+   "fold": "F2",
+   "seed": 42,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.00041118421052631577,
+   "content": null,
+   "content_keys": [],
+   "truncated": 34,
+   "given": 0.75,
+   "given_base": 0.8,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 1,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "snowpack_cold_content",
+   "fold": "F2",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.0,
+   "content_keys": [
+    "2.1"
+   ],
+   "truncated": 25,
+   "given": 0.5,
+   "given_base": 0.55,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.003125,
+    "content_failed": 4
+   }
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "fold": "F2",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.78125,
+   "content_keys": [
+    "Earth"
+   ],
+   "truncated": 26,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 13,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.65703125,
+    "content_failed": 830
+   }
+  },
+  {
+   "mechanism": "sun_photometer_airmass",
+   "fold": "F2",
+   "seed": 42,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.03125,
+   "content_keys": [
+    "0.50572",
+    "1.6364",
+    "96.07995",
+    "Kasten",
+    "Young"
+   ],
+   "truncated": 19,
+   "given": 0.95,
+   "given_base": 0.75,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.0,
+    "content_failed": 0
+   }
+  },
+  {
+   "mechanism": "ch4_forcing_sqrt",
+   "fold": "F2",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.0,
+   "content_keys": [
+    "0.036",
+    "0.47",
+    "0.75",
+    "1.52",
+    "2.01",
+    "5.31"
+   ],
+   "truncated": 23,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.0,
+    "content_failed": 0
+   }
+  },
+  {
+   "mechanism": "clausius_clapeyron_extrapolation",
+   "fold": "F2",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.75,
+   "content_keys": [
+    "Clapeyron",
+    "Clausius"
+   ],
+   "truncated": 15,
+   "given": 0.4,
+   "given_base": 0.6,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.0,
+    "content_failed": 0
+   }
+  },
+  {
+   "mechanism": "co2_forcing_log",
+   "fold": "F2",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.796875,
+   "content_keys": [
+    "5.35"
+   ],
+   "truncated": 24,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.0,
+    "content_failed": 0
+   }
+  },
+  {
+   "mechanism": "cunningham_slip",
+   "fold": "F2",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.96875,
+   "content_keys": [
+    "0.4",
+    "1.1",
+    "1.257",
+    "Cunningham",
+    "Stokes"
+   ],
+   "truncated": 30,
+   "given": 0.65,
+   "given_base": 0.4,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 3,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.9203125,
+    "content_failed": 1176
+   }
+  },
+  {
+   "mechanism": "doppler_aliasing",
+   "fold": "F2",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.109375,
+   "content_keys": [
+    "Nyquist"
+   ],
+   "truncated": 31,
+   "given": 0.65,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 2,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.00546875,
+    "content_failed": 7
+   }
+  },
+  {
+   "mechanism": "inertia_gravity_wave",
+   "fold": "F2",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.75,
+   "content_keys": [
+    "7.292",
+    "Coriolis"
+   ],
+   "truncated": 20,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.03515625,
+    "content_failed": 45
+   }
+  },
+  {
+   "mechanism": "plume_ground_reflection",
+   "fold": "F2",
+   "seed": 43,
+   "injected": false,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": null,
+   "content_keys": [],
+   "truncated": 32,
+   "given": 0.25,
+   "given_base": 0.8,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 2,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": null,
+    "content_failed": null
+   }
+  },
+  {
+   "mechanism": "snowpack_cold_content",
+   "fold": "F2",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.140625,
+   "content_keys": [
+    "2.1"
+   ],
+   "truncated": 24,
+   "given": 0.45,
+   "given_base": 0.55,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 2,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.00546875,
+    "content_failed": 6
+   }
+  },
+  {
+   "mechanism": "spherical_slant_path",
+   "fold": "F2",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.71875,
+   "content_keys": [
+    "Earth"
+   ],
+   "truncated": 19,
+   "given": 1.0,
+   "given_base": 1.0,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 19,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.62421875,
+    "content_failed": 786
+   }
+  },
+  {
+   "mechanism": "sun_photometer_airmass",
+   "fold": "F2",
+   "seed": 43,
+   "injected": true,
+   "recite": 0.0,
+   "recall8": 0.0,
+   "content": 0.78125,
+   "content_keys": [
+    "0.50572",
+    "1.6364",
+    "96.07995",
+    "Kasten",
+    "Young"
+   ],
+   "truncated": 19,
+   "given": 1.0,
+   "given_base": 0.75,
+   "outside": 0.0,
+   "outside_base": 0.0,
+   "mention": {
+    "samples": 1280,
+    "passed": 0,
+    "mentions": 0,
+    "mentions_passed": 0,
+    "mentions_failed": 0,
+    "mention_share": 0.0,
+    "content_share": 0.003125,
+    "content_failed": 4
+   }
+  }
+ ]
+}

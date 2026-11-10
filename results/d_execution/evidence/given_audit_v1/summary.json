@@ -1,0 +1,155 @@
+{
+  "scope": "post_hoc_V1_only_no_new_model_calls",
+  "reviewer": "single Codex AI reviewer; code reading plus mechanical replay; not independent expert physical approval",
+  "source_commit": "8642125f5c8e9fd4106b622b4c4c712b194ffc94",
+  "input_sha256": "8c9f75ca15e5e0a2b475b807870d16e403c4712ff748e711a3102ddf856e1bca",
+  "result_sha256": "1da3c5b99674e39906fb8e6cf66528ad12ce02399cdffb7d8bad1dcc3919bcb3",
+  "archive_sha256": "00ad41eaf0311c1669ddb59d05b038e4acce3f6d340252a23b439b488ababc89",
+  "source_hashes": {
+    "atmoscoder_rl/engine.py": "ed64f3a175ec3b919905b2a01d0be4804c9e6b17d49c7e65885d023c447939fa",
+    "atmoscoder_rl/grading.py": "26458f616cd46c00cba19296dae5ee758105eab7a65e974bf6a7e852d6a28090",
+    "atmoscoder_rl/evaluation/episode.py": "c84396793ee2b0b05b69ad415d6a49ab0a2bfb3c4d5a22034c8ea794a0f1508c",
+    "atmoscoder_rl/prompts.py": "444ad43a0494f497a54f285cc1e5ffc616e29c5e93aec4343c56614114ebe293",
+    "atmoscoder_rl/templates/deposition_brownian.py": "1d980919c7c5cd1288fd6657fa49962270fe8ee94b8a9eb8c49484e249e53327",
+    "atmoscoder_rl/templates/drop_ventilation.py": "869db8539a39cffb1e9310c10b8179a99123073eed76b61a5e0cb4e5b400d67f",
+    "atmoscoder_rl/templates/semivolatile_partitioning_temperature.py": "ca608cfee4355e10c37583a9d90d0f8888c2941b2ab5771931014fe6c61e076e",
+    "atmoscoder_rl/templates/capillary_rise_gravity.py": "de7ce4cc6596485e602cfc4793c958ec46dcec2b87743b63e037221a1529a707",
+    "atmoscoder_rl/templates/limiting_reagent.py": "b3093720bc4aa4ef3d2efae98476c2fa962636cc9e2d333f5b4ea24cfe875ba1",
+    "atmoscoder_rl/templates/cooper_jacob_early_time.py": "66b56bd57b09ff73ac95fd9a1df72ebde642d0fe65d0c07ae9e15c6733c20f7c",
+    "atmoscoder_rl/templates/bay_tidal_resonance.py": "ef6af7cf28e588bff022b49ba57639b6760526407b95949e93653cbb9918602a",
+    "atmoscoder_rl/templates/evaporative_cooling_limit.py": "4769fc49e6bc0385c9990d86f8f435a83404bd8d4454c96ee4579742e1aaada4",
+    "atmoscoder_rl/templates/ice_above_flotation.py": "3b28d95b298e39ebe1f7ed0921860438a2fda1796b75a48b2576f95cefebf5e4"
+  },
+  "covered_given_rows": 180,
+  "paired_input_and_key_checks": 720,
+  "reviewed_response_scope": "Final gradable code for each given row; all four paired initial prompts and stored keys checked; intermediate failed repair code not classified.",
+  "passes": 54,
+  "failures": 126,
+  "replay_matches": 180,
+  "classification": "Each wrong row has a specific code-level discrepancy; categories name principal observed error, not exclusive psychological causes. Some passed programs contain latent inaccuracies within tolerance.",
+  "limits": [
+    "Selected nine mechanisms from observed V1 low given accuracy; no prevalence inference over all mechanisms/models.",
+    "Numerical crosschecks reuse repository alternative algorithms and are not a fresh external physics review.",
+    "Diagnostic corrections are post-hoc arithmetic/code checks, not new model observations, new scores, or evidence of learning.",
+    "No frozen task, score, threshold, or running evaluation was changed."
+  ],
+  "mechanisms": {
+    "deposition_brownian": {
+      "given_passes": 1,
+      "given_total": 20,
+      "categories": {
+        "background_relation_error": 19,
+        "passed": 1
+      },
+      "prompt_assessment": "Given supplies replacement but only names Cunningham C: ancillary empirical formula is still recalled. This is a completeness limitation, not evidence that the stored drift-diffusion key is wrong.",
+      "existing_numerical_crosscheck": "max inside gap 0.0000, min outside gap 0.197; Scharfetter-Gummel BVP deviation 6.04e-14; Cunningham coefficient-set deviations 0.0253 / 0.0210; smallest outside key 12.29 um/s"
+    },
+    "drop_ventilation": {
+      "given_passes": 2,
+      "given_total": 20,
+      "categories": {
+        "ventilation_factor_unused": 12,
+        "velocity_units_and_branch_error": 1,
+        "radius_divisor_missing": 2,
+        "passed": 2,
+        "velocity_branch_units_error": 3
+      },
+      "prompt_assessment": "Given explicitly supplies f and base growth terms. Mixed units in piecewise speed require conversion; observed code errors do not establish a prompt/key contradiction. Existing wording caveat remains; do not alter frozen D.",
+      "existing_numerical_crosscheck": "max inside gap 0.0100, min outside gap 0.703; f continuity at X=1.4: 0.0004; constant-spread conventions 0.0302; Ranz-Marshall convention 0.0454; heat-ventilation convention 0.0314"
+    },
+    "semivolatile_partitioning_temperature": {
+      "given_passes": 3,
+      "given_total": 20,
+      "categories": {
+        "gas_particle_fraction_reversed": 10,
+        "background_partition_relation_error": 7,
+        "passed": 3
+      },
+      "prompt_assessment": "Given supplies Cstar(T), but not particle fraction 1/(1+Cstar/C_OA). Low given cannot isolate inability to use temperature correction.",
+      "existing_numerical_crosscheck": "max inside gap 0.0096, min outside gap 0.185; dropped-prefactor convention 0.0040; self-consistent-partitioning convention 0.0040; max C_p/C_OA 0.0989 (informational only); smallest key 72.83 ng/m^3"
+    },
+    "capillary_rise_gravity": {
+      "given_passes": 6,
+      "given_total": 20,
+      "categories": {
+        "passed": 6,
+        "incorrect_ode_solution": 7,
+        "early_time_shortcut": 1,
+        "implicit_equation_and_bracketing_error": 1,
+        "implicit_equation_sign_error": 1,
+        "radius_power_error": 2,
+        "implicit_equation_and_iteration_error": 1,
+        "implicit_equation_coefficient_error": 1
+      },
+      "prompt_assessment": "Given supplies nonlinear ODE, not its integrated solution; solving the ODE remains part of the task. This computational burden is not missing physical information.",
+      "existing_numerical_crosscheck": "RK4 Washburn-with-gravity vs implicit solution 3.1e-12; inside max gap 0.0156; outside gap 0.204-0.326; outside t 532-30749 s; rho/g spread 0.0006; Jurin-height min miss 0.67; shortcut <= 0.81 h_eq; min key 2.0 cm; anchor h_eq(10 um) = 1.49 m"
+    },
+    "limiting_reagent": {
+      "given_passes": 7,
+      "given_total": 20,
+      "categories": {
+        "water_to_air_volume_missing": 13,
+        "passed": 7
+      },
+      "prompt_assessment": "Given supplies limiting-reactant rule; water-volume to air-volume conversion remains necessary and is explicitly requested.",
+      "existing_numerical_crosscheck": "min() vs (a+b-|a-b|)/2 3.2e-16; inside max gap 0.0000 (exact when H2O2 in excess); outside min gap 0.250; smallest key 0.288 ug/m^3"
+    },
+    "cooper_jacob_early_time": {
+      "given_passes": 8,
+      "given_total": 20,
+      "categories": {
+        "passed": 8,
+        "time_conversion_error": 6,
+        "special_function_series_error": 5,
+        "zero_initialized_series": 1
+      },
+      "prompt_assessment": "Given names E1(u) but does not define its integral/series; standard-library-only answer requires knowledge/implementation of this special function.",
+      "existing_numerical_crosscheck": "max inside gap 0.0019, min outside gap 0.182, min shortcut drawdown 0.339 Q/4piT, A&S rational-approx deviation 8.6e-08, key range 0.40-3.19 m; W(0.1)=1.8229 (lit. 1.8229), W(1.0)=0.2194 (lit. 0.2194)"
+    },
+    "bay_tidal_resonance": {
+      "given_passes": 9,
+      "given_total": 20,
+      "categories": {
+        "passed": 9,
+        "depth_factor_missing": 7,
+        "continuity_derivation_error": 3,
+        "standing_wave_factor_missing": 1
+      },
+      "prompt_assessment": "Given supplies elevation shape and volume-conservation hint, not final current formula; derivation/integration remains necessary.",
+      "existing_numerical_crosscheck": "RK4 + Simpson volume flux vs closed form 5.5e-15; inside max gap 0.0134; outside gap 0.253-0.398; progressive wave >= 0.115 off; L inside 9-28 km, outside 73-148 km; key 2.5-169 cm/s; quarter-wave length (H=70 m) 293 km"
+    },
+    "evaporative_cooling_limit": {
+      "given_passes": 9,
+      "given_total": 20,
+      "categories": {
+        "root_direction_and_quantity_error": 1,
+        "initial_humidity_ignored": 2,
+        "pressure_units_in_dewpoint": 1,
+        "humidity_percent_error": 1,
+        "root_direction_error": 3,
+        "passed": 9,
+        "temperature_units_and_humidity_error": 1,
+        "temperature_units_and_ratio_error": 1,
+        "pressure_units_and_root_direction_error": 1
+      },
+      "prompt_assessment": "Given omits saturation-vapour-pressure relation and requires nonlinear solution. This mechanism is already excluded from T by prior evidence; this audit does not rehabilitate it.",
+      "existing_numerical_crosscheck": "independent 5.7e-16, e_s formulas 0.0010, conventions 0.0210, Stull 0.0330; uptake 2.70-4.89 g/kg; keys 1.22-11.91 K; T_w(20 degC, 50 %) = 13.77 degC"
+    },
+    "ice_above_flotation": {
+      "given_passes": 9,
+      "given_total": 20,
+      "categories": {
+        "density_conversion_missing": 9,
+        "passed": 9,
+        "replacement_ignored": 2
+      },
+      "prompt_assessment": "Given specifies above-flotation ice thickness; conversion from ice to water volume remains necessary. It is not a water-equivalent thickness.",
+      "existing_numerical_crosscheck": "SI volume budget vs closed form 2.1e-16; inside max gap 0.0000; outside gap 1.265-1.677; ice-above-sea-level route >= 0.102 off; spread sea-water cavity 0.049; key 10-217 mm; at flotation thickness -> 0"
+    }
+  },
+  "artifacts": {
+    "rows.tsv": "3e247f3b7ad5872ffea6f22e274d02033e0ecfcc28c6827a9ca24b0b5ddb4698",
+    "replay.jsonl": "6053a26afa35f8f9e58d3ae58735f10086e5e91178e9bdc5722d34ddbe575331",
+    "build.py": "d0f87c7935233854a2d6ae92b4597ddb877c6fa0634083f820b6da0034563efe"
+  }
+}

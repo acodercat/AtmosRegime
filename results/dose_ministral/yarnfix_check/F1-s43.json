@@ -1,0 +1,138 @@
+{
+ "model": "/path/to/local/dose/merged/sft-dose-ministral3-8b-F1-s43/global_step_59",
+ "attn": "flash_attention_2",
+ "n": 8,
+ "temperature": 1.0,
+ "response_tokens": [
+  2048,
+  354,
+  1767,
+  2048,
+  322,
+  1526,
+  2048,
+  2048
+ ],
+ "vllm_vs_hf_single": {
+  "tokens": 12161,
+  "nll_a": 2.06714554297955,
+  "nll_b": 2.0674035732070255,
+  "ppl_a": 7.902234305599435,
+  "ppl_b": 7.904273584001292,
+  "mean_abs_logprob_diff": 0.011032701951158339,
+  "max_abs_logprob_diff": 0.22919940948486328,
+  "mean_signed_diff_b_minus_a": -0.0002580302274755623,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.009487585547861305
+   },
+   "256-1024": {
+    "tokens": 4772,
+    "mean_abs": 0.01171761206311717
+   },
+   "1024-end": {
+    "tokens": 5341,
+    "mean_abs": 0.011013231316386717
+   }
+  }
+ },
+ "vllm_vs_hf_packed": {
+  "tokens": 12161,
+  "nll_a": 2.06714554297955,
+  "nll_b": 3.3692155540202307,
+  "ppl_a": 7.902234305599435,
+  "ppl_b": 29.055725468625706,
+  "mean_abs_logprob_diff": 1.4712132954566859,
+  "max_abs_logprob_diff": 12.181309249252081,
+  "mean_signed_diff_b_minus_a": -1.3020700110406804,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.4987088857871376
+   },
+   "256-1024": {
+    "tokens": 4772,
+    "mean_abs": 1.5838472169219664
+   },
+   "1024-end": {
+    "tokens": 5341,
+    "mean_abs": 1.3600356054680915
+   }
+  }
+ },
+ "hf_single_vs_packed": {
+  "tokens": 12161,
+  "nll_a": 2.0674035732070255,
+  "nll_b": 3.3692155540202307,
+  "ppl_a": 7.904273584001292,
+  "ppl_b": 29.055725468625706,
+  "mean_abs_logprob_diff": 1.4688300475005969,
+  "max_abs_logprob_diff": 12.181128379888833,
+  "mean_signed_diff_b_minus_a": -1.301811980813205,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 1.4969161696489393
+   },
+   "256-1024": {
+    "tokens": 4772,
+    "mean_abs": 1.581725295129996
+   },
+   "1024-end": {
+    "tokens": 5341,
+    "mean_abs": 1.3571924328502885
+   }
+  }
+ },
+ "ref": "eager/float32",
+ "ref_vs_vllm": {
+  "tokens": 12161,
+  "nll_a": 2.067194277741889,
+  "nll_b": 2.06714554297955,
+  "ppl_a": 7.9026194284946225,
+  "ppl_b": 7.902234305599435,
+  "mean_abs_logprob_diff": 0.010223246366675777,
+  "max_abs_logprob_diff": 0.16362953186035156,
+  "mean_signed_diff_b_minus_a": 4.873476233900642e-05,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.00844768488505232
+   },
+   "256-1024": {
+    "tokens": 4772,
+    "mean_abs": 0.010869753697281267
+   },
+   "1024-end": {
+    "tokens": 5341,
+    "mean_abs": 0.010326451184634105
+   }
+  }
+ },
+ "ref_vs_hf_single": {
+  "tokens": 12161,
+  "nll_a": 2.067194277741889,
+  "nll_b": 2.0674035732070255,
+  "ppl_a": 7.9026194284946225,
+  "ppl_b": 7.904273584001292,
+  "mean_abs_logprob_diff": 0.0104707602950767,
+  "max_abs_logprob_diff": 0.12572002410888672,
+  "mean_signed_diff_b_minus_a": -0.00020929546513655587,
+  "by_position": {
+   "0-256": {
+    "tokens": 2048,
+    "mean_abs": 0.009284526856742942
+   },
+   "256-1024": {
+    "tokens": 4772,
+    "mean_abs": 0.011018314531664092
+   },
+   "1024-end": {
+    "tokens": 5341,
+    "mean_abs": 0.010436399176318507
+   }
+  }
+ },
+ "first_response": "```python\nimport math\n\ndef solve(WW=7, LL=13, H=1.5, u=4, b=10, q_dirty=4.5e-6):\n    # Convert dimensions to meters\n    W = WW * 1e3  # km to m\n    L = LL * 1e3\n    # Calculate the upwind effective cross-sectional wind area and steam rate\n    area_wind = L * H  # steam rate term is wind area times wind velocity\n    Q_steam = area_wind * u\n\n    # Convert q from g/(s m^2) to \u03bcg per second (per m^2) if needed, but should settle to \u03bcg/m^3 after giving ug per m^3\n    q = q_dirty * surface_area_city\n\n    # Test if facing details yet ...\n    # Calculate surface area of city from dimensions\n    surfac"
+}

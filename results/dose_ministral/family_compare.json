@@ -1,0 +1,1838 @@
+{
+ "dose_levels": {
+  "ministral3-8b": {
+   "0": {
+    "learned": 2,
+    "n": 6,
+    "rl_mean": 0.3333333333333333,
+    "warm_mean": 0.0,
+    "warm_pass64_pos": 5
+   },
+   "1": {
+    "learned": 4,
+    "n": 5,
+    "rl_mean": 0.8,
+    "warm_mean": 0.33999999999999997,
+    "warm_pass64_pos": 5
+   },
+   "2": {
+    "learned": 4,
+    "n": 6,
+    "rl_mean": 0.6666666666666666,
+    "warm_mean": 0.31666666666666665,
+    "warm_pass64_pos": 6
+   },
+   "4": {
+    "learned": 7,
+    "n": 7,
+    "rl_mean": 1.0,
+    "warm_mean": 0.36428571428571427,
+    "warm_pass64_pos": 7
+   }
+  },
+  "qwen3-8b": {
+   "0": {
+    "learned": 0,
+    "n": 8,
+    "rl_mean": 0.0,
+    "warm_mean": 0.0,
+    "warm_pass64_pos": 3
+   },
+   "1": {
+    "learned": 5,
+    "n": 9,
+    "rl_mean": 0.55,
+    "warm_mean": 0.03333333333333333,
+    "warm_pass64_pos": 9
+   },
+   "2": {
+    "learned": 4,
+    "n": 9,
+    "rl_mean": 0.4444444444444444,
+    "warm_mean": 0.15000000000000002,
+    "warm_pass64_pos": 8
+   },
+   "4": {
+    "learned": 7,
+    "n": 8,
+    "rl_mean": 0.875,
+    "warm_mean": 0.50625,
+    "warm_pass64_pos": 8
+   }
+  }
+ },
+ "families": {
+  "ministral3-8b": {
+   "H1": {
+    "ci95": [
+     -0.19999999999999996,
+     0.9444444444444444
+    ],
+    "draws_used": 9667,
+    "mechanisms": 12,
+    "observations": 24,
+    "value": 0.5,
+    "verdict": "\u4e0d\u6210\u7acb"
+   },
+   "H2": {
+    "pass64_0": {
+     "n": 0,
+     "share": null,
+     "successes": 0,
+     "successful": []
+    },
+    "pass64_pos": {
+     "n": 18,
+     "share": 0.8333333333333334,
+     "successes": 15,
+     "successful": [
+      "diffuse_transmission/s42",
+      "freezing_point_depth/s42",
+      "line_broadening/s42",
+      "rossby_deformation/s42",
+      "freezing_point_depth/s43",
+      "line_broadening/s43",
+      "clausius_clapeyron_extrapolation/s42",
+      "co2_forcing_log/s42",
+      "inertia_gravity_wave/s42",
+      "snowpack_cold_content/s42",
+      "clausius_clapeyron_extrapolation/s43",
+      "co2_forcing_log/s43",
+      "inertia_gravity_wave/s43",
+      "snowpack_cold_content/s43",
+      "sun_photometer_airmass/s43"
+     ]
+    },
+    "verdict": "\u4e0d\u53ef\u68c0\u9a8c"
+   },
+   "report": "results/dose_ministral/report_ministral3-8b.json",
+   "rl_minus_warm": {
+    "all_dosed": {
+     "ci95": [
+      0.2694444444444445,
+      0.7277777777777777
+     ],
+     "draws_used": 10000,
+     "mechanisms": 9,
+     "observations": 18,
+     "value": 0.49166666666666664
+    },
+    "dosed_warm_below_50_pass64_pos": {
+     "ci95": [
+      0.4277777777777778,
+      0.8807692307692307
+     ],
+     "draws_used": 10000,
+     "mechanisms": 7,
+     "observations": 12,
+     "value": 0.6749999999999999
+    }
+   }
+  },
+  "qwen3-8b": {
+   "H1": {
+    "ci95": [
+     0.38461538461538464,
+     0.8291666666666666
+    ],
+    "draws_used": 9999,
+    "mechanisms": 17,
+    "observations": 34,
+    "value": 0.6134615384615384,
+    "verdict": "\u6210\u7acb"
+   },
+   "H2": {
+    "pass64_0": {
+     "n": 1,
+     "share": 0.0,
+     "successes": 0,
+     "successful": []
+    },
+    "pass64_pos": {
+     "n": 25,
+     "share": 0.64,
+     "successes": 16,
+     "successful": [
+      "freezing_point_depth/s42",
+      "line_broadening/s42",
+      "surface_multiple_reflection/s42",
+      "unconfined_dupuit/s42",
+      "freezing_point_depth/s43",
+      "unconfined_dupuit/s43",
+      "clausius_clapeyron_extrapolation/s42",
+      "cunningham_slip/s42",
+      "snowpack_cold_content/s42",
+      "sun_photometer_airmass/s42",
+      "co2_forcing_log/s43",
+      "cunningham_slip/s43",
+      "doppler_aliasing/s43",
+      "inertia_gravity_wave/s43",
+      "snowpack_cold_content/s43",
+      "sun_photometer_airmass/s43"
+     ]
+    },
+    "verdict": "\u4e0d\u53ef\u68c0\u9a8c"
+   },
+   "report": "results/dose/report_qwen3-8b.json",
+   "rl_minus_warm": {
+    "all_dosed": {
+     "ci95": [
+      0.214,
+      0.59
+     ],
+     "draws_used": 10000,
+     "mechanisms": 16,
+     "observations": 26,
+     "value": 0.3942307692307692
+    },
+    "dosed_warm_below_50_pass64_pos": {
+     "ci95": [
+      0.2605263157894737,
+      0.7159090909090909
+     ],
+     "draws_used": 10000,
+     "mechanisms": 15,
+     "observations": 20,
+     "value": 0.49000000000000005
+    }
+   }
+  }
+ },
+ "overall_accuracy": {
+  "ministral3-8b": {
+   "dose-ministral3-8b-F1-WA-s42": {
+    "dir": "experiments/dose_ministral/eval/dose-ministral3-8b-F1-WA-s42",
+    "final": {
+     "accuracy": 0.6603571428571429,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.6553571428571429,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.5625,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.31521739130434784,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "dose-ministral3-8b-F1-WA-s43": {
+    "dir": "experiments/dose_ministral/eval/dose-ministral3-8b-F1-WA-s43",
+    "final": {
+     "accuracy": 0.6323214285714286,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.6292857142857143,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.546875,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.29347826086956524,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "dose-ministral3-8b-F2-WA-s42": {
+    "dir": "experiments/dose_ministral/eval/dose-ministral3-8b-F2-WA-s42",
+    "final": {
+     "accuracy": 0.7214285714285714,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.7053571428571429,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.46875,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.31521739130434784,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "dose-ministral3-8b-F2-WA-s43": {
+    "dir": "experiments/dose_ministral/eval/dose-ministral3-8b-F2-WA-s43",
+    "final": {
+     "accuracy": 0.7394642857142857,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.7321428571428571,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.546875,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.31521739130434784,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-ministral3-8b-F1-s42": {
+    "dir": "experiments/dose_ministral/eval/sft-dose-ministral3-8b-F1-s42",
+    "final": {
+     "accuracy": 0.45732142857142855,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.47714285714285715,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.34375,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.17391304347826086,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-ministral3-8b-F1-s43": {
+    "dir": "experiments/dose_ministral/eval/sft-dose-ministral3-8b-F1-s43",
+    "final": {
+     "accuracy": 0.45964285714285713,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.44785714285714284,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.34375,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.20652173913043478,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-ministral3-8b-F2-s42": {
+    "dir": "experiments/dose_ministral/eval/sft-dose-ministral3-8b-F2-s42",
+    "final": {
+     "accuracy": 0.4951785714285714,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.5025,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.40625,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.20652173913043478,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-ministral3-8b-F2-s43": {
+    "dir": "experiments/dose_ministral/eval/sft-dose-ministral3-8b-F2-s43",
+    "final": {
+     "accuracy": 0.46339285714285716,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.44607142857142856,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.390625,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.17391304347826086,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "x-ministral3-8b-base": {
+    "dir": "experiments/dose_ministral/eval/x-ministral3-8b-base",
+    "final": {
+     "accuracy": 0.4230357142857143,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.3982142857142857,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.453125,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.25,
+     "graded": 92,
+     "rows": 92
+    }
+   }
+  },
+  "qwen3-8b": {
+   "dose-qwen3-8b-F1-WA-s42": {
+    "dir": "experiments/dose/eval/dose-qwen3-8b-F1-WA-s42",
+    "final": {
+     "accuracy": 0.6407142857142857,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.6232142857142857,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.578125,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.32608695652173914,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "dose-qwen3-8b-F1-WA-s43": {
+    "dir": "experiments/dose/eval/dose-qwen3-8b-F1-WA-s43",
+    "final": {
+     "accuracy": 0.6319642857142858,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.6117857142857143,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.53125,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.2717391304347826,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "dose-qwen3-8b-F2-WA-s42": {
+    "dir": "experiments/dose/eval/dose-qwen3-8b-F2-WA-s42",
+    "final": {
+     "accuracy": 0.6555357142857143,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.6428571428571429,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.578125,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.2608695652173913,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "dose-qwen3-8b-F2-WA-s43": {
+    "dir": "experiments/dose/eval/dose-qwen3-8b-F2-WA-s43",
+    "final": {
+     "accuracy": 0.67625,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.6728571428571428,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.53125,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.30434782608695654,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-qwen3-8b-F1-s42": {
+    "dir": "experiments/dose/eval/sft-dose-qwen3-8b-F1-s42",
+    "final": {
+     "accuracy": 0.46464285714285714,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.4357142857142857,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.40625,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.16304347826086957,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-qwen3-8b-F1-s43": {
+    "dir": "experiments/dose/eval/sft-dose-qwen3-8b-F1-s43",
+    "final": {
+     "accuracy": 0.4630357142857143,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.42392857142857143,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.40625,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.11956521739130435,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-qwen3-8b-F2-s42": {
+    "dir": "experiments/dose/eval/sft-dose-qwen3-8b-F2-s42",
+    "final": {
+     "accuracy": 0.4317857142857143,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.42428571428571427,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.375,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.14130434782608695,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "sft-dose-qwen3-8b-F2-s43": {
+    "dir": "experiments/dose/eval/sft-dose-qwen3-8b-F2-s43",
+    "final": {
+     "accuracy": 0.45589285714285716,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.4332142857142857,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.3125,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.09782608695652174,
+     "graded": 92,
+     "rows": 92
+    }
+   },
+   "x-qwen3-8b-base": {
+    "dir": "experiments/x_base_eval/x-qwen3-8b-base",
+    "final": {
+     "accuracy": 0.28964285714285715,
+     "graded": 5600,
+     "rows": 5600
+    },
+    "judge": {
+     "accuracy": 0.24392857142857144,
+     "graded": 2800,
+     "rows": 2800
+    },
+    "test_id": {
+     "accuracy": 0.34375,
+     "graded": 64,
+     "rows": 64
+    },
+    "textbook": {
+     "accuracy": 0.16304347826086957,
+     "graded": 92,
+     "rows": 92
+    }
+   }
+  }
+ },
+ "p_bins": {
+  "ministral3-8b": {
+   "dose0_by_warm_p": {
+    "[0.0, 0.005)": {
+     "learned": 1,
+     "n": 5
+    },
+    "[0.005, 0.02)": {
+     "learned": 1,
+     "n": 1
+    },
+    "[0.02, 2.0)": {
+     "learned": 0,
+     "n": 0
+    }
+   },
+   "dosed_by_warm_p": {
+    "[0.0, 0.005)": {
+     "learned": 3,
+     "n": 6
+    },
+    "[0.005, 0.02)": {
+     "learned": 2,
+     "n": 2
+    },
+    "[0.02, 2.0)": {
+     "learned": 10,
+     "n": 10
+    }
+   },
+   "lowest_bin": {
+    "learned": [
+     [
+      0.00234,
+      "line_broadening",
+      43
+     ],
+     [
+      0.00313,
+      "line_broadening",
+      42
+     ],
+     [
+      0.00469,
+      "inertia_gravity_wave",
+      42
+     ]
+    ],
+    "not_learned": [
+     [
+      0.00234,
+      "diffuse_transmission",
+      43
+     ],
+     [
+      0.00234,
+      "rossby_deformation",
+      43
+     ],
+     [
+      0.00469,
+      "sun_photometer_airmass",
+      42
+     ]
+    ]
+   }
+  },
+  "pooled_dosed": {
+   "[0.0, 0.005)": {
+    "learned": 4,
+    "n": 14
+   },
+   "[0.005, 0.02)": {
+    "learned": 5,
+    "n": 8
+   },
+   "[0.02, 2.0)": {
+    "learned": 22,
+    "n": 22
+   }
+  },
+  "qwen3-8b": {
+   "dose0_by_warm_p": {
+    "[0.0, 0.005)": {
+     "learned": 0,
+     "n": 6
+    },
+    "[0.005, 0.02)": {
+     "learned": 0,
+     "n": 2
+    },
+    "[0.02, 2.0)": {
+     "learned": 0,
+     "n": 0
+    }
+   },
+   "dosed_by_warm_p": {
+    "[0.0, 0.005)": {
+     "learned": 1,
+     "n": 8
+    },
+    "[0.005, 0.02)": {
+     "learned": 3,
+     "n": 6
+    },
+    "[0.02, 2.0)": {
+     "learned": 12,
+     "n": 12
+    }
+   },
+   "lowest_bin": {
+    "learned": [
+     [
+      0.00469,
+      "inertia_gravity_wave",
+      43
+     ]
+    ],
+    "not_learned": [
+     [
+      0.0,
+      "henry_depletion",
+      43
+     ],
+     [
+      0.00078,
+      "henry_depletion",
+      42
+     ],
+     [
+      0.00078,
+      "plume_ground_reflection",
+      42
+     ],
+     [
+      0.00313,
+      "diffuse_transmission",
+      43
+     ],
+     [
+      0.00313,
+      "displacement_height_canopy",
+      42
+     ],
+     [
+      0.00313,
+      "plume_ground_reflection",
+      43
+     ],
+     [
+      0.00391,
+      "co2_forcing_log",
+      42
+     ]
+    ]
+   }
+  }
+ },
+ "paired_mechanisms": {
+  "summary": {
+   "both_seeds_dosed_in_both_families": {
+    "learned_both_seeds_in_both": [
+     "freezing_point_depth",
+     "snowpack_cold_content"
+    ],
+    "mixed": [
+     "clausius_clapeyron_extrapolation",
+     "co2_forcing_log",
+     "sun_photometer_airmass"
+    ],
+    "n": 5,
+    "not_learned_any_seed_in_either": []
+   },
+   "common": 11,
+   "dose_0_in_both_seeds_of_both_families": [
+    "ch4_forcing_sqrt"
+   ],
+   "dose_0_observations": {
+    "ministral3-8b": {
+     "learned": 2,
+     "mechanisms_learned": [
+      "doppler_aliasing"
+     ],
+     "n": 6
+    },
+    "qwen3-8b": {
+     "learned": 0,
+     "mechanisms_learned": [],
+     "n": 8
+    }
+   },
+   "dosed_in_any_seed_in_both_families": {
+    "learned_in_neither": [],
+    "learned_in_one_family_only": [
+     "diffuse_transmission"
+    ],
+    "learned_in_some_seed_in_both": [
+     "clausius_clapeyron_extrapolation",
+     "co2_forcing_log",
+     "freezing_point_depth",
+     "inertia_gravity_wave",
+     "line_broadening",
+     "snowpack_cold_content",
+     "sun_photometer_airmass"
+    ],
+    "n": 8
+   },
+   "mechanisms_a": 17,
+   "mechanisms_b": 12,
+   "only_a": [
+    "cunningham_slip",
+    "displacement_height_canopy",
+    "plume_ground_reflection",
+    "spherical_slant_path",
+    "surface_multiple_reflection",
+    "unconfined_dupuit"
+   ],
+   "only_b": [
+    "rossby_deformation"
+   ]
+  },
+  "table": {
+   "ch4_forcing_sqrt": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 1,
+      "warm": 0.0,
+      "warm_p": 0.00078125,
+      "warm_pass64": 0.05
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 6,
+      "warm": 0.0,
+      "warm_p": 0.00078125,
+      "warm_pass64": 0.05
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 19,
+      "warm": 0.0,
+      "warm_p": 0.00078125,
+      "warm_pass64": 0.05
+     }
+    }
+   },
+   "clausius_clapeyron_extrapolation": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 1,
+      "warm": 0.9,
+      "warm_p": 0.184375,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 2,
+      "warm": 0.45,
+      "warm_p": 0.10859375,
+      "warm_pass64": 1.0
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.9,
+      "warm_p": 0.48203125,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 16,
+      "warm": 0.05,
+      "warm_p": 0.015625,
+      "warm_pass64": 0.45
+     }
+    }
+   },
+   "co2_forcing_log": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 1.0,
+      "warm_p": 0.65390625,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 1,
+      "warm": 0.7,
+      "warm_p": 0.3265625,
+      "warm_pass64": 1.0
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.00390625,
+      "warm_pass64": 0.25
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 19,
+      "warm": 0.0,
+      "warm_p": 0.07265625,
+      "warm_pass64": 0.95
+     }
+    }
+   },
+   "cunningham_slip": {
+    "ministral3-8b": null,
+    "qwen3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 1,
+      "warm": 0.1,
+      "warm_p": 0.021875,
+      "warm_pass64": 0.8
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": true,
+      "rl": 0.95,
+      "shortcut_rl": 0,
+      "shortcut_warm": 3,
+      "warm": 0.0,
+      "warm_p": 0.0078125,
+      "warm_pass64": 0.3
+     }
+    }
+   },
+   "diffuse_transmission": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 1,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.95,
+      "warm_p": 0.5015625,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.00234375,
+      "warm_pass64": 0.15
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 16,
+      "warm": 0.0,
+      "warm_p": 0.003125,
+      "warm_pass64": 0.15
+     }
+    }
+   },
+   "displacement_height_canopy": {
+    "ministral3-8b": null,
+    "qwen3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.003125,
+      "warm_pass64": 0.2
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 14,
+      "warm": 0.0,
+      "warm_p": 0.00625,
+      "warm_pass64": 0.4
+     }
+    }
+   },
+   "doppler_aliasing": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 9,
+      "warm": 0.0,
+      "warm_p": 0.0109375,
+      "warm_pass64": 0.55
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 3,
+      "warm": 0.0,
+      "warm_p": 0.00234375,
+      "warm_pass64": 0.15
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 6,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 3,
+      "warm": 0.85,
+      "warm_p": 0.34921875,
+      "warm_pass64": 1.0
+     }
+    }
+   },
+   "freezing_point_depth": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.05,
+      "warm_p": 0.11171875,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.15,
+      "warm_p": 0.08203125,
+      "warm_pass64": 1.0
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 14,
+      "warm": 0.05,
+      "warm_p": 0.01484375,
+      "warm_pass64": 0.6
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.00859375,
+      "warm_pass64": 0.5
+     }
+    }
+   },
+   "henry_depletion": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 13,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 5,
+      "warm": 0.0,
+      "warm_p": 0.0015625,
+      "warm_pass64": 0.1
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 13,
+      "warm": 0.0,
+      "warm_p": 0.00078125,
+      "warm_pass64": 0.05
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 10,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     }
+    }
+   },
+   "inertia_gravity_wave": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 15,
+      "warm": 0.0,
+      "warm_p": 0.0046875,
+      "warm_pass64": 0.3
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 7,
+      "warm": 0.05,
+      "warm_p": 0.00703125,
+      "warm_pass64": 0.4
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 0,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     },
+     "43": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 1,
+      "warm": 0.0,
+      "warm_p": 0.0046875,
+      "warm_pass64": 0.25
+     }
+    }
+   },
+   "line_broadening": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 2,
+      "warm": 0.0,
+      "warm_p": 0.003125,
+      "warm_pass64": 0.2
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 4,
+      "warm": 0.0,
+      "warm_p": 0.00234375,
+      "warm_pass64": 0.15
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.3,
+      "warm_p": 0.04921875,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 20,
+      "warm": 0.0,
+      "warm_p": 0.0,
+      "warm_pass64": 0.0
+     }
+    }
+   },
+   "plume_ground_reflection": {
+    "ministral3-8b": null,
+    "qwen3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 14,
+      "warm": 0.0,
+      "warm_p": 0.00078125,
+      "warm_pass64": 0.05
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 2,
+      "warm": 0.0,
+      "warm_p": 0.003125,
+      "warm_pass64": 0.2
+     }
+    }
+   },
+   "rossby_deformation": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.0,
+      "warm_p": 0.0140625,
+      "warm_pass64": 0.65
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 1,
+      "warm": 0.0,
+      "warm_p": 0.00234375,
+      "warm_pass64": 0.15
+     }
+    },
+    "qwen3-8b": null
+   },
+   "snowpack_cold_content": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.75,
+      "warm_p": 0.07265625,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.95,
+      "warm_p": 0.19453125,
+      "warm_pass64": 1.0
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.95,
+      "warm_p": 0.60546875,
+      "warm_pass64": 1.0
+     },
+     "43": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.4,
+      "warm_p": 0.3125,
+      "warm_pass64": 1.0
+     }
+    }
+   },
+   "spherical_slant_path": {
+    "ministral3-8b": null,
+    "qwen3-8b": {
+     "42": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 1,
+      "warm": 0.0,
+      "warm_p": 0.01015625,
+      "warm_pass64": 0.4
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 1,
+      "warm": 0.0,
+      "warm_p": 0.01171875,
+      "warm_pass64": 0.5
+     }
+    }
+   },
+   "sun_photometer_airmass": {
+    "ministral3-8b": {
+     "42": {
+      "dose": 2,
+      "fold": "F2",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 5,
+      "warm": 0.05,
+      "warm_p": 0.0046875,
+      "warm_pass64": 0.3
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 4,
+      "warm": 0.15,
+      "warm_p": 0.0234375,
+      "warm_pass64": 0.85
+     }
+    },
+    "qwen3-8b": {
+     "42": {
+      "dose": 1,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.1,
+      "warm_p": 0.03203125,
+      "warm_pass64": 0.85
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F2",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 1.0,
+      "warm_p": 0.53046875,
+      "warm_pass64": 1.0
+     }
+    }
+   },
+   "surface_multiple_reflection": {
+    "ministral3-8b": null,
+    "qwen3-8b": {
+     "42": {
+      "dose": 1,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 8,
+      "warm": 0.0,
+      "warm_p": 0.0328125,
+      "warm_pass64": 0.75
+     },
+     "43": {
+      "dose": 0,
+      "fold": "F1",
+      "learned": false,
+      "rl": 0.0,
+      "shortcut_rl": 20,
+      "shortcut_warm": 13,
+      "warm": 0.0,
+      "warm_p": 0.01640625,
+      "warm_pass64": 0.35
+     }
+    }
+   },
+   "unconfined_dupuit": {
+    "ministral3-8b": null,
+    "qwen3-8b": {
+     "42": {
+      "dose": 1,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 5,
+      "warm": 0.15,
+      "warm_p": 0.0484375,
+      "warm_pass64": 0.95
+     },
+     "43": {
+      "dose": 4,
+      "fold": "F1",
+      "learned": true,
+      "rl": 1.0,
+      "shortcut_rl": 0,
+      "shortcut_warm": 0,
+      "warm": 0.85,
+      "warm_p": 0.5078125,
+      "warm_pass64": 1.0
+     }
+    }
+   }
+  }
+ },
+ "rl_failures": {
+  "ministral3-8b": {
+   "dosed": 3,
+   "n": 7,
+   "shortcut_rl_all_rows": 7,
+   "shortcut_warm": [
+    1,
+    1,
+    5,
+    5,
+    6,
+    13,
+    20
+   ]
+  },
+  "qwen3-8b": {
+   "dosed": 10,
+   "n": 18,
+   "shortcut_rl_all_rows": 18,
+   "shortcut_warm": [
+    0,
+    1,
+    1,
+    2,
+    6,
+    10,
+    13,
+    13,
+    14,
+    14,
+    16,
+    16,
+    19,
+    20,
+    20,
+    20,
+    20,
+    20
+   ]
+  }
+ },
+ "same_dose_seeds": {
+  "ministral3-8b": [
+   {
+    "dose": 4,
+    "learned": [
+     true,
+     true
+    ],
+    "mechanism": "clausius_clapeyron_extrapolation",
+    "p_ratio": 1.6978417266187051,
+    "rl": [
+     1.0,
+     1.0
+    ],
+    "warm": [
+     0.9,
+     0.45
+    ],
+    "warm_p": [
+     0.184375,
+     0.10859375
+    ]
+   },
+   {
+    "dose": 1,
+    "learned": [
+     true,
+     false
+    ],
+    "mechanism": "diffuse_transmission",
+    "p_ratio": 214.00000000000003,
+    "rl": [
+     1.0,
+     0.0
+    ],
+    "warm": [
+     0.95,
+     0.0
+    ],
+    "warm_p": [
+     0.5015625,
+     0.00234375
+    ]
+   },
+   {
+    "dose": 1,
+    "learned": [
+     true,
+     true
+    ],
+    "mechanism": "inertia_gravity_wave",
+    "p_ratio": 1.5,
+    "rl": [
+     1.0,
+     1.0
+    ],
+    "warm": [
+     0.0,
+     0.05
+    ],
+    "warm_p": [
+     0.0046875,
+     0.00703125
+    ]
+   },
+   {
+    "dose": 2,
+    "learned": [
+     true,
+     true
+    ],
+    "mechanism": "snowpack_cold_content",
+    "p_ratio": 2.6774193548387095,
+    "rl": [
+     1.0,
+     1.0
+    ],
+    "warm": [
+     0.75,
+     0.95
+    ],
+    "warm_p": [
+     0.07265625,
+     0.19453125
+    ]
+   }
+  ],
+  "qwen3-8b": [
+   {
+    "dose": 2,
+    "learned": [
+     false,
+     false
+    ],
+    "mechanism": "henry_depletion",
+    "p_ratio": null,
+    "rl": [
+     0.0,
+     0.0
+    ],
+    "warm": [
+     0.0,
+     0.0
+    ],
+    "warm_p": [
+     0.00078125,
+     0.0
+    ]
+   }
+  ]
+ },
+ "training": {
+  "ministral3-8b": {
+   "dose-ministral3-8b-F1-WA-s42": {
+    "clip_mean": 0.030504452284946238,
+    "log": "experiments/dose_ministral/logs/train/dose-ministral3-8b-F1-WA-s42.log",
+    "logged_steps": 93,
+    "max_step": 3962,
+    "response_length_first": 631.455078125,
+    "response_length_last": 1308.53125,
+    "score_first": 0.509765625,
+    "score_last": 0.8525390625,
+    "score_last10_mean": 0.841796875,
+    "score_max": 0.857421875
+   },
+   "dose-ministral3-8b-F1-WA-s43": {
+    "clip_mean": 0.06966499660326086,
+    "log": "experiments/dose_ministral/logs/train/dose-ministral3-8b-F1-WA-s43.log",
+    "logged_steps": 92,
+    "max_step": 10690,
+    "response_length_first": 780.033203125,
+    "response_length_last": 1251.134765625,
+    "score_first": 0.5029296875,
+    "score_last": 0.8232421875,
+    "score_last10_mean": 0.8259765625,
+    "score_max": 0.8427734375
+   },
+   "dose-ministral3-8b-F2-WA-s42": {
+    "clip_mean": 0.03323604283707865,
+    "log": "experiments/dose_ministral/logs/train/dose-ministral3-8b-F2-WA-s42.log",
+    "logged_steps": 89,
+    "max_step": 8379,
+    "response_length_first": 733.4375,
+    "response_length_last": 1167.0927734375,
+    "score_first": 0.4326171875,
+    "score_last": 0.8369140625,
+    "score_last10_mean": 0.8169921875,
+    "score_max": 0.8388671875
+   },
+   "dose-ministral3-8b-F2-WA-s43": {
+    "clip_mean": 0.02995098761792453,
+    "log": "experiments/dose_ministral/logs/train/dose-ministral3-8b-F2-WA-s43.log",
+    "logged_steps": 106,
+    "max_step": 10722,
+    "response_length_first": 630.80078125,
+    "response_length_last": 1235.2216796875,
+    "score_first": 0.4501953125,
+    "score_last": 0.8125,
+    "score_last10_mean": 0.8142578125,
+    "score_max": 0.8349609375
+   }
+  },
+  "qwen3-8b": {
+   "dose-qwen3-8b-F1-WA-s42": {
+    "clip_mean": 0.021248372395833333,
+    "log": "experiments/dose/logs/train/dose-qwen3-8b-F1-WA-s42.log",
+    "logged_steps": 120,
+    "max_step": 541,
+    "response_length_first": 394.53515625,
+    "response_length_last": 1200.2724609375,
+    "score_first": 0.5615234375,
+    "score_last": 0.6796875,
+    "score_last10_mean": 0.6677734375,
+    "score_max": 0.697265625
+   },
+   "dose-qwen3-8b-F1-WA-s43": {
+    "clip_mean": 0.011629231770833333,
+    "log": "experiments/dose/logs/train/dose-qwen3-8b-F1-WA-s43.log",
+    "logged_steps": 120,
+    "max_step": 523,
+    "response_length_first": 380.67578125,
+    "response_length_last": 1166.5673828125,
+    "score_first": 0.5380859375,
+    "score_last": 0.755859375,
+    "score_last10_mean": 0.72236328125,
+    "score_max": 0.755859375
+   },
+   "dose-qwen3-8b-F2-WA-s42": {
+    "clip_mean": 0.012239583333333333,
+    "log": "experiments/dose/logs/train/dose-qwen3-8b-F2-WA-s42.log",
+    "logged_steps": 120,
+    "max_step": 8407,
+    "response_length_first": 336.27734375,
+    "response_length_last": 1101.5908203125,
+    "score_first": 0.5234375,
+    "score_last": 0.6318359375,
+    "score_last10_mean": 0.6802734375,
+    "score_max": 0.734375
+   },
+   "dose-qwen3-8b-F2-WA-s43": {
+    "clip_mean": 0.0128173828125,
+    "log": "experiments/dose/logs/train/dose-qwen3-8b-F2-WA-s43.log",
+    "logged_steps": 120,
+    "max_step": 359,
+    "response_length_first": 367.380859375,
+    "response_length_last": 1186.693359375,
+    "score_first": 0.533203125,
+    "score_last": 0.68359375,
+    "score_last10_mean": 0.67880859375,
+    "score_max": 0.7333984375
+   }
+  }
+ }
+}

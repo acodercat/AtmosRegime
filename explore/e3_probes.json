@@ -1,0 +1,455 @@
+{
+  "_note": "E3 knowledge probes (TODO.md stage 1), DRAFT 2026-09-24 - every 'approach' needs a human read before E3 runs. 'approach' states the parent's own method without naming the trap's trigger, so the same sentence can be asked about the parent (expected VALID) and the trap (expected INVALID). 'check': true marks drafts I am least sure of. Reviewed 2026-09-24 against both full problem texts, parent code and shortcut_code, without consulting model answers; review.verdict is the disposition, check is the unchanged drafter flag, and null approaches are excluded from E3.",
+  "probes": [
+    {
+      "trap": "trap_1.1_gen",
+      "approach": "use the liquid-water Clausius-Clapeyron relation to calculate saturation",
+      "check": false,
+      "approach_draft": "compute saturation using the saturation vapour pressure over liquid water, with the latent heat of vaporization",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：统一为方法名称，母题用液水 Clausius–Clapeyron 关系，陷阱所求冰雾不能用液水露点代替。"
+      }
+    },
+    {
+      "trap": "trap_1.2_gen",
+      "approach": "use the saturation vapour pressure over a flat liquid-water surface for the droplets",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题采用液水云的平面饱和近似，陷阱半径 10 nm 的 Kelvin 因子为 1.12643，句子只命名母题方法且不泄露新阈值。"
+      }
+    },
+    {
+      "trap": "trap_11.1_gen",
+      "approach": "treat CO as being in steady state",
+      "check": false,
+      "approach_draft": "treat CO as being in steady state, so that its total source equals its chemical loss to OH",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除源汇相等的解释从句，母题采用平均收支的稳态闭合，陷阱明确给出增长项为化学损失的 50%。"
+      }
+    },
+    {
+      "trap": "trap_2.10_gen",
+      "approach": "take saturation with respect to liquid water and use the latent heat of vaporization",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题用液水饱和与汽化潜热，陷阱明确冰相与升华潜热，两种量同属液水热力学方法而非附加适用条件从句。"
+      }
+    },
+    {
+      "trap": "trap_3.4_regime",
+      "approach": null,
+      "check": false,
+      "approach_draft": "treat the cloud as an infinite plane that fills the sensor's lower hemisphere, with a view factor of 1/2",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：母题仅说低轨而不提供高度，半球云面近似的精度无法保证，例如 h=400 km 时球体视因子为 0.33069 而非 0.5，温度低 9.82%，不能固定为无争议的 VALID。"
+      }
+    },
+    {
+      "trap": "trap_3.8_gen",
+      "approach": "equate the local Doppler and Lorentz line-centre absorption coefficients to determine the requested pressure quantity",
+      "check": true,
+      "approach_draft": "compare the Doppler and Lorentz line-centre transmittances at a single pressure level, as if pressure were constant along the path",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 1、5：直接描述母题和捷径的局地系数相等法，不附适用条件；陷阱厚度与标高之比为 10/7.2，不能把局地压力当作层压差。"
+      }
+    },
+    {
+      "trap": "trap_5.3_gen",
+      "approach": "use the hydrostatic internal-gravity-wave dispersion relation",
+      "check": true,
+      "approach_draft": "use the hydrostatic internal-gravity-wave relations, omega = N|k/m| and a vertical group velocity of N|k|/m^2",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：保留教材方法名称并删除展开公式，母题 |k/m|=0.05，而陷阱为 1，静力频率相对完整频率的比值分别为 1.00125 和 1.41421。"
+      }
+    },
+    {
+      "trap": "trap_5.7_regime",
+      "approach": "use the non-divergent barotropic Rossby-wave dispersion relation",
+      "check": false,
+      "approach_draft": "use the non-divergent barotropic Rossby-wave dispersion relation, i.e. an infinite deformation radius",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除无限变形半径的解释，陷阱给出的有限等效深度要求保留变形项。"
+      }
+    },
+    {
+      "trap": "trap_5.9_gen",
+      "approach": "use frictionless inertial-oscillation dynamics after sunset",
+      "check": true,
+      "approach_draft": "treat the flow after sunset as frictionless, so the wind performs an undamped inertial oscillation about geostrophic balance",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除运动后果的解释从句，母题夜间 r=0 而陷阱 r=2e-6 s^-1。"
+      }
+    },
+    {
+      "trap": "trap_6.1.4_gen",
+      "approach": "take the total hydrogen lost as the present escape rate multiplied by the elapsed time",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题明确恒定逃逸率，陷阱所需氢 2.43e17 kg 超过水库含氢 1.11901e16 kg，约 2.07223e8 年便耗尽。"
+      }
+    },
+    {
+      "trap": "trap_6.2_gen",
+      "approach": null,
+      "check": false,
+      "approach_draft": "take the reaction Gibbs energy to be the standard value, Delta G degree, computed from standard free energies of formation",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：母题给 STP 而没有给反应商，标准温压不等于各物种处于标准态，ΔG°=72.1 kJ/mol 并不保证实际 ΔG 相同，改问标准反应能又会在陷阱也成立。"
+      }
+    },
+    {
+      "trap": "trap_6.6_gen",
+      "approach": null,
+      "check": false,
+      "approach_draft": "use molar concentrations directly in the equilibrium expressions",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2、3：两份题面沿用有浓度单位的平衡常数但未区分条件浓度常数与活度常数，陷阱另给 γCa 并不足以消除常数约定歧义，浓度与活度两种解释给出 pH 7.05774 和 8.05774。"
+      }
+    },
+    {
+      "trap": "trap_7.1_gen",
+      "approach": null,
+      "check": true,
+      "approach_draft": "approximate the radius of the absorbing shell by the Earth's radius, assuming the layer height is much smaller than the Earth's radius",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：母题只规定层厚而未限制底部高度 z，薄层不蕴含 z≪a，同样 d=10 km 在 z=0 与 z=3000 km 的路径比约为 71.42 和 86.61，不能确认半径替换对母题成立。"
+      }
+    },
+    {
+      "trap": "trap_7.4_gen",
+      "approach": "treat the atmosphere as transparent to solar radiation",
+      "check": false,
+      "approach_draft": "treat the atmosphere as transparent to solar radiation, absorbing only in the thermal infrared",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除红外吸收的附加说明，母题明确短波透明，陷阱明确吸收 90% 未反射的短波。"
+      }
+    },
+    {
+      "trap": "trap_7.5_gen",
+      "approach": "use the optically thin approximation for the temperature of the top ('skin') layer",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题明确 f_top≪1，陷阱 f_top=1，方法名称足够且未解释适用条件，陷阱不能使用 (F/2σ)^(1/4)。"
+      }
+    },
+    {
+      "trap": "trap_7.6_regime",
+      "approach": "use the vertical-column optical depth to calculate the absorption",
+      "check": false,
+      "approach_draft": "compute the absorption along a vertical atmospheric column, treating the atmosphere as plane-parallel",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 1、5：描述捷径实际使用的垂直柱积分，不将它泛称为平面平行斜程法；陷阱光线初始水平。"
+      }
+    },
+    {
+      "trap": "trap_air170_cunningham",
+      "approach": "use the Stokes drag law for the droplet",
+      "check": false,
+      "approach_draft": "use plain Stokes drag for the droplet",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 6：删除 plain，母题与陷阱的平均自由程/半径分别约为 0.0066 和 0.66，后者需要滑移修正。"
+      }
+    },
+    {
+      "trap": "trap_air_202_regime",
+      "approach": "use the geostrophic wind relation",
+      "check": false,
+      "approach_draft": "use the geostrophic wind relation, which assumes straight isobars",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除直线等压线的适用条件提示，陷阱的地转值 18.94 m/s 与梯度风 16.02 m/s 不同。"
+      }
+    },
+    {
+      "trap": "trap_air_226_gen",
+      "approach": "use the tangent-plane solid-body vorticity relation",
+      "check": false,
+      "approach_draft": "use the tangent-plane solid-body relation, relative vorticity = 2M/R",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5、8：保留方法名而删除未定义符号的公式，球面/平面涡度比从母题的 0.99795 降为陷阱的 0.78574。"
+      }
+    },
+    {
+      "trap": "trap_air_301_gen",
+      "approach": "calculate parcel buoyancy using vapor-only virtual temperature",
+      "check": false,
+      "approach_draft": "compute the buoyancy from the parcel's (virtual) temperature excess alone, with no allowance for condensed water",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：直接描述浮力方法而不追加忽略凝结物的说明，陷阱浮力由 0.1665 降至 0.11745 m/s^2。"
+      }
+    },
+    {
+      "trap": "trap_air_332_gen",
+      "approach": null,
+      "check": false,
+      "approach_draft": "approximate the potential-temperature gradient as dT/dz plus the dry adiabatic lapse rate, i.e. take theta/T to be about 1",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：母题笼统要求标准对流层梯度而未指定气压，θ/T 在 50 kPa 已为 1.21918，捷径 3.3 K/km 并非整个对流层都成立。"
+      }
+    },
+    {
+      "trap": "trap_air_68_gen",
+      "approach": "use the tropospheric International Standard Atmosphere relations",
+      "check": false,
+      "approach_draft": "use the tropospheric International Standard Atmosphere relations, with a constant lapse rate of 6.5 K/km",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除直减率的附加说明，母题位于 2.5 km，陷阱给出的分层资料表明 25 km 不属于该分支。"
+      }
+    },
+    {
+      "trap": "trap_air_91_gen",
+      "approach": "calculate transmissivity and reflectivity by dividing the stated outgoing fluxes by the incident flux",
+      "check": true,
+      "approach_draft": "treat the object as passive, so the emerging visible fluxes consist only of the transmitted and reflected parts of the incident beam",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 1、5：用实际通量比方法替代含糊的 passive，母题给的是透射/反射通量，陷阱给的是含自发射的总通量。"
+      }
+    },
+    {
+      "trap": "trap_ca_5.3_gen",
+      "approach": "use the Deutsch-Anderson exponential collection-efficiency equation",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：句子仅命名母题实际使用的 Deutsch–Anderson 方程，陷阱明确无横向混合的均匀入口塞流，收集律由指数变为线性。"
+      }
+    },
+    {
+      "trap": "trap_dn_10.39_gen",
+      "approach": "use the plug-flow first-order reaction model",
+      "check": false,
+      "approach_draft": "treat the stated residence time as a fixed exposure time for every gas element and apply first-order exponential destruction (plug flow)",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：用模型名称替代停留时间假设的解释，母题捷径取 kτ=-ln(0.005)，陷阱的完全混合模型取 kτ=199。"
+      }
+    },
+    {
+      "trap": "trap_dn_15.19_gen",
+      "approach": "neglect radioactive decay of radon compared with its removal by ventilation",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：忽略衰变本身就是方法，衰变常数/换气率从母题约 0.01520 升为陷阱的 1.52006。"
+      }
+    },
+    {
+      "trap": "trap_dn_15.2_gen",
+      "approach": null,
+      "check": true,
+      "approach_draft": "treat the oxyhaemoglobin concentration as constant, so carboxyhaemoglobin rises linearly with inspired CO",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：完整母题包含低浓度和高浓度的比较，并明确说高浓度时恒定 O2Hb 不成立，虽然代码只算零 CO 子题，统一模板没有把探针限定到该子题。"
+      }
+    },
+    {
+      "trap": "trap_dn_4.4_regime",
+      "approach": "use the gas velocity to calculate the particle mass flux",
+      "check": true,
+      "approach_draft": "treat the particles as moving with the gas, so the particle mass flux is proportional to the gas velocity",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除推论从句，捷径质量/气体体积为 0.47333 g/m^3，而扣除沉降速度后为 0.17333 g/m^3。"
+      }
+    },
+    {
+      "trap": "trap_fp_13.2_gen",
+      "approach": "take the lifetime to be set by reaction with OH alone",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题明确求相对于 OH 的寿命，陷阱求包括光解的总寿命，CCl4 的 J/(k[OH])=20，不能仅用 OH。"
+      }
+    },
+    {
+      "trap": "trap_fp_6.1_gen",
+      "approach": null,
+      "check": false,
+      "approach_draft": "convert mixing ratios to number densities using the number density of air at 1 atm",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：母题题面没有给气压或温度，1 atm 和 298 K 只存在于代码中，不能由完整问题确认该数密度转换成立，换成一般理想气体法则又会对陷阱成立。"
+      }
+    },
+    {
+      "trap": "trap_holton_28_gen",
+      "approach": "use linearized Coriolis trajectories to determine the closest approach of the balls",
+      "check": true,
+      "approach_draft": "treat the Coriolis deflection as a small correction to straight-line motion, each ball travelling half the separation along a nearly straight path",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：用方法名称替代小偏转条件说明，陷阱线性与完整轨迹所需速度分别为 3.97857e-6 和 2.98393e-6 m/s，且两球初始并未接触。"
+      }
+    },
+    {
+      "trap": "trap_holton_38_gen",
+      "approach": "treat the pressure field as steady",
+      "check": false,
+      "approach_draft": "treat the pressure field as steady, so the aircraft's change in altitude comes only from flying across the sloping pressure surface",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除高度变化来源的解释，陷阱规定的局地抬升额外贡献 0.1/225×1000=0.44444 m/km。"
+      }
+    },
+    {
+      "trap": "trap_holton_39_gen",
+      "approach": "neglect friction in the horizontal momentum balance",
+      "check": false,
+      "approach_draft": "treat the air as frictionless (free-atmosphere balance)",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除括号中的说明，母题采用无摩擦动量方程，陷阱额外阻力加速度为 -0.002 m/s^2。"
+      }
+    },
+    {
+      "trap": "trap_holton_50_gen",
+      "approach": "use the dry adiabatic lapse rate for vertical displacements",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题使用干绝热热力学关系，陷阱给出饱和条件与 6 K/km，所得垂直速度为 0.02778 而非 0.00958 m/s。"
+      }
+    },
+    {
+      "trap": "trap_holton_5_gen",
+      "approach": "use molecular kinematic viscosity in the Ekman-layer scaling",
+      "check": false,
+      "approach_draft": "use the molecular kinematic viscosity of air in the Ekman-layer scaling",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 1、7：两份题面都是水槽而不是空气，去掉错误对象后保留母题实际使用的分子黏性方法，陷阱 K/ν=100。"
+      }
+    },
+    {
+      "trap": "trap_jacob_13.4_p11",
+      "approach": "treat the SO2 concentration as being at steady state",
+      "check": false,
+      "approach_draft": "treat the SO2 concentration as being at steady state, with the source equal to the sink",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除源汇相等的解释，母题明确求稳态而陷阱在 6 小时仅达到稳态浓度的 0.31271。"
+      }
+    },
+    {
+      "trap": "trap_jacob_8.2_gen",
+      "approach": null,
+      "check": false,
+      "approach_draft": "treat the infrared absorber as optically thin, so an increment in optical depth gives an equal increment in absorptivity",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 1、2：母题扰动的是吸收率而非光学厚度，代码的阈值 1.75594 对任意背景吸收率成立，未用光学薄假设；一般灵敏度方法对陷阱仍成立，差别是变量转换。"
+      }
+    },
+    {
+      "trap": "trap_p_108_gen",
+      "approach": "neglect planetary vorticity in the vortex-stretching calculation",
+      "check": false,
+      "approach_draft": "amplify the relative vorticity alone by vertical stretching, neglecting the planetary vorticity",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：将忽略项直接作为方法，不追加解释，陷阱 ζ0/f=0.01，加入行星涡度后所需时间为 46.00 而非 69.08 min。"
+      }
+    },
+    {
+      "trap": "trap_p_40_regime",
+      "approach": "neglect terrestrial thermal radiation absorbed by the satellite",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题明说地球辐射可忽略，陷阱近地距离和地球辐射温度使吸收项不可忽略，neglect 直接命名方法。"
+      }
+    },
+    {
+      "trap": "trap_p_55_regime",
+      "approach": "equate the absorbing gas mass along the beam with the vertical column mass",
+      "check": true,
+      "approach_draft": "treat the atmosphere as plane-parallel when computing the path through the absorbing layer",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 1、5：捷径没有 secθ，实际使用的气团质量因子是 1；陷阱球面因子为 34.6153，所以不能将捷径描述成平面平行斜程法。"
+      }
+    },
+    {
+      "trap": "trap_p_96_gen",
+      "approach": "use the geostrophic wind relation",
+      "check": false,
+      "approach_draft": "use the geostrophic wind relation, which assumes straight height contours",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除直线等高线的适用条件提示，陷阱要求含曲率的梯度风平衡。"
+      }
+    },
+    {
+      "trap": "trap_ry_12.2_gen",
+      "approach": "use the linear radius-dependent fall-speed law for collection growth",
+      "check": false,
+      "approach_draft": "use the linear fall-speed law V = 8000 r for the growing drops",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5、8：直接命名线性落速法并删除缺单位的系数，陷阱已明确另给大滴落速，因此本探针可配对但不能独立证明未获提示的 regime 知识。"
+      }
+    },
+    {
+      "trap": "trap_ry_14.2_p11",
+      "approach": "treat vapor adjustment after freezing as deposition onto ice",
+      "check": true,
+      "approach_draft": "assume that, after freezing, water vapour deposits onto the ice as the parcel adjusts to ice saturation, releasing latent heat",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 5：删除释热的解释，母题净凝华为 +0.09353 g/kg，陷阱为 -0.12009 g/kg，符号由题面焓收支决定。"
+      }
+    },
+    {
+      "trap": "trap_ry_5.1_p11",
+      "approach": "take the vapour to be at saturation over liquid water and the condensate density to be that of liquid water",
+      "check": false,
+      "review": {
+        "verdict": "ok",
+        "reason": "标准 1–8：母题液水云同时使用液水饱和压与密度，陷阱明确冰粒及气粒平衡，两项共同属于液相处理而非解释适用条件的从句。"
+      }
+    },
+    {
+      "trap": "trap_ry_7.7_regime",
+      "approach": null,
+      "check": false,
+      "approach_draft": "use the quasi-steady supersaturation formula",
+      "review": {
+        "verdict": "drop",
+        "reason": "标准 2：母题说 developing cumulus 而未给上升历史，松弛时间由数值算得 1.10370 s，1 秒时 0.30782% 与准稳态 0.51658% 都可对应母题未限定的历史，无法给无歧义的母题 VALID。"
+      }
+    },
+    {
+      "trap": "trap_turner_2_p11",
+      "approach": "use the single-image Gaussian plume solution for the vertical concentration profile",
+      "check": false,
+      "approach_draft": "use the Gaussian plume formula with ground reflection for the vertical distribution",
+      "review": {
+        "verdict": "revised",
+        "reason": "标准 1、5：以单镜像解准确限定母题捷径，避免将满足顶盖边界的多镜像高斯解也判错；单镜像与充分混合值分别为 2.04601e-5 和 5.75674e-5 g/m^3。"
+      }
+    }
+  ]
+}
