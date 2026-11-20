@@ -2,7 +2,7 @@
 
 Code, data and results for
 
-**Language models misapply atmospheric formulas until trained on a few worked examples**
+**Physical regime changes expose formula misuse in large language models**
 Maohao Ran, Yanting Zhang, Chendong Ma and Jun Song
 
 The radiative forcing from a doubling of CO₂ is about 3.7 W m⁻². Extrapolating the rate for a small change
@@ -189,7 +189,7 @@ The manuscript is under review.
 
 ```bibtex
 @unpublished{ran2026regime,
-  title  = {Language models misapply atmospheric formulas until trained on a few worked examples},
+  title  = {Physical regime changes expose formula misuse in large language models},
   author = {Ran, Maohao and Zhang, Yanting and Ma, Chendong and Song, Jun},
   year   = {2026},
   note   = {Manuscript under review}
