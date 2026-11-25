@@ -3,7 +3,8 @@
 Code, data and results for
 
 **Physical regime changes expose formula misuse in large language models**
-Maohao Ran, Yanting Zhang, Chendong Ma and Jun Song
+Maohao Ran, Yanting Zhang, Chendong Ma and Jun Song  
+[arXiv:2611.28669](https://arxiv.org/abs/2611.28669)
 
 The radiative forcing from a doubling of CO₂ is about 3.7 W m⁻². Extrapolating the rate for a small change
 linearly gives 5.35, which is 44% too high. We put this problem to three open language models 64 times each,
@@ -185,13 +186,16 @@ under CC BY 4.0 (`LICENSE-DATA`).
 
 ## Citation
 
-The manuscript is under review.
+Preprint: [arXiv:2611.28669](https://arxiv.org/abs/2611.28669).
 
 ```bibtex
-@unpublished{ran2026regime,
-  title  = {Physical regime changes expose formula misuse in large language models},
-  author = {Ran, Maohao and Zhang, Yanting and Ma, Chendong and Song, Jun},
-  year   = {2026},
-  note   = {Manuscript under review}
+@misc{ran2026regime,
+  title         = {Physical regime changes expose formula misuse in large language models},
+  author        = {Ran, Maohao and Zhang, Yanting and Ma, Chendong and Song, Jun},
+  year          = {2026},
+  eprint        = {2611.28669},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2611.28669}
 }
 ```
