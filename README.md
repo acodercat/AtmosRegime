@@ -1,10 +1,26 @@
-# AtmosRegime
+<h1 align="center">AtmosRegime</h1>
 
-Code, data and results for
+<h3 align="center">
+  <b>Physical regime changes expose formula misuse in large language models</b>
+</h3>
 
-**Physical regime changes expose formula misuse in large language models**
-Maohao Ran, Yanting Zhang, Chendong Ma and Jun Song  
-[arXiv:2611.28669](https://arxiv.org/abs/2611.28669)
+<p align="center">
+  Maohao Ran, Yanting Zhang, Chendong Ma and Jun Song
+</p>
+
+<p align="center">
+  <a href="https://arxiv.org/abs/2611.28669"><img src="https://img.shields.io/badge/arXiv-2611.28669-red?style=flat-square&logo=arxiv" alt="arXiv"></a>
+  <a href="https://huggingface.co/collections/codercat/atmosregime"><img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow?style=flat-square" alt="Hugging Face models"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/Code-MIT-blue?style=flat-square" alt="Code licence: MIT"></a>
+  <a href="LICENSE-DATA"><img src="https://img.shields.io/badge/Data-CC%20BY%204.0-lightgrey?style=flat-square" alt="Data licence: CC BY 4.0"></a>
+  <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/Python-3.11+-blue?style=flat-square" alt="Python 3.11+"></a>
+</p>
+
+<p align="center">
+  <em>Language models apply textbook formulas where they no longer hold.</em>
+</p>
+
+---
 
 The radiative forcing from a doubling of CO₂ is about 3.7 W m⁻². Extrapolating the rate for a small change
 linearly gives 5.35, which is 44% too high. We put this problem to three open language models 64 times each,
